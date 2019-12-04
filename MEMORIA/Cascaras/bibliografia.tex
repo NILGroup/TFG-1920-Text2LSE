@@ -50,7 +50,7 @@
 % terminarlas con una apertura de comentario.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setBibFiles{%
-nuestros,latex,otros%
+	otros%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -64,21 +64,29 @@ nuestros,latex,otros%
 % macro setCitaBibliografia{} ).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setCitaBibliografia{
-\begin{FraseCelebre}
-\begin{Frase}
-  Y así, del mucho leer y del poco dormir, se le secó el celebro de
-  manera que vino a perder el juicio.
-\end{Frase}
-\begin{Fuente}
-  Miguel de Cervantes Saavedra
-\end{Fuente}
-\end{FraseCelebre}
+	\begin{FraseCelebre}
+		\begin{Frase}
+			Y así, del mucho leer y del poco dormir, se le secó el celebro de
+			manera que vino a perder el juicio.
+		\end{Frase}
+		\begin{Fuente}
+			Miguel de Cervantes Saavedra
+		\end{Fuente}
+	\end{FraseCelebre}
 }
 
 %%
 %% Creamos la bibliografia
 %%
 \makeBib
+
+%\bibliography{otros}
+% Seleccionar Tesis.tex -> Herramientas -> Limpiar archivos auxiliares
+%pdflatex Tesis.tex
+%bibtex Tesis.aux
+%bibtex Tesis.aux
+%pdflatex Tesis.tex
+%pdflatex Tesis.tex
 
 % Variable local para emacs, para  que encuentre el fichero maestro de
 % compilación y funcionen mejor algunas teclas rápidas de AucTeX
