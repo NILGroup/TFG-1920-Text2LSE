@@ -44,7 +44,7 @@ def checkingTextVideo(url,doc):
     return videos
 
 
-@app.route("/WordToVideo/", methods=["POST"])
+@app.route("/video/word/", methods=["POST"])
 def videoWordProcessing():
 
     #Obtener el JSON con la palabra que queremos procesar en video
@@ -67,7 +67,7 @@ def videoWordProcessing():
     return response
 
 
-@app.route("/PhraseToVideo/", methods=["POST"])
+@app.route("/video/text/", methods=["POST"])
 def videoTextProcessing():
 
     #Obtener el JSON con el texto
