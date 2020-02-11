@@ -9,7 +9,6 @@ Te permite obtener el signo de una palabra en concreto.
 
 ```
 http://127.0.0.1:8080/video/<palabra>
-
 ```
 
 
