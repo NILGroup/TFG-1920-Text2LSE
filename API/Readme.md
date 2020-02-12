@@ -29,7 +29,7 @@ _Proyecto desarrollado por:_
 
 * **Sara Vegas Cañas** - *Estudiante de Ing Informática UCM* 
 * **Miguel Rodríguez Cuesta** - *Estudiante de Ing Informática UCM*
-* **Alejandro Torralbo Torres** - *Estudiante de Ing Informática UCM*
+* **Alejandro Torralbo Fuentes** - *Estudiante de Ing Informática UCM*
 
 _Proyecto dirigido por:_
 
