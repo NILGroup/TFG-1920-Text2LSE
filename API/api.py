@@ -1,17 +1,16 @@
 #------------------- Librerías Python -------------------#
-from flask import Flask, abort, jsonify, request, send_file, make_response, abort
+from flask import Flask, abort, jsonify, request, send_file, make_response
 from flask_cors import CORS
 import spacy
 import os
 #------------------- Archivos lógica --------------------#
 import video
+import constantes as const
 
 app = Flask(__name__)
 CORS(app)
 nlp = spacy.load("es_core_news_md")
 
-# Ruta física donde se generan los vídeos
-pathVideoGenerated = '/home/tfg/Documentos/tfg/TFG-1920-Text2LSE/API/' # Ruta Álex y Sara
 
 # ---------------------------------------------------------------------------------------------------------
 # ------------------------------------ PROCESAMIENTO VIDEO DE UNA PALABRA ---------------------------------
@@ -40,34 +39,80 @@ def getVideoPalabra(palabra):
 # Si existen todos los videos -> Devuelve el video generado y lo elimina del sistema de ficheros
 # Si alguno de los videos no existe -> Devuelve error
 @app.route("/video/", methods=["POST"])
-def getTranslateText():
+def getTextoTraducidoVideo():
 
-	text = request.form['TextToTranslate']
-	doc = nlp(text)
-	size = len(text.split())
+	texto = request.form['Texto']
+	doc = nlp(texto)
+	size = len(texto.split())
 	
 	if(size == 1):
 		
-		if video.existeVideo(text):
-			videoPalabra = video.getVideoPalabra(text)
+		if video.existeVideo(texto):
+			videoPalabra = video.getVideoPalabra(texto)
 
 		else: 
-			abort(404, { 'message' : 'No existe el video para la palabra solicitada' })
+			abort(404, { 'mensaje' : 'No existe el video para la palabra solicitada' })
 
 		response = make_response(send_file(videoPalabra.filename, mimetype='video/mp4'))
 		response.headers['Content-Transfer-Enconding']='base64'
 
 	elif(size > 1):
 		
-		videoName = video.getTextVideo(doc)
+		nombreVideo = video.getTextoVideo(doc)
 
-		if (videoName == "error"):
+		if (nombreVideo == "error"):
 			abort(404, { 'message' : 'No existen videos para todas las palabras solicitadas' })
 		else:
-			response = make_response(send_file(videoName, mimetype='video/mp4'))
+			response = make_response(send_file(nombreVideo, mimetype='video/mp4'))
 			response.headers['Content-Transfer-Enconding']='base64'
-			os.remove(pathVideoGenerated + videoName)
+			os.remove(const.pathVideoGenerado + nombreVideo)
 
+	return response
+
+# ---------------------------------------------------------------------------------------------------------
+# ------------------------------------- PROCESAMIENTO TEXTO A LSE -----------------------------------------
+# ---------------------------------------------------------------------------------------------------------
+
+# Procesa la petición realizada a la API para traducir varias palabras
+# Trata la oración en pln.py
+# Devuelve la frase traducida a sordo
+@app.route("/TextoLSE/", methods=["POST"])
+def getTextoTraducido():
+
+	text = request.form['Texto']
+	doc = nlp(text)
+	response = []
+	frase = ""
+
+    # Llamada a pln.py para procesar el texto a LSE
+
+	for token in doc:
+		frase += token.text + " "
+
+	response = {"texto" : frase}
+	return response
+
+# ---------------------------------------------------------------------------------------------------------
+# -------------------------------- PROCESAMIENTO TEXTO A NOMBRE VIDEOS LSE --------------------------------
+# ---------------------------------------------------------------------------------------------------------
+
+# Procesa la petición realizada a la API para traducir varias palabras
+# Trata la oración en pln.py
+# Devuelve la frase traducida con los nombres de los videos que representen cada palabra
+@app.route("/TextoLSEVideos/", methods=["POST"])
+def getTextoTraducidoNombreVideos():
+
+	texto = request.form['Texto']
+	doc = nlp(texto)
+	response = []
+	frase = ""
+
+    # Llamada a pln.py para procesar el texto a nombre de videos LSE
+
+	for token in doc:
+		frase += token.text + " "
+
+	response = { "texto" : frase }
 	return response
 
 # ---------------------------------------------------------------------------------------------------------
