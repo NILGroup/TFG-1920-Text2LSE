@@ -1,0 +1,22 @@
+
+
+.page-footer{
+	background-color: #870513;
+	color: white;
+}
+
+.page-footer a:link{
+	color: white;
+}
+
+#submitBtn{
+	background-color: #870513;
+}
+
+#videoContainer{
+	height: 240px;
+}
+
+#containerPag{
+	padding: 0 50px 0 50px;
+}
