@@ -15,8 +15,8 @@ http://127.0.0.1:8080/video/<palabra>
 
 Te permite obtener un video con los signos de cada palabra del texto concatenados.
 * Método: ``POST``
-* Response: ``.mp4``
 * Json: ``{ 'Texto' : '<texto>'}``
+* Response: ``.mp4``
 
 ```
 http://127.0.0.1:8080/video/
@@ -27,8 +27,8 @@ http://127.0.0.1:8080/video/
 
 Te permite obtener un json con el texto traducido a sordo.
 * Método: ``POST``
-* Response: ``json -> { "texto" : <frase traducida> } ``
 * Json: ``{ 'Texto' : '<texto>'}``
+* Response: ``json -> { "texto" : <frase traducida> } ``
 
 ```
 http://127.0.0.1:8080/TextoLSE/
@@ -39,8 +39,8 @@ http://127.0.0.1:8080/TextoLSE/
 
 Te permite obtener un json con el nombre de los videos que corresponden a la oración traducida a sordo.
 * Método: ``POST``
-* Response: ``json -> { "texto" : <frase traducida> } ``
 * Json: ``{ 'Texto' : '<texto>'}``
+* Response: ``json -> { "texto" : <frase traducida> } ``
 
 ```
 http://127.0.0.1:8080/TextoLSEVideos/
