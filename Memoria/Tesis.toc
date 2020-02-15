@@ -41,4 +41,7 @@
 \contentsline {chapter}{\numberline {4}Metodolog\IeC {\'\i }as utilizadas}{35}{chapter.4}% 
 \contentsline {section}{\numberline {4.1}Reuniones}{35}{section.4.1}% 
 \contentsline {section}{\numberline {4.2}Trello}{36}{section.4.2}% 
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{37}{chapter*.29}% 
+\contentsline {section}{\numberline {4.3}Control de versiones}{36}{section.4.3}% 
+\contentsline {subsection}{\numberline {4.3.1}GIT}{36}{subsection.4.3.1}% 
+\contentsline {subsection}{\numberline {4.3.2}GITHUB}{37}{subsection.4.3.2}% 
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{39}{chapter*.29}% 
