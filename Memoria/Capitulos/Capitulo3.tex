@@ -8,16 +8,47 @@
 
 \begin{FraseCelebre}
 	\begin{Frase}
-		" La fuerza no viene de la capacidad corporal, sino de la voluntad del alma". 
+		"Controlar la complejidad es la esencia de la programación". 
 	\end{Frase}
 	\begin{Fuente}
-		Mahatma Gandhi
+		Brian Kernigan
 	\end{Fuente}
 \end{FraseCelebre}
 
 
 En este capítulo se habla de las herramientas utilizadas a lo largo del desarrollo de nuestra aplicación, dando una breve descripción de cada una y comentando los motivos de su utilización con respecto a otras tecnologías. Así, en la sección 3.1 se habla del lenguaje utilizado para el desarrollo de nuestra API Python. En la sección 3.2 se habla del servidor Flask donde alojamos nuestra API y se comentan sus características. COMPLETAR
 \\
+
+
+
+%-------------------------------------------------------------------
+\section{Python}
+%-------------------------------------------------------------------
+\label{cap3:sec:Python}
+
+Python \citep*{tchDesarrolloWeb} es un lenguaje de programación desarrollado a lo largo de la década de los años 80 por Guido Vam Rossum. El objetivo del creador era desarrollar un lenguaje de programación orientado a objetos de uso sencillo que sirviese para programar diversos tipos de tareas, no limitarlo a un solo tipo de uso. Sus principales características son:
+
+\begin{itemize}
+	
+	\item \textbf{Dinámico:} Se puede utilizar para desarrollar desde simples scripts o páginas web hasta para servidores de gran potencia.
+	
+	\item \textbf{Interpretado:} El programador no necesita realizar el paso de compilar el código, ya que Python se encarga de hacer esa compilación por sí mismo de manera que el desarrollador  no tiene que realizar ese paso extra.
+	
+	\item \textbf{Multiplataforma:} Se puede utilizar en cualquier sistema informático, siempre y cuando se haya instalado previamente un intérprete compatible con él.
+	
+	\item \textbf{Interactivo:} Python contiene un intérprete por línea de comandos, a través del cual se pueden introducir sentencias y ver en tiempo real el resultado de dicha sentencia.
+	
+	\item \textbf{Orientado a objetos:} el código se estructura en elementos llamados clases, a través de las cuales se crean los objetos con funcionalidades específicas.
+	
+	\item \textbf{Funciones y librerías:} python incluye una serie de funciones incluidas de base, como por ejemplo, la manipulación de strings, números, etc. A parte, existen multitud de librerías que se pueden importar al desarrollar un programa para cubrir necesidades específicas, como por ejemplo, el procesamiento del lenguaje natural.
+	
+	\item \textbf{Sintaxis clara:} La estructura del código se basa en los márgenes de obligado cumplimiento, siendo así muy visual. Esto hace que sea más sencillo distinguir las distintas partes del código.
+	
+	\item \textbf{Licencia de código abierto} \citep*{tchPython}: Licencia compatible con la Licencia pública general de GNU, la cual permite que el usuario final pueda tener acceso al código, descargarlo, copiarlo y manipularlo.
+	
+\end{itemize}
+
+Se ha decidido utilizar Python en este proyecto debido a la facilidad de uso y a la existencia de diversas librerías de procesamiento de lenguaje natural, como Spacy y NLTK, las cuales se describen en los apartados previos \hyperref[cap2:sec:PLN:subsec:Spacy]{``Spacy''} y \hyperref[cap2:sec:PLN:subsec:NLTK]{``NLTK''} respectivamente.
 
 
 
@@ -49,7 +80,28 @@ Algunas de las características de Flask por las que decidimos desarrollar nuestr
 \end{itemize}
 
 
+%-------------------------------------------------------------------
+\section{Nginx}
+%-------------------------------------------------------------------
+\label{cap2:sec:Nginx}
 
+Nginx \footnote{Web oficial de Nginx \url{https://www.nginx.com/}} es un servidor web de alto rendimiento, capaz de trabajar junto con diversas tecnologías de desarrollo y lenguajes. La asincronía es una de sus características fundamentales, junto con su rapidez, debido a que es un servidor web ligero.
+A día de hoy, además de sus capacidades de servidor HTTP, NGINX también puede funcionar como un servidor proxy para correo electrónico (IMAP, POP3 y SMTP) y un proxy inverso y equilibrador de carga para servidores (HTTP, TCP y UDP).\\
+
+Las ventajas de NGINX y el porqué de su uso:
+
+\begin{itemize}
+	
+	\item Nginx es un software multiplataforma que se puede usar en la gran mayoría de los sistemas operativos, tanto en sistemas basados en Unix como en Windows.
+	
+	\item Consume menos recursos que la mayoría de servicios que hacen su misma función ya que hace un uso de memoria de forma estática y se mantiene bastante estable independientemente del volumen de tráfico.
+	
+	\item Proporciona un alto rendimiento sobre todo en casos de mucho tráfico.
+	
+	\item Puede ser usado como Proxy inverso cacheando el contenido de nuestros sitios web.
+	
+	
+\end{itemize}
 
 
 
