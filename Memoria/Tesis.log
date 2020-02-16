@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.9.30)  13 FEB 2020 21:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.9.30)  16 FEB 2020 18:31
 entering extended mode
 **./Tesis.tex
 (Tesis.tex
 LaTeX2e <2018-12-01>
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\book.cls"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\book.cls"
 Document Class: book 2018/09/03 v1.4i Standard LaTeX document class
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\bk11.clo"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\bk11.clo"
 File: bk11.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 )
 \c@part=\count80
@@ -27,7 +27,7 @@ File: bk11.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 (config.tex) (TeXiS/TeXiS.sty
 Package: TeXiS/TeXiS 
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\verbatim.sty"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\verbatim.sty"
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks14
 \verbatim@line=\toks15
@@ -39,45 +39,45 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \openout2 = `TeXiS/TeXiS_pream.aux'.
 
 (TeXiS/TeXiS_pream.tex
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\shortvrb.sty"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\shortvrb.sty"
 Package: shortvrb 2018/09/25 v2.1i Standard LaTeX documentation package (FMi)
-) ("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inputenc.sty
+) ("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inputenc.sty
 "
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\latin1.def"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\latin1.def"
 File: latin1.def 2018/08/11 v1.3c Input encoding file
 ))
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/natbib\natbib.sty"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/natbib\natbib.sty"
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip43
 \bibsep=\skip44
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count89
-) ("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.sty
+) ("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.sty
 "
 Package: babel 2019/09/27 3.34 The Babel package
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\switch.def"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\switch.def"
 File: switch.def 2019/09/27 3.34 Babel switching mechanism
 )
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/arabi\bblopts.cfg"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/arabi\bblopts.cfg"
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/babel-spanish\spani
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/babel-spanish\spani
 sh.ldf"
 Language: spanish.ldf 2016/03/03 v5.0p Spanish support from the babel system
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.def"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.def"
 File: babel.def 2019/09/27 3.34 Babel common definitions
 \babel@savecnt=\count90
 \U@D=\dimen103
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\txtbabel.de
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\txtbabel.de
 f")
 \bbl@dirlevel=\count91
 )
@@ -88,24 +88,24 @@ Package babel Info: Making . an active character on input line 662.
 Package babel Info: Making < an active character on input line 707.
 Package babel Info: Making > an active character on input line 707.
 Package babel Info: Making ' an active character on input line 725.
-)) ("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
+)) ("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ifpdf.st
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ifpdf.st
 y"
 Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hyperref.s
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hyperref.s
 ty"
 Package: hyperref 2019/09/12 v6.88i Hypertext links for LaTeX
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\hobsub-h
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\hobsub-h
 yperref.sty"
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\hobsub-g
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\hobsub-g
 eneric.sty"
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
@@ -142,20 +142,20 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.sty
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.sty
 "
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks19
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ifxetex\ifxetex.s
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ifxetex\ifxetex.s
 ty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\auxhook.st
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\auxhook.st
 y"
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kvoptions.
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kvoptions.
 sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
@@ -163,7 +163,7 @@ Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 \Hy@linkcounter=\count93
 \Hy@pagecounter=\count94
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def
 "
 File: pd1enc.def 2019/09/12 v6.88i Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -171,7 +171,7 @@ Now handling font encoding PD1 ...
 )
 \Hy@SavedSpaceFactor=\count95
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/00miktex\hyperref.c
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/00miktex\hyperref.c
 fg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
@@ -211,13 +211,13 @@ LaTeX Info: Redefining \pageref on input line 6485.
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hpdftex.de
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hpdftex.de
 f"
 File: hpdftex.def 2019/09/12 v6.88i Hyperref driver for pdfTeX
 \Fld@listcount=\count101
 \c@bookmark@seq@number=\count102
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\rerunfilec
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\rerunfilec
 heck.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
@@ -227,7 +227,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 Package hyperref Info: Option `colorlinks' set `false' on input line 268.
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\makeidx.sty"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\makeidx.sty"
 Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
 \@indexfile=\write4
@@ -235,7 +235,7 @@ Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 
 
 Writing index file Tesis.idx
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\multicol.sty"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\multicol.sty"
 Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
 \c@tracingmulticols=\count103
 \mult@box=\box27
@@ -283,15 +283,15 @@ Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
 \mult@nat@firstbox=\box51
 \colbreak@box=\box52
 \mc@col@check@num=\count111
-) ("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfig\subfig.sty
+) ("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfig\subfig.sty
 "
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption.sty
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption.sty
 "
 Package: caption 2019/09/01 v3.3d Customizing captions (AR)
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption3.st
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption3.st
 y"
 Package: caption3 2019/09/01 v1.8d caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 64.
@@ -323,7 +323,7 @@ Package caption Info: hyperref package is loaded.
 )
 \sf@box=\box53
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.s
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.s
 ty"
 \lst@mode=\count121
 \lst@gtempboxa=\box54
@@ -338,22 +338,22 @@ ty"
 \lst@lineno=\count126
 \lst@maxwidth=\dimen128
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmisc.st
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmisc.st
 y"
 File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
 \c@lstnumber=\count127
 \lst@skipnumbers=\count128
 \lst@framebox=\box55
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.c
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.c
 fg"
 File: listings.cfg 2019/09/10 1.8c listings configuration
 ))
 Package: listings 2019/09/10 1.8c (Carsten Heinz)
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\tabularx.sty"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\tabularx.sty"
 Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.sty"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.sty"
 Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
 \col@sep=\dimen129
 \ar@mcellbox=\box56
@@ -371,35 +371,35 @@ Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
 \TX@cols=\count129
 \TX@ftn=\toks22
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fontenc.sty"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fontenc.sty"
 Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1enc.def"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1enc.def"
 File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\epsfig.sty
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\epsfig.sty
 "
 Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.s
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.s
 ty"
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.s
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.s
 ty"
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graphi
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graphi
 cs.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdftex
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdftex
 .def"
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
@@ -409,7 +409,7 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 \epsfxsize=\dimen138
 \epsfysize=\dimen139
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\calc.sty"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\calc.sty"
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count130
 \calc@Bcount=\count131
@@ -422,9 +422,9 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count132
 \calc@Cskip=\skip57
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/titlesec\titlesec.s
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/titlesec\titlesec.s
 ty"
-Package: titlesec 2019/09/09 v2.12 Sectioning titles
+Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \ttl@box=\box58
 \beforetitleunit=\skip58
 \aftertitleunit=\skip59
@@ -439,7 +439,7 @@ Package: titlesec 2019/09/09 v2.12 Sectioning titles
 \openout2 = `TeXiS/TeXiS_cab.aux'.
 
 (TeXiS/TeXiS_cab.tex
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fancyhdr\fancyhdr.s
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fancyhdr\fancyhdr.s
 ty"
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
 s
@@ -530,11 +530,11 @@ LaTeX Info: Redefining \% on input line 106.
 \AtBeginShipoutBox=\box59
 Package hyperref Info: Link coloring OFF on input line 106.
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.st
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.st
 y"
 Package: nameref 2019/09/12 v2.45 Cross-referencing by name of section
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\gettitle
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\gettitle
 string.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
@@ -553,7 +553,7 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count134
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-pd
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-pd
 f.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count135
@@ -568,11 +568,11 @@ f.mkii"
 \makeMPintoPDFobject=\count140
 \everyMPtoPDFconversion=\toks25
 )
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-b
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-b
 ase.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\grfext.sty
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\grfext.sty
 "
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
@@ -618,7 +618,7 @@ Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf  used on input line 1
 
 
 
-{C:/Users/Sara/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./Imagenes/V
+{C:/Users/Alex/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./Imagenes/V
 ectorial/escudoUCM.pdf>] [2] [3])
 [4]
 \openout2 = `Cascaras/dedicatoria.aux'.
@@ -766,7 +766,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
 [5]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 40.
- ("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
+ ("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
@@ -864,7 +864,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 134.
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 134.
 
-("C:\Users\Sara\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
+("C:\Users\Alex\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 Overfull \hbox (1.99612pt too wide) in paragraph at lines 134--135
@@ -1353,6 +1353,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--21
  []
 
 
+Package natbib Warning: Citation `tchFlask1' on page 31 undefined on input line
+ 28.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
@@ -1404,38 +1408,38 @@ Package rerunfilecheck Info: File `Tesis.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 194.
  ) 
 Here is how much of TeX's memory you used:
- 10781 strings out of 492895
- 165105 string characters out of 3124202
- 267771 words of memory out of 3000000
- 14042 multiletter control sequences out of 15000+200000
+ 10782 strings out of 492895
+ 165114 string characters out of 3124202
+ 267844 words of memory out of 3000000
+ 14043 multiletter control sequences out of 15000+200000
  24031 words of font info for 49 fonts, out of 3000000 for 9000
  1379 hyphenation exceptions out of 8191
  55i,11n,53p,1171b,676s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Sara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\e
-cti0800.pk> <C:\Users\Sara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecrm0900.pk> <C:\Users\Sara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jk
-nappen/ec/dpi600\ectt0900.pk> <C:\Users\Sara\AppData\Local\MiKTeX\2.9\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\Sara\AppData\Local\MiKTeX\2.9\
-fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\Sara\AppData\Local\Mi
-KTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1095.pk> <C:\Users\Sara\AppData
-\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\Sar
-a\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc1095.pk> <C:\
-Users\Sara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095
-.pk> <C:\Users\Sara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
-\eccc1095.pk> <C:\Users\Sara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
-ec/dpi600\ecti1000.pk> <C:\Users\Sara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/
-jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Sara\AppData\Local\MiKTeX\2.9\fonts/p
-k/ljfour/jknappen/ec/dpi600\ecbi1095.pk> <C:\Users\Sara\AppData\Local\MiKTeX\2.
-9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\Sara\AppData\Local\
-MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2488.pk> <C:\Users\Sara\AppDa
-ta\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\S
-ara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C
-:\Users\Sara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx12
-00.pk> <C:\Users\Sara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi6
-00\ecbx1440.pk> <C:\Users\Sara\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappe
-n/ec/dpi600\ecbx2074.pk><C:/Users/Sara/AppData/Local/Programs/MiKTeX 2.9/fonts/
+ <C:\Users\Alex\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\e
+cti0800.pk> <C:\Users\Alex\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecrm0900.pk> <C:\Users\Alex\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jk
+nappen/ec/dpi600\ectt0900.pk> <C:\Users\Alex\AppData\Local\MiKTeX\2.9\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\Alex\AppData\Local\MiKTeX\2.9\
+fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\Alex\AppData\Local\Mi
+KTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1095.pk> <C:\Users\Alex\AppData
+\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\Ale
+x\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc1095.pk> <C:\
+Users\Alex\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095
+.pk> <C:\Users\Alex\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
+\eccc1095.pk> <C:\Users\Alex\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
+ec/dpi600\ecti1000.pk> <C:\Users\Alex\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/
+jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Alex\AppData\Local\MiKTeX\2.9\fonts/p
+k/ljfour/jknappen/ec/dpi600\ecbi1095.pk> <C:\Users\Alex\AppData\Local\MiKTeX\2.
+9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\Alex\AppData\Local\
+MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2488.pk> <C:\Users\Alex\AppDa
+ta\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\A
+lex\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C
+:\Users\Alex\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx12
+00.pk> <C:\Users\Alex\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi6
+00\ecbx1440.pk> <C:\Users\Alex\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappe
+n/ec/dpi600\ecbx2074.pk><C:/Users/Alex/AppData/Local/Programs/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Tesis.pdf (50 pages, 3127982 bytes).
+Output written on Tesis.pdf (50 pages, 3128317 bytes).
 PDF statistics:
  1345 PDF objects out of 1440 (max. 8388607)
  145 named destinations out of 1000 (max. 500000)
