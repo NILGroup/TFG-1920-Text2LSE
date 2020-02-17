@@ -118,6 +118,8 @@ De esta forma, los integrantes del equipo y los tutores han estado informados co
 \label{cap4:sec:Control de versiones}
 \subsection{GIT}
 
+
+
 Para el desarrollo del proyecto se ha utilizado Git \footnote{Web oficial de Git \url{https://git-scm.com/}} que es un sistema de control de versiones distribuido que sirve para trabajar en equipo de una manera muy sencilla y optimizada. Git permite al usuario tener un control absoluto de su proyecto pudiendo ver todos los cambios realizados en nuestra aplicación y nuestro código por cada uno de los miembros o incluso volver a versiones anteriores del proyecto.
 
 Sus principales herramientas son:
@@ -134,7 +136,11 @@ Sus principales herramientas son:
 
 	\item \textbf{Pull:} acción que actualiza el repositorio local de tu ordenador con la última versión del proyecto alojado en Github.
 	
-	\item \textbf{Push:} permite subir a Github los commits realizados en el repositorio local.	
+	\item \textbf{Push:} permite subir a Github los commits realizados en el repositorio local.
+	
+	\item \label{itm:merge} \textbf{Merge:} permite incorporar fusionar los cambios con la rama principal.
+	
+	
 	
 \end{itemize}
 
@@ -143,6 +149,71 @@ Sus principales herramientas son:
 GitHub \footnote{Web oficial de Github \url{https://help.github.com/}} es una plataforma que proporciona una interfaz que mediante las herramientas del control de versiones Git permite ver y llevar el registro de todos los cambios realizados en nuestro proyecto, organizarlos y resolver cualquier conflicto que pueda surgir. \\
 
 Github también funciona como una red social para desarrolladores ya que permite a otros usuarios ver y colaborar en tus repositorios así como resolver dudas que se tengan.
+
+
+\subsection{Estructura de Trabajo con GIT y GITHUB}
+
+A la hora de desarrollar el proyecto con la herramienta Git, hemos establecido una estructura común para un correcto desarrollo del proyecto y poder gestionar así de manera eficiente y segura los cambios realizados.\\
+
+La estructura desarrollada es la siguiente:\\
+
+\textbf{MASTER:} Rama principal del proyecto donde todo ha sido revisado y está óptimo funcionamiento  y de ella dependen:
+
+\begin{itemize}
+	\item \textbf{Memoria}: Rama principal de la memoria que contiene la versión revisada más reciente. De ella se crean nuevas ramas hijas por capítulo y funcionalidad:
+
+	\begin{itemize}
+		\item Memoria-Capítulo-N: \textit{Memoria-Capítulo3}
+		\item Memoria-Capítulo-N-funcionalidad: \textit{Memoria-Capítulo3-Flask}
+	\end{itemize}
+
+		
+\end{itemize}
+
+\begin{itemize}
+	\item \textbf{API}: Rama principal de la API que contiene el código más reciente y en funcionamiento. Contiene dos ramas hijas:
+	
+	\begin{itemize}
+		\item API-Video: Rama donde se desarrolla toda la parte de procesamiento de vídeo. A partir de ella se crean ramas hijas por funcionalidad a desarrollar.
+		
+		\begin{itemize}
+			\item API-Video-funcionalidad: \textit{Api-Video-unaPalabra}
+		\end{itemize}
+	
+	\end{itemize}
+	
+
+	\begin{itemize}
+		\item API-PLN:Rama donde se desarrolla el procesamiento de lenguaje natural. A partir de ella se crean ramas hijas por funcionalidad a desarrollar.
+		
+		\begin{itemize}
+			\item API-PLN-funcionalidad: \textit{API-PLN-sujeto}
+		\end{itemize}
+		
+	\end{itemize}
+	
+\end{itemize}
+
+\begin{itemize}
+	\item \textbf{Web}: Rama principal del cliente que contiene el código más reciente y en funcionamiento. A partir de ella se crean ramas hijas por funcionalidad a desarrollar:
+	
+	\begin{itemize}
+		\item Web-funcionalidad: \textit{Web-llamadaFetch}
+	\end{itemize}
+	
+\end{itemize}
+
+Nota: Todas las ramas creadas por funcionalidad se pueden borrar una vez se dejen de usar y se haya realizado un  previo merge a su rama principal.
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Metodologias/git.jpg}
+	\caption{Estructura \textit{``Git''} utilizada en el proyecto.  }
+	\label {fig: imgGit}
+\end{figure}
+
+
+
 
 
 
