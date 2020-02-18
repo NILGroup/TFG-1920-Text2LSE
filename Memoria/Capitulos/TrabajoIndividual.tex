@@ -1,0 +1,75 @@
+%---------------------------------------------------------------------
+%
+%                          Trabajo individual
+%
+%---------------------------------------------------------------------
+
+\chapter{Trabajo individual}
+
+
+%-------------------------------------------------------------------
+\section{Sara Vegas Cañas}
+%-------------------------------------------------------------------
+\label{capTrabajoIndividual:sec:Sara}
+
+Lo primero de todo fue una investigación profunda de la discapacidad auditiva y de la Lengua de Signos Española por parte de los tres integrantes de este proyecto, de esta manera todos nos concienciamos de las dificultades que tienen todas las personas sordas para comunicarse en su día a día. Realicé una investigación de las herramientas que tienen estas personas a su disposición, tanto posibles traductores a LSE, como bancos de vídeos e imágenes. Encontré una variedad de aplicaciones, las cuales probé para poder ver hasta donde llegaban las soluciones actuales para el problema de comunicación de las personas sordas. \\
+
+Cuando llegamos a la conclusión del proyecto que queríamos hacer, empezamos con la investigación de las posibles tecnologías que podríamos usar en el proyecto. Mi investigación en este tema se centró en servicios web, sobre todo de tipo REST, Python y en Procesamiento del Lenguaje Natural, probando diferentes librerías, como Spacy y NLTK, para poder elegir la que más se ajustase a nuestras necesidades.\\
+
+Una vez que terminó la primera parte de investigación, nos reunimos para juntar todas nuestras conclusiones y comenzamos a desarrollar la primera parte de la memoria con los conocimientos adquiridos en la investigación previa.\\
+
+A continuación, comenzamos a crear una primera base de la aplicación. Lo primero fue realizar la preparación del entorno local en Debian 10, utilizando Nginx para alojar la aplicación web, y Flask para ejecutar la API, preparando el modo debug para el posterior proceso de desarrollo de código. Construimos una web básica, en la cual podíamos escribir un texto y enviarlo a la API a través de JavaScript, mediante jQuery y Ajax, y una primera estructura de la API REST en Python. En este apartado me encargue junto con mi compañero Alejandro del desarrollo de una funcionalidad javascript capaz de lanzar una petición a la API con el texto y que esta nos devolviese un video mp4.\\
+
+En la fase posterior, me encargué de corregir mis apartados correspondientes de la memoria, y de desarrollar los apartados de Python y Google Colaboratory dentro de herramientas utilizadas, y de metodologías como Trello y Reuniones. Respecto a la web, ayudé a mi compañero Alejandro con el cambio de las llamadas AJAX a Fetch. También me encargué de estructurar la función de la API que devuelve un video con varios signos y de desarrollar las llamadas a las funciones que devuelven diferente tipo de información en Json. Respecto a PLN, en un principio me centré en desarrollar un algoritmo que recorra un árbol de dependencias desde el verbo a partir de una frase.\\
+
+
+%-------------------------------------------------------------------
+\section{Alejandro Torralbo Fuentes}
+%-------------------------------------------------------------------
+
+
+Al comienzo del proyecto, los tres integrantes del grupo realizamos una fase de investigación, en la que adquirimos conocimientos sobre la discapacidad auditiva y la Lengua de Signos, y nos pusimos al día en los problemas a los que se enfrenta el colectivo de personas sordas, para poder orientar nuestro proyecto a solucionar dichos problemas. A continuación, realizamos una búsqueda de recursos que pudiéramos utilizar en el desarrollo de nuestra aplicación, encontrando bancos de imágenes y vídeos de Lengua de Signos Española como la de ARASAAC, entre otras herramientas.\\
+
+Una vez recopilada la información necesaria, comenzamos con la instalación y preparación del entorno de desarrollo local: una máquina virtual con Debian 10, en la que instalamos un servidor para alojar el cliente con nginx, y una api desarrollada en python y ejecutada mediante flask. Me encargué de configurar el entorno flask, activando el modo debug para poder empezar a depurar el código de la API, e instalé la herramienta Postman para la realización de pruebas y el controlador de versiones Git, para trabajar en el código de forma conjunta con el resto de compañeros.\\
+
+A partir de este punto, comenzamos con el desarrollo de la aplicación. Me encargué de desarrollar una web responsive con html, css y javascript, alojada en el servidor nginx. Junto con mi compañera Sara, conseguimos implementar una función en  Ajax, que realiza una petición POST a la API, enviando el texto introducido por el usuario y recibiendo un vídeo en formato .mp4 para mostrarlo en la web. Además, me encargué de que la API fuera capaz de juntar varios vídeos en función del texto recibido, y prepararlo para enviarlo a la página web. Posteriormente los tres integrantes decidimos estructurar la API y dividir esta funcionalidad en varias funciones diferentes, de modo que el usuario interesado en utilizar nuestra API cuente con varias opciones de llamada. Mis compañeros Miguel y Sara se encargaron de dividir esta función.\\
+
+
+Por otro lado, decidimos cambiar las llamadas AJAX de la web  por llamadas Fetch, y yo me encargué de programar estas llamadas con ayuda de mi compañera Sara. \\
+
+Junto con el trabajo técnico, también participé en la redacción y corrección  de la memoria, en la que trabajamos los tres compañeros conjuntamente. Me encargué de la corrección del capítulo 1 y parte del capítulo 2. Además, desarrollé el apartado de Flask del capítulo 3,  y metodologías agiles y kanban en el capítulo 4.\\
+
+Por otro lado, decidimos cambiar las llamadas AJAX de la web  por llamadas Fetch, y yo me encargué de programar estas llamadas con ayuda de mi compañera Sara. \\
+
+Junto con el trabajo técnico, también participé en la redacción y corrección  de la memoria, en la que trabajamos los tres compañeros conjuntamente. Me encargué de la corrección del capítulo 1 y parte del capítulo 2. Además, desarrollé el apartado de Flask del capítulo 3,  y metodologías agiles y kanban en el capítulo 4.\\
+
+
+%-------------------------------------------------------------------
+\section{Miguel Rodríguez Cuesta}
+%-------------------------------------------------------------------
+\label{capTrabajoIndividual:sec:Miguel}
+
+En comienzo del proyecto fue de investigación. Cada miembro del grupo buscó información de distinta variedad relacionada con el mundo de la Lengua de Signos para después realizar una puesta en común para empezar a redactar la memoria.\\
+
+Personalmente durante este período he ido recopilando información sobre qué es la LSE, quién la usa, como funciona, etc. También investigué sobre la comunidad sorda y sus problemas de adaptación la sociedad actual, discapacidad auditiva y una gran variedad de artículos de interés.\\
+
+Después de la puesta en común y de la primera corrección, nos dividimos la memoria entre los tres, siendo mi parte reescribir servicios Web, aplicaciones de traducción de texto a LSE y procesamiento del Lenguaje Natural.\\
+
+Para la segunda parte del proyecto decidimos los tres integrantes del equipo organizar una buena estructura de proyecto para poder dividirnos bien el trabajo.
+Nos dividimos los nuevos apartados de la memoria siendo mi parte arreglar redacciones anteriores y crear los nuevos apartados de Nginx, Git y Github.\\
+
+En cuanto al desarrollo de código mi parte era realizar el apartado capaz de devolver una palabra en video mediante el método Get así como investigar como hacer  una buena gestión de errores de la Api.\\
+
+De forma independiente me estuve informando sobre como usar Git de forma correcta y así explicar a mis compañeros como usarlo mediante visual studio y también recibir sus consejos pues ellos también sabían muchas cosas nuevas. También me he informado e investigado como empezar a realizar el PLN para poder dividirnos el trabajo más adelante.\\
+
+Para mí la gran importancia de esta segunda parte del trabajo ha sido la gran gestión del proyecto que hemos hecho que nos ha llevado más tiempo incluso que el desarrollo de código. Hemos organizado una estructura la cual nos permite trabajar de forma independiente y de forma eficiente en distintas partes del proyecto.
+
+
+
+
+
+
+
+
+
+
