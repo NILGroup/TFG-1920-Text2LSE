@@ -1,0 +1,54 @@
+\BOOKMARK [0][-]{titulo.0}{P\341gina de T\355tulo}{}% 1
+\BOOKMARK [0][-]{indices.0}{\315ndices}{}% 2
+\BOOKMARK [1][-]{tabla de contenidos.1}{Tabla de contenidos}{indices.0}% 3
+\BOOKMARK [1][-]{indice de figuras.1}{\315ndice de figuras}{indices.0}% 4
+\BOOKMARK [1][-]{indice de tablas.1}{\315ndice de tablas}{indices.0}% 5
+\BOOKMARK [0][-]{chapter.1}{Introducci\363n}{}% 6
+\BOOKMARK [1][-]{section.1.1}{Motivaci\363n}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.2}{Objetivos}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.3}{Estructura del documento}{chapter.1}% 9
+\BOOKMARK [0][-]{chapter.2}{Estado del Arte}{}% 10
+\BOOKMARK [1][-]{section.2.1}{La discapacidad auditiva}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.2}{Sistemas Aumentativos y Alternativos de Comunicaci\363n \(SAAC\)}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.1}{ARASAAC}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.2}{Banco de im\341genes Fundacion CNSE}{section.2.2}% 14
+\BOOKMARK [2][-]{subsection.2.2.3}{SpreadTheSign}{section.2.2}% 15
+\BOOKMARK [1][-]{section.2.3}{La Lengua de Signos}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.3.1}{Fonolog\355a de la Lengua de Signos Espa\361ola}{section.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.3.2}{Sintaxis de la Lengua de Signos Espa\361ola}{section.2.3}% 18
+\BOOKMARK [2][-]{subsection.2.3.3}{Morfolog\355a de la Lengua de Signos Espa\361ola}{section.2.3}% 19
+\BOOKMARK [2][-]{subsection.2.3.4}{Verbos de la Lengua de Signos Espa\361ola}{section.2.3}% 20
+\BOOKMARK [1][-]{section.2.4}{Aplicaciones de Traducci\363n de Texto a LSE}{chapter.2}% 21
+\BOOKMARK [2][-]{subsection.2.4.1}{Text2Sign}{section.2.4}% 22
+\BOOKMARK [2][-]{subsection.2.4.2}{TextoSign}{section.2.4}% 23
+\BOOKMARK [2][-]{subsection.2.4.3}{StorySign}{section.2.4}% 24
+\BOOKMARK [2][-]{subsection.2.4.4}{TeCuento}{section.2.4}% 25
+\BOOKMARK [2][-]{subsection.2.4.5}{Conclusiones}{section.2.4}% 26
+\BOOKMARK [0][-]{chapter.3}{Tecnolog\355as utilizadas}{}% 27
+\BOOKMARK [1][-]{section.3.1}{Servicios Web}{chapter.3}% 28
+\BOOKMARK [2][-]{subsection.3.1.1}{Servicios Web SOAP}{section.3.1}% 29
+\BOOKMARK [2][-]{subsection.3.1.2}{Servicios Web REST}{section.3.1}% 30
+\BOOKMARK [2][-]{subsection.3.1.3}{Ventajas de Servicios Web}{section.3.1}% 31
+\BOOKMARK [2][-]{subsection.3.1.4}{Desventajas de Servicios Web}{section.3.1}% 32
+\BOOKMARK [2][-]{subsection.3.1.5}{Flask}{section.3.1}% 33
+\BOOKMARK [1][-]{section.3.2}{Procesamiento del Lenguaje Natural}{chapter.3}% 34
+\BOOKMARK [2][-]{subsection.3.2.1}{Estructura del procesamiento del lenguaje natural}{section.3.2}% 35
+\BOOKMARK [2][-]{subsection.3.2.2}{T\351cnicas de PLN}{section.3.2}% 36
+\BOOKMARK [2][-]{subsection.3.2.3}{Herramientas PLN}{section.3.2}% 37
+\BOOKMARK [1][-]{section.3.3}{Python}{chapter.3}% 38
+\BOOKMARK [1][-]{section.3.4}{Nginx}{chapter.3}% 39
+\BOOKMARK [1][-]{section.3.5}{Google Colaboratory}{chapter.3}% 40
+\BOOKMARK [0][-]{chapter.4}{Metodolog\355as utilizadas}{}% 41
+\BOOKMARK [1][-]{section.4.1}{Metodolog\355as \301giles}{chapter.4}% 42
+\BOOKMARK [1][-]{section.4.2}{Kanban}{chapter.4}% 43
+\BOOKMARK [1][-]{section.4.3}{Trello}{chapter.4}% 44
+\BOOKMARK [1][-]{section.4.4}{Reuniones}{chapter.4}% 45
+\BOOKMARK [1][-]{section.4.5}{Control de versiones}{chapter.4}% 46
+\BOOKMARK [2][-]{subsection.4.5.1}{GIT}{section.4.5}% 47
+\BOOKMARK [2][-]{subsection.4.5.2}{GITHUB}{section.4.5}% 48
+\BOOKMARK [2][-]{subsection.4.5.3}{Estructura de Trabajo con GIT y GITHUB}{section.4.5}% 49
+\BOOKMARK [0][-]{chapter.5}{Trabajo individual}{}% 50
+\BOOKMARK [1][-]{section.5.1}{Sara Vegas Ca\361as}{chapter.5}% 51
+\BOOKMARK [1][-]{section.5.2}{Alejandro Torralbo Fuentes}{chapter.5}% 52
+\BOOKMARK [1][-]{section.5.3}{Miguel Rodr\355guez Cuesta}{chapter.5}% 53
+\BOOKMARK [0][-]{chapter*.30}{Bibliograf\355a}{}% 54

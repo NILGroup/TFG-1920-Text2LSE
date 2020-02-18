@@ -4,7 +4,7 @@
 %
 %---------------------------------------------------------------------
 
-\chapter{Herramientas utilizadas}
+\chapter{Tecnologías utilizadas}
 
 \begin{FraseCelebre}
 	\begin{Frase}
@@ -16,9 +16,227 @@
 \end{FraseCelebre}
 
 
-En este capítulo se habla de las herramientas utilizadas a lo largo del desarrollo de nuestra aplicación, dando una breve descripción de cada una y comentando los motivos de su utilización con respecto a otras tecnologías. Así, en la sección 3.1 se habla del lenguaje utilizado para el desarrollo de nuestra API Python. En la sección 3.2 se habla del servidor Flask donde alojamos nuestra API y se comentan sus características. COMPLETAR
+En este capítulo se habla de las tecnologías utilizadas a lo largo del desarrollo de nuestra aplicación, dando una breve descripción de cada una y comentando los motivos de su utilización con respecto a otras tecnologías. 
 \\
 
+
+%-------------------------------------------------------------------
+\section{Servicios Web}
+%-------------------------------------------------------------------
+\label{cap3:sec:Servicios Web}
+Según el W3C (World Wide Consortium)\footnote{\url{https://www.w3.org/}} un servicio web es un sistema software diseñado para soportar interacciones entre sistemas a través de la red. Proporcionan una forma estándar de interoperar entre aplicaciones software que se pueden ejecutar en diferentes plataformas, soportando  aplicaciones desarrolladas en distintos lenguajes de programación.\\
+
+Muchos de los servicios web están basados en la arquitectura SOA (Service Oriented Architecture). Es un estilo arquitectónico para la construcción de aplicaciones software en base a servicios disponibles los cuales interactúan entre sí y se pueden combinar obteniendo nuevos servicios con más funcionalidades.\\
+
+Los dos tipos de servicios web más utilizados en la actualidad son: Servicios Web SOAP y Servicios Web REST
+
+
+%-------------------------------------------------------------------
+\subsection{Servicios Web SOAP}
+%-------------------------------------------------------------------
+
+Los Servicios Web SOAP \citep*{tchSOAP} son un tipo de servicios web cuyo propósito es que las aplicaciones implementadas en diferentes plataformas y lenguajes de programación sean capaces de intercambiar datos de una forma más sencilla. \\
+
+Está basado en el protocolo SOAP (Simple Object Access Protocol) basado en el lenguaje XML el cual permite el intercambio de información entre aplicaciones.\\
+
+El mensaje se codifica como un documento XML que consta de un elemento \textit{<Envelope>} que hace referencia a la raíz de cada mensaje y este a su vez incorpora una cabecera opcional \textit{<Header>} y un cuerpo \textit{<Body>} obligatorio. La primera es utilizada para pasar información de la aplicación  y la segunda contiene la información dirigida al destinatario final del mensaje. Dentro del \textit{<Body>} está el subelemento \textit{<Fault>}   que sirve para la notificación de errores.\\ 
+
+Funciona por lo general con el protocolo HTTP, sin embargo no está limitado solo a este protocolo, si no que puede ser enviado por otros tipos de protocolos diferentes como TCP o POP3.\\
+
+
+Para poder acceder al servicio web se necesita saber donde está ubicado y cuales son las funcionalidades del servicio. Para ello se utiliza el lenguaje de descripción WSDL (Web Services Description Language) el cual está basado en XML y permite especificar a los clientes qué llamadas se pueden hacer a un servidor SOAP y que tipo de respuesta esperar.\\
+
+A pesar de tener el archivo WSDL es necesario saber dónde está toda esta información. Para ello se dispone del UDDI (Universal Description, Discovery and Integration Directory) que es un estándar basado en XML que actúa como repositorio donde se puede acudir a realizar búsquedas de Servicios Web específicos.
+
+
+%-------------------------------------------------------------------
+\subsection{Servicios Web REST}
+%-------------------------------------------------------------------
+
+Un Servicio Web REST \citep*{tchREST} es una interfaz para conectar varios servicios web basados en el protocolo HTTP que define una gran cantidad de métodos como son GET, POST, PUT y DELETE entre otros, los cuales pueden ser usados en diferentes circunstancias devolviendo los datos en distintos formatos como XML y JSON.\\
+
+Rest tiene como peculiaridad que es un servicio sin estado, es decir, que por cada petición que recibe el servidor, los datos se pierden ya que no es necesario mantener sesiones. Esto permite un uso más eficiente de la memoria y una mayor escalabilidad permitiendo separar  el cliente del servidor, facilitando que las distintas partes de un proyecto se puedan realizar de manera más independiente.\\
+
+Los objetos son manipulados a través de una URI (Uniform Resource Identifier) haciendo de identificador único de cada recurso del sistema REST. Esto junto con los métodos del protocolo HTTP hace posible la transferencia de datos en el sistema aplicando operaciones concretas sobre un recurso determinado.\\
+
+Para el desarrollo de este proyecto, se ha utilizado un servicio web REST, debido a su facilidad de uso y configuración.
+
+
+%-------------------------------------------------------------------
+\subsection{Ventajas de Servicios Web}
+%-------------------------------------------------------------------
+Las principales ventajas de los servicios web son \footnote{Web \url{https://sites.google.com/site/preyectodetics/home/servicios-web}}:
+
+\begin{itemize}
+	\item Permiten una mayor operabilidad entre las aplicaciones software sin importar sus propiedades ni la plataforma en la que estén instalados.
+	
+	\item Los servicios Web fomentan los estándares y protocolos basados en texto, que hacen más fácil acceder a su contenido y entender su funcionamiento.
+	
+	
+	\item Permiten y facilitan que software y servicios de diferentes compañías
+	se puedan combinar formando un servicio funcional.  
+	
+\end{itemize} 
+
+
+%-------------------------------------------------------------------
+\subsection{Desventajas de Servicios Web}
+%-------------------------------------------------------------------
+Las principales desventajas de los servicios web son \footnote{Web \url{https://sistemas3.wordpress.com/2007/06/14/web-services/}}:
+
+\begin{itemize}
+	\item Las transacciones en este tipo de servicios están mucho menos desarrolladas que otros estándares abiertos.
+	
+	\item Su rendimiento es bajo si se compara con otros modelos de computación distribuida.
+	
+	\item Al estar muy ligados con HTTP, las medidas de seguridad que tratan de
+	bloquear la comunicación entre programas se pueden burlar fácilmente.  
+	
+	\item  Existe poca información de servicios web para algunos lenguajes de programación.
+	
+	
+\end{itemize} 
+
+
+
+%-------------------------------------------------------------------
+\subsection{Flask}
+%-------------------------------------------------------------------
+
+Para el desarrollo del proyecto se ha decidido utilizar un servidor Flask para montar la API REST. \\
+
+Flask \citep*{tchFlask1} es un ``micro'' Framework escrito en Python y concebido para facilitar el desarrollo de Aplicaciones Web y APIs.\\
+
+La palabra micro hace referencia a que Flask únicamente trae por defecto las herramientas necesarias para crear una aplicación web básica, aunque si se necesitan añadir nuevas funcionalidades hay un conjunto muy grande de extensiones (plugins) que se pueden instalar fácilmente. Por ello, Flask es muy recomendable para el desarrollo de aplicaciones que no requieran muchas extensiones o que se necesiten implementar de una forma ágil y rápida. También es muy recomendable para implementar microservicios.\\
+
+Algunas de las características de Flask por las que decidimos desarrollar nuestra API con este framework son las siguientes:
+
+
+\begin{itemize}
+	
+	\item Rapidez y facilidad en la instalación y configuración, a diferencia de otros frameworks como Django, que tiene una curva de aprendizaje mucho más baja.
+	
+	\item Es compatible con Python. Nuestra API está implementada en dicho lenguaje.
+	
+	\item Incluye un servidor web de desarrollo. No se necesita una infraestructura con un servidor web para probar las aplicaciones, sino que de una manera sencilla se puede levantar un servidor web para ir viendo los resultados que se van obteniendo.
+	
+	\item Cuenta con depurador. Si tenemos algún error en el código que se está desarrollando, se puede depurar ese error y ver los valores de las variables.
+	
+	\item Flask es Open Source y está amparado bajo una licencia BSD \citep*{tchBSD}, que es la licencia utilizada para los sistemas operativos BSD (Berkeley Software Distribution), y tiene menos restricciones en comparación con otras licencias como la GPL, estando muy cercana al dominio público.
+	
+	\item Cuenta con una muy buena documentación.
+	
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------
+\section{Procesamiento del Lenguaje Natural}
+%-------------------------------------------------------------------
+\label{cap2:sec:Procesamiento del Lenguaje Natural (PLN)}
+
+El Procesamiento del Lenguaje Natural conocido como PLN es un campo dentro de la inteligencia artificial y la lingüística aplicada que analizan el lenguaje humano, lo interpretan y le dan significado para que pueda ser utilizado por una máquina de manera práctica.\\
+
+Su evolución en los últimos años ha ido creciendo de forma exponencial debido a la capacidad computacional de la que disponemos hoy en día y los avances realizados en la algoritmia. Sus aplicaciones son muy variadas, ya sea desde traducción automática y chatbots hasta asistentes virtuales como Alexa de Amazon y Siri de Apple.
+
+
+
+%-------------------------------------------------------------------
+\subsection{Estructura del procesamiento del lenguaje natural}
+%-------------------------------------------------------------------
+Para que una máquina sea capaz de entender y procesar el lenguaje natural, es necesario analizar la estructura de dicho lenguaje, teniendo en cuenta los siguientes aspectos:
+
+
+
+\begin{itemize}
+	
+	\item\textbf{Nivel Fonológico:} se encarga de analizar cómo las palabras se relacionan con los sonidos que representan.
+	
+	\item\textbf{Nivel Morfológico:} trata de cómo las palabras se construyen a partir de unas unidades de significado más pequeñas llamadas morfemas. 
+	
+	Un ejemplo sería morfema de género: \textit{Chic-o (masculino) y Chic-a (femenino).}
+	
+	
+	\item\textbf{Nivel Sintáctico:} es el encargado de cómo se pueden unir las palabras para formar oraciones sintácticamente correctas, donde el orden de las palabras es el necesario para que se establezca la comunicación.
+	
+	Un ejemplo sería la concordancia entre sujeto y verbo ya que estos comparten siempre misma persona y número.
+	\newline
+	\textit{Yo bebo agua: Yo(1ª per, Sg) y bebo (1ª per, Sg)}
+	\newline
+	\textit{El bebe agua: Él (3ª per, Sg) y bebe (3ª per, Sg)}
+	
+	
+	
+	\item\textbf{Nivel Semántico:} estudio del significado de las expresiones del lenguaje y de cómo los significados de las palabras se unen para dar sentido a una oración.
+	
+	Un ejemplo sería: \textit{``Pedro habla la Lengua de Signos''.}
+	
+	
+	\item\textbf{Nivel Pragmático:} trata de cómo las oraciones se usan en distintas situaciones y de cómo el uso afecta al significado de las oraciones.
+	
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------
+\subsection{Técnicas de PLN}
+%-------------------------------------------------------------------
+El procesamiento del lenguaje natural consta de distintas etapas, las cuales suelen variar de acuerdo al estudio que se va a realizar \citep*{artPLN2}. Algunas de ellas son:   
+
+\begin{itemize}
+	
+	\item\textbf{Tokenización:} realiza la división del texto en palabras o frases.
+	
+	\item\textbf{Chunking:}  Permite extraer conjuntos de palabras para que no pierdan el significado que forman entre ellas. Un ejemplo sería ``El libro electrónico'' en vez de separarlo en tokens lo separaría por grupos ``el '' y ``libro electrónico''.
+	
+	\item\textbf{Etiquetado gramatical:} Asigna a cada palabra del texto una categoría gramatical (sustantivo, adjetivo, verbo, etc).
+	
+	
+	\item\textbf{Entidades Nombradas:} extraer y clasificar conjuntos de palabras en categorías predefinidas como personas, lugares, organizaciones, etc. 
+	
+	
+\end{itemize}
+
+
+%-------------------------------------------------------------------
+\subsection{Herramientas PLN}
+%-------------------------------------------------------------------
+En la actualidad hay una gran cantidad de herramientas para poder realizar el Procesamiento de Lenguaje Natural de una forma más sencilla y rápida.  \\
+
+A continuación, vamos a explicar algunas de estas herramientas de procesamiento
+de lenguaje natural que existen actualmente. 
+
+
+%-------------------------------------------------------------------
+\subsubsection{Spacy}
+%-------------------------------------------------------------------
+Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}}  es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python. Permite el desarrollo de aplicaciones que sean capaces de procesar y entender grandes volúmenes de texto. Actualmente es considerada una de las mejores herramientas para el PNL ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías del mercado.
+
+
+
+%-------------------------------------------------------------------
+\subsubsection{NLTK}
+%-------------------------------------------------------------------
+Natural Language ToolKit (NLTK)\footnote{Web oficial de NLTK \url{https://www.nltk.org/}}  es una librería dedicada al análisis del lenguaje natural bajo el lenguaje de programación Python. En la actualidad incluye utilidades para más de 10 idiomas y fue creada por académicos e investigadores como una herramienta para crear funciones complejas de PLN. Esta biblioteca es muy útil cuando se quiere construir un modelo desde cero ya que proporciona acceso a muchos algoritmos y facilita el uso de algoritmos propios.
+
+
+
+
+%-------------------------------------------------------------------
+\subsubsection{FreeLing}
+%-------------------------------------------------------------------
+
+FreeLing\footnote{Web oficial de FreeLing \url{http://nlp.lsi.upc.edu/freeling/index.php/node/1}} es una herramienta PLN de código abierto bajo el lenguaje de programación C++ que ha sido desarrollada por la Universidad Politécnica de Cataluña. La biblioteca permite realizar análisis morfológico, detección de entidades con nombres o etiquetado gramatical para una gran variedad de idiomas. \\
+
+Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos, adaptarlos a dominios particulares e incluso desarrollar otros nuevos para idiomas específicos o necesidades particulares. 
+
+
+
+%-------------------------------------------------------------------
+\subsubsection{Conclusiones}
+%-------------------------------------------------------------------
+
+Una vez analizada la posibilidad de usar una u otra se ha llegado a la conclusión de que Spacy es la herramienta adecuada, ya que proporciona un análisis más rápido y preciso que cualquier otra biblioteca y es muy sencilla de aprender a manejar gracias a su manual de uso.
 
 
 %-------------------------------------------------------------------
@@ -40,7 +258,7 @@ Python \citep*{tchDesarrolloWeb} es un lenguaje de programación desarrollado a l
 	
 	\item \textbf{Orientado a objetos:} el código se estructura en elementos llamados clases, a través de las cuales se crean los objetos con funcionalidades específicas.
 	
-	\item \textbf{Funciones y librerías:} python incluye una serie de funciones incluidas de base, como por ejemplo, la manipulación de strings, números, etc. A parte, existen multitud de librerías que se pueden importar al desarrollar un programa para cubrir necesidades específicas, como por ejemplo, el procesamiento del lenguaje natural.
+	\item \textbf{Funciones y librerías:} Python incluye una serie de funciones incluidas de base, como por ejemplo, la manipulación de strings, números, etc. A parte, existen multitud de librerías que se pueden importar al desarrollar un programa para cubrir necesidades específicas, como por ejemplo, el procesamiento del lenguaje natural.
 	
 	\item \textbf{Sintaxis clara:} La estructura del código se basa en los márgenes de obligado cumplimiento, siendo así muy visual. Esto hace que sea más sencillo distinguir las distintas partes del código.
 	
@@ -48,36 +266,8 @@ Python \citep*{tchDesarrolloWeb} es un lenguaje de programación desarrollado a l
 	
 \end{itemize}
 
-Se ha decidido utilizar Python en este proyecto debido a la facilidad de uso y a la existencia de diversas librerías de procesamiento de lenguaje natural, como Spacy y NLTK, las cuales se describen en los apartados previos \hyperref[cap2:sec:PLN:subsec:Spacy]{``Spacy''} y \hyperref[cap2:sec:PLN:subsec:NLTK]{``NLTK''} respectivamente.
+Se ha decidido utilizar Python en este proyecto debido a la facilidad de uso y a la existencia de diversas librerías de procesamiento de lenguaje natural, como Spacy y NLTK.
 
-
-
-%-------------------------------------------------------------------
-\section{Flask}
-%-------------------------------------------------------------------
-\label{cap3:sec:Flask}
-Flask \citep*{tchFlask1} es un ``micro'' Framework escrito en Python y concebido para facilitar el desarrollo de Aplicaciones Web y APIs.\\
-
-La palabra micro hace referencia a que Flask únicamente trae por defecto las herramientas necesarias para crear una aplicación web básica, aunque si se necesitan añadir nuevas funcionalidades hay un conjunto muy grande de extensiones (plugins) que se pueden instalar fácilmente. Por ello, Flask es muy recomendable para el desarrollo de aplicaciones que no requieran muchas extensiones o que se necesiten implementar de una forma ágil y rápida. También es muy recomendable para implementar microservicios.\\
-
-Algunas de las características de Flask por las que decidimos desarrollar nuestra API con este framework son las siguientes:\\
-
-\newpage
-\begin{itemize}
-	
-	\item Rapidez y facilidad en la instalación y configuración, a diferencia de otros frameworks como Django, que tiene una curva de aprendizaje mucho más baja.
-	
-	\item Es compatible con Python. Nuestra API está implementada en dicho lenguaje.
-	
-	\item Incluye un servidor web de desarrollo. No se necesita una infraestructura con un servidor web para probar las aplicaciones, sino que de una manera sencilla se puede levantar un servidor web para ir viendo los resultados que se van obteniendo.
-	
-	\item Cuenta con depurador. Si tenemos algún error en el código que se está desarrollando, se puede depurar ese error y ver los valores de las variables.
-	
-	\item Flask es Open Source y está amparado bajo una licencia BSD \citep*{tchBSD}, que es la licencia utilizada para los sistemas operativos BSD (Berkeley Software Distribution), y tiene menos restricciones en comparación con otras licencias como la GPL, estando muy cercana al dominio público.
-	
-	\item Cuenta con una muy buena documentación.
-	
-\end{itemize}
 
 
 %-------------------------------------------------------------------
@@ -103,6 +293,8 @@ Las ventajas de NGINX y el porqué de su uso:
 	
 \end{itemize}
 
+Se ha utilizado un servidor Nginx para alojar una página web escrita en HTML, CSS y Javascript, cuya finalidad es proporcionar una interfaz gráfica para el uso de la API.
+
 %-------------------------------------------------------------------
 \section{Google Colaboratory}
 %-------------------------------------------------------------------
@@ -110,12 +302,18 @@ Las ventajas de NGINX y el porqué de su uso:
 
 Google Colaboratory\footnote {\url{https://colab.research.google.com/notebooks/intro.ipynb}} es una herramienta gratuita de Google que permite programar en Python y ejecutar el código en tiempo real. El usuario final no necesita instalar nada en su propio sistema, ya que se pueden importar las librerías necesarias y toda la carga del procesamiento se localiza en los servidores de Google. \\
 
-Con esta herramienta se crean documentos llamados ``cuadernos de Colaboratory'', los cuales contienen celdas independientes en las que se puede introducir código ejecutable, texto, imágenes, comandos de la shell de Linux, código HTML, LaTex, etc. Todos estos cuadernos son almacenados en la cuenta de Google Drive del usuario, haciendo que compartirlo con otras personas sea muy rápido y sencillo.\\
+Con esta herramienta se crean documentos llamados ``cuadernos de Colaboratory'', los cuales contienen celdas independientes en las que se puede introducir código ejecutable, texto, imágenes, comandos de la shell de Linux, código HTML, LaTex, etc. Todos estos cuadernos son almacenados en la cuenta de Google Drive del usuario, haciendo que compartirlo con otras personas sea muy rápido y sencillo. Podemos ver un ejemplo de un cuaderno en la Figura~\ref {fig: imgGoogleColab}\\
 
 Una de las opciones más llamativas de Colaboratory es la opción de poder procesar el código que necesite gran potencia a través de un acelerador, en este caso consiste en una GPU proporcionada por Google.\\
 
 Para este proyecto se ha utilizado esta herramienta para realizar pruebas con PLN utilizando Spacy y NLTK de manera más rápida y sencilla, teniendo acceso los tres miembros del equipo en tiempo real a dichas pruebas. En este caso no ha sido necesario la utilización de la GPU ya que la ejecución del código generado no ha sido tan potente como para necesitarla. Una vez que las pruebas eran satisfactorias, se comenzaba el traspaso de código a la API del proyecto.
 
+\begin{figure}[]
+	\centering
+	\includegraphics[width=\textwidth]{Imagenes/Fuentes/Herramientas/colab.jpg}
+	\caption{Vista de un cuaderno de Google Colaboratory}
+	\label {fig: imgGoogleColab}
+\end{figure}
 
 
 
