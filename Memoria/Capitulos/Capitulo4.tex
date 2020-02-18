@@ -15,24 +15,57 @@
 	\end{Fuente}
 \end{FraseCelebre}
 
+En este capítulo se habla de la metodología de trabajo seguida por el equipo de este TFG durante el desarrollo del mismo, junto con algunas de las herramientas utilizadas para organizar y estructurar las tareas a realizar y mantener el código de la aplicación accesible y con sus correspondientes copias de seguridad. 
 
 %-------------------------------------------------------------------
-\section{Reuniones}
+\section{Metodologías Ágiles}
 %-------------------------------------------------------------------
-\label{cap4:sec:Reuniones}
+\label{cap4:sec:Metodologias Agiles}
 
-Para una buena organización, desde el principio el equipo de trabajo se ha reunido una vez a la semana para asignar las diferentes tareas, comentar el trabajo realizado y poner en común todos los conocimientos adquiridos por cada uno. A lo largo de la semana también había reuniones a través de Skype\footnote {\url{https://www.skype.com/es/}} para comentar y resolver las posibles dudas que podrían surgir durante el proceso. \\
+Las metodologías ágiles \citep*{tchMetAgiles} son aquellas que permiten adaptar la forma de trabajo a las condiciones particulares de cada proyecto, consiguiendo flexibilidad e inmediatez en la respuesta para amoldar el proyecto y su desarrollo a las circunstancias específicas del entorno.\\
 
-El equipo también se ha mantenido en contacto vía email con los tutores comentando el estado del proyecto. A esto se añadieron reuniones mensuales con ellos para realizar correcciones de la memoria, revisar el progreso, resolver dudas y comentar las tareas necesarias para las siguientes fases.\\
 
-De esta forma, los integrantes del equipo y los tutores han estado informados constantemente del progreso del trabajo, se ha podido hacer un reparto claro de tareas y se han podido establecer tiempos de entregas realistas y factibles.\\
+La aplicación de metodologías ágiles permite involucrar a nuestros tutores a lo largo de todo el proyecto. En cada etapa se informa de los logros y progresos del mismo, con la visión de involucrarles directamente para sumar su experiencia y conocimiento, y así optimizar las características del resultado final, obteniendo en todo momento una visión completa de su estado. La continua interacción entre los alumnos y los tutores tiene como objetivo asegurar que el resultado final sea exactamente lo que se busca y necesita. Además, es posible detectar de forma rápida tanto errores como problemas que puedan aparecer a lo largo del proyecto, por lo que es posible dar respuesta a todos aquellos contratiempos que puedan darse desde el inicio. Todo esto es posible gracias a las constantes reuniones que se realizan tanto entre los integrantes del grupo como entre los alumnos y los tutores. Estas reuniones se explican con más en detalle en la sección \ref{cap4:sec:Reuniones}.\\
+
+Además, el trabajo se realiza con mayor velocidad y eficiencia, ya que se trabaja a través de entregas parciales del proyecto. De este  modo, es posible entregar en el menor intervalo de tiempo posible una versión mucho más funcional de la aplicación y de la memoria. La herramienta elegida para gestionar el trabajo realizado ha sido el conocido controlador de versiones Git, del que se habla con detalle en la sección \ref{cap4:sec:Control de versiones}\\
+
+
+Desde el comienzo, una de las mayores ventajas de la utilización de metodologías ágiles es la mejora de la implicación de los integrantes del equipo. Estas metodologías permiten a todos los miembros conocer el estado del proyecto en cualquier momento, y facilita tanto el reparto de tareas como que los compromisos sean acordados y aceptados por todos. La herramienta utilizada para organizar todo el trabajo ha sido Trello, explicada en la sección \ref{cap4:sec:Trello}.\\
+
+
+Existen diversas modalidades de metodologías ágiles, algunas de las más conocidas son Scrum o Programación Extrema (XP). Concretamente, para el desarrollo de este proyecto se ha optado por la utilización de Kanban, que se explica en detalle en la sección \ref{cap4:sec:Kanban}.
+
+
+%-------------------------------------------------------------------
+\section{Kanban}
+%-------------------------------------------------------------------
+\label{cap4:sec:Kanban}
+
+Kanban \citep*{tchKanban1} es una metodología agile cuyo objetivo es gestionar de manera general cómo se van completando las tareas a llevar a cabo. Kanban es una palabra japonesa que significa 'tarjetas visuales', donde Kan es 'visual', y Ban corresponde a 'tarjeta'.\\
+
+La principal ventaja de esta metodología es que es muy fácil de utilizar, actualizar y asumir por parte del equipo. Además, destaca por ser una técnica de gestión de las tareas muy visual, que permite ver a golpe de vista el estado de los proyectos, así como también pautar el desarrollo del trabajo de manera efectiva. La herramienta utilizada para gestionar las tareas a realizar por los miembros del equipo ha sido Trello, explicada con detalle en la sección \ref{cap4:sec:Trello}.\\
+
+
+En Kanban existen una serie de principios básicos \citep*{tchKanban2} que ayudan a obtener el máximo rendimiento del flujo de trabajo. Algunos de los que se han aplicado en nuestro proyecto son los siguientes:\\
+
+\begin{itemize}
+	
+		\item \textbf{Visualizar lo que hace el flujo de trabajo:} una visualización de todas las tareas contribuye a que todos los miembros del equipo nos mantengamos al corriente de nuestro trabajo. Todos los miembros del equipo son capaces de trabajar en el mismo tablero y colaborar en tiempo real. Además, el tablero digital Trello, a través de su aplicación móvil, permite acceder al flujo de trabajo desde cualquier sitio, compartir tareas con facilidad y comunicarse entre el equipo.
+		
+		\item \textbf{Limitar la cantidad de Trabajo en Proceso:} establecer metas asequibles y limitar los trabajos en proceso para prevenir el exceso de cantidad de tareas, que serían muy difíciles de completar.
+		
+		\item \textbf{Lectura fácil de indicadores visuales:} con Kanban es sencillo conocer lo que está ocurriendo de un solo vistazo. Se utilizan tarjetas de colores para distinguir los tipos de trabajo, prioridades, o fechas límite. 
+
+\end{itemize}
+
+
 
 %-------------------------------------------------------------------
 \section{Trello}
 %-------------------------------------------------------------------
 \label{cap4:sec:Trello}
 
-A lo largo de todo el proyecto se ha utilizado la herramienta Trello\footnote {\url{https://trello.com/}} para el reparto claro y equitativo de tareas entre los componentes del equipo de trabajo. Trello consiste en un conjunto de tableros, a los cuales se les pueden añadir una serie de tareas con diferentes estados. Esto podemos observarlo en la Figura X, donde se muestra un ejemplo de tablero utilizado en el desarrollo del proyecto. Esta herramienta permite ver de manera sencilla el estado del proyecto, facilitando así la organización de las tareas a realizar. En el desarrollo de ``Text2LSE'' se han utilizado tres tableros distintos:
+A lo largo de todo el proyecto se ha utilizado la herramienta Trello\footnote {\url{https://trello.com/}} para el reparto claro y equitativo de tareas entre los componentes del equipo de trabajo. Trello consiste en un conjunto de tableros, a los cuales se les pueden añadir una serie de tareas con diferentes estados. Esto se puede observar en la Figura~\ref {fig: imgTrello} , donde se muestra un ejemplo de tablero utilizado en el desarrollo del proyecto. Esta herramienta permite ver de manera sencilla el estado del proyecto, facilitando así la organización de las tareas a realizar. En el desarrollo de ``Text2LSE'' se han utilizado tres tableros distintos:
 
 \begin{itemize}
 	
@@ -58,13 +91,26 @@ Para una mayor organización, cada tablero se ha estructurado en tres estados:
 
 Cada miembro del equipo ha sido el encargado de actualizar en tiempo real el estado de las tarjetas que tenía asignadas. De esta manera se ha conseguido tener una buena organización con respecto a las tareas a realizar.
 
-%\begin{figure}[]
-%	\centering
-%	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Metodologias/trello.png}
-%	\caption{Tablero \textit{``Memoria''} utilizado en el proyecto.  }
-%	\label {fig: imgTrello}
-%\end{figure}
-% ~\ref {fig: imgTrello} -> elegir imagen de tablero
+\begin{figure}[]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Metodologias/trello.jpg}
+	\caption{Tablero \textit{``Memoria''} utilizado en el proyecto.  }
+	\label {fig: imgTrello}
+\end{figure}
+ 
+
+
+%-------------------------------------------------------------------
+\section{Reuniones}
+%-------------------------------------------------------------------
+\label{cap4:sec:Reuniones}
+
+Para una buena organización, desde el principio el equipo de trabajo se ha reunido una vez a la semana para asignar las diferentes tareas, comentar el trabajo realizado y poner en común todos los conocimientos adquiridos por cada uno. A lo largo de la semana también había reuniones a través de Skype\footnote {\url{https://www.skype.com/es/}} para comentar y resolver las posibles dudas que podrían surgir durante el proceso. \\
+
+El equipo también se ha mantenido en contacto vía email con los tutores comentando el estado del proyecto. A esto se añadieron reuniones mensuales con ellos para realizar correcciones de la memoria, revisar el progreso, resolver dudas y comentar las tareas necesarias para las siguientes fases.\\
+
+De esta forma, los integrantes del equipo y los tutores han estado informados constantemente del progreso del trabajo, se ha podido hacer un reparto claro de tareas y se han podido establecer tiempos de entregas realistas y factibles.\\
+
 
 %-------------------------------------------------------------------
 \section{Control de versiones}
@@ -72,7 +118,9 @@ Cada miembro del equipo ha sido el encargado de actualizar en tiempo real el est
 \label{cap4:sec:Control de versiones}
 \subsection{GIT}
 
-Para el desarrollo del proyecto se ha utilizado Git \footnote{Web oficial de Git \url{https://git-scm.com/}} que es un sistema de control de versiones distribuido que sirve para trabajar en equipo de una manera muy sencilla y optimizada. Git permite al usuario tener un control absoluto de su proyecto pudiendo ver todos los cambios realizados en nuestra aplicación y nuestro código por cada uno de los miembros o incluso volver a versiones anteriores del proyecto.
+
+
+Para el desarrollo del proyecto se ha utilizado Git\footnote{\url{https://git-scm.com/}} que es un sistema de control de versiones distribuido que sirve para trabajar en equipo de una manera muy sencilla y optimizada. Git permite al usuario tener un control absoluto de su proyecto pudiendo ver todos los cambios realizados en la aplicación y en el código por cada uno de los miembros o incluso volver a versiones anteriores del proyecto.
 
 Sus principales herramientas son:
 
@@ -81,22 +129,93 @@ Sus principales herramientas son:
 	\item \textbf{Repository:} es un directorio donde se almacenan los archivos de tu proyecto. Puede estar ubicado en el almacenamiento de GitHub o en un repositorio local en tu computadora y tenerlos sincronizados.
 	
 	
-	\item \textbf{Branch:} es una copia de tu repositorio cuyo desarrollo es independiente al repositorio central u otras ramas. Una vez realizados los cambios se puede combinar tu rama con otras ramas y con el repositorio central mediante un request.
+	\item \textbf{Branch:} es una copia de tu repositorio cuyo desarrollo es independiente al repositorio central u otras ramas. Una vez realizados los cambios se puede combinar tu rama con otras ramas y con el repositorio central.
 	 
 	
 	\item \textbf{Commits:} son los cambios realizados en los archivos de tu repositorio local.
 
 	\item \textbf{Pull:} acción que actualiza el repositorio local de tu ordenador con la última versión del proyecto alojado en Github.
 	
-	\item \textbf{Push:} permite subir a Github los commits realizados en el repositorio local.	
+	\item \textbf{Push:} permite subir a Github los commits realizados en el repositorio local.
+	
+	\item \label{itm:merge} \textbf{Merge:} permite incorporar y fusionar los cambios con la rama principal.
+	
+	
 	
 \end{itemize}
 
 
 \subsection{GITHUB}
-GitHub \footnote{Web oficial de Github \url{https://help.github.com/}} es una plataforma que proporciona una interfaz que mediante las herramientas del control de versiones Git permite ver y llevar el registro de todos los cambios realizados en nuestro proyecto, organizarlos y resolver cualquier conflicto que pueda surgir. \\
+GitHub\footnote{\url{https://help.github.com/}} es una plataforma que proporciona una interfaz que mediante las herramientas del control de versiones Git permite ver y llevar el registro de todos los cambios realizados en el proyecto, organizarlos y resolver cualquier conflicto que pueda surgir. \\
 
 Github también funciona como una red social para desarrolladores ya que permite a otros usuarios ver y colaborar en tus repositorios así como resolver dudas que se tengan.
+
+
+\subsection{Estructura de Trabajo con GIT y GITHUB}
+
+A la hora de desarrollar el proyecto con la herramienta Git, se ha establecido una estructura común para un correcto desarrollo del proyecto y poder gestionar así de manera eficiente y segura los cambios realizados.\\
+
+La estructura desarrollada es la siguiente:\\
+
+\textbf{MASTER:} Rama principal del proyecto donde todo ha sido revisado y está óptimo funcionamiento  y de ella dependen:
+
+\begin{itemize}
+	\item \textbf{Memoria}: Rama principal de la memoria que contiene la versión revisada más reciente. De ella se crean nuevas ramas hijas por capítulo y funcionalidad:
+
+	\begin{itemize}
+		\item Memoria-Capítulo-N: \textit{Memoria-Capítulo3}
+		\begin{itemize}
+			\item Memoria-Capítulo-N-funcionalidad: \textit{Memoria-Capítulo3-Flask}
+		\end{itemize}
+	\end{itemize}
+
+		
+\end{itemize}
+
+\begin{itemize}
+	\item \textbf{API}: Rama principal de la API que contiene el código más reciente y en funcionamiento. Contiene dos ramas hijas:
+	
+	\begin{itemize}
+		\item API-Video: Rama donde se desarrolla toda la parte de procesamiento de vídeo. A partir de ella se crean ramas hijas por funcionalidad a desarrollar.
+		
+		\begin{itemize}
+			\item API-Video-funcionalidad: \textit{Api-Video-unaPalabra}
+		\end{itemize}
+	
+	\end{itemize}
+	
+
+	\begin{itemize}
+		\item API-PLN:Rama donde se desarrolla el procesamiento de lenguaje natural. A partir de ella se crean ramas hijas por funcionalidad a desarrollar.
+		
+		\begin{itemize}
+			\item API-PLN-funcionalidad: \textit{API-PLN-sujeto}
+		\end{itemize}
+		
+	\end{itemize}
+	
+\end{itemize}
+
+\begin{itemize}
+	\item \textbf{Web}: Rama principal del cliente que contiene el código más reciente y en funcionamiento. A partir de ella se crean ramas hijas por funcionalidad a desarrollar:
+	
+	\begin{itemize}
+		\item Web-funcionalidad: \textit{Web-llamadaFetch}
+	\end{itemize}
+	
+\end{itemize}
+
+Nota: Todas las ramas creadas por funcionalidad se pueden borrar una vez se dejen de usar y se haya realizado un  previo merge a su rama principal.
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Metodologias/git.jpg}
+	\caption{Estructura \textit{``Git''} utilizada en el proyecto.  }
+	\label {fig: imgGit}
+\end{figure}
+
+
+
 
 
 
