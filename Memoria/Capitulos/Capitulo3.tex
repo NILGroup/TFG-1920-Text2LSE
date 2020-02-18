@@ -8,15 +8,15 @@
 
 \begin{FraseCelebre}
 	\begin{Frase}
-		" La fuerza no viene de la capacidad corporal, sino de la voluntad del alma". 
+		"Controlar la complejidad es la esencia de la programación". 
 	\end{Frase}
 	\begin{Fuente}
-		Mahatma Gandhi
+		Brian Kernigan
 	\end{Fuente}
 \end{FraseCelebre}
 
 
-Introducción capitulo 3 COMPLETAR 
+En este capítulo se habla de las herramientas utilizadas a lo largo del desarrollo de nuestra aplicación, dando una breve descripción de cada una y comentando los motivos de su utilización con respecto a otras tecnologías. Así, en la sección 3.1 se habla del lenguaje utilizado para el desarrollo de nuestra API Python. En la sección 3.2 se habla del servidor Flask donde alojamos nuestra API y se comentan sus características. COMPLETAR
 \\
 
 
@@ -55,8 +55,8 @@ Se ha decidido utilizar Python en este proyecto debido a la facilidad de uso y a
 %-------------------------------------------------------------------
 \section{Flask}
 %-------------------------------------------------------------------
-\label{cap2:sec:Flask}
-Flask es un ``micro'' Framework escrito en Python y concebido para facilitar el desarrollo de Aplicaciones Web y APIs.\\
+\label{cap3:sec:Flask}
+Flask \citep*{tchFlask1} es un ``micro'' Framework escrito en Python y concebido para facilitar el desarrollo de Aplicaciones Web y APIs.\\
 
 La palabra micro hace referencia a que Flask únicamente trae por defecto las herramientas necesarias para crear una aplicación web básica, aunque si se necesitan añadir nuevas funcionalidades hay un conjunto muy grande de extensiones (plugins) que se pueden instalar fácilmente. Por ello, Flask es muy recomendable para el desarrollo de aplicaciones que no requieran muchas extensiones o que se necesiten implementar de una forma ágil y rápida. También es muy recomendable para implementar microservicios.\\
 
@@ -73,14 +73,55 @@ Algunas de las características de Flask por las que decidimos desarrollar nuestr
 	
 	\item Cuenta con depurador. Si tenemos algún error en el código que se está desarrollando, se puede depurar ese error y ver los valores de las variables.
 	
-	\item Flask es Open Source y está amparado bajo una licencia BSD, que es la licencia utilizada para los sistemas operativos BSD (Berkeley Software Distribution), y tiene menos restricciones en comparación con otras licencias como la GPL, estando muy cercana al dominio público.
+	\item Flask es Open Source y está amparado bajo una licencia BSD \citep*{tchBSD}, que es la licencia utilizada para los sistemas operativos BSD (Berkeley Software Distribution), y tiene menos restricciones en comparación con otras licencias como la GPL, estando muy cercana al dominio público.
 	
 	\item Cuenta con una muy buena documentación.
 	
 \end{itemize}
 
 
+%-------------------------------------------------------------------
+\section{Nginx}
+%-------------------------------------------------------------------
+\label{cap2:sec:Nginx}
 
+Nginx \footnote{Web oficial de Nginx \url{https://www.nginx.com/}} es un servidor web de alto rendimiento, capaz de trabajar junto con diversas tecnologías de desarrollo y lenguajes. La asincronía es una de sus características fundamentales, junto con su rapidez, debido a que es un servidor web ligero.
+A día de hoy, además de sus capacidades de servidor HTTP, NGINX también puede funcionar como un servidor proxy para correo electrónico (IMAP, POP3 y SMTP) y un proxy inverso y equilibrador de carga para servidores (HTTP, TCP y UDP).\\
+
+Las ventajas de NGINX y el porqué de su uso:
+
+\begin{itemize}
+	
+	\item Nginx es un software multiplataforma que se puede usar en la gran mayoría de los sistemas operativos, tanto en sistemas basados en Unix como en Windows.
+	
+	\item Consume menos recursos que la mayoría de servicios que hacen su misma función ya que hace un uso de memoria de forma estática y se mantiene bastante estable independientemente del volumen de tráfico.
+	
+	\item Proporciona un alto rendimiento sobre todo en casos de mucho tráfico.
+	
+	\item Puede ser usado como Proxy inverso cacheando el contenido de nuestros sitios web.
+	
+	
+\end{itemize}
+
+%-------------------------------------------------------------------
+\section{Google Colaboratory}
+%-------------------------------------------------------------------
+\label{cap3:sec:GoogleColaboratory}
+
+Google Colaboratory\footnote {\url{https://colab.research.google.com/notebooks/intro.ipynb}} es una herramienta gratuita de Google que permite programar en Python y ejecutar el código en tiempo real. El usuario final no necesita instalar nada en su propio sistema, ya que se pueden importar las librerías necesarias y toda la carga del procesamiento se localiza en los servidores de Google. \\
+
+Con esta herramienta se crean documentos llamados ``cuadernos de Colaboratory'', los cuales contienen celdas independientes en las que se puede introducir código ejecutable, texto, imágenes, comandos de la shell de Linux, código HTML, LaTex, etc. Todos estos cuadernos son almacenados en la cuenta de Google Drive del usuario, haciendo que compartirlo con otras personas sea muy rápido y sencillo. Podemos ver un ejemplo de un cuaderno en la Figura~\ref {fig: imgGoogleColab}\\
+
+Una de las opciones más llamativas de Colaboratory es la opción de poder procesar el código que necesite gran potencia a través de un acelerador, en este caso consiste en una GPU proporcionada por Google.\\
+
+Para este proyecto se ha utilizado esta herramienta para realizar pruebas con PLN utilizando Spacy y NLTK de manera más rápida y sencilla, teniendo acceso los tres miembros del equipo en tiempo real a dichas pruebas. En este caso no ha sido necesario la utilización de la GPU ya que la ejecución del código generado no ha sido tan potente como para necesitarla. Una vez que las pruebas eran satisfactorias, se comenzaba el traspaso de código a la API del proyecto.
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=\textwidth]{Imagenes/Fuentes/Herramientas/colab.jpg}
+	\caption{Vista de un cuaderno de Google Colaboratory}
+	\label {fig: imgGoogleColab}
+\end{figure}
 
 
 
