@@ -19,24 +19,12 @@
   \url{https://www.discapnet.es/areas-tematicas/salud/discapacidades/auditivas/discapacidad-auditiva}.
 \newblock Informe t\'ecnico, Discapnet, 2019.
 
-\bibitem[{FDI(2017)}]{tchBSD}
-{\sc FDI, W.}
-\newblock Qu\'e es la licencia {\uppercase{bsd}}. {\uppercase{d}isponible} en
-  \url{http://wikis.fdi.ucm.es/ELP/Licencia_BSD}.
-\newblock Informe t\'ecnico, BSD, 2017.
-
 \bibitem[{Fern\'andez(2008)}]{tchVerbos}
 {\sc Fern\'andez, A.}
 \newblock {\em La cantidad a manos llenas. {\uppercase{L}a} expresi\'on de la
   cuantificaci\'on en la {\uppercase{L}engua} de {\uppercase{S}ignos}
   {\uppercase{E}spa\~{n}ola}\/}.
 \newblock Fundaci\'on CNSE, 2008.
-
-\bibitem[{Flask(2019)}]{tchFlask1}
-{\sc Flask}.
-\newblock Qu\'e es flask. {\uppercase{d}isponible} en
-  \url{https://openwebinars.net/blog/que-es-flask/}.
-\newblock Informe t\'ecnico, Flask, 2019.
 
 \bibitem[{{IBM {\uppercase{c}orporation}}(2014)}]{tchSOAP}
 {\sc {IBM {\uppercase{c}orporation}}}.
@@ -74,6 +62,12 @@
   Espa\~{n}ola\/}.
 \newblock Fundaci\'on CNSE, 2002.
 
+\bibitem[{Openwebinars(2019)}]{tchFlask1}
+{\sc Openwebinars}.
+\newblock Qu\'e es flask. {\uppercase{d}isponible} en
+  \url{https://openwebinars.net/blog/que-es-flask/}.
+\newblock Informe t\'ecnico, Flask, 2019.
+
 \bibitem[{Orellana~Cordero y Trujillo~Orellana(2018)}]{artPLN2}
 {\sc Orellana~Cordero, M.} y {\sc Trujillo~Orellana, A.~A.}
 \newblock Evaluaci\'n de t\'ecnicas de procesamiento de lenguaje natural para
@@ -90,5 +84,10 @@
 {\sc Torres, S.}
 \newblock {\em Sistemas alternativos de comunicaci\'on.\/}.
 \newblock Ed. Aljibe, 2001.
+
+\bibitem[{{Wikis FDI}(2017)}]{tchBSD}
+{\sc {Wikis FDI}}.
+\newblock {\em Qu\'e es la licencia {\uppercase{BSD}}. {\uppercase{d}isponible}
+  en \url{http://wikis.fdi.ucm.es/ELP/Licencia_BSD}\/}, 2017.
 
 \end{thebibliography}
