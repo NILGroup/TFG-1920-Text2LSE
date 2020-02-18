@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{15}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{\'Alvarez(2003)}]{tchDesarrolloWeb}
@@ -19,12 +19,54 @@
   \url{https://www.discapnet.es/areas-tematicas/salud/discapacidades/auditivas/discapacidad-auditiva}.
 \newblock Informe t\'ecnico, Discapnet, 2019.
 
+\bibitem[{FDI(2017)}]{tchBSD}
+{\sc FDI, W.}
+\newblock Qu\'e es la licencia {\uppercase{bsd}}. {\uppercase{d}isponible} en
+  \url{http://wikis.fdi.ucm.es/ELP/Licencia_BSD}.
+\newblock Informe t\'ecnico, BSD, 2017.
+
 \bibitem[{Fern\'andez(2008)}]{tchVerbos}
 {\sc Fern\'andez, A.}
 \newblock {\em La cantidad a manos llenas. {\uppercase{L}a} expresi\'on de la
   cuantificaci\'on en la {\uppercase{L}engua} de {\uppercase{S}ignos}
   {\uppercase{E}spa\~{n}ola}\/}.
 \newblock Fundaci\'on CNSE, 2008.
+
+\bibitem[{Flask(2019)}]{tchFlask1}
+{\sc Flask}.
+\newblock Qu\'e es flask. {\uppercase{d}isponible} en
+  \url{https://openwebinars.net/blog/que-es-flask/}.
+\newblock Informe t\'ecnico, Flask, 2019.
+
+\bibitem[{{IBM {\uppercase{c}orporation}}(2014)}]{tchSOAP}
+{\sc {IBM {\uppercase{c}orporation}}}.
+\newblock {\em ¿Qu\'e es un servicio web?. {\uppercase{d}isponible} en
+  \url{https://www.ibm.com/support/knowledgecenter/es/SSMKHH_9.0.0/com.ibm.etools.mft.doc/ac55710_.html}\/},
+  2014.
+
+\bibitem[{{Iebschool}(2019{\natexlab{a}})}]{tchKanban1}
+{\sc {Iebschool}}.
+\newblock Metodolog\'ias \'agiles. {\uppercase{d}isponible} en
+  \url{https://www.iebschool.com/blog/metodologia-kanban-agile-scrum/}.
+\newblock Informe t\'ecnico, IEBSchool, 2019{\natexlab{a}}.
+
+\bibitem[{{Iebschool}(2019{\natexlab{b}})}]{tchMetAgiles}
+{\sc {Iebschool}}.
+\newblock Metodolog\'ias \'agiles. {\uppercase{d}isponible} en
+  \url{https://www.iebschool.com/blog/que-son-metodologias-agiles-agile-scrum/#metodologias_agiles}.
+\newblock Informe t\'ecnico, IEBSchool, 2019{\natexlab{b}}.
+
+\bibitem[{{Kanbantool}(2019)}]{tchKanban2}
+{\sc {Kanbantool}}.
+\newblock Metodolog\'ias \'agiles. {\uppercase{d}isponible} en
+  \url{https://kanbantool.com/es/metodologia-kanban}.
+\newblock Informe t\'ecnico, Kanbantool, 2019.
+
+\bibitem[{{\uppercase{m}anuel}~{\uppercase{r}osa}
+  {\uppercase{m}oncayo}(2018)}]{tchREST}
+{\sc {\uppercase{m}anuel}~{\uppercase{r}osa} {\uppercase{m}oncayo}, J.}
+\newblock {\em ¿Qu\'e es REST? Conoce su potencia. {\uppercase{d}isponible} en
+  \url{https://openwebinars.net/blog/que-es-rest-conoce-su-potencia/}\/}, 2018.
 
 \bibitem[{Mu\~{n}oz y et.al.(2002)}]{bkApuntesLing}
 {\sc Mu\~{n}oz, F.} y {\sc et.al., A.}
