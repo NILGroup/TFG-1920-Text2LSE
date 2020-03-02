@@ -2,30 +2,32 @@
 ## Frases
 Frases de prueba para el PLN de menos a más dificultad
 ```
-Yo bebo agua
+Yo bebo agua -> yo agua beber
 ```
 ```
-El niño bebe agua
+El niño bebe agua -> niño agua beber
 ```
 ```
-La niña bebe agua con limón
+La niña bebe agua con limón -> niña agua limón con beber
 ```
 ```
-Mi tía fue al supermercado en coche.
+Mi tía fue al supermercado en coche. -> yo tía ayer supermercado coche
 ```
 ```
-Mi novio me pidió matrimonio anoche
+QUITARLA - Mi novio me pidió matrimonio anoche -> anoche yo novio matrimonio pedir yo
 ```
 ```
-Las acciones de la empresa aumentaron este año
+Los problemas de la empresa aumentaron este año -> este año empresa problemas aumentar
 ```
 ```
-Mi hermana y mi tía se llevan muy mal
+Mi hermana y mi tía están de vacaciones -> yo hermana yo tía vacaciones
 ```
 ```
-Se rompió el teclado de mi computadora
+Se rompió el teclado de mi ordenador -> yo ordenador teclado romper
 ```
 ```
-Hoy los niños comen chocolate con leche
+Hoy los niños comen chocolate con leche -> hoy niños chocolate leche con comer
 ```
-
+```
+Mi hermana acudió a la policía a denunciar un robo -> mi hermana ayer policía ir. robo denunciar
+```
