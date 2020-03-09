@@ -6,14 +6,14 @@
 
 \chapter{Metodologías utilizadas}
 
-\begin{FraseCelebre}
-	\begin{Frase}
-		"Juntarse es un comienzo. Seguir juntos es un progreso. Trabajar juntos es un éxito". 
-	\end{Frase}
-	\begin{Fuente}
-		Henry Ford
-	\end{Fuente}
-\end{FraseCelebre}
+%\begin{FraseCelebre}
+%	\begin{Frase}
+%		"Juntarse es un comienzo. Seguir juntos es un progreso. Trabajar juntos es un éxito". 
+%	\end{Frase}
+%	\begin{Fuente}
+%		Henry Ford
+%	\end{Fuente}
+%\end{FraseCelebre}
 
 En este capítulo se habla de la metodología de trabajo seguida por el equipo de este TFG durante el desarrollo del mismo, junto con algunas de las herramientas utilizadas para organizar y estructurar las tareas a realizar y mantener el código de la aplicación accesible y con sus correspondientes copias de seguridad. 
 
@@ -65,39 +65,55 @@ En Kanban existen una serie de principios básicos \citep*{tchKanban2} que ayudan
 %-------------------------------------------------------------------
 \label{cap4:sec:Trello}
 
-A lo largo de todo el proyecto se ha utilizado la herramienta Trello\footnote {\url{https://trello.com/}} para el reparto claro y equitativo de tareas entre los componentes del equipo de trabajo. Trello consiste en un conjunto de tableros, a los cuales se les pueden añadir una serie de tareas con diferentes estados. Esto se puede observar en la Figura~\ref {fig: imgTrello} , donde se muestra un ejemplo de tablero utilizado en el desarrollo del proyecto. Esta herramienta permite ver de manera sencilla el estado del proyecto, facilitando así la organización de las tareas a realizar. En el desarrollo de ``Text2LSE'' se han utilizado tres tableros distintos:
+A lo largo de todo el proyecto se ha utilizado la herramienta Trello\footnote {\url{https://trello.com/}} para visualizar las tareas y su estado de manera clara y en tiempo real. Trello consiste en un conjunto de tableros, a los cuales se les pueden añadir una serie de tareas con diferentes estados. Esto se puede observar en la Figura~\ref {fig: imgTrello}, donde se muestra un ejemplo del tablero utilizado en el desarrollo del proyecto. Esta herramienta permite ver de manera sencilla el estado del proyecto, facilitando así la organización de las tareas a realizar. \\
+
+Durante nuestro TFG se ha utilizado un único tablero, al que se le ha llamado ``Text2LSE'', en el que se han englobado todas las tareas referentes a la investigación, desarrollo y pruebas del proyecto. Se ha diferenciado el tipo de tarea a través de los colores de cada tarjeta:
 
 \begin{itemize}
 	
-	\item \textbf{Investigación:} Incluye las tareas relacionadas con toda la investigación referente al proyecto, como por ejemplo LSE, Python, PLN, etc.
+	\item \textbf{Azul:} Tareas que engloban las distintas tareas de desarrollo del código de la aplicación web.
 	
-	\item \textbf{Desarrollo:} Este tablero contiene las distintas tareas de desarrollo de código, tanto de la aplicación web como de la API.
+	\item \textbf{Rojo:} Tareas que engloban las distintas tareas de desarrollo del código de los servicios web.
 	
-	\item \textbf{Memoria:} En este tablero se encuentran las distintas tareas relacionadas con el desarrollo y corrección de los apartados de la memoria.
+	\item \textbf{Verde:} Tareas relacionadas con el desarrollo y corrección de los distintos apartados de la memoria.
 	
 \end{itemize}
 
-Para una mayor organización, cada tablero se ha estructurado en tres estados:
+Para una mayor organización, el tablero se ha estructurado en cuatro estados:
 
 \begin{itemize}
 	
-	\item \textbf{Lista de Tareas:} Lista de tareas asignadas a un miembro del equipo en concreto que todavía están sin empezar.
+	\item \textbf{Lista de Tareas:} Lista de tareas a realizar.
 	
-	\item \textbf{En proceso:} Tareas que el propietario de la tarjeta tiene en proceso de desarrollo. 
+	\item \textbf{En proceso:} Tareas en proceso de desarrollo. Estas tareas están asignadas a un miembro del equipo. 
 	
-	\item \textbf{Hecho:} Tareas completadas y subidas al repositorio de GitHub.
+	\item \textbf{En revisión:} Tareas desarrolladas, pero pendientes de realizar pruebas para comprobar su correcto funcionamiento. 
+	
+	\item \textbf{Hecho:} Tareas completadas, comprobadas y subidas al repositorio de GitHub.
 	
 \end{itemize}
 
-Cada miembro del equipo ha sido el encargado de actualizar en tiempo real el estado de las tarjetas que tenía asignadas. De esta manera se ha conseguido tener una buena organización con respecto a las tareas a realizar.
+Cada miembro del equipo ha sido el encargado de actualizar en tiempo real el estado de las tarjetas que tenía asignadas, consiguiendo tener una buena organización con respecto a las tareas a realizar. Para ello se han utilizado límites del trabajo en proceso (WIP)\citep*{tchWIP}, de forma que se ha restringido la cantidad máxima de elementos en los que el equipo está trabajando. El límite utilizado ha sido de dos tareas máximo por miembro del equipo, siendo una tarea relacionada con el desarrollo de la web o con el desarrollo de los servicios web y otra con la memoria. De esta forma se ha podido realizar el trabajo de desarrollo y actualizar la memoria con las nuevas funcionalidades, así la memoria siempre ha estado con el contenido actualizado. La utilización de WIP  permite mejorar la forma de trabajo en equipo de las siguientes maneras:
+
+\begin{itemize}
+	
+	\item Evita la sobrecarga de trabajo a los miembros del equipo.
+	
+	\item Permite localizar y disminuir los cuellos de botella en el flujo de trabajo, es decir, determinar qué tareas bloquean el trabajo y redistribuir los recursos si es necesario.
+	
+	\item Evita que los miembros del equipo cambien de tarea de manera desordenada, de forma que todos en todo momento tienen claro cuales son sus tareas a realizar.
+	
+\end{itemize}
+
+
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Metodologias/trello.jpg}
-	\caption{Tablero \textit{``Memoria''} utilizado en el proyecto.  }
+	\caption{Tablero Kanban utilizado en el proyecto.  }
 	\label {fig: imgTrello}
 \end{figure}
- 
+
 
 
 %-------------------------------------------------------------------
@@ -105,12 +121,11 @@ Cada miembro del equipo ha sido el encargado de actualizar en tiempo real el est
 %-------------------------------------------------------------------
 \label{cap4:sec:Reuniones}
 
-Para una buena organización, desde el principio el equipo de trabajo se ha reunido una vez a la semana para asignar las diferentes tareas, comentar el trabajo realizado y poner en común todos los conocimientos adquiridos por cada uno. A lo largo de la semana también había reuniones a través de Skype\footnote {\url{https://www.skype.com/es/}} para comentar y resolver las posibles dudas que podrían surgir durante el proceso. \\
+Para una buena organización, desde el principio el equipo de trabajo se ha reunido una vez a la semana para asignar las diferentes tareas, comentar el trabajo realizado y poner en común todos los conocimientos adquiridos por cada uno. A lo largo de la semana también había reuniones a través de Skype para comentar y resolver las posibles dudas que podrían surgir durante el proceso. \\
 
 El equipo también se ha mantenido en contacto vía email con los tutores comentando el estado del proyecto. A esto se añadieron reuniones mensuales con ellos para realizar correcciones de la memoria, revisar el progreso, resolver dudas y comentar las tareas necesarias para las siguientes fases.\\
 
-De esta forma, los integrantes del equipo y los tutores han estado informados constantemente del progreso del trabajo, se ha podido hacer un reparto claro de tareas y se han podido establecer tiempos de entregas realistas y factibles.\\
-
+De esta forma, los integrantes del equipo y los tutores han estado informados constantemente del progreso del trabajo, se ha podido hacer un reparto claro de tareas y se han podido establecer tiempos de entrega realistas y factibles.\\
 
 %-------------------------------------------------------------------
 \section{Control de versiones}
