@@ -142,7 +142,7 @@ Su evolución en los últimos años ha ido creciendo de forma exponencial debido a 
 
 
 %-------------------------------------------------------------------
-\subsection{Estructura del procesamiento del lenguaje natural}
+\subsection{Estructura del Procesamiento del Lenguaje Natural}
 %-------------------------------------------------------------------
 Para que una máquina sea capaz de entender y procesar el lenguaje natural, es necesario analizar la estructura de dicho lenguaje, teniendo en cuenta los siguientes aspectos:
 
@@ -152,14 +152,10 @@ Para que una máquina sea capaz de entender y procesar el lenguaje natural, es ne
 	
 	\item\textbf{Nivel Fonológico:} se encarga de analizar cómo las palabras se relacionan con los sonidos que representan.
 	
-	\item\textbf{Nivel Morfológico:} trata de cómo las palabras se construyen a partir de unas unidades de significado más pequeñas llamadas morfemas. 
-	
-	Un ejemplo sería morfema de género: \textit{Chic-o (masculino) y Chic-a (femenino).}
+	\item\textbf{Nivel Morfológico:} trata de cómo las palabras se construyen a partir de unas unidades de significado más pequeñas llamadas morfemas. Un ejemplo sería el morfema de género: \textit{Chic-o (masculino) y Chic-a (femenino).}
 	
 	
-	\item\textbf{Nivel Sintáctico:} es el encargado de cómo se pueden unir las palabras para formar oraciones sintácticamente correctas, donde el orden de las palabras es el necesario para que se establezca la comunicación.
-	
-	Un ejemplo sería la concordancia entre sujeto y verbo ya que estos comparten siempre misma persona y número.
+	\item\textbf{Nivel Sintáctico:} es el encargado de cómo se pueden unir las palabras para formar oraciones sintácticamente correctas, donde el orden de las palabras es el necesario para que se establezca la comunicación. Un ejemplo sería la concordancia entre sujeto y verbo ya que estos comparten siempre misma persona y número.
 	\newline
 	\textit{Yo bebo agua: Yo(1ª per, Sg) y bebo (1ª per, Sg)}
 	\newline
@@ -167,57 +163,34 @@ Para que una máquina sea capaz de entender y procesar el lenguaje natural, es ne
 	
 	
 	
-	\item\textbf{Nivel Semántico:} estudio del significado de las expresiones del lenguaje y de cómo los significados de las palabras se unen para dar sentido a una oración.
-	
-	Un ejemplo sería: \textit{``Pedro habla la Lengua de Signos''.}
+	\item\textbf{Nivel Semántico:} estudio del significado de las expresiones del lenguaje y de cómo los significados de las palabras se unen para dar sentido a una oración. Un ejemplo sería: \textit{``Pedro habla la Lengua de Signos''.}
 	
 	
 	\item\textbf{Nivel Pragmático:} trata de cómo las oraciones se usan en distintas situaciones y de cómo el uso afecta al significado de las oraciones.
 	
 \end{itemize}
 
-
-
-%-------------------------------------------------------------------
-\subsection{Técnicas de PLN}
-%-------------------------------------------------------------------
-El procesamiento del lenguaje natural consta de distintas etapas, las cuales suelen variar de acuerdo al estudio que se va a realizar \citep*{artPLN2}. Algunas de ellas son:   
-
-\begin{itemize}
-	
-	\item\textbf{Tokenización:} realiza la división del texto en palabras o frases.
-	
-	\item\textbf{Chunking:}  Permite extraer conjuntos de palabras para que no pierdan el significado que forman entre ellas. Un ejemplo sería ``El libro electrónico'' en vez de separarlo en tokens lo separaría por grupos ``el '' y ``libro electrónico''.
-	
-	\item\textbf{Etiquetado gramatical:} Asigna a cada palabra del texto una categoría gramatical (sustantivo, adjetivo, verbo, etc).
-	
-	
-	\item\textbf{Entidades Nombradas:} extraer y clasificar conjuntos de palabras en categorías predefinidas como personas, lugares, organizaciones, etc. 
-	
-	
-\end{itemize}
+El Procesamiento del Lenguaje Natural en este proyecto es imprescindible ya que como se ha indicado en el apartado \ref{cap2:sec:Sintaxis de la Lengua de Signos} la LSE no es una simple representación del castellano por lo tanto hay realizar un procesamiento para poder obtener de una frase escrita en castellano una frase en LSE que cumpla su estructura gramatical.
 
 
 %-------------------------------------------------------------------
 \subsection{Herramientas PLN}
 %-------------------------------------------------------------------
-En la actualidad hay una gran cantidad de herramientas para poder realizar el Procesamiento de Lenguaje Natural de una forma más sencilla y rápida.  \\
-
-A continuación, vamos a explicar algunas de estas herramientas de procesamiento
-de lenguaje natural que existen actualmente. 
+En la actualidad hay una gran cantidad de herramientas para poder realizar el Procesamiento de Lenguaje Natural de una forma más sencilla y rápida. A continuación, vamos a explicar algunas de estas herramientas de Procesamiento
+de Lenguaje Natural que existen actualmente. 
 
 
 %-------------------------------------------------------------------
 \subsubsection{Spacy}
 %-------------------------------------------------------------------
-Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}}  es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python. Permite el desarrollo de aplicaciones que sean capaces de procesar y entender grandes volúmenes de texto. Actualmente es considerada una de las mejores herramientas para el PNL ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías del mercado.
+Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}}  es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python. Permite el desarrollo de aplicaciones que sean capaces de procesar y entender grandes volúmenes de texto. Actualmente es considerada una de las mejores herramientas para el PNL ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías.
 
 
 
 %-------------------------------------------------------------------
 \subsubsection{NLTK}
 %-------------------------------------------------------------------
-Natural Language ToolKit (NLTK)\footnote{Web oficial de NLTK \url{https://www.nltk.org/}}  es una librería dedicada al análisis del lenguaje natural bajo el lenguaje de programación Python. En la actualidad incluye utilidades para más de 10 idiomas y fue creada por académicos e investigadores como una herramienta para crear funciones complejas de PLN. Esta biblioteca es muy útil cuando se quiere construir un modelo desde cero ya que proporciona acceso a muchos algoritmos y facilita el uso de algoritmos propios.
+Natural Language ToolKit (NLTK)\footnote{Web oficial de NLTK \url{https://www.nltk.org/}}  es una librería dedicada al análisis del lenguaje natural bajo el lenguaje de programación Python. En la actualidad incluye utilidades para más de 10 idiomas y fue creada por académicos e investigadores como una herramienta para crear funciones complejas de PLN. Esta biblioteca es muy útil cuando se quiere construir un modelo desde cero ya que proporciona acceso a muchos algoritmos y facilita el uso de algoritmos permitiendo realizar un procesamiento del lenguaje más adaptado a un proyecto en concreto.
 
 
 
@@ -236,7 +209,7 @@ Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos
 \subsubsection{Conclusiones}
 %-------------------------------------------------------------------
 
-Una vez analizada la posibilidad de usar una u otra se ha llegado a la conclusión de que Spacy es la herramienta adecuada, ya que proporciona un análisis más rápido y preciso que cualquier otra biblioteca y es muy sencilla de aprender a manejar gracias a su manual de uso.
+Una vez analizada la posibilidad de usar una u otra se ha llegado a la conclusión de que Spacy es la herramienta adecuada, ya que proporciona un análisis bastante rápido y preciso en Español y es muy sencilla de aprender a manejar gracias a su manual de uso.  
 
 %-------------------------------------------------------------------
 \section{Nginx}
@@ -246,7 +219,7 @@ Una vez analizada la posibilidad de usar una u otra se ha llegado a la conclusió
 Nginx \footnote{Web oficial de Nginx \url{https://www.nginx.com/}} es un servidor web de alto rendimiento, capaz de trabajar junto con diversas tecnologías de desarrollo y lenguajes. La asincronía es una de sus características fundamentales, junto con su rapidez, debido a que es un servidor web ligero.
 A día de hoy, además de sus capacidades de servidor HTTP, NGINX también puede funcionar como un servidor proxy para correo electrónico (IMAP, POP3 y SMTP) y un proxy inverso y equilibrador de carga para servidores (HTTP, TCP y UDP).\\
 
-Las ventajas de NGINX y el porqué de su uso:
+Las ventajas de NGINX y el porqué de su uso en este TFG son:
 
 \begin{itemize}
 	
@@ -261,7 +234,7 @@ Las ventajas de NGINX y el porqué de su uso:
 	
 \end{itemize}
 
-Se ha utilizado un servidor Nginx para alojar una página web escrita en HTML, CSS y Javascript, cuya finalidad es proporcionar una interfaz gráfica para el uso de la API.
+Se ha utilizado un servidor NGINX para alojar una aplicación web cuya finalidad es mostrar la funcionalidad de los diferentes microservicios implementados en el proyecto. (ref a micro servicios)
 
 %-------------------------------------------------------------------
 \section{Google Colaboratory}
