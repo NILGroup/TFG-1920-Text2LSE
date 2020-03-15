@@ -7,7 +7,7 @@ from spacy import displacy
 preposiciones = {"a": False, "al": False, "ante": True, "bajo": True, "cabe": False, "con": True, "contra": True, "de": False, "del": False, "desde": True, "en": False, "entre": True, "hacia": True, "hasta": True, "para": True, "por": True, "según": True, "sin": True, "so": False, "sobre": True, "tras": True, "mediante": False, "durante": True, "versus": False, "vía": False}
 # mediante yo creo que sí se muestra pero ARASAAC no tiene video
 
-palabrasTiempo = {"segundo", "minuto", "hora", "día", "semana", "mes", "año", "ayer", "anteayer", "mañana"}
+palabrasTiempo = {"segundo", "minuto", "hora", "día", "semana", "mes", "año", "mañana"}
 
 posesivos = {
     "mi":["yo","yo"],"tu":["tu","tu"],"su":["él","ella"],
@@ -133,8 +133,9 @@ def analisismorfologico(diccionario):
             else:
                 nueva_frase.append(new_word[1])
         
-        elif(word.pos == "ADV" and word.text.lower() in adverbios['tiempo']):
+        elif(word.pos_ == "ADV" and word.text.lower() in adverbios['tiempo']):
           hayAdvTiempo = True
+          nueva_frase.append(word.text)
 
         elif (word == verbo):
           if(hayAdvTiempo == False and len(tiempo) == 0):
@@ -159,8 +160,16 @@ def analisismorfologico(diccionario):
 # Define el orden de las pablabras en LSE en función de sus tipos
 def subtrees (word, esSujeto, tipoPadre):
 
-  añadir = True
+  global tiempo
+  global sujeto
+  global predicado
+  global oracion
   global verbo
+  global prep
+  global diccionario
+
+  añadir = True
+  #global verbo
   tipoActual = ""
   alPrincipio = False
 
@@ -239,6 +248,22 @@ def subtrees (word, esSujeto, tipoPadre):
 
 def TranslateSentence(initSentence):
   
+  global tiempo
+  global sujeto
+  global predicado
+  global oracion
+  global verbo
+  global prep
+  global diccionario
+
+  tiempo = []
+  sujeto = []
+  predicado = []
+  oracion = []
+  verbo = None
+  prep = None
+  diccionario = {}
+
   root = ""
   isVerbRoot = False
   verbAux = ""
@@ -313,18 +338,18 @@ def TranslateSentence(initSentence):
   #           "color": "white", "font": "Source Sans Pro"}
   # displacy.render(doc, style='dep', jupyter = True, options=options)
 
-  print ("---------------------------------------------------------------------------------- ")
-  print ("------------------------------------ SUJETO -------------------------------------- ")
-  print (sujeto)
-  print ("----------------------------------- PREDICADO ------------------------------------ ")
-  print (predicado)
-  print ("------------------------------------ ORACIÓN ------------------------------------ ")
-  print (oracion)
-  print ("----------------------------------- DICCIONARIO --------------------------------- ")
-  print(diccionario)
-  print ("------------------------------------- MORFOLOGIA ------------------------------------ ")
-  print(analisismorfologico(diccionario))
-
+  # print ("---------------------------------------------------------------------------------- ")
+  # print ("------------------------------------ SUJETO -------------------------------------- ")
+  # print (sujeto)
+  # print ("----------------------------------- PREDICADO ------------------------------------ ")
+  # print (predicado)
+  # print ("------------------------------------ ORACIÓN ------------------------------------ ")
+  # print (oracion)
+  # print ("----------------------------------- DICCIONARIO --------------------------------- ")
+  # print(diccionario)
+  # print ("------------------------------------- MORFOLOGIA ------------------------------------ ")
+  # print(analisismorfologico(diccionario))
+  return analisismorfologico(diccionario)
 # Llamada a la función principal
-sentence =  "Mi tía acudió al supermercado en coche."
-TranslateSentence(sentence)
+#sentence =  "Mi tía acudió al supermercado en coche."
+#TranslateSentence(sentence)

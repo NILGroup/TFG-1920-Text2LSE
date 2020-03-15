@@ -6,8 +6,8 @@ import constantes as const
 
 
 # Devuelve true si existe video para la palabra, false si error
-def existeVideo(token):
-    if(os.path.isfile(const.path + token +".mp4")):
+def existeVideo(palabra):
+    if(os.path.isfile(const.path + palabra +".mp4")):
         return True
     return False
 
@@ -29,9 +29,9 @@ def getTextoVideo(sentence):
 
 	videos = []
 
-	for token in sentence:
-		if existeVideo(token.text):
-			clip = VideoFileClip(const.path + token.text+  ".mp4")
+	for palabra in sentence:
+		if existeVideo(palabra):
+			clip = VideoFileClip(const.path + palabra + ".mp4")
 			videos.append(clip)
 		else:
 			return "error"

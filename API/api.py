@@ -5,6 +5,7 @@ import spacy
 import os
 #------------------- Archivos lógica --------------------#
 import video
+import pln
 import constantes as const
 
 app = Flask(__name__)
@@ -42,7 +43,6 @@ def getVideoPalabra(palabra):
 def getTextoTraducidoVideo():
 
 	texto = request.form['Texto']
-	doc = nlp(texto)
 	size = len(texto.split())
 	
 	if(size == 1):
@@ -57,7 +57,8 @@ def getTextoTraducidoVideo():
 		response.headers['Content-Transfer-Enconding']='base64'
 
 	elif(size > 1):
-		
+		doc = pln.TranslateSentence(texto)
+		print(doc)
 		nombreVideo = video.getTextoVideo(doc)
 
 		if (nombreVideo == "error"):
@@ -80,14 +81,13 @@ def getTextoTraducidoVideo():
 def getTextoTraducido():
 
 	text = request.form['Texto']
-	doc = nlp(text)
 	response = []
 	frase = ""
 
-    # Llamada a pln.py para procesar el texto a LSE
+	doc = pln.TranslateSentence(text)
 
-	for token in doc:
-		frase += token.text + " "
+	for palabra in doc:
+		frase += palabra + " "
 
 	response = {"texto" : frase}
 	return response
@@ -102,17 +102,16 @@ def getTextoTraducido():
 @app.route("/TextoLSEVideos/", methods=["POST"])
 def getTextoTraducidoNombreVideos():
 
-	texto = request.form['Texto']
-	doc = nlp(texto)
+	text = request.form['Texto']
 	response = []
 	frase = ""
 
-    # Llamada a pln.py para procesar el texto a nombre de videos LSE
+	doc = pln.TranslateSentence(text)
 
-	for token in doc:
-		frase += token.text + " "
+	for palabra in doc:
+		frase += palabra + " "
 
-	response = { "texto" : frase }
+	response = {"texto" : frase}
 	return response
 
 # ---------------------------------------------------------------------------------------------------------
