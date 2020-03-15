@@ -14,6 +14,7 @@ posesivos = {
     "nuestro":["nosotros","nosotras"],"vuestro":["vosotros","vosotras"],"sus": ["ellos","ellas"]
 }
 
+reflexivos = {"me","te","se","nos","os"}
 
 adverbios = {
     "tiempo": ["antes", "después", "luego", "pronto", "tarde", "temprano", "todavía", "aún", "ya", "ayer", "hoy", "mañana", "anteayer", 
@@ -102,7 +103,7 @@ def getIfAddDeterminant(word):
   return True
  
 
-
+tiempo = []
 sujeto = []
 predicado = []
 oracion = []
@@ -136,15 +137,15 @@ def analisismorfologico(diccionario):
           hayAdvTiempo = True
 
         elif (word == verbo):
-          if(hayAdvTiempo == False):
+          if(hayAdvTiempo == False and len(tiempo) == 0):
             if(getKeyValue('Tense',diccionario[word]) == "Past"):
                 nueva_frase.insert(0,'ayer')
 
             elif(getKeyValue('Tense',diccionario[word]) == "Fut"):
               nueva_frase.insert(0,'mañana')
               
-          
-          nueva_frase.append(word.lemma_)
+          if(verbo.lemma_ != 'ser' and verbo.lemma_ != 'estar' and verbo.lemma_ != 'parecer'):
+            nueva_frase.append(word.lemma_)
         else:
           nueva_frase.append(word.text)
         
@@ -156,10 +157,12 @@ def analisismorfologico(diccionario):
 
 # Función a la que le llega la palabra de la que hay que sacar el árbol y si es parte del sujeto o no esa palabra.
 # Define el orden de las pablabras en LSE en función de sus tipos
-def subtrees (word, esSujeto):
+def subtrees (word, esSujeto, tipoPadre):
 
   añadir = True
   global verbo
+  tipoActual = ""
+  alPrincipio = False
 
   # Si es verbo no lo tratamos ahora -> lo añadimos al final del tratamiento de la oración
   if ((word.dep_ == "ROOT" and word.pos_ == 'VERB') and (word.dep_ == "ROOT" and word.pos_ == 'AUX')):
@@ -168,6 +171,9 @@ def subtrees (word, esSujeto):
     añadir = False
 
   else:
+
+    if (word.pos_ == 'PRON' and word.text.lower() in reflexivos):
+      añadir = False
 
     # Comprobamos si hay un verbo en la oración -> guardamos su lemma_ si no es ser o estar
     if ((word.dep_ == "cop" and word.pos_ == 'AUX') or word.pos_ == "VERB"):
@@ -189,42 +195,42 @@ def subtrees (word, esSujeto):
       añadir = getIfAddDeterminant(word)
       
 
-    # ------------------------ ADVERBIOS ----------------------------
-    # Ver de que tipo son y colocar en la oración según corresponda
-
-    # Tiempo
-    # Lugar
-    # Modo
-    # Cantidad
-    # Interrogativos / Excalamtivos
-    # Afirmación
-    # Negación
-    # Duda
-
    # ------------------------ SUSTANTIVOS ----------------------------
     #  PALABRAS DE TEMPORALIDAD
     # Si hallamos una palabra de temporalidad (semana, año, mes, etc) cogemos todo lo que herede de esta palabra, lo tratamos y lo que quede lo ponemos al principio de la oración
     if (word.pos_ == 'NOUN'):
       if (word.text.lower() in palabrasTiempo):
-        alPrincipio = True
+        tipoActual = "tiempo"
+
     # Por ejemplo: La semana pasada -> De semana heredan LA y PASADA -> se trataría así -> semana pasada -> quedaría colocarlo al inicio de la oración 
 
   # ---------------------------------------------------------------------
   # ---------------------------------------------------------------------
 
+  if (tipoActual == ""):
+    tipoActual = tipoPadre
+
+  # --------------------- TIEMPO--------------------------
+
+  if (tipoActual == "tiempo"):
+    if (añadir == True):  
+      tiempo.insert(0, word)
+    for child in word.children:
+      subtrees(child, True, tipoActual)
+
   # --------------------- SUJETO--------------------------
-  if (word.dep_ == 'nsubj' or esSujeto):
-    if (añadir == True):    
+  elif (word.dep_ == 'nsubj' or esSujeto):
+    if (añadir == True):  
       sujeto.append(word)
     for child in word.children:
-      subtrees(child, True)
+      subtrees(child, True, tipoActual)
 
   # -------------------- PREDICADO ------------------------
   else: 
     if (añadir == True): 
       predicado.append(word)
     for child in word.children:
-      subtrees(child, False)
+      subtrees(child, False, tipoActual)
 
 
 # --------------------------------------------------------------------------------------------------------------------
@@ -246,7 +252,7 @@ def TranslateSentence(initSentence):
     if (token.dep_ == "ROOT"):
       root = token
     
-  subtrees(root, False)
+  subtrees(root, False,'root')
 
   # Vamos añadiendo el sujeto ordenado a la oración
   for suj in sujeto:
@@ -279,32 +285,17 @@ def TranslateSentence(initSentence):
       else:
         oracion.append(pred)
       
-    # elif pred.dep_ == 'obl':
-    #   for p in pred.children:
-    #     if p.dep_ == 'det':
-    #       if getIfAddDeterminant(p):
-    #          posibleAdvTim = p.text + " " + pred.text
-    #       else:
-    #         posibleAdvTim = posibleAdvTim + pred.text
-
-    #     elif p.pos_ == 'ADJ':
-    #       posibleAdvTim = posibleAdvTim + " " + p.text
-
-    #     if posibleAdvTim in adverbios['tiempo']:
-    #       oracion.insert(0,posibleAdvTim)
-
-    #   #oracion.append(pred)
-    #   break
-    #   # if(predicado.index(pred) < len(predicado)-1):
-    #   #   posibleAdvTim = pred.text + " " + predicado[predicado.index(pred) + 1].text
-    #   #   if posibleAdvTim in adverbios['tiempo']:
-    #   #     oracion.insert(0,pred)
-
     else:
       oracion.append(pred)
 
     diccionario[pred] = splitTags(pred.tag_)
 
+  # Vamos añadiendo palabras de tiempo
+  for palabra in tiempo:
+    oracion.insert(0,palabra)
+    diccionario[palabra] = splitTags(palabra.tag_)
+
+  # Añadimos el verbo
   if (verbo != None):
     oracion.append(verbo)
     diccionario[verbo] = splitTags(verbo.tag_)
@@ -316,6 +307,11 @@ def TranslateSentence(initSentence):
     # VERBO EN PASADO -> AÑADIR AYER SI NO HAY YA ALGUNA PALABRA INDICANDO TIEMPO
     # FEMENINOS -> PASAR A MASCULINOS
     # ETC
+
+  # Dibujar el árbol
+  # options = {"compact": False, "bg": "#09a3d5",
+  #           "color": "white", "font": "Source Sans Pro"}
+  # displacy.render(doc, style='dep', jupyter = True, options=options)
 
   print ("---------------------------------------------------------------------------------- ")
   print ("------------------------------------ SUJETO -------------------------------------- ")
@@ -330,32 +326,5 @@ def TranslateSentence(initSentence):
   print(analisismorfologico(diccionario))
 
 # Llamada a la función principal
-sentence =  "Los niños comen chocolate con leche hoy"
+sentence =  "Mi tía acudió al supermercado en coche."
 TranslateSentence(sentence)
-
-
-# FALLA
-  # 4. Mi tía fue al supermercado en coche. -> tía mi supermercado coche -> DEBERÍA SER -> yo tía ayer supermercado coche
-  # 5. Los problemas de la empresa aumentaron este año -> problemas empresa año este aumentar -> DEBERÍA SER -> este año empresa problemas aumentar
-  # 6. Mi hermana y mi tía están de vacaciones -> tía hermana mi mi vacaciones -> DEBERÍA SER -> yo hermana yo tía vacaciones
-  # 7. Se rompió el teclado de mi ordenador -> teclado ordenador mi se romper .> DEBERÍA SER -> yo ordenador teclado romper
-  # 8. Los niños comen chocolate con leche hoy -> niós chocolate leche con comer hoy -> DEBERÍA SER -> hoy niños chocolate leche con comer
-  # 9. Mi hermana acudió a la policía a denunciar un robo -> hermana mi policia robo un denunciar -> DEBERÍA SER -> yo hermana ayer policía ir. Robo denunciar
-
-# FUNCIONA
-  # 1. Él bebe agua -> Él agua beber
-  # 2. El niño bebe agua -> niño agua beber
-  # 3. La niña bebe agua con limón -> niña agua limón con beber
-
-# PENDIENTE
-  # 1. Determinantes 
-      # posesivos -> mi casa -> yo casa
-      # demostrativos "este", "esta", "estos", "estas", "ese", "esa", "esos", "esas", "aquel", "aquella", "aquellos" y "aquellas" -> qué se hace? 
-  # 2. Palabras temporales -> añadir el conjunto de las palabras temporales al principio de la oración
-  # 3. Adverbios -> añadirlos donde correscponda según el tipo
-  # 4. Sujetos compuestos (mi hermana y mi tía -> yo hermana yo tía)
-  # 5. Quitar me te se
-  # 6. Verbos compuestos -> convertir en un verbo solo -> he comido -> pasado comer (quitando el he)
-  # 7. Temporalidad verbos -> añadir ayer, presente o futuro si no hay temporalidad indicada
-  # 8. Femeninos -> pasar a masculinos (bonita -> bonito)
-  # 9. Frases compuestas -> dividir en distintas frases
