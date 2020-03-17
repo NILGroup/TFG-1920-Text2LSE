@@ -8,97 +8,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  <link rel="stylesheet" href="styles.css">
+  
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
   <script src="scripts.js"></script>
-  <link rel="stylesheet" href="styles.css">
+
 
 </head>
 <body>
 
+<div class="header">
+    <strong><label class="logo">Text2LSE</label></strong>
+    <input type="checkbox" id="chk">
+    <label for="chk" class="show-menu-btn">
+      <i class="fas fa-ellipsis-h"></i>
+    </label>
+
+    <ul class="menu">
+      <a href="index.html">App</a>
+      <a href="team.html">Team Members</a>
+      <a href="#">About Text2LSE</a>
+      <label for="chk" class="hide-menu-btn">
+        <i class="fas fa-times"></i>
+      </label>
+    </ul>
+</div>
+
+
 <div class="container-fluid" id="containerPag">
-  <div class="row content">    
-
-    <div class="col-sm-9">
+  <div class="row">    
+    <!-- VIDEO -->
+    <div class="col-md-offset-1 col-md-4">
       
-      <h2>Bienvenidos a text2LSE!</h2> 
+      <div class="row">
+          <div id="videoContainer" class="text-center embeb-responsive embeb-responsive-3by2"></div>
+      </div>
+      <div class="row">
+        <form role="form" id="formVideo">
+          <div class="row">
+            <h4>Escribe texto a traducir a video:</h4>
+            <div class="form-group">
+              <!--<textarea class="form-control" name="textToTranslateVideo" id="textToTranslateVideo" rows="3" required></textarea>-->
+              <textarea class="form-control z-depth-1" name="textToTranslateVideo" id="textToTranslateVideo" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <!-- <button onClick = "GetVideoWord()" id="btn1WordVideo" class="btn btn-success">Video 1 palabra</button>-->
+            <button onClick = "GetVideoSentence()" id="btnSentenceVideo" class="btn submitBtn"><i class="fas fa-play"></i> Traducir</button>
+            <!--<button onClick = "GetTextLSEJson()" id="btnJsonLSE" class="btn btn-success">Json LSE</button>-->
+            <!--<button onClick = "GetTextLSEVideosJson()" id="btnJsonLSEVideos" class="btn btn-success">Json LSE Form. videos</button>-->
+          </div>
+        </form>
+      </div>
 
-      <!-- VIDEO BIENVENIDA
-      <video id="video" width="300" height="240" controls>
-        <source src="abeja.mp4" type=video/mp4>
-      </video>-->
+     </div>
+    <!-- FIN VIDEO -->
+    <!-- TEXTO -->
 
-      <div id="videoContainer"></div>
-
-      <h4>Escribe texto a traducir:</h4>
-
-      <form role="form" id="form1">
-
-        <div class="form-group">
-          <textarea class="form-control" name="textToTranslate" id="textToTranslate"  rows="3" required></textarea>
+    <div class="col-md-offset-1 col-md-4">
+      <div class="row">
+        <div id="JSONContainer" class="overflow-auto">
+          <div id="JSONText" ></div>
         </div>
+      </div>
+      <div class="row">
+        <form role="form" id="formJSON">
+          <div class="row">
+            <h4>Escribe texto a traducir a sordo:</h4>
+            <div class="form-group">
+              <!--<textarea class="form-control" name="textToTranslateJSON" id="textToTranslateJSON" rows="3" required></textarea>-->
+              <textarea class="form-control z-depth-1" name="textToTranslateJSON" id="textToTranslateJSON" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <button onClick = "GetTextLSEJson()" id="btnJsonLSE" class="btn submitBtn"><i class="fas fa-pen-fancy"></i> Traducir</button>
 
-        <button onClick = "SendText()" id="submitBtn" class="btn btn-success">
-        Enviar</button>
-
-      </form>
-      <!-- CONTENEDOR INSTERTAR IMAGENES
-      <div id="preview">
-        <img src="" id="img" width="100" height="100">
-      </div>-->
-      
-
-      <span id="spanFinal"> </span>
-      <br><br>
-
+          </div>
+        </form>
+      </div>
     </div>
+    <!-- FIN TEXTO -->
   </div>
 </div>
 
-<footer class="page-footer navbar-fixed-bottom font-small teal pt-4">
 
-  <!-- Footer Text -->
-  <div class="container-fluid text-center text-md-left">
-
-    <!-- Grid row -->
-    <div class="row">
-
-      <!-- Grid column -->
-      <div class="col-md-6 mt-md-0 mt-3">
-
-        <!-- Content -->
-        <h5 class="text-uppercase font-weight-bold">Footer text 1</h5>
-        <p>Aqui un logo </p>
-
-      </div>
-      <!-- Grid column -->
-
-
-      <!-- Grid column -->
-      <div class="col-md-6 mb-md-0 mb-3">
-
-        <!-- Content -->
-        <h5 class="text-uppercase font-weight-bold">Text2LSE</h5>
-        <p>Proyecto desarrollado por Sara, Miguel y Alex</p>
-
-      </div>
-      <!-- Grid column -->
-
-    </div>
-    <!-- Grid row -->
-
-  </div>
-  <!-- Footer Text -->
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3"> 2019 Proyecto fin de grado.
-    <a href="https://ucm.es/"> Universidad Complutense de Madrid</a>
-  </div>
-  <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
 
 
 </body>

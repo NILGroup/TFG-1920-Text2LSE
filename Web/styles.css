@@ -9,14 +9,327 @@
 	color: white;
 }
 
-#submitBtn{
-	background-color: #870513;
+.submitBtn{
+	background-color: #990033;
+	color: white;
+}
+.submitBtn:hover, :focus, :active, :visited, :link{
+	background-color: #fff;
+	color: #990033;
+	border-color: #990033;
+	border-width: 1px;
 }
 
 #videoContainer{
 	height: 240px;
+	max-height: 240px;
+	margin-bottom: 15px;
+	border-color: #eeedec;
+	border-style: solid;
+	border-width: 2px;
+}
+
+#JSONContainer{
+	height: 240px;
+	max-height: 240px;
+	overflow-y: scroll;
+	border-color: #eeedec;
+	border-style: solid;
+	border-width: 2px;
+	margin-bottom: 15px;
+	margin-top:-10px;
 }
 
 #containerPag{
 	padding: 0 50px 0 50px;
 }
+
+.form-control:focus {
+	border-color:#ea5e71;
+}
+
+#JSONText{
+	margin: 5px 5px 5px 5px;
+}
+
+video {
+	max-height: 236px;
+	height: auto;
+	width: auto;
+}
+/*+++++++++++++++++++++++++++++ Miembros +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+body{
+	margin:0;
+	padding:0;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "montserrat",sans-serif;
+  box-sizing: border-box;
+}
+
+.header{
+  height: 100px;
+  background: #fff;
+  padding: 0 20px;
+  color: #990033;
+}
+.logo{
+  line-height: 100px;
+  float: left;
+  text-transform: uppercase;
+
+}
+
+.menu{
+  float: right;
+  line-height: 100px;
+
+}
+.menu a{
+  color: #990033;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 10px;
+  transition: 0.4s;
+
+
+}
+.show-menu-btn,.hide-menu-btn{
+  transition: 0.4s;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+
+}
+.show-menu-btn{
+  float: right;
+}
+.show-menu-btn i{
+  line-height: 100px;
+}
+.menu a:hover,
+.show-menu-btn:hover,
+.hide-menu-btn:hover{
+  color: #3498db;
+}
+
+#chk{
+  position: absolute;
+  visibility: hidden;
+  z-index: -1111;
+}
+
+@media screen and (max-width:800px) {
+  .show-menu-btn,.hide-menu-btn{
+    display: block;
+  }
+  .menu{
+    position: absolute;
+    width: 100%;
+    height:100%;
+    background: #333;
+    right: -100%;
+    top: 0;
+    text-align: center;
+    padding: 80px 0;
+    line-height: normal;
+    transition: 0.7s;
+    z-index: 999999;
+  }
+  .menu a{
+    display: block;
+    padding: 20px;
+  }
+  .hide-menu-btn{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
+  #chk:checked ~ .menu{
+    right: 0;
+  }
+
+  #JSONContainer{
+	height: 230px;
+	max-height: 230px;
+	overflow-y: scroll;
+	border-color: #eeedec;
+	border-style: solid;
+	border-width: 2px;
+	margin-bottom: 15px;
+	margin-top: 25px;
+	position: relative;
+  }
+
+  video {
+	/*max-height: 230px;*/
+	height: auto;
+	width: auto;
+  }
+}
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+body{
+	margin:0;
+	padding:0;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+.container{
+	max-width:1140px;
+	margin:auto;
+	min-height: 400px;
+	margin-left: 250px;
+}
+
+.team{
+	padding:60px 15px;
+	background-color:#fff; 
+	float: left;
+	width: 100%;
+	
+}
+
+.team2{
+	padding:60px 15px;
+	background-color: #F9F9F9; 
+	float: left;
+	width: 100%;
+}
+
+.title{
+	font-size: 36px;
+	font-family: open sans;
+	font-weight: 700;
+	color: #424242;
+	margin:0;
+	padding-bottom:60px;
+	text-align: center;
+
+}
+
+.card{
+	width:25%;
+	float: left;
+	padding:0px 15px;
+	
+}
+.box {
+	transition: margin 3s ease,box-shadow 2s ease;
+	border-radius:5px;
+	padding:15px;
+	
+
+	
+}
+.team .box{
+	background-color: #fff;
+}
+
+.team2 .box{
+	background-color: #F9F9F9;
+	
+}
+
+.box:hover{
+	margin-top:-15px;
+	box-shadow:0px 0px 40px black;
+}
+.box .name{
+	height: 80px;
+}
+
+.box img{
+	width:150px;
+	display: block;
+	margin:10px auto;
+	border-radius:50%;
+
+}
+
+.box h4{
+	font-size: 20px;
+	font-family: open sans;
+	margin:20px 0px 10px;
+	color:#990033;
+	text-align: center;
+	font-weight: 700;
+}
+
+.box h5{
+	font-size:16px;
+	font-family: open sans;
+	font-weight: 600;
+	color:#424242;
+	margin:0px 0px 15px;
+	text-align: center;
+}
+.box p{
+	color:#b9b9b9;
+	font-size: 15px;
+	font-family: open sans;
+	font-weight: 400;
+	line-height: 24px;
+	text-align: center;
+	padding:0px 20px;
+}
+
+
+@media(max-width: 1200px){
+	.card{
+		width:50%;
+		margin-bottom:30px;
+		
+	}
+
+	.container{
+		margin:auto;
+	}
+
+	.container2{
+		margin:auto;
+	}
+
+}
+
+
+/*responsive*/
+
+@media(max-width: 991px){
+	.card{
+		width:50%;
+		margin-bottom:30px;
+		
+	}
+
+	.container{
+		margin:auto;
+	}
+
+}
+
+@media(max-width:550px){
+	.card{
+		width:100%;
+		
+	}	
+
+	.container{
+		margin:auto;
+	}
+
+}
+
