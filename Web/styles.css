@@ -1,6 +1,6 @@
 
 
-.page-footer{
+/*.page-footer{
 	background-color: #870513;
 	color: white;
 }
@@ -8,16 +8,25 @@
 .page-footer a:link{
 	color: white;
 }
-
+*/
+body {
+	/*padding-bottom: 100px;*/
+}
 .submitBtn{
 	background-color: #990033;
 	color: white;
 }
-.submitBtn:hover, :focus, :active, :visited, :link{
-	
-	color: #990033;
+
+.submitBtn:hover, .submitBtn:focus{
 	border-color: #990033;
+	color: white;
 	border-width: 1px;
+	background-color: #bf0241;
+}
+
+.header :link, .header :hover {
+	color: #bf0241 !important;
+	text-decoration: none;
 }
 
 #videoContainer{
@@ -58,6 +67,42 @@ video {
 	height: auto;
 	width: auto;
 }
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #990033;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.center {
+  position: absolute;
+  top: 33%;
+  left:43%;
+}
+
+footer {
+	margin-top: 50px;
+	/*position: relative !important;*/
+	height: 100px !important;
+	bottom: 0;
+	background-color: #dbdbdb;
+}
+
 /*+++++++++++++++++++++++++++++ Miembros +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 
@@ -136,7 +181,7 @@ body{
     position: absolute;
     width: 100%;
     height:100%;
-    background: #333;
+    background: #bebebe;
     right: -100%;
     top: 0;
     text-align: center;
@@ -175,6 +220,14 @@ body{
 	height: auto;
 	width: auto;
   }
+
+  footer {
+	margin-top: 50px;
+	position: relative !important;
+	height: 100px !important;
+	bottom: 0;
+	background-color: #dbdbdb;
+  }
 }
 
 
@@ -194,7 +247,7 @@ body{
 	max-width:1140px;
 	margin:auto;
 	min-height: 400px;
-	margin-left: 500px;
+	/*margin-left: 500px;*/
 }
 
 .team{
@@ -290,10 +343,13 @@ body{
 }
 
 @media(max-width: 1780px){
-	.card{
-		width:50%;
+	.card2{
+		width:50% !important;
 		margin-bottom:30px;
-		
+	}
+	.card3{
+		width:33% !important;
+		margin-bottom:30px;
 	}
 
 	.container2{
@@ -303,15 +359,26 @@ body{
 	.container2{
 		margin:auto;
 	}
+
+	footer {
+	margin-top: 50px;
+	position: relative !important;
+	height: 100px !important;
+	bottom: 0;
+	background-color: #dbdbdb;
+  }
 
 }
 
 
 @media(max-width: 1200px){
-	.card{
-		width:50%;
+	.card2{
+		width:50% !important;
 		margin-bottom:30px;
-		
+	}
+	.card3{
+		width:33% !important;
+		margin-bottom:30px;
 	}
 
 	.container2{
@@ -321,6 +388,14 @@ body{
 	.container2{
 		margin:auto;
 	}
+
+	footer {
+	margin-top: 50px;
+	position: relative !important;
+	height: 100px !important;
+	bottom: 0;
+	background-color: #dbdbdb;
+  }
 
 }
 
@@ -328,27 +403,48 @@ body{
 /*responsive*/
 
 @media(max-width: 991px){
-	.card{
+	/*.card{
 		width:50%;
 		margin-bottom:30px;
 		
-	}
+	}*/
 
-	.container2{
-		margin:auto;
-	}
-
-}
-
-@media(max-width:550px){
-	.card{
-		width:100%;
+	.card2, .card3{
+		width:100% !important;
 		
 	}	
 
 	.container2{
 		margin:auto;
 	}
+
+	footer {
+	margin-top: 50px;
+	position: relative !important;
+	height: 100px !important;
+	bottom: 0;
+	background-color: #dbdbdb;
+  }
+
+}
+
+@media(max-width:550px){
+	.card2, .card3{
+		width:100% !important;
+		
+	}	
+
+	.container2{
+		margin:auto;
+	}
+
+	footer {
+	margin-top: 50px;
+	position: relative !important;
+	height: 100px !important;
+	bottom: 0;
+	background-color: #dbdbdb;
+  }
 
 }
 
