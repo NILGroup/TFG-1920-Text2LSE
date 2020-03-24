@@ -8,6 +8,8 @@ function handleErrors(response){
 
 	if(!response.ok) {
 		console.log('Error handleErrors: ' + response.statusText);
+		alert(response.statusText); 
+		location.reload();
 	}
 	return response;
 }
