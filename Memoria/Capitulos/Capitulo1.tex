@@ -6,17 +6,17 @@
 
 \chapter{Introducción}
 
-\begin{FraseCelebre}
-\begin{Frase}
-"Lo que eres, lo eres por accidente de nacimiento; lo que soy, lo soy yo solo. Hay y habrá mil príncipes; solo hay un Beethoven". 
-\end{Frase}
-\begin{Fuente}
-Ludwig van Beethoven
-\end{Fuente}
-\end{FraseCelebre}
+%\begin{FraseCelebre}
+%\begin{Frase}
+%"Lo que eres, lo eres por accidente de nacimiento; lo que soy, lo soy yo solo. Hay y habrá mil príncipes; solo hay un Beethoven". 
+%\end{Frase}
+%\begin{Fuente}
+%Ludwig van Beethoven
+%\end{Fuente}
+%\end{FraseCelebre}
 
 
-En la sección 1.1 de este capítulo se explicará la motivación que hay detrás de la realización de este TFG, y en la 2.2 los objetivos que nos marcamos al comienzo del proyecto. Por otro lado, en la sección 1.3 se detallará la estructura que sigue el presente documento.
+En la sección 1.1 de este capítulo se explicará la motivación que hay detrás de la realización de este TFG, y en la 1.2 los objetivos que nos marcamos al comienzo del proyecto. Por otro lado, en la sección 1.3 se detallará la estructura que sigue el presente documento.
 
 
 
@@ -26,13 +26,15 @@ En la sección 1.1 de este capítulo se explicará la motivación que hay detrás de 
 %-------------------------------------------------------------------
 \label{cap1:sec:introduccion}
 
-En la sociedad actual en la que vivimos hay una gran cantidad de personas con distintas discapacidades, que en algunos casos hacen que estas personas se sientan apartadas del resto y no tengan acceso completo a ciertos servicios fundamentales, dificultando así su día a día. Gracias a los avances tecnológicos, se están desarrollando soluciones con el objetivo de ayudar a estos colectivos, facilitando de esta manera aspectos de su vida cotidiana. Un ejemplo son las aplicaciones basadas en pictogramas cuya finalidad es ayudar a comunicarse a personas con algún tipo de discapacidad cognitiva.\\
+En la sociedad actual en la que vivimos hay una gran cantidad de personas con distintas discapacidades, como la cognitiva , física, visual o auditiva, entre otras. En algunos casos, dichas discapacidades hacen que estas personas se sientan apartadas del resto de la sociedad por no tener acceso completo a ciertos servicios fundamentales, lo que dificulta su día a día. Gracias a los avances tecnológicos, se están desarrollando soluciones con el objetivo de ayudar a estos colectivos, facilitando de esta manera aspectos de su vida cotidiana. Un ejemplo son las aplicaciones basadas en pictogramas cuya finalidad es ayudar a comunicarse a personas con algún tipo de discapacidad cognitiva.\\
 
-En España, un 2,3\% de la población total (alrededor de un millón de personas) sufre algún tipo de discapacidad auditiva. Este colectivo usa distintos métodos de comunicación, que dependen tanto de la edad con la que empezaron a padecer sordera, como de su grado de pérdida auditiva. El método alternativo al lenguaje oral más extendido entre las personas con discapacidad auditiva es la Lengua de Signos (LS). La LS no es universal, sino que varía en función de la región, es decir, no existe una lengua de signos común en todo el mundo, disponiendo cada país de una o varias. En España desde el año 2007 hay dos lengua oficiales: la Lengua de Signos Española (LSE) y la Lengua de Signos Catalana (LSC). \\
+En España, un 2,3\% de la población total (alrededor de un millón de personas) sufre algún tipo de discapacidad auditiva. Este colectivo usa distintos métodos de comunicación, que dependen tanto de la edad con la que empezaron a padecer sordera, como de su grado de pérdida auditiva. Las personas con discapacidad auditiva tienen las mismas necesidades de obtener información del entorno que el resto de la población, pero a pesar de disponer de las mismas capacidades cognitivas, se enfrentan a numerosas barreras comunicativas, que dificultan su proceso de aprendizaje y la capacidad de relacionarse con su entorno mediante la audición y la lengua oral. Esto se debe a que en muchas ocasiones el audio es el único canal para comunicar información, ya sea en películas, informativos,  conversaciones cotidianas, actividades educativas, megafonía o vídeos. \\ 
 
-Las personas con discapacidad auditiva tienen las mismas necesidades de obtener información del entorno que el resto de la población, pero a pesar de disponer de las mismas capacidades cognitivas, se enfrentan a numerosas barreras comunicativas, que dificultan su proceso de aprendizaje y la capacidad de relacionarse con su entorno mediante la audición y la lengua oral. Esto se debe a que en muchas ocasiones el audio es el único canal para comunicar información, ya sea en películas, informativos,  conversaciones cotidianas, actividades educativas, megafonía o vídeos. Hoy en día, en muchos casos, se cuenta con la posibilidad de añadir subtítulos al contenido audiovisual, pero no es suficiente, ya que los subtítulos distraen y se procesan de manera más lenta que la LS, que al ser ideográfica permite representar conceptos comunes con un solo gesto, permitiendo así expresar y asimilar información más rápidamente.\\
+El método alternativo al lenguaje oral más extendido entre las personas con discapacidad auditiva es la Lengua de Signos (LS). La LS no es universal, sino que varía en función de la región, es decir, no existe una lengua de signos común en todo el mundo, disponiendo cada país de una o varias. En España desde el año 2007 hay dos lengua oficiales: la Lengua de Signos Española (LSE) y la Lengua de Signos Catalana (LSC). Hoy en día, en muchos casos, se cuenta con la posibilidad de añadir subtítulos al contenido audiovisual, pero no es suficiente, ya que los subtítulos distraen y se procesan de manera más lenta que la LS, que al ser ideográfica permite representar conceptos comunes con un solo gesto, permitiendo así expresar y asimilar información más rápidamente.\\
 
-Contar con una herramienta capaz de traducir el texto a lengua de signos ofrecería la posibilidad de introducir la LS a cualquier audio que disponga de subtítulos, e incluso de traducir directamente cualquier audio mediante el apoyo de herramientas speech to text, lo que resultaría de gran ayuda para personas con discapacidad auditiva.
+
+
+Contar con una herramienta capaz de traducir un texto a Lengua de Signos resultaría de gran ayuda para personas con discapacidad auditiva, ya que ofrecería la posibilidad de introducir la LS a cualquier audio que disponga de subtítulos, e incluso de traducir directamente cualquier audio mediante el apoyo de herramientas speech to text.
 
 
 
@@ -42,9 +44,11 @@ Contar con una herramienta capaz de traducir el texto a lengua de signos ofrecer
 \section{Objetivos}
 %-------------------------------------------------------------------
 \label{cap1:sec:objetivo}
-El objetivo principal del proyecto es crear una herramienta que sea capaz de traducir un texto en lenguaje natural escrito en castellano a la Lengua de Signos Española (LSE).\\
+El objetivo principal del proyecto es crear una herramienta gratuita que sea capaz de traducir un texto en lenguaje natural escrito en castellano a la Lengua de Signos Española (LSE) en tiempo real. La aplicación creada permitirá incorporar la LSE a cualquier material audiovisual de manera sencilla, y además servirá de apoyo a las personas en proceso de aprendizaje de la LSE.\\
 
-La aplicación creada permitirá incorporar la LSE a cualquier material audiovisual de manera sencilla, y además servirá de apoyo a las personas en proceso de aprendizaje de la LSE. Su diseño estará centrado en el usuario. Para ello, se debe conocer y comprender las necesidades, limitaciones, comportamiento y características de los potenciales usuarios de la aplicación. Estará basada en la arquitectura orientada a servicios SOA, es decir, tendrá implementadas pequeñas funcionalidades alojadas en un servicio web, siendo así fácilmente reutilizables.\\
+Se seguirá un Diseño Centrado en el Usuario (OCU). Para ello, se deben conocer y comprender las necesidades, limitaciones, comportamiento y características de los potenciales usuarios de la aplicación. Estará basada en una arquitectura orientada a servicios (SOA), es decir, tendrá implementadas pequeñas funcionalidades alojadas en servicios web, siendo así fácilmente reutilizables por otros programadores que deseen integrar las funcionalidades que vamos a desarrollar en sus aplicaciones. Estos microservicios recibirán un texto en castellano y devolverán la traducción a LSE en varios formatos, haciendo uso de herramientas de Procesamiento de Lenguaje Natural (PLN) para ello. Se implementará un microservicio que devolverá el resultado en formato vídeo (.mp4), y otro que devolverá el resultado en texto LSE.\\
+
+Además, se desarrollará una página web intuitiva, fácil de usar y responsive, que desde cualquier dispositivo permita al usuario introducir el texto que desee traducir y que, realizando una petición a los servicios web desarrollados, muestre por pantalla el resultado. \\
 
 En cuanto a los objetivos académicos, con este proyecto pretendemos poner en práctica los conocimientos adquiridos a lo largo del Grado en Ingeniería Informática, así como ampliar nuestros conocimientos y competencias.\\
 
@@ -54,17 +58,8 @@ En cuanto a los objetivos académicos, con este proyecto pretendemos poner en prá
 %-------------------------------------------------------------------
 \label{cap1:sec:estructura}
 
-Se ha organizado la memoria del proyecto de la siguiente manera: 
+En el Capítulo 2 se habla de la discapacidad auditiva y de los medios para comunicarse de los que disponen las personas con dicha discapacidad. También se da una visión más profunda de la Lengua de Signos, en concreto de la Lengua de Signos Española. Esto se complementa con un análisis de las herramientas que existen actualmente que ayudan a comunicarse y a aprender LSE a las personas con discapacidad auditiva. En el Capítulo 3 se presentan las herramientas técnicas utilizadas para el desarrollo la web y de los servicios web, tanto las utilizadas para establecer el servidor, como las utilizadas para tratar el Procesamiento del Lenguaje Natural. En el Capítulo 4 se explica con detalle la metodología de trabajo seguida por los integrantes del grupo. En el Capítulo 6 cada integrante del grupo explica el trabajo realizado a lo largo de todo el proyecto.\\
+	
+	
 
-
-	
-	\begin{itemize}
-	\item \textbf{Capitulo 1:} en este capítulo se explica la motivación que hay detrás de este proyecto y los objetivos del mismo. Además se incluye una sección con la estructura por capítulos del presente documento, junto con una breve descripción de cada apartado.
-	\item \textbf{Capitulo 2:} en esta sección se habla de la discapacidad auditiva y de la Lengua de Signos Española en relación a este proyecto.
-	\item \textbf{Capitulo 3:} en este apartado de la memoria se comentan las herramientas técnicas utilizadas para el desarrollo de nuestra API y Web.
-	\item \textbf{Capitulo 4:} en este capítulo se explica con detalle la metodología de trabajo seguida por los integrantes del grupo.
-	\item \textbf{Capitulo Trabajo Individual:} en este capítulo cada integrante del grupo explica el trabajo realizado a lo largo de todo el proyecto.
-	
-	
-\end{itemize}
 
