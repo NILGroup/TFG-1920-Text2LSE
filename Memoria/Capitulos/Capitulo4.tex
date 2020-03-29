@@ -31,10 +31,7 @@ La aplicación de metodologías ágiles ha permitido involucrar a nuestros tutores 
 
 Además, el trabajo se realiza con mayor velocidad y eficiencia, ya que se trabaja a través de entregas parciales del proyecto. De este  modo, es posible entregar en el menor intervalo de tiempo posible una versión mucho más funcional de la aplicación y de la memoria, para que los tutores puedan revisar el trabajo realizado y comprobar que vamos por buen camino. La herramienta elegida para gestionar el trabajo realizado ha sido el conocido controlador de versiones Git, del que se habla con detalle en la sección \ref{cap4:sec:Control de versiones}\\
 
-Existen diversas modalidades de metodologías ágiles, algunas de las más conocidas son Scrum o Programación Extrema (XP). Concretamente, para el desarrollo de este proyecto se ha optado por la utilización de Kanban, que se explica en detalle en la sección \ref{cap4:sec:Kanban}.
-
-Desde el comienzo, una de las mayores ventajas de la utilización de Kanban es la mejora de la implicación de los integrantes del equipo. Esta metodología permiten a todos los miembros conocer el estado del proyecto en cualquier momento, y facilita tanto el reparto de tareas como que los compromisos sean acordados y aceptados por todos. La herramienta utilizada para implementar el tablero Kanban y organizar todo el trabajo ha sido Trello, explicada en la sección \ref{cap4:sec:Trello}.\\
-
+Existen diversas modalidades de metodologías ágiles, algunas de las más conocidas son Scrum o Programación Extrema (XP). Concretamente, para el desarrollo de este proyecto se ha optado por la utilización de Kanban, que se explica en detalle en la sección \ref{cap4:sec:Kanban}.\\
 
 
 %-------------------------------------------------------------------
@@ -44,14 +41,17 @@ Desde el comienzo, una de las mayores ventajas de la utilización de Kanban es la
 
 Kanban \citep*{tchKanban1} es una metodología ágil cuyo objetivo es gestionar de manera visual cómo se van completando las tareas a llevar a cabo. Kanban es una palabra japonesa que significa 'tarjetas visuales', donde Kan es 'visual', y Ban corresponde a 'tarjeta'.\\
 
-La principal ventaja de esta metodología es que es muy fácil de utilizar, actualizar y asumir por parte del equipo. Además, destaca por ser una técnica de gestión de las tareas muy visual, que permite ver a golpe de vista el estado de los proyectos, así como también pautar el desarrollo del trabajo de manera efectiva. La herramienta utilizada para gestionar las tareas a realizar por los miembros del equipo ha sido Trello, explicada con detalle en la sección \ref{cap4:sec:Trello}.\\
+Esta metodología se basa en la implementación de un tablero que hará uso de una serie de tarjetas, que describirán las tareas, y que constará de varias columnas, una por cada estado de dichas tareas. Según vayan surgiendo nuevas tareas, los miembros del equipo colocarán las tarjetas en la columna que corresponda (típicamente en la columna ``To Do'', o ``Por Hacer''), y las irán moviendo de columna a medida que el estado de la tarea avance. La elección de los estados depende de las necesidades del proyecto, aunque los tres estados más comunes son ``To Do'', ``Doing'' y ``Done''.
+
+
+Desde el comienzo, una de las mayores ventajas de la utilización de Kanban es la mejora de la implicación de los integrantes del equipo. Esta metodología permite a todos los miembros conocer el estado del proyecto en cualquier momento, y facilita tanto el reparto de tareas como que los compromisos sean acordados y aceptados por todos. Además, Kanban es muy fácil de utilizar, actualizar y asumir por parte del equipo. Destaca por ser una técnica de gestión de las tareas muy visual, que permite ver a golpe de vista el estado de los proyectos, así como también pautar el desarrollo del trabajo de manera efectiva. La herramienta utilizada para gestionar las tareas a realizar por los miembros del equipo ha sido Trello, explicada con detalle en la sección \ref{cap4:sec:Trello}.\\
 
 
 En Kanban existen tres reglas \citep*{tchKanban2} que ayudan a obtener el máximo rendimiento del flujo de trabajo. Dichas reglas son las siguientes:\\
 
 \begin{itemize}
 	
-		\item \textbf{Visualizar el flujo de trabajo:} DISTINTOS ESTADOS DEL TABLERO - COMPLETAR. una visualización de todas las tareas contribuye a que todos los miembros del equipo se mantengan al corriente del trabajo. Todos los miembros del equipo trabajan en el mismo tablero y colaboran en tiempo real. Además, el tablero digital Trello, a través de su aplicación móvil, permite acceder al flujo de trabajo desde cualquier sitio, compartir tareas con facilidad y comunicarse entre el equipo.
+		\item \textbf{Visualizar el flujo de trabajo:} una visualización de todas las tareas contribuye a que todos los miembros del equipo se mantengan al corriente del trabajo. Todos los miembros del equipo trabajan en el mismo tablero y colaboran en tiempo real. Además, el tablero digital Trello, a través de su aplicación móvil, permite acceder al flujo de trabajo desde cualquier sitio, compartir tareas con facilidad y comunicarse entre el equipo.
 		
 		\item \textbf{Limitar la cantidad de Trabajo en Proceso:} WIP - COMPLETAR establecer metas asequibles y limitar los trabajos en proceso para prevenir el exceso de cantidad de tareas, que serían muy difíciles de completar.
 		
@@ -66,7 +66,7 @@ En Kanban existen tres reglas \citep*{tchKanban2} que ayudan a obtener el máximo
 %-------------------------------------------------------------------
 \label{cap4:sec:Trello}
 
-A lo largo de todo el proyecto se ha utilizado la herramienta Trello\footnote {\url{https://trello.com/}} para visualizar las tareas y su estado de manera clara y en tiempo real. Trello consiste en un conjunto de tableros, a los cuales se les pueden añadir una serie de tareas con diferentes estados. Esto se puede observar en la Figura~\ref {fig: imgTrello}, donde se muestra un ejemplo del tablero utilizado en el desarrollo del proyecto. Esta herramienta permite ver de manera sencilla el estado del proyecto, facilitando así la organización de las tareas a realizar. \\
+A lo largo de todo el proyecto se ha utilizado la herramienta Trello\footnote {\url{https://trello.com/}} para implementar el tablero Kanban, y así visualizar las tareas y su estado de manera clara y en tiempo real. Trello consiste en un conjunto de tableros, a los cuales se les pueden añadir una serie de tareas con diferentes estados. Esto se puede observar en la Figura~\ref {fig: imgTrello}, donde se muestra un ejemplo del tablero utilizado en el desarrollo del proyecto. Esta herramienta permite ver de manera sencilla el estado del proyecto, facilitando así la organización de las tareas a realizar. \\
 
 Durante nuestro TFG se ha utilizado un único tablero, al que se le ha llamado ``Text2LSE'', en el que se han englobado todas las tareas referentes a la investigación, desarrollo y pruebas del proyecto. Se ha diferenciado el tipo de tarea a través de los colores de cada tarjeta:
 
