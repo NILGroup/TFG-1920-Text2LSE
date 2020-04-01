@@ -50,9 +50,6 @@ def splitTags(string):
     return dic
 
 
-def getAdverbType (child):
-  tags = splitTags(child)
-  # Me da que vamos a tener que hacer un diccionario de adverbios
 
 def keyexits(key,diccionario):
     if key in diccionario:
@@ -127,11 +124,13 @@ def analisismorfologico(diccionario):
         #-------Si es DET POSESIVO lo sustituyo por el PRONOMBRE PERSONAL correspondiente.----------
         if (word.pos_ == "DET" and getKeyValue('PronType',splitTags(word.tag_)) == "Prs"):
             new_word = detPosToPronPers(word)
-
-            if (getKeyValue('Gender',diccionario["sujeto"]) == "Masc"):
-                nueva_frase.append(new_word[0]) 
+            if (new_word != None):
+              if(getKeyValue('Gender',diccionario["sujeto"]) == "Masc" ):
+                  nueva_frase.append(new_word[0]) 
+              else:
+                  nueva_frase.append(new_word[1])
             else:
-                nueva_frase.append(new_word[1])
+               nueva_frase.append(word.text)
         
         elif(word.pos_ == "ADV" and word.text.lower() in adverbios['tiempo']):
           hayAdvTiempo = True
@@ -171,10 +170,10 @@ def subtrees (word, esSujeto, tipoPadre):
   añadir = True
   #global verbo
   tipoActual = ""
-  alPrincipio = False
+ 
 
   # Si es verbo no lo tratamos ahora -> lo añadimos al final del tratamiento de la oración
-  if ((word.dep_ == "ROOT" and word.pos_ == 'VERB') and (word.dep_ == "ROOT" and word.pos_ == 'AUX')):
+  if ((word.dep_ == "ROOT" and word.pos_ == 'VERB') or (word.dep_ == "ROOT" and word.pos_ == 'AUX')):
     #if(word.lemma_ != "ser" and word.lemma_ != "estar"):
     verbo = word
     añadir = False
@@ -265,8 +264,6 @@ def TranslateSentence(initSentence):
   diccionario = {}
 
   root = ""
-  isVerbRoot = False
-  verbAux = ""
   modificador = None
 
   doc = nlp(initSentence)
@@ -282,7 +279,7 @@ def TranslateSentence(initSentence):
   # Vamos añadiendo el sujeto ordenado a la oración
   for suj in sujeto:
     if (suj.dep_ == 'nsubj'):
-      oracion.insert(0, suj)
+      oracion.append(suj)
       diccionario["sujeto"] = splitTags(suj.tag_)
     
     elif(suj.dep_ == 'nmod' and suj.pos_ == 'NOUN'):
@@ -292,9 +289,10 @@ def TranslateSentence(initSentence):
     #Si PronType (tag) es Personal(prs) entonces va antes que el sujeto
     elif(getKeyValue('PronType',splitTags(suj.tag_)) == "Prs"):
         if(modificador == None):
-            oracion.insert(0, suj)
+          ind = len(oracion)-1
+          oracion.insert(ind, suj)
         else:
-            oracion.insert(1, suj)
+          oracion.insert(1, suj)
 
     else:
       oracion.append(suj)
@@ -302,8 +300,6 @@ def TranslateSentence(initSentence):
     diccionario[suj] = splitTags(suj.tag_)
   # Vamos añadiendo el predicado ordenado a la oración
   for pred in predicado:
-    posibleAdvTim = None
-
     if pred.pos_ == "ADV":
       if pred.text.lower() in adverbios['tiempo']:
           oracion.insert(0,pred)
@@ -338,18 +334,22 @@ def TranslateSentence(initSentence):
   #           "color": "white", "font": "Source Sans Pro"}
   # displacy.render(doc, style='dep', jupyter = True, options=options)
 
-  # print ("---------------------------------------------------------------------------------- ")
-  # print ("------------------------------------ SUJETO -------------------------------------- ")
-  # print (sujeto)
-  # print ("----------------------------------- PREDICADO ------------------------------------ ")
-  # print (predicado)
-  # print ("------------------------------------ ORACIÓN ------------------------------------ ")
-  # print (oracion)
-  # print ("----------------------------------- DICCIONARIO --------------------------------- ")
-  # print(diccionario)
-  # print ("------------------------------------- MORFOLOGIA ------------------------------------ ")
-  # print(analisismorfologico(diccionario))
+#   print ("---------------------------------------------------------------------------------- ")
+#   print ("------------------------------------ SUJETO -------------------------------------- ")
+#   print (sujeto)
+#   print ("----------------------------------- PREDICADO ------------------------------------ ")
+#   print (predicado)
+#   print ("------------------------------------ ORACIÓN ------------------------------------ ")
+#   print (oracion)
+#   print ("----------------------------------- DICCIONARIO --------------------------------- ")
+#   print(diccionario)
+#   print ("------------------------------------- MORFOLOGIA ------------------------------------ ")
+#   print(analisismorfologico(diccionario))
   return analisismorfologico(diccionario)
-# Llamada a la función principal
-#sentence =  "Mi tía acudió al supermercado en coche."
-#TranslateSentence(sentence)
+
+
+
+  
+# # Llamada a la función principal
+# sentence =  "Mi tío y mi abuela están de vacaciones."
+# TranslateSentence(sentence)
