@@ -44,7 +44,7 @@ function GetTextLSEJson(){
 			
 		})
 	.then(function(text){ 
-		$('#JSONText').html(text.texto)
+		$('#JSONText').html(text.texto.toUpperCase())
 		//alert(text.texto);
 		// Hacer lo que se tenga que hacer con el texto.
 	})
