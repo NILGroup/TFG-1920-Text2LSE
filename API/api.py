@@ -64,7 +64,7 @@ def getTextoTraducidoVideo():
 		if (nombreVideo == "error"):
 			abort(404, { 'message' : 'No existen videos para todas las palabras solicitadas' })
 		else:
-			response = make_response(send_file(nombreVideo, mimetype='video/mp4'))
+			response = make_response(send_file(const.pathVideoGenerado + nombreVideo, mimetype='video/mp4'))
 			response.headers['Content-Transfer-Enconding']='base64'
 			os.remove(const.pathVideoGenerado + nombreVideo)
 

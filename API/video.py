@@ -1,6 +1,8 @@
 #------------------- Librerías Python -------------------#
 import os, uuid
+import ffmpeg
 from moviepy.editor import VideoFileClip, concatenate_videoclips
+
 #------------------- Archivos lógica --------------------#
 import constantes as const
 
@@ -37,7 +39,9 @@ def getTextoVideo(sentence):
 			return "error"
 
 	idVideo = str(uuid.uuid4())
-	final_clip = concatenate_videoclips(videos)
-	final_clip.write_videofile(const.pathVideoGenerado + idVideo + ".mp4")
+	final_clip = concatenate_videoclips(videos, method="compose")
+	#final_clip.write_videofile(const.pathVideoGenerado + idVideo + ".mp4")
+	final_clip.write_videofile(const.pathVideoGenerado + idVideo + ".mp4", threads=6, audio=False, preset='ultrafast')
+	
 
 	return idVideo + ".mp4"
