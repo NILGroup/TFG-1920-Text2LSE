@@ -270,7 +270,7 @@ def TranslateSentence(initSentence):
 
   for token in doc:
 
-    print (token.text + " -> " + token.dep_ + " -> " + token.tag_ + " -> " + token.pos_+ " -> " + token.lemma_)
+    #print (token.text + " -> " + token.dep_ + " -> " + token.tag_ + " -> " + token.pos_+ " -> " + token.lemma_)
     if (token.dep_ == "ROOT"):
       root = token
     

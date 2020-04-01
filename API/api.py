@@ -10,7 +10,7 @@ import constantes as const
 
 app = Flask(__name__)
 CORS(app)
-nlp = spacy.load("es_core_news_md")
+
 
 
 # ---------------------------------------------------------------------------------------------------------
