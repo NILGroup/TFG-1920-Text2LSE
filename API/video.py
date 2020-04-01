@@ -1,6 +1,6 @@
 #------------------- Librerías Python -------------------#
 import os, uuid
-import ffmpeg
+#import ffmpeg
 from moviepy.editor import VideoFileClip, concatenate_videoclips
 
 #------------------- Archivos lógica --------------------#
