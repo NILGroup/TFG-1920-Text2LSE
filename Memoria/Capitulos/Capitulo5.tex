@@ -38,12 +38,21 @@ Desde la aplicación web desarrollada se puede ver el funcionamiento de todos los
 	\label {fig: imgArquitecturaText2LSE}
 \end{figure}
 
+
+\section{Front-End}
+
+COMPLETAR PAGINA WEB\\
+
+\section{Back-End}
+
+INTRODUCCION COMPLETAR
+
 %-------------------------------------------------------------------
-\section{Servicios}
+\subsection{Servicios}
 %-------------------------------------------------------------------
 \label{cap4:sec:Servicios}
 
-\subsection{Servicio web para obtener el video de un signo en LSE de una determinada palabra}
+\subsubsection{Servicio web para obtener el video de un signo en LSE de una determinada palabra}
 
 Este servicio permite obtener el video del signo en LSE correspondiente a una palabra determinada. Los videos utilizados en este servicio provienen del catálogo de vídeos de LSE de la web de ARASAAC. Para poder acceder a este servicio, se debe hacer una llamada GET a la API,  indicando la palabra que se desea traducir a LSE desde la siguiente url:\\
 
@@ -62,7 +71,8 @@ En caso de que se encuentre el vídeo de la palabra buscada, este servicio devuel
 	\label {fig: imgFlujo1palabraText2LSE}
 \end{figure}
 
-\subsection{Servicio web para Traducción de texto a vídeo en LSE}
+
+\subsubsection{Servicio web para Traducción de texto a vídeo en LSE}
 
 Este servicio implementa la funcionalidad de traducción de un texto en castellano a LSE en formato video. Al igual que en el servicio anterior, los videos utilizados en este servicio provienen del catálogo de vídeos de LSE de la web de ARASAAC. Para poder acceder a este servicio, se debe realizar una petición POST a la API en la siguiente URL:\\
 
