@@ -23,18 +23,19 @@ En el apartado 5.1 se muestra la arquitectura de la aplicación web y cómo se com
 %-------------------------------------------------------------------
 \label{cap4:sec:Arquitectura}
 
-Text2LSE es una aplicación de traducción de castellano a LSE basada en servicios web, de manera que el código desarrollado sea fácilmente reutilizable. La arquitectura utilizada para el desarrollo de este proyecto es la arquitectura de cliente-servidor, es decir, un cliente muestra una web, la cual hace peticiones al servidor que almacena los servicios web y devuelve la respuesta al cliente. Podemos ver un esquema de la arquitectura de este proyecto en la Figura~\ref {fig: imgArquitecturaText2LSE}.\\
+Text2LSE es una aplicación de traducción de castellano a LSE basada en servicios web, de manera que el código desarrollado sea fácilmente reutilizable. La arquitectura utilizada para el desarrollo de este proyecto es la arquitectura de cliente-servidor, es decir, un cliente muestra una web, la cual hace peticiones al servidor, que almacena los servicios web y devuelve la respuesta al cliente. Podemos ver un esquema de la arquitectura de este proyecto en la Figura~\ref {fig: imgArquitecturaText2LSE}.\\
 
 Se ha optado por desarrollar una aplicación web debido a que ésta es accesible desde cualquier dispositivo que disponga de un navegador, ya sea un teléfono móvil, una tablet o un ordenador, sean de la marca y tamaño que sean. Para que se pueda ver de manera correcta en todos esos dispositivos, la aplicación web se ha desarrollado siguiendo un diseño responsive, es decir, que su visualización se adapte dependiendo de las dimensiones de la pantalla del dispositivo desde el cual se esté accediendo.\\
 
 Respecto a la parte del servidor, se han desarrollado tres servicios web distintos, uno para devolver de manera rápida el vídeo en LSE de una sola palabra, otro para devolver el texto traducido a texto en LSE y otro para devolver el texto traducido a video en LSE. Al no disponer de una API que nos devolviese directamente los vídeos de la LSE de ARASAAC, se descargaron desde su página web y se almacenaron en el servidor para poder acceder a ellos.\\
 
-Se ha utilizado un reverse proxy para poder acceder tanto a la página web como a los servicios web en un mismo servidor. Se han especificado una serie de rutas para diferenciar qué llamadas de usuario redireccionar a la página web y cuáles a los servicios web. Esta estructura se puede observar en la Figura 5.X.
+Se ha utilizado un reverse proxy para poder acceder tanto a la página web como a los servicios web a través desde un mismo punto de acceso. Se han especificado una serie de rutas para diferenciar qué llamadas de usuario redireccionar a la página web y cuáles a los servicios web. Esta estructura se puede observar en la Figura 5.X.
 
 
 
 \begin{figure}[]
 	\centering
+	
 	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/ArquitecturaText2LSE.jpg}
 	\caption{Arquitectura de Text2LSE }
 	\label {fig: imgArquitecturaText2LSE}
@@ -102,7 +103,7 @@ En esta sección se explica en detalle la aplicación web desarrollada, cuya final
 
 \begin{itemize}
 
-	\item \textbf{Traducción a vídeo:} en esta sección el usuario podrá introducir el texto en castellano que desee traducir, y tras pulsar el botón ``traducir'' se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes.
+	\item \textbf{Traducción a vídeo:} esta sección consta de un input donde el usuario podrá introducir el texto en castellano que desee traducir, y tras pulsar el botón ``traducir'', se realizará una llamada Fetch al servidor proxy, que redigirá se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes.
 
 	\item \textbf{Traducción a texto LSE:} en esta sección el usuario introducirá un texto en castellano y, tras pulsar el botón ``traducir'', aparecerá por pantalla dicho texto traducido a texto LSE.
 
@@ -112,4 +113,6 @@ En esta sección se explica en detalle la aplicación web desarrollada, cuya final
 En caso de error en cualquiera de las dos funcionalidades, la aplicación mostrará un modal con el tipo y detalle del error obtenido al realizar la petición a la API donde se encuentran nuestros servicios web.\\ 
 
 Por otro lado, la interfaz también cuenta con un menú en la parte superior, donde además de a la página principal podemos acceder a una página con información sobre los miembros del equipo y de los tutores, y a otra con información sobre la aplicación. Todo ello se ha implementado siguiendo un diseño responsive, haciendo uso de Bootstrap 3, para garantizar que la herramienta sea accesible desde cualquier dispositivo. En la figura X.XX podemos observar la interfaz vista desde un dispositivo móvil.\\
+
+
 
