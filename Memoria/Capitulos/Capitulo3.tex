@@ -211,6 +211,29 @@ Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos
 
 Una vez analizada la posibilidad de usar una u otra se ha llegado a la conclusión de que Spacy es la herramienta adecuada, ya que proporciona un análisis bastante rápido y preciso en Español y es muy sencilla de aprender a manejar gracias a su manual de uso.  
 
+
+
+%-------------------------------------------------------------------
+\section{Servidor proxy inverso}
+%-------------------------------------------------------------------
+Un Proxy inverso* es un método de redireccionamiento del tráfico a partes específicas de una infraestructura concreta. Las principales finalidades para las que se usa este tipo de servidores son:
+
+\begin{itemize}
+	
+	\item \textbf{Anonimización:} el proxy recibe todas las llamadas al servidor y se encarga de filtrarlas y redirigirlas como se haya configurado previamente. De esta manera, desde fuera del servidor no se va a poder obtener ningún tipo de información del servidor ni de los servicios que estén en él, solo se podrá obtener información del proxy.
+
+	\item \textbf{Protección y cifrado:} al utilizar un proxy inverso se tiene la posibilidad de instalar sistemas de control y filtros de paquetes que protegen al servidor, aumentando así la seguridad del sistema.
+
+	\item \textbf{Balanceo de carga:} permite redirigir las distintas solicitudes entrantes por varios servidores, permitiendo repartir la carga de trabajo para no sobrecargar ningún servidor o equilibrar la carga en el caso de que falle uno de ellos.
+
+	\item \textbf{Caché:} el proxy se puede configurar para que sea capaz de almacenar las respuestas del servidor temporalmente para ofrecer una mayor velocidad de respuesta. De esta forma, si se recibe una solicitud cuya respuesta la tiene almacenada el proxy en su caché, se manda la respuesta de manera inmediata haciendo que no reciba tanta carga de procedimiento el back-end.
+
+	\item \textbf{Compresión:} un proxy inverso también se puede utilizar como compresor de datos, tanto entrantes como salientes.
+
+\end{itemize}
+
+	Como se explica a continuación, se ha configurado el servidor Nginx como servidor proxy inverso con el fin de redirigir las distintas solicitudes al servidor correspondiente.
+
 %-------------------------------------------------------------------
 \section{Nginx}
 %-------------------------------------------------------------------
@@ -219,7 +242,7 @@ Una vez analizada la posibilidad de usar una u otra se ha llegado a la conclusió
 Nginx \footnote{Web oficial de Nginx \url{https://www.nginx.com/}} es un servidor web de alto rendimiento, capaz de trabajar junto con diversas tecnologías de desarrollo y lenguajes. La asincronía es una de sus características fundamentales, junto con su rapidez, debido a que es un servidor web ligero.
 A día de hoy, además de sus capacidades de servidor HTTP, NGINX también puede funcionar como un servidor proxy para correo electrónico (IMAP, POP3 y SMTP) y un proxy inverso y equilibrador de carga para servidores (HTTP, TCP y UDP).\\
 
-Las ventajas de NGINX y el porqué de su uso en este TFG son:
+Las ventajas de Nginx y el porqué de su uso en este TFG son:
 
 \begin{itemize}
 	
@@ -234,7 +257,7 @@ Las ventajas de NGINX y el porqué de su uso en este TFG son:
 	
 \end{itemize}
 
-Se ha utilizado un servidor NGINX para alojar una aplicación web cuya finalidad es mostrar la funcionalidad de los diferentes microservicios implementados en el proyecto. (ref a micro servicios)
+Se ha utilizado un servidor Nginx para alojar una aplicación web cuya finalidad es mostrar la funcionalidad de los diferentes microservicios implementados en el proyecto. Además, se ha configurado Nginx como servidor proxy inverso, redireccionando las peticiones según correspondan a la página web alojada en el propio Nginx o a los microservicios desarrollados alojados en el servidor Flask.
 
 %-------------------------------------------------------------------
 \section{Google Colaboratory}
