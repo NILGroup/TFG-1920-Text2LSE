@@ -128,61 +128,31 @@ El equipo también se ha mantenido en contacto vía email con los tutores comentan
 De esta forma, los integrantes del equipo y los tutores han estado informados constantemente del progreso del trabajo, se ha podido hacer un reparto claro de tareas y se han podido establecer tiempos de entrega realistas y factibles.\\
 
 %-------------------------------------------------------------------
-\section{Control de versiones}
-%-------------------------------------------------------------------
-\label{cap4:sec:Control de versiones}
-\subsection{GIT}
-
-
-
-Para el desarrollo del proyecto se ha utilizado Git\footnote{\url{https://git-scm.com/}} que es un sistema de control de versiones distribuido que sirve para trabajar en equipo de una manera muy sencilla y optimizada. Git permite al usuario tener un control absoluto de su proyecto pudiendo ver todos los cambios realizados en la aplicación y en el código por cada uno de los miembros o incluso volver a versiones anteriores del proyecto.
-
-Sus principales herramientas son:
-
-\begin{itemize}
-	
-	\item \textbf{Repository:} es un directorio donde se almacenan los archivos de tu proyecto. Puede estar ubicado en el almacenamiento de GitHub o en un repositorio local en tu computadora y tenerlos sincronizados.
-	
-	
-	\item \textbf{Branch:} es una copia de tu repositorio cuyo desarrollo es independiente al repositorio central u otras ramas. Una vez realizados los cambios se puede combinar tu rama con otras ramas y con el repositorio central.
-	 
-	
-	\item \textbf{Commits:} son los cambios realizados en los archivos de tu repositorio local.
-
-	\item \textbf{Pull:} acción que actualiza el repositorio local de tu ordenador con la última versión del proyecto alojado en Github.
-	
-	\item \textbf{Push:} permite subir a Github los commits realizados en el repositorio local.
-	
-	\item \label{itm:merge} \textbf{Merge:} permite incorporar y fusionar los cambios con la rama principal.
-	
-	
-	
-\end{itemize}
-
-
 \subsection{GITHUB}
-GitHub\footnote{\url{https://help.github.com/}} es una plataforma que proporciona una interfaz que mediante las herramientas del control de versiones Git permite ver y llevar el registro de todos los cambios realizados en el proyecto, organizarlos y resolver cualquier conflicto que pueda surgir. \\
+%-------------------------------------------------------------------
+Para la realizar la gestión del proyecto se ha decidido usar la herramienta de GitHub \footnote{\url{https://help.github.com/}} que es una plataforma basada en el sistema de control de versiones Git que permite ver y llevar el registro de todos los cambios realizados en el proyecto, organizarlos y resolver cualquier conflicto que pueda surgir. 
 
-Github también funciona como una red social para desarrolladores ya que permite a otros usuarios ver y colaborar en tus repositorios así como resolver dudas que se tengan.
+A continuación se explica la estructura que se ha seguido en el desarrollo del proyecto text2LSE (figura \ref{fig: imgGit})
 
 
-\subsection{Estructura de Trabajo con GIT y GITHUB}
+\subsection{Estructura de Trabajo con GITHUB}
 
 A la hora de desarrollar el proyecto con la herramienta Git, se ha establecido una estructura común para un correcto desarrollo del proyecto y poder gestionar así de manera eficiente y segura los cambios realizados.\\
 
-La estructura desarrollada es la siguiente:\\
+La estructura de ramas que hemos seguido es la siguiente:\\
 
 \textbf{MASTER:} Rama principal del proyecto donde todo ha sido revisado y está óptimo funcionamiento  y de ella dependen:
 
 \begin{itemize}
-	\item \textbf{Memoria}: Rama principal de la memoria que contiene la versión revisada más reciente. De ella se crean nuevas ramas hijas por capítulo y funcionalidad:
+	\item \textbf{Memoria}: Rama principal de la memoria que contiene la versión revisada más reciente. De ella se crean nuevas ramas hijas por capítulo y funcionalidad para poder trabajar cada uno en su parte de la memoria dentro de un mismo capítulo:
 
 	\begin{itemize}
 		\item Memoria-Capítulo-N: \textit{Memoria-Capítulo3}
 		\begin{itemize}
 			\item Memoria-Capítulo-N-funcionalidad: \textit{Memoria-Capítulo3-Flask}
 		\end{itemize}
-	\end{itemize}
+	
+\end{itemize}
 
 		
 \end{itemize}
