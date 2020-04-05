@@ -29,7 +29,7 @@ Se ha optado por desarrollar una aplicación web debido a que ésta es accesible d
 
 Respecto a la parte del servidor, se han desarrollado tres servicios web distintos, uno para devolver de manera rápida el vídeo en LSE de una sola palabra, otro para devolver el texto traducido a texto en LSE y otro para devolver el texto traducido a video en LSE. Al no disponer de una API que nos devolviese directamente los vídeos de la LSE de ARASAAC, se descargaron desde su página web y se almacenaron en el servidor para poder acceder a ellos.\\
 
-Se ha utilizado un reverse proxy para poder acceder tanto a la página web como a los servicios web a través desde un mismo punto de acceso. Se han especificado una serie de rutas para diferenciar qué llamadas de usuario redireccionar a la página web y cuáles a los servicios web. Esta estructura se puede observar en la Figura 5.X.
+Se ha utilizado un proxy inverso para poder acceder tanto a la página web como a los servicios web a través desde un mismo punto de acceso. Se han especificado una serie de rutas para diferenciar qué llamadas de usuario redireccionar a la página web y cuáles a los servicios web. Esta estructura se puede observar en la Figura~\ref {fig: imgProxy}.
 
 
 
@@ -41,6 +41,13 @@ Se ha utilizado un reverse proxy para poder acceder tanto a la página web como a
 	\label {fig: imgArquitecturaText2LSE}
 \end{figure}
 
+\begin{figure}[]
+	\centering
+	
+	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/proxy.jpg}
+	\caption{Esquema Proxy Inverso}
+	\label {fig: imgProxy}
+\end{figure}
 
 \section{Back-End}
 
@@ -99,20 +106,28 @@ En el parámetro \textit{``texto''} se debe incluir el texto que se desea traduci
 
 \section{Front-End}
 
-En esta sección se explica en detalle la aplicación web desarrollada, cuya finalidad es proporcionar a los usuarios una interfaz sencilla donde puedan introducir el texto que desean traducir y obtengan el resultado por pantalla, haciendo uso de los servicios web de traducción implementados mediante llamadas Fetch. En la figura X.XX se muestra la interfaz de la aplicación, donde se puede observar que se han desarrollado dos funcionalidades:
+En esta sección se explica en detalle la aplicación web desarrollada, cuya finalidad es proporcionar a los usuarios una interfaz sencilla donde puedan introducir el texto que desean traducir y obtengan el resultado por pantalla, haciendo uso de los servicios web de traducción implementados mediante llamadas Fetch. En la  Figura~\ref {fig: imgWebText2LSE} se muestra la interfaz de la aplicación, donde se puede observar que se han desarrollado dos funcionalidades:
 
 \begin{itemize}
 
-	\item \textbf{Traducción a vídeo:} esta sección consta de un input donde el usuario podrá introducir el texto en castellano que desee traducir, y tras pulsar el botón ``traducir'', se realizará una llamada Fetch al servidor proxy, que redigirá se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes.
+	\item \textbf{Traducción a vídeo:} esta sección consta de un input donde el usuario podrá introducir el texto en castellano que desee traducir, y tras pulsar el botón ``traducir'', se realizará una llamada Fetch al servidor proxy, que redirigirá la petición a la API. Una función Fetch se encargará de recibir el resultado de la petición, incrustando el vídeo en el código HTML. Así, se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes.
 
-	\item \textbf{Traducción a texto LSE:} en esta sección el usuario introducirá un texto en castellano y, tras pulsar el botón ``traducir'', aparecerá por pantalla dicho texto traducido a texto LSE.
+	\item \textbf{Traducción a texto LSE:} de la misma manera que en la traducción a vídeo, en esta sección el usuario introducirá un texto en castellano y, tras pulsar el botón ``traducir'', se llamará a una función Fetch que realizará una petición a la url correspondiente. En caso de éxito aparecerá por pantalla dicho texto traducido a texto LSE.
 
 \end{itemize}
 
 
 En caso de error en cualquiera de las dos funcionalidades, la aplicación mostrará un modal con el tipo y detalle del error obtenido al realizar la petición a la API donde se encuentran nuestros servicios web.\\ 
 
-Por otro lado, la interfaz también cuenta con un menú en la parte superior, donde además de a la página principal podemos acceder a una página con información sobre los miembros del equipo y de los tutores, y a otra con información sobre la aplicación. Todo ello se ha implementado siguiendo un diseño responsive, haciendo uso de Bootstrap 3, para garantizar que la herramienta sea accesible desde cualquier dispositivo. En la figura X.XX podemos observar la interfaz vista desde un dispositivo móvil.\\
+Por otro lado, la interfaz también cuenta con un menú en la parte superior, donde además de a la página principal podemos acceder a una página con información sobre los miembros del equipo y de los tutores, y a otra con información sobre la aplicación. Todo ello se ha implementado siguiendo un diseño responsive, haciendo uso de Bootstrap 3, para garantizar que la herramienta sea accesible desde cualquier dispositivo. En la Figura~\ref {fig: imgResponsive} podemos observar la interfaz vista desde un dispositivo móvil.\\
+
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=0.75\textwidth]{Imagenes/Fuentes/Text2LSE/responsive.jpg}
+	\caption{ Aplicación Web vista desde un dispositivo móvil }
+	\label {fig: imgResponsive}
+\end{figure}
 
 
 
