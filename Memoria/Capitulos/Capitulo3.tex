@@ -37,16 +37,12 @@ Los dos tipos de servicios web más utilizados en la actualidad son: Servicios We
 
 Los Servicios Web SOAP \citep*{tchSOAP} son un tipo de servicios web cuyo propósito es que las aplicaciones implementadas en diferentes plataformas y lenguajes de programación sean capaces de intercambiar datos de una forma más sencilla. \\
 
-Está basado en el protocolo SOAP (Simple Object Access Protocol) basado en el lenguaje XML el cual permite el intercambio de información entre aplicaciones.\\
-
-El mensaje se codifica como un documento XML que consta de un elemento \textit{<Envelope>} que hace referencia a la raíz de cada mensaje y este a su vez incorpora una cabecera opcional \textit{<Header>} y un cuerpo \textit{<Body>} obligatorio. La primera es utilizada para pasar información de la aplicación  y la segunda contiene la información dirigida al destinatario final del mensaje. Dentro del \textit{<Body>} está el subelemento \textit{<Fault>}   que sirve para la notificación de errores.\\ 
+Está basado en el protocolo SOAP (Simple Object Access Protocol) basado en el lenguaje XML el cual permite el intercambio de información entre aplicaciones. El mensaje se codifica como un documento XML que consta de un elemento \textit{<Envelope>} que hace referencia a la raíz de cada mensaje y este a su vez incorpora una cabecera opcional \textit{<Header>} y un cuerpo \textit{<Body>} obligatorio. La primera es utilizada para pasar información de la aplicación  y la segunda contiene la información dirigida al destinatario final del mensaje. Dentro del \textit{<Body>} está el subelemento \textit{<Fault>}   que sirve para la notificación de errores.\\ 
 
 Funciona por lo general con el protocolo HTTP, sin embargo no está limitado solo a este protocolo, si no que puede ser enviado por otros tipos de protocolos diferentes como TCP o POP3.\\
 
 
-Para poder acceder al servicio web se necesita saber donde está ubicado y cuales son las funcionalidades del servicio. Para ello se utiliza el lenguaje de descripción WSDL (Web Services Description Language) el cual está basado en XML y permite especificar a los clientes qué llamadas se pueden hacer a un servidor SOAP y que tipo de respuesta esperar.\\
-
-A pesar de tener el archivo WSDL es necesario saber dónde está toda esta información. Para ello se dispone del UDDI (Universal Description, Discovery and Integration Directory) que es un estándar basado en XML que actúa como repositorio donde se puede acudir a realizar búsquedas de Servicios Web específicos.
+Para poder acceder al servicio web se necesita saber donde está ubicado y cuales son las funcionalidades del servicio. Para ello se utiliza el lenguaje de descripción WSDL (Web Services Description Language) el cual está basado en XML y permite especificar a los clientes qué llamadas se pueden hacer a un servidor SOAP y que tipo de respuesta esperar. A pesar de tener el archivo WSDL es necesario saber dónde está toda esta información. Para ello se dispone del UDDI (Universal Description, Discovery and Integration Directory) que es un estándar basado en XML que actúa como repositorio donde se puede acudir a realizar búsquedas de Servicios Web específicos.
 
 
 %-------------------------------------------------------------------
@@ -65,13 +61,13 @@ Para el desarrollo de este proyecto, se ha utilizado un servicio web REST, debid
 %-------------------------------------------------------------------
 \subsection{Ventajas de Servicios Web}
 %-------------------------------------------------------------------
-Las principales ventajas de los servicios web son \footnote{Web \url{https://sites.google.com/site/preyectodetics/home/servicios-web}}:
+Las principales ventajas de los servicios web son\footnote{\url{https://sites.google.com/site/preyectodetics/home/servicios-web}}:
 
 \begin{itemize}
+	
 	\item Permiten una mayor operabilidad entre las aplicaciones software sin importar sus propiedades ni la plataforma en la que estén instalados.
 	
-	\item Los servicios Web fomentan los estándares y protocolos basados en texto, que hacen más fácil acceder a su contenido y entender su funcionamiento.
-	
+	\item Fomentan los estándares y protocolos basados en texto, que hacen más fácil acceder a su contenido y entender su funcionamiento.	
 	
 	\item Permiten y facilitan que software y servicios de diferentes compañías
 	se puedan combinar formando un servicio funcional.  
@@ -82,7 +78,7 @@ Las principales ventajas de los servicios web son \footnote{Web \url{https://sit
 %-------------------------------------------------------------------
 \subsection{Desventajas de Servicios Web}
 %-------------------------------------------------------------------
-Las principales desventajas de los servicios web son \footnote{Web \url{https://sistemas3.wordpress.com/2007/06/14/web-services/}}:
+Las principales desventajas de los servicios web son\footnote{\url{https://sistemas3.wordpress.com/2007/06/14/web-services/}}:
 
 \begin{itemize}
 	\item Las transacciones en este tipo de servicios están mucho menos desarrolladas que otros estándares abiertos.
@@ -140,7 +136,6 @@ Su evolución en los últimos años ha ido creciendo de forma exponencial debido a 
 \subsection{Estructura del Procesamiento del Lenguaje Natural}
 %-------------------------------------------------------------------
 Para que una máquina sea capaz de entender y procesar el lenguaje natural, es necesario analizar la estructura de dicho lenguaje, teniendo en cuenta los siguientes aspectos:
-
 
 
 \begin{itemize}
