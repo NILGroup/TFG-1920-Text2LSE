@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.26)  9 MAR 2020 23:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.9.26)  6 APR 2020 20:08
 entering extended mode
 **./Tesis.tex
 (Tesis.tex
@@ -609,7 +609,7 @@ G,.JBIG2,.JB2,.eps]
 \evensidemarginOriginal=\skip72
 \oddsidemarginOriginal=\skip73
 \longTitulo=\skip74
-<Imagenes/Vectorial/escudoUCM.pdf, id=207, 597.23125pt x 844.15375pt>
+<Imagenes/Vectorial/escudoUCM.pdf, id=211, 597.23125pt x 844.15375pt>
 File: Imagenes/Vectorial/escudoUCM.pdf Graphic file (type pdf)
 <use Imagenes/Vectorial/escudoUCM.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf  used on input line 1
@@ -818,7 +818,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--105
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 106.
 
-<Imagenes/Fuentes/SAAC/braille.png, id=403, 296.10625pt x 171.64125pt>
+<Imagenes/Fuentes/SAAC/braille.png, id=408, 296.10625pt x 171.64125pt>
 File: Imagenes/Fuentes/SAAC/braille.png Graphic file (type png)
 <use Imagenes/Fuentes/SAAC/braille.png>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/braille.png  used on input line 
@@ -838,7 +838,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 113--114
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 115.
 
-<Imagenes/Fuentes/SAAC/pictogramas.jpg, id=405, 321.2pt x 226.8475pt>
+<Imagenes/Fuentes/SAAC/pictogramas.jpg, id=410, 321.2pt x 226.8475pt>
 File: Imagenes/Fuentes/SAAC/pictogramas.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/pictogramas.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/pictogramas.jpg  used on input l
@@ -870,7 +870,7 @@ LaTeX Info: Redefining \% on input line 132.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 135.
 
-<Imagenes/Fuentes/SAAC/pictoCoche.png, id=424, 200.75pt x 200.75pt>
+<Imagenes/Fuentes/SAAC/pictoCoche.png, id=429, 200.75pt x 200.75pt>
 File: Imagenes/Fuentes/SAAC/pictoCoche.png Graphic file (type png)
 <use Imagenes/Fuentes/SAAC/pictoCoche.png>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/pictoCoche.png  used on input li
@@ -880,7 +880,7 @@ ne 137.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 142.
 
-<Imagenes/Fuentes/SAAC/LSEHola.jpg, id=425, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSEHola.jpg, id=430, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSEHola.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSEHola.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEHola.jpg  used on input line 
@@ -911,7 +911,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 159--160
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 162.
 
-<Imagenes/Fuentes/Apps/fundCNSE.png, id=443, 1437.87187pt x 700.86844pt>
+<Imagenes/Fuentes/Apps/fundCNSE.png, id=448, 1437.87187pt x 700.86844pt>
 File: Imagenes/Fuentes/Apps/fundCNSE.png Graphic file (type png)
 <use Imagenes/Fuentes/Apps/fundCNSE.png>
 Package pdftex.def Info: Imagenes/Fuentes/Apps/fundCNSE.png  used on input line
@@ -930,7 +930,7 @@ LaTeX Info: Redefining \% on input line 173.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 175.
 
-<Imagenes/Fuentes/Apps/SpreadTheSign_1.png, id=459, 858.20625pt x 407.27156pt>
+<Imagenes/Fuentes/Apps/SpreadTheSign_1.png, id=464, 858.20625pt x 407.27156pt>
 File: Imagenes/Fuentes/Apps/SpreadTheSign_1.png Graphic file (type png)
 <use Imagenes/Fuentes/Apps/SpreadTheSign_1.png>
 Package pdftex.def Info: Imagenes/Fuentes/Apps/SpreadTheSign_1.png  used on inp
@@ -984,7 +984,7 @@ LaTeX Info: Redefining \% on input line 218.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 224.
 
-<Imagenes/Fuentes/SAAC/LSEConfig.png, id=476, 406.51875pt x 446.66875pt>
+<Imagenes/Fuentes/SAAC/LSEConfig.png, id=481, 406.51875pt x 446.66875pt>
 File: Imagenes/Fuentes/SAAC/LSEConfig.png Graphic file (type png)
 <use Imagenes/Fuentes/SAAC/LSEConfig.png>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEConfig.png  used on input lin
@@ -994,7 +994,7 @@ e 226.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 233.
 
-<Imagenes/Fuentes/SAAC/LSEOrient.jpg, id=479, 401.5pt x 383.4325pt>
+<Imagenes/Fuentes/SAAC/LSEOrient.jpg, id=484, 401.5pt x 383.4325pt>
 File: Imagenes/Fuentes/SAAC/LSEOrient.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSEOrient.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEOrient.jpg  used on input lin
@@ -1007,7 +1007,7 @@ LaTeX Info: Redefining \% on input line 244.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 245.
 
-<Imagenes/Fuentes/SAAC/LSEPntContc.jpg, id=486, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSEPntContc.jpg, id=491, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSEPntContc.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSEPntContc.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEPntContc.jpg  used on input l
@@ -1035,7 +1035,7 @@ LaTeX Info: Redefining \% on input line 273.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 275.
 
-<Imagenes/Fuentes/SAAC/LSEHombre.jpg, id=494, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSEHombre.jpg, id=499, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSEHombre.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSEHombre.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEHombre.jpg  used on input lin
@@ -1045,7 +1045,7 @@ e 277.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 282.
 
-<Imagenes/Fuentes/SAAC/LSEMujer.jpg, id=495, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSEMujer.jpg, id=500, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSEMujer.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSEMujer.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEMujer.jpg  used on input line
@@ -1064,7 +1064,7 @@ e.jpg>]
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 291.
 
-<Imagenes/Fuentes/SAAC/LSEAbuelo.jpg, id=502, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSEAbuelo.jpg, id=507, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSEAbuelo.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSEAbuelo.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEAbuelo.jpg  used on input lin
@@ -1074,7 +1074,7 @@ e 293.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 298.
 
-<Imagenes/Fuentes/SAAC/LSEAbuela.jpg, id=503, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSEAbuela.jpg, id=508, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSEAbuela.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSEAbuela.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEAbuela.jpg  used on input lin
@@ -1089,7 +1089,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 306--307
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 309.
 
-<Imagenes/Fuentes/SAAC/LSENino.jpg, id=506, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSENino.jpg, id=511, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSENino.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSENino.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSENino.jpg  used on input line 
@@ -1099,7 +1099,7 @@ Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSENino.jpg  used on input line
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 316.
 
-<Imagenes/Fuentes/SAAC/LSENina.jpg, id=507, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSENina.jpg, id=512, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSENina.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSENina.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSENina.jpg  used on input line 
@@ -1131,7 +1131,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 334--335
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 339.
 
-<Imagenes/Fuentes/SAAC/LSEUno.jpg, id=519, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSEUno.jpg, id=524, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSEUno.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSEUno.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEUno.jpg  used on input line 3
@@ -1141,7 +1141,7 @@ Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEUno.jpg  used on input line 3
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 346.
 
-<Imagenes/Fuentes/SAAC/LSEMuchos.jpg, id=520, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSEMuchos.jpg, id=525, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSEMuchos.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSEMuchos.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEMuchos.jpg  used on input lin
@@ -1163,7 +1163,7 @@ LaTeX Info: Redefining \% on input line 366.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 372.
 
-<Imagenes/Fuentes/SAAC/LSEQuerer.jpg, id=528, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSEQuerer.jpg, id=533, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSEQuerer.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSEQuerer.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEQuerer.jpg  used on input lin
@@ -1173,7 +1173,7 @@ e 374.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 379.
 
-<Imagenes/Fuentes/SAAC/LSEAyudar.jpg, id=529, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSEAyudar.jpg, id=534, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSEAyudar.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSEAyudar.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSEAyudar.jpg  used on input lin
@@ -1183,7 +1183,7 @@ e 381.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 386.
 
-<Imagenes/Fuentes/SAAC/LSESenalar.jpg, id=530, 501.875pt x 501.875pt>
+<Imagenes/Fuentes/SAAC/LSESenalar.jpg, id=535, 501.875pt x 501.875pt>
 File: Imagenes/Fuentes/SAAC/LSESenalar.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/SAAC/LSESenalar.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/SAAC/LSESenalar.jpg  used on input li
@@ -1205,7 +1205,7 @@ LaTeX Info: Redefining \% on input line 400.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 417.
 
-<Imagenes/Fuentes/Apps/textsign.jpg, id=545, 1284.8pt x 722.7pt>
+<Imagenes/Fuentes/Apps/textsign.jpg, id=550, 1284.8pt x 722.7pt>
 File: Imagenes/Fuentes/Apps/textsign.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/Apps/textsign.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/Apps/textsign.jpg  used on input line
@@ -1221,7 +1221,7 @@ LaTeX Info: Redefining \% on input line 429.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 430.
 
-<Imagenes/Fuentes/Apps/storySign_1.jpg, id=555, 481.8pt x 185.94469pt>
+<Imagenes/Fuentes/Apps/storySign_1.jpg, id=560, 481.8pt x 185.94469pt>
 File: Imagenes/Fuentes/Apps/storySign_1.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/Apps/storySign_1.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/Apps/storySign_1.jpg  used on input l
@@ -1231,7 +1231,7 @@ ine 432.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 444.
 
-<Imagenes/Fuentes/Apps/teCuento_1.png, id=559, 501.875pt x 301.125pt>
+<Imagenes/Fuentes/Apps/teCuento_1.png, id=564, 501.875pt x 301.125pt>
 File: Imagenes/Fuentes/Apps/teCuento_1.png Graphic file (type png)
 <use Imagenes/Fuentes/Apps/teCuento_1.png>
 Package pdftex.def Info: Imagenes/Fuentes/Apps/teCuento_1.png  used on input li
@@ -1281,10 +1281,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
-
-Underfull \vbox (badness 1072) has occurred while \output is active []
-
- [25
+[25
 
 
 
@@ -1299,121 +1296,114 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--43
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
-
-
 Package natbib Warning: Citation `tchREST' on page 26 undefined on input line 5
-6.
+2.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
-
- []
-
-LaTeX Info: Redefining \. on input line 59.
-LaTeX Info: Redefining \% on input line 59.
+LaTeX Info: Redefining \. on input line 57.
+LaTeX Info: Redefining \% on input line 57.
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+Package natbib Warning: Citation `tchFlask1' on page 27 undefined on input line
+ 102.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
-
- []
-
-LaTeX Info: Redefining \. on input line 107.
-LaTeX Info: Redefining \% on input line 107.
+LaTeX Info: Redefining \. on input line 103.
+LaTeX Info: Redefining \% on input line 103.
 [27]
 
-Package natbib Warning: Citation `tchFlask1' on page 28 undefined on input line
- 108.
+Package natbib Warning: Citation `tchBSD' on page 28 undefined on input line 11
+7.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
 
-
-Package natbib Warning: Citation `tchBSD' on page 28 undefined on input line 12
-5.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
-
- []
-
-LaTeX Info: Redefining \. on input line 139.
-LaTeX Info: Redefining \% on input line 139.
+LaTeX Info: Redefining \. on input line 144.
+LaTeX Info: Redefining \% on input line 144.
 [28]
-LaTeX Info: Redefining \. on input line 181.
-LaTeX Info: Redefining \% on input line 181.
+LaTeX Info: Redefining \. on input line 183.
+LaTeX Info: Redefining \% on input line 183.
  [29]
-Underfull \hbox (badness 10000) in paragraph at lines 202--203
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
 
  []
 
-LaTeX Info: Redefining \. on input line 213.
-LaTeX Info: Redefining \% on input line 213.
+
+Package natbib Warning: Citation `proxyInverso' on page 30 undefined on input l
+ine 207.
+
+LaTeX Info: Redefining \. on input line 214.
+LaTeX Info: Redefining \% on input line 214.
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 219--221
+Underfull \hbox (badness 10000) in paragraph at lines 230--232
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
-
- []
-
-LaTeX Info: Redefining \. on input line 246.
-LaTeX Info: Redefining \% on input line 246.
+LaTeX Info: Redefining \. on input line 244.
+LaTeX Info: Redefining \% on input line 244.
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 246--247
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 259--260
 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 252.
+               Default added (so using `tbp') on input line 263.
 
-<Imagenes/Fuentes/Herramientas/colab.jpg, id=631, 675.7245pt x 332.442pt>
+<Imagenes/Fuentes/Herramientas/colab.jpg, id=635, 675.7245pt x 332.442pt>
 File: Imagenes/Fuentes/Herramientas/colab.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/Herramientas/colab.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/Herramientas/colab.jpg  used on input
- line 254.
+ line 265.
 (pdftex.def)             Requested size: 360.0pt x 177.11156pt.
 )
 LaTeX Info: Redefining \. on input line 137.
 LaTeX Info: Redefining \% on input line 137.
- [32 <./Imagenes/Fuentes/Herramientas/colab.jpg>]
+ [32]
+LaTeX Info: Redefining \. on input line 137.
+LaTeX Info: Redefining \% on input line 137.
+ [33 <./Imagenes/Fuentes/Herramientas/colab.jpg>]
 \openout2 = `Capitulos/Capitulo4.aux'.
 
- (Capitulos/Capitulo4.tex
+
+(Capitulos/Capitulo4.tex [34
+
+
+
+]
 Cap\'itulo 4.
 
-Package natbib Warning: Citation `tchMetAgiles' on page 33 undefined on input l
+Package natbib Warning: Citation `tchMetAgiles' on page 35 undefined on input l
 ine 25.
 
 
@@ -1426,11 +1416,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
-[33
-
-
-
-]
+[35]
 Underfull \hbox (badness 10000) in paragraph at lines 30--31
 
  []
@@ -1441,7 +1427,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
  []
 
 
-Package natbib Warning: Citation `tchKanban1' on page 34 undefined on input lin
+Package natbib Warning: Citation `tchKanban1' on page 36 undefined on input lin
 e 44.
 
 
@@ -1455,7 +1441,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--47
  []
 
 
-Package natbib Warning: Citation `tchKanban2' on page 34 undefined on input lin
+Package natbib Warning: Citation `tchKanban2' on page 36 undefined on input lin
 e 49.
 
 
@@ -1465,15 +1451,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
 LaTeX Info: Redefining \. on input line 54.
 LaTeX Info: Redefining \% on input line 54.
-[34]
+[36]
 LaTeX Info: Redefining \. on input line 93.
 LaTeX Info: Redefining \% on input line 93.
- [35]
+ [37]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 94.
 
-<Imagenes/Fuentes/Metodologias/trello.jpg, id=658, 638.98724pt x 345.6915pt>
+<Imagenes/Fuentes/Metodologias/trello.jpg, id=671, 638.98724pt x 345.6915pt>
 File: Imagenes/Fuentes/Metodologias/trello.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/Metodologias/trello.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/Metodologias/trello.jpg  used on inpu
@@ -1496,7 +1482,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
 LaTeX Info: Redefining \. on input line 124.
 LaTeX Info: Redefining \% on input line 124.
-[36 <./Imagenes/Fuentes/Metodologias/trello.jpg>]
+[38 <./Imagenes/Fuentes/Metodologias/trello.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 149--150
 
  []
@@ -1508,7 +1494,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--157
 
 LaTeX Info: Redefining \. on input line 157.
 LaTeX Info: Redefining \% on input line 157.
-[37]
+[39]
 Underfull \hbox (badness 10000) in paragraph at lines 158--159
 
  []
@@ -1523,7 +1509,7 @@ a-Capítulo3-Flask
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 210.
 
-<Imagenes/Fuentes/Metodologias/git.jpg, id=676, 722.7pt x 542.025pt>
+<Imagenes/Fuentes/Metodologias/git.jpg, id=690, 722.7pt x 542.025pt>
 File: Imagenes/Fuentes/Metodologias/git.jpg Graphic file (type jpg)
 <use Imagenes/Fuentes/Metodologias/git.jpg>
 Package pdftex.def Info: Imagenes/Fuentes/Metodologias/git.jpg  used on input l
@@ -1532,14 +1518,14 @@ ine 212.
 )
 LaTeX Info: Redefining \. on input line 138.
 LaTeX Info: Redefining \% on input line 138.
- [38]
+ [40]
 LaTeX Info: Redefining \. on input line 138.
 LaTeX Info: Redefining \% on input line 138.
- [39 <./Imagenes/Fuentes/Metodologias/git.jpg>]
+ [41 <./Imagenes/Fuentes/Metodologias/git.jpg>]
 \openout2 = `Capitulos/CapituloTrabajoIndividual.aux'.
 
 
-(Capitulos/CapituloTrabajoIndividual.tex [40
+(Capitulos/CapituloTrabajoIndividual.tex [42
 
 
 
@@ -1568,7 +1554,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
 Underfull \vbox (badness 5374) has occurred while \output is active []
 
- [41]
+ [43]
 Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
@@ -1590,7 +1576,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--36
 
 LaTeX Info: Redefining \. on input line 36.
 LaTeX Info: Redefining \% on input line 36.
-[42]
+[44]
 Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
@@ -1632,7 +1618,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--60
 
 LaTeX Info: Redefining \. on input line 60.
 LaTeX Info: Redefining \% on input line 60.
-[43]
+[45]
 Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
@@ -1645,7 +1631,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--64
 )
 LaTeX Info: Redefining \. on input line 139.
 LaTeX Info: Redefining \% on input line 139.
- [44]
+ [46]
 \openout2 = `Cascaras/bibliografia.aux'.
 
  (Cascaras/bibliografia.tex
@@ -1665,20 +1651,20 @@ itulos/Capitulo3.aux) (Capitulos/Capitulo4.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 196.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
 Package rerunfilecheck Info: File `Tesis.out' has not changed.
-(rerunfilecheck)             Checksum: A933048689916B8D6FE473922C1A5E8F;3621.
+(rerunfilecheck)             Checksum: 8BA2B655B9DA23D48600689721613382;3691.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
  ) 
 Here is how much of TeX's memory you used:
- 10829 strings out of 492895
- 167637 string characters out of 3123268
+ 10833 strings out of 492895
+ 167675 string characters out of 3123268
  266026 words of memory out of 3000000
- 14077 multiletter control sequences out of 15000+200000
+ 14078 multiletter control sequences out of 15000+200000
  23341 words of font info for 48 fonts, out of 3000000 for 9000
  1379 hyphenation exceptions out of 8191
  55i,11n,53p,1171b,676s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Miguel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
-\ecti0800.pk> <C:\Users\Miguel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappe
-n/ec/dpi600\ecrm0900.pk> <C:\Users\Miguel\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
+\ecrm0900.pk> <C:\Users\Miguel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappe
+n/ec/dpi600\ecti0800.pk> <C:\Users\Miguel\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
 our/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\Miguel\AppData\Local\MiKTeX\2.9\f
 onts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\Miguel\AppData\Local\M
 iKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\Miguel\AppD
@@ -1699,9 +1685,9 @@ jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Miguel\AppData\Local\MiKTeX\2.9\fonts
 /pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Miguel\AppData\Local\MiKTe
 X\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk><C:/Users/Miguel/AppData/L
 ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Tesis.pdf (54 pages, 3388953 bytes).
+Output written on Tesis.pdf (56 pages, 3391450 bytes).
 PDF statistics:
- 1428 PDF objects out of 1440 (max. 8388607)
- 167 named destinations out of 1000 (max. 500000)
- 544 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1440 PDF objects out of 1440 (max. 8388607)
+ 170 named destinations out of 1000 (max. 500000)
+ 552 words of extra memory for PDF output out of 10000 (max. 10000000)
 
