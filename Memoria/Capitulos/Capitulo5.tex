@@ -7,7 +7,7 @@
 \chapter{Text2LSE}
 
 
-En este capítulo se muestra el desarrollo que se ha realizado a lo largo de este proyecto. Text2LSE es una aplicación web (ver Figura~\ref {fig: imgWebText2LSE}) que permite traducir textos escritos en castellano a LSE en formato vídeo y en formato texto en tiempo real. Está basada en servicios web, los cuales están disponibles para todo el mundo de manera gratuita. Los vídeos que utilizan los servicios web del proyecto para realizar la traducción a LSE son recursos de los signos que ofrece el catálogo de LSE de ARASAAC. 
+En este capítulo se muestra el desarrollo que se ha realizado a lo largo de este proyecto. Text2LSE es una aplicación web (ver Figura~\ref {fig: imgWebText2LSE}) que permite traducir textos escritos en castellano a LSE en formato vídeo y en formato texto en tiempo real. Está basada en servicios web, los cuales están disponibles para todo el mundo de manera gratuita. Los vídeos que utilizan los servicios web del proyecto para realizar la traducción a LSE son recursos de los signos que ofrece el catálogo de LSE de ARASAAC. \\
 
 En el apartado 5.1 se muestra la arquitectura de la aplicación web y cómo se comunica ésta con los servicios web. En el apartado 5.2 se explica en profundidad los servicios web desarrollados, tanto los utilizados en la aplicación web, como los desarrollados para aumentar las posibilidades de obtención de información para futuros desarrolladores. A continuación, en el apartado 5.3 se detalla más a fondo el desarrollo de la página web, tanto del diseño como de su funcionalidad. 
 
@@ -132,20 +132,16 @@ En el parámetro `texto'   se debe incluir el texto que se desea traducir a LSE. 
 
 \subsection{Procesamiento del Lenguaje Natural de TEXT2LSE}
 
-Como se ha visto en el apartado anterior ambos Servicios Web necesitan realizar un Procesamiento de Lenguaje Natural para poder adaptar el texto escrito en castellano a la LSE. En este apartado se explicará la implementación y el desarrollo del PLN utilizado en ambos servicios.
-
-\subsubsection{Implementación del PLN}
+Como se ha visto en el apartado anterior ambos Servicios Web necesitan realizar un Procesamiento de Lenguaje Natural para poder adaptar el texto escrito en castellano a la LSE. En este apartado se explicará la implementación y el desarrollo del PLN utilizado en ambos servicios.\\
 
 El Procesamiento de Lenguaje Natural para el proyecto Text2LSE ha sido implementado desde cero por los tres integrantes del equipo. Debido a la singularidad de Lengua de Signos y la falta de documentación de otros servicios de PLN ya implementados de los cuales se podrían haber hecho uso, se llegó  a la conclusión de realizar un procesamiento propio utilizado únicamente la herramienta Spacy.\\
 
-La implementación del PLN está basada en un sistema de reglas las cuales filtran qué palabras deben de ser utilizadas y cuales no. La elección a la hora de desarrollar el Procesamiento del Lenguaje para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje automático. La opción de desarrollar un aprendizaje automático no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligió el sistema basado en reglas ya que era más fácil de implementar y aunque puede limitar la capacidad de traducción de frases que no cumplan dichas reglas, cumple con los objetivos marcados en el proyecto que es traducir frases simples y compuestas a LSE.
+La implementación del PLN está basada en un sistema de reglas las cuales filtran qué palabras deben de ser utilizadas y cuales no. La elección a la hora de desarrollar el Procesamiento del Lenguaje para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje automático. La opción de desarrollar un aprendizaje automático no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligió el sistema basado en reglas ya que era más fácil de implementar y aunque puede limitar la capacidad de traducción de frases que no cumplan dichas reglas, cumple con los objetivos marcados en el proyecto que es traducir frases simples y compuestas a LSE.\\
 
+A continuación se explican las tres partes diferenciadas en el desarrollo del PLN.
 
-\subsubsection{Desarrollo del PNL}
-El desarrollo del Procesamiento del Lenguaje Natural está dividido en tres partes diferenciadas que son:\\
-
-
-\textbf{Recopilar la  información:} para poder empezar con el desarrollo se necesita conocer la información de cada palabra dentro de la oración. Para ello se realizará el proceso de Tokenización el cual divide la frase en una lista de palabras las cuales pasan a denominarse ?tokens? pero con la diferencia de que ahora cada token contiene gran cantidad de información. Esta información es:
+\subsubsection{Recopilar la  información} 
+Para poder empezar con el desarrollo se necesita conocer la información de cada palabra dentro de la oración. Para ello se realizará el proceso de Tokenización el cual divide la frase en una lista de palabras las cuales pasan a denominarse ?tokens? pero con la diferencia de que ahora cada token contiene gran cantidad de información. Esta información es:
 
 
 \begin{itemize}
@@ -168,7 +164,8 @@ Por ejemplo la información que se obtendría del token ?merendaban? sería ~\ref {
 
 
 
-\textbf{Análisis sintáctico y orden de la oración:} una vez separado la oración en tokens hay que diferenciar cuales forman parte del sujeto y cuales del predicado. Para ello hay que recorrer el árbol de dependencias  generado por Spacy mediante una función recursiva empezando desde el ROOT que es el token raíz del cual dependen todos los demás. Para entender cómo funcionan las dependencias se va a utilizar como ejemplo la oración `Ayer los niños merendaban chocolate'.
+\subsubsection{Análisis sintáctico y orden de la oración} 
+Una vez separado la oración en tokens hay que diferenciar cuales forman parte del sujeto y cuales del predicado. Para ello hay que recorrer el árbol de dependencias  generado por Spacy mediante una función recursiva empezando desde el ROOT que es el token raíz del cual dependen todos los demás. Para entender cómo funcionan las dependencias se va a utilizar como ejemplo la oración `Ayer los niños merendaban chocolate'.
 
 \begin{figure}[h]
 	\centering
@@ -227,12 +224,13 @@ Estas dependencias se traducen en un árbol binario donde el ROOT es la raíz como
 	
 	En el ejemplo utilizado anteriormente, la frase ordenada quedaría:
 	
-	``Ayer los niños merendaban chocolate en el parque'' quedaría ahora como  ``Ayer niños chocolate parque merendar''
+	``Ayer los niños merendaban chocolate en el parque'' quedaría ahora como  ``Ayer niños chocolate parque merendar''.
 		
 \end{itemize}
 
 
-\textbf{Análisis morfológico:} Una vez realizado el análisis sintáctico y orden de la oración hay que hacer un análisis morfológico detectando el tiempo verbal de la oración. el género y el número de cada token, así como los determinantes posesivos los cuales son sustituidos por pronombres personales.\\
+\subsubsection{Análisis morfológico} 
+Una vez realizado el análisis sintáctico y orden de la oración hay que hacer un análisis morfológico detectando el tiempo verbal de la oración. el género y el número de cada token, así como los determinantes posesivos los cuales son sustituidos por pronombres personales.\\
 
 Para entender mejor cómo funciona este apartado se va a usar de ejemplo la oración: ``Mis hermanos están de vacaciones''\\
 
