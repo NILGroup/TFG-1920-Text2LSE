@@ -1,0 +1,240 @@
+%---------------------------------------------------------------------
+%
+%                          Capítulo 3
+%
+%---------------------------------------------------------------------
+
+\chapter{Tecnologías utilizadas}
+
+%\begin{FraseCelebre}
+%	\begin{Frase}
+%		"Controlar la complejidad es la esencia de la programación". 
+%	\end{Frase}
+%	\begin{Fuente}
+%		Brian Kernigan
+%	\end{Fuente}
+%\end{FraseCelebre}
+
+
+En este capítulo se habla de las tecnologías utilizadas a lo largo del desarrollo de nuestra aplicación, dando una breve descripción de cada una y comentando los motivos de su utilización con respecto a otras tecnologías. 
+\\
+
+
+%-------------------------------------------------------------------
+\section{Servicios Web}
+%-------------------------------------------------------------------
+\label{cap3:sec:Servicios Web}
+Según el W3C (World Wide Consortium)\footnote{\url{https://www.w3.org/}} un servicio web es un sistema software diseñado para soportar interacciones entre sistemas a través de la red. Proporcionan una forma estándar de interoperar entre aplicaciones software que se pueden ejecutar en diferentes plataformas, soportando  aplicaciones desarrolladas en distintos lenguajes de programación.\\
+
+Muchos de los servicios web están basados en la arquitectura SOA (Service Oriented Architecture). Es un estilo arquitectónico para la construcción de aplicaciones software en base a servicios disponibles los cuales interactúan entre sí y se pueden combinar obteniendo nuevos servicios con más funcionalidades.\\
+
+Los dos tipos de servicios web más utilizados en la actualidad son: Servicios Web SOAP y Servicios Web REST.
+
+
+%-------------------------------------------------------------------
+\subsection{Servicios Web SOAP}
+%-------------------------------------------------------------------
+
+Los Servicios Web SOAP \citep*{tchSOAP} son un tipo de servicios web cuyo propósito es que las aplicaciones implementadas en diferentes plataformas y lenguajes de programación sean capaces de intercambiar datos de una forma más sencilla. \\
+
+Está basado en el protocolo SOAP (Simple Object Access Protocol) basado en el lenguaje XML el cual permite el intercambio de información entre aplicaciones. El mensaje se codifica como un documento XML que consta de un elemento \textit{<Envelope>} que hace referencia a la raíz de cada mensaje y este a su vez incorpora una cabecera opcional \textit{<Header>} y un cuerpo \textit{<Body>} obligatorio. La primera es utilizada para pasar información de la aplicación  y la segunda contiene la información dirigida al destinatario final del mensaje. Dentro del \textit{<Body>} está el subelemento \textit{<Fault>}   que sirve para la notificación de errores.\\ 
+
+Funciona por lo general con el protocolo HTTP, sin embargo no está limitado solo a este protocolo, si no que puede ser enviado por otros tipos de protocolos diferentes como TCP o POP3.\\
+
+
+Para poder acceder al servicio web se necesita saber donde está ubicado y cuales son las funcionalidades del servicio. Para ello se utiliza el lenguaje de descripción WSDL (Web Services Description Language) el cual está basado en XML y permite especificar a los clientes qué llamadas se pueden hacer a un servidor SOAP y que tipo de respuesta esperar. A pesar de tener el archivo WSDL es necesario saber dónde está toda esta información. Para ello se dispone del UDDI (Universal Description, Discovery and Integration Directory) que es un estándar basado en XML que actúa como repositorio donde se puede acudir a realizar búsquedas de Servicios Web específicos.
+
+
+%-------------------------------------------------------------------
+\subsection{Servicios Web REST}
+%-------------------------------------------------------------------
+
+Un Servicio Web REST \citep*{tchREST} es una interfaz para conectar varios servicios web basados en el protocolo HTTP que define una gran cantidad de métodos como son GET, POST, PUT y DELETE entre otros, los cuales pueden ser usados en diferentes circunstancias devolviendo los datos en distintos formatos como XML y JSON.\\
+
+Rest tiene como peculiaridad que es un servicio sin estado, es decir, que por cada petición que recibe el servidor, los datos se pierden ya que no es necesario mantener sesiones. Esto permite un uso más eficiente de la memoria y una mayor escalabilidad permitiendo separar  el cliente del servidor, facilitando que las distintas partes de un proyecto se puedan realizar de manera más independiente.\\
+
+Los objetos son manipulados a través de una URI (Uniform Resource Identifier) haciendo de identificador único de cada recurso del sistema REST. Esto junto con los métodos del protocolo HTTP hace posible la transferencia de datos en el sistema aplicando operaciones concretas sobre un recurso determinado.\\
+
+Para el desarrollo de este proyecto, se ha utilizado un servicio web REST, debido a su facilidad de uso y configuración.
+
+
+%-------------------------------------------------------------------
+\subsection{Ventajas de Servicios Web}
+%-------------------------------------------------------------------
+Las principales ventajas de los servicios web son\footnote{\url{https://sites.google.com/site/preyectodetics/home/servicios-web}}:
+
+\begin{itemize}
+	
+	\item Permiten una mayor operabilidad entre las aplicaciones software sin importar sus propiedades ni la plataforma en la que estén instalados.
+	
+	\item Fomentan los estándares y protocolos basados en texto, que hacen más fácil acceder a su contenido y entender su funcionamiento.	
+	
+	\item Permiten y facilitan que software y servicios de diferentes compañías
+	se puedan combinar formando un servicio funcional.  
+	
+\end{itemize} 
+
+
+%-------------------------------------------------------------------
+\subsection{Desventajas de Servicios Web}
+%-------------------------------------------------------------------
+Las principales desventajas de los servicios web son\footnote{\url{https://sistemas3.wordpress.com/2007/06/14/web-services/}}:
+
+\begin{itemize}
+	\item Las transacciones en este tipo de servicios están mucho menos desarrolladas que otros estándares abiertos.
+	
+	\item Su rendimiento es bajo si se compara con otros modelos de computación distribuida.
+	
+	\item Al estar muy ligados con HTTP, las medidas de seguridad que tratan de
+	bloquear la comunicación entre programas se pueden burlar fácilmente.  
+	
+	\item  Existe poca información de servicios web para algunos lenguajes de programación.
+	
+	
+\end{itemize} 
+
+
+
+%-------------------------------------------------------------------
+\subsection{Flask}
+%-------------------------------------------------------------------
+
+Para el desarrollo del proyecto se ha decidido utilizar un servidor Flask para implementar los microservicios. Flask \citep*{tchFlask1} es un ``micro'' Framework escrito en Python y concebido para facilitar el desarrollo de Aplicaciones Web y APIs. La palabra micro hace referencia a que Flask únicamente trae por defecto las herramientas necesarias para crear una aplicación web básica, aunque si se necesitan añadir nuevas funcionalidades hay un conjunto muy grande de extensiones (plugins) que se pueden instalar fácilmente. Por ello, Flask es muy recomendable para el desarrollo de aplicaciones que no requieran muchas extensiones o que se necesiten implementar de una forma ágil y rápida. También es muy recomendable para implementar microservicios.\\
+
+Algunas de las características de Flask por las que decidimos desarrollar nuestros microservicios con este framework son las siguientes:
+
+
+\begin{itemize}
+	
+	\item Rapidez y facilidad en la instalación y configuración, a diferencia de otros frameworks como Django, que son más complejos y difíciles de utilizar.
+	
+	\item Es compatible con Python. Nuestros microservicios están implementados en dicho lenguaje.
+	
+	\item Incluye un servidor web de desarrollo. No se necesita una infraestructura con un servidor web para probar las aplicaciones, sino que de una manera sencilla se puede levantar un servidor web para ir viendo los resultados que se van obteniendo.
+	
+	\item Cuenta con depurador. Si tenemos algún error en el código que se está desarrollando, se puede depurar ese error y ver los valores de las variables.
+	
+	\item Flask es Open Source y está amparado bajo una licencia BSD \citep*{tchBSD}, que es la licencia utilizada para los sistemas operativos BSD (Berkeley Software Distribution), y tiene menos restricciones en comparación con otras licencias como la GPL, estando muy cercana al dominio público.
+	
+	
+\end{itemize}
+
+
+%-------------------------------------------------------------------
+\section{Herramientas PLN}
+%-------------------------------------------------------------------
+En la actualidad hay una gran cantidad de herramientas para poder realizar el Procesamiento de Lenguaje Natural de una forma más sencilla y rápida. A continuación, vamos a explicar algunas de estas herramientas de Procesamiento
+de Lenguaje Natural que existen actualmente. 
+
+
+%-------------------------------------------------------------------
+\subsection{Spacy}
+%-------------------------------------------------------------------
+Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}}  es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python. Permite el desarrollo de aplicaciones que sean capaces de procesar y entender grandes volúmenes de texto obteniendo un análisis completo del lenguaje. Actualmente es considerada una de las mejores herramientas para el PNL ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías.
+
+
+
+%-------------------------------------------------------------------
+\subsection{NLTK}
+%-------------------------------------------------------------------
+Natural Language ToolKit (NLTK)\footnote{Web oficial de NLTK \url{https://www.nltk.org/}}  es una librería dedicada al análisis del lenguaje natural bajo el lenguaje de programación Python. En la actualidad incluye utilidades para más de 10 idiomas y fue creada por académicos e investigadores como una herramienta para crear funciones complejas de PLN. Esta biblioteca es muy útil cuando se quiere construir un modelo desde cero ya que proporciona acceso a muchos algoritmos y facilita el desarrollo de algoritmos propios permitiendo realizar un procesamiento del lenguaje más adaptado a un proyecto un en concreto.
+
+
+
+%-------------------------------------------------------------------
+\subsection{FreeLing}
+%-------------------------------------------------------------------
+
+FreeLing\footnote{Web oficial de FreeLing \url{http://nlp.lsi.upc.edu/freeling/index.php/node/1}} es una herramienta PLN de código abierto bajo el lenguaje de programación C++ que ha sido desarrollada por la Universidad Politécnica de Cataluña. La biblioteca permite realizar análisis morfológico, detección de entidades con nombres o etiquetado gramatical para una gran variedad de idiomas. \\
+
+Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos, adaptarlos a dominios particulares e incluso desarrollar otros nuevos para idiomas específicos o necesidades particulares. 
+
+
+
+%-------------------------------------------------------------------
+\subsection{Conclusiones}
+%-------------------------------------------------------------------
+
+Una vez analizada la posibilidad de usar una u otra se ha llegado a la conclusión de que Spacy es la herramienta adecuada, ya que proporciona un análisis rápido y bastante preciso en Español lo cual es de gran importancia en este proyecto y además es muy sencilla de aprender a manejar gracias a su manual de uso.  
+
+
+
+%-------------------------------------------------------------------
+\section{Servidor proxy inverso}
+%-------------------------------------------------------------------
+Un Proxy inverso \citep*{proxyInverso}  es un método de redireccionamiento del tráfico a partes específicas de una infraestructura concreta. Las principales finalidades para las que se usa este tipo de servidores son:
+
+\begin{itemize}
+	
+	\item \textbf{Anonimización:} el proxy recibe todas las llamadas al servidor y se encarga de filtrarlas y redirigirlas como se haya configurado previamente. De esta manera, desde fuera del servidor no se va a poder obtener ningún tipo de información del servidor ni de los servicios que estén en él, solo se podrá obtener información del proxy.
+
+	\item \textbf{Protección y cifrado:} al utilizar un proxy inverso se tiene la posibilidad de instalar sistemas de control y filtros de paquetes que protegen al servidor, aumentando así la seguridad del sistema.
+
+	\item \textbf{Balanceo de carga:} permite redirigir las distintas solicitudes entrantes por varios servidores, permitiendo repartir la carga de trabajo para no sobrecargar ningún servidor o equilibrar la carga en el caso de que falle uno de ellos.
+
+	\item \textbf{Caché:} el proxy se puede configurar para que sea capaz de almacenar las respuestas del servidor temporalmente para ofrecer una mayor velocidad de respuesta. De esta forma, si se recibe una solicitud cuya respuesta la tiene almacenada el proxy en su caché, se manda la respuesta de manera inmediata haciendo que no reciba tanta carga de procedimiento el back-end.
+
+	\item \textbf{Compresión:} un proxy inverso también se puede utilizar como compresor de datos, tanto entrantes como salientes.
+
+\end{itemize}
+
+	Como se explica a continuación, se ha configurado el servidor Nginx como servidor proxy inverso con el fin de redirigir las distintas solicitudes al servidor correspondiente.
+
+%-------------------------------------------------------------------
+\section{Nginx}
+%-------------------------------------------------------------------
+\label{cap2:sec:Nginx}
+
+Nginx \footnote{Web oficial de Nginx \url{https://www.nginx.com/}} es un servidor web de alto rendimiento, capaz de trabajar junto con diversas tecnologías de desarrollo y lenguajes. La asincronía es una de sus características fundamentales, junto con su rapidez, debido a que es un servidor web ligero.
+A día de hoy, además de sus capacidades de servidor HTTP, NGINX también puede funcionar como un servidor proxy para correo electrónico (IMAP, POP3 y SMTP) y un proxy inverso y equilibrador de carga para servidores (HTTP, TCP y UDP).\\
+
+Las ventajas de Nginx y el porqué de su uso en este TFG son:
+
+\begin{itemize}
+	
+	\item Nginx es un software multiplataforma que se puede usar en la gran mayoría de los sistemas operativos, tanto en sistemas basados en Unix como en Windows.
+	
+	\item Consume menos recursos que la mayoría de servicios que hacen su misma función ya que hace un uso de memoria de forma estática y se mantiene bastante estable independientemente del volumen de tráfico.
+	
+	\item Proporciona un alto rendimiento sobre todo en casos de mucho tráfico.
+	
+	\item Puede ser usado como Proxy inverso cacheando el contenido de nuestros sitios web.
+	
+	
+\end{itemize}
+
+Se ha utilizado un servidor Nginx para alojar una aplicación web cuya finalidad es mostrar la funcionalidad de los diferentes microservicios implementados en el proyecto. Además, se ha configurado Nginx como servidor proxy inverso, redireccionando las peticiones según correspondan a la página web alojada en el propio Nginx o a los microservicios desarrollados alojados en el servidor Flask.
+
+%-------------------------------------------------------------------
+\section{Google Colaboratory}
+%-------------------------------------------------------------------
+\label{cap3:sec:GoogleColaboratory}
+
+Google Colaboratory\footnote {\url{https://colab.research.google.com/notebooks/intro.ipynb}} es una herramienta gratuita de Google que permite programar en Python y ejecutar el código en tiempo real. El usuario final no necesita instalar nada en su propio sistema, ya que se pueden importar las librerías necesarias y toda la carga del procesamiento se localiza en los servidores de Google. \\
+
+Con esta herramienta se crean documentos llamados ``cuadernos de Colaboratory'', los cuales contienen celdas independientes en las que se puede introducir código ejecutable, texto, imágenes, comandos de la shell de Linux, código HTML, LaTex, etc. Todos estos cuadernos son almacenados en la cuenta de Google Drive del usuario, haciendo que compartirlo con otras personas sea muy rápido y sencillo. Podemos ver un ejemplo de un cuaderno en la Figura~\ref {fig: imgGoogleColab}\\
+
+Una de las opciones más llamativas de Colaboratory es la opción de poder procesar el código que necesite gran potencia a través de un acelerador, en este caso consiste en una GPU proporcionada por Google.\\
+
+Para este proyecto se ha utilizado esta herramienta para realizar pruebas con PLN utilizando Spacy y NLTK de manera más rápida y sencilla, teniendo acceso los tres miembros del equipo en tiempo real a dichas pruebas. En este caso no ha sido necesario la utilización de la GPU ya que la ejecución del código generado no ha sido tan potente como para necesitarla. Una vez que las pruebas eran satisfactorias, se comenzaba el traspaso de código a la API del proyecto.
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=\textwidth]{Imagenes/Fuentes/Herramientas/colab.jpg}
+	\caption{Vista de un cuaderno de Google Colaboratory}
+	\label {fig: imgGoogleColab}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
