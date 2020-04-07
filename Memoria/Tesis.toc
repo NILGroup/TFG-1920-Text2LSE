@@ -47,8 +47,19 @@
 \contentsline {subsection}{\numberline {4.5.1}GIT}{39}{subsection.4.5.1}% 
 \contentsline {subsection}{\numberline {4.5.2}GITHUB}{39}{subsection.4.5.2}% 
 \contentsline {subsection}{\numberline {4.5.3}Estructura de Trabajo con GIT y GITHUB}{40}{subsection.4.5.3}% 
-\contentsline {chapter}{\numberline {5}Trabajo individual}{43}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Sara Vegas Ca\~nas}{43}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Alejandro Torralbo Fuentes}{44}{section.5.2}% 
-\contentsline {section}{\numberline {5.3}Miguel Rodr\IeC {\'\i }guez Cuesta}{45}{section.5.3}% 
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{47}{chapter*.30}% 
+\contentsline {chapter}{\numberline {5}Text2LSE}{43}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Arquitectura}{43}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Back-End}{44}{section.5.2}% 
+\contentsline {subsection}{\numberline {5.2.1}Servicios}{46}{subsection.5.2.1}% 
+\contentsline {subsubsection}{\numberline {5.2.1.1}Servicio web para obtener el video de un signo en LSE de una determinada palabra}{46}{subsubsection.5.2.1.1}% 
+\contentsline {subsubsection}{\numberline {5.2.1.2}Servicio web para Traducci\'on de texto a v\IeC {\'\i }deo en LSE}{46}{subsubsection.5.2.1.2}% 
+\contentsline {subsubsection}{\numberline {5.2.1.3}Servicio web para Traducci\'on de texto en castellano a texto en LSE}{48}{subsubsection.5.2.1.3}% 
+\contentsline {subsection}{\numberline {5.2.2}Procesamiento del Lenguaje Natural de TEXT2LSE}{48}{subsection.5.2.2}% 
+\contentsline {subsubsection}{\numberline {5.2.2.1}Implementaci\'on del PLN}{51}{subsubsection.5.2.2.1}% 
+\contentsline {subsubsection}{\numberline {5.2.2.2}Desarrollo del PNL}{51}{subsubsection.5.2.2.2}% 
+\contentsline {section}{\numberline {5.3}Front-End}{54}{section.5.3}% 
+\contentsline {chapter}{\numberline {6}Trabajo individual}{57}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Sara Vegas Ca\~nas}{57}{section.6.1}% 
+\contentsline {section}{\numberline {6.2}Alejandro Torralbo Fuentes}{58}{section.6.2}% 
+\contentsline {section}{\numberline {6.3}Miguel Rodr\IeC {\'\i }guez Cuesta}{59}{section.6.3}% 
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{61}{chapter*.40}% 
