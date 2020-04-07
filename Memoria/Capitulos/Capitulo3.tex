@@ -120,71 +120,29 @@ Algunas de las características de Flask por las que decidimos desarrollar nuestr
 \end{itemize}
 
 
-
 %-------------------------------------------------------------------
-\section{Procesamiento del Lenguaje Natural}
-%-------------------------------------------------------------------
-\label{cap2:sec:Procesamiento del Lenguaje Natural (PLN)}
-
-El Procesamiento del Lenguaje Natural (PLN) es un campo dentro de la inteligencia artificial y la lingüística aplicada que analizan el lenguaje humano, lo interpretan y le dan significado para que pueda ser utilizado por una máquina de manera práctica.\\
-
-Su evolución en los últimos años ha ido creciendo de forma exponencial debido a la capacidad computacional de la que disponemos hoy en día y los avances realizados en la algoritmia. Sus aplicaciones son muy variadas, ya sea desde traducción automática y chatbots hasta asistentes virtuales como Alexa de Amazon y Siri de Apple.
-
-
-
-%-------------------------------------------------------------------
-\subsection{Estructura del Procesamiento del Lenguaje Natural}
-%-------------------------------------------------------------------
-Para que una máquina sea capaz de entender y procesar el lenguaje natural, es necesario analizar la estructura de dicho lenguaje, teniendo en cuenta los siguientes aspectos:
-
-
-\begin{itemize}
-	
-	\item\textbf{Nivel Fonológico:} se encarga de analizar cómo las palabras se relacionan con los sonidos que representan.
-	
-	\item\textbf{Nivel Morfológico:} trata de cómo las palabras se construyen a partir de unas unidades de significado más pequeñas llamadas morfemas. Un ejemplo sería el morfema de género: \textit{Chic-o (masculino) y Chic-a (femenino).}
-	
-	
-	\item\textbf{Nivel Sintáctico:} es el encargado de cómo se pueden unir las palabras para formar oraciones sintácticamente correctas, donde el orden de las palabras es el necesario para que se establezca la comunicación. Un ejemplo sería la concordancia entre sujeto y verbo ya que estos comparten siempre misma persona y número.
-	\newline
-	\textit{Yo bebo agua: Yo(1ª per, Sg) y bebo (1ª per, Sg)}
-	\newline
-	\textit{El bebe agua: Él (3ª per, Sg) y bebe (3ª per, Sg)}
-	
-	
-	\item\textbf{Nivel Semántico:} estudio del significado de las expresiones del lenguaje y de cómo los significados de las palabras se unen para dar sentido a una oración. Un ejemplo sería: \textit{``Pedro habla la Lengua de Signos''.}
-	
-	
-	\item\textbf{Nivel Pragmático:} trata de cómo las oraciones se usan en distintas situaciones y de cómo el uso afecta al significado de las oraciones.
-	
-\end{itemize}
-
-El Procesamiento del Lenguaje Natural en este proyecto es imprescindible ya que como se ha indicado en el apartado \ref{cap2:sec:Sintaxis de la Lengua de Signos} la LSE no es una simple representación del castellano por lo tanto hay realizar un procesamiento para poder obtener de una frase escrita en castellano una frase en LSE que cumpla su estructura gramatical.
-
-
-%-------------------------------------------------------------------
-\subsection{Herramientas PLN}
+\section{Herramientas PLN}
 %-------------------------------------------------------------------
 En la actualidad hay una gran cantidad de herramientas para poder realizar el Procesamiento de Lenguaje Natural de una forma más sencilla y rápida. A continuación, vamos a explicar algunas de estas herramientas de Procesamiento
 de Lenguaje Natural que existen actualmente. 
 
 
 %-------------------------------------------------------------------
-\subsubsection{Spacy}
+\subsection{Spacy}
 %-------------------------------------------------------------------
 Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}}  es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python. Permite el desarrollo de aplicaciones que sean capaces de procesar y entender grandes volúmenes de texto obteniendo un análisis completo del lenguaje. Actualmente es considerada una de las mejores herramientas para el PNL ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías.
 
 
 
 %-------------------------------------------------------------------
-\subsubsection{NLTK}
+\subsection{NLTK}
 %-------------------------------------------------------------------
 Natural Language ToolKit (NLTK)\footnote{Web oficial de NLTK \url{https://www.nltk.org/}}  es una librería dedicada al análisis del lenguaje natural bajo el lenguaje de programación Python. En la actualidad incluye utilidades para más de 10 idiomas y fue creada por académicos e investigadores como una herramienta para crear funciones complejas de PLN. Esta biblioteca es muy útil cuando se quiere construir un modelo desde cero ya que proporciona acceso a muchos algoritmos y facilita el desarrollo de algoritmos propios permitiendo realizar un procesamiento del lenguaje más adaptado a un proyecto un en concreto.
 
 
 
 %-------------------------------------------------------------------
-\subsubsection{FreeLing}
+\subsection{FreeLing}
 %-------------------------------------------------------------------
 
 FreeLing\footnote{Web oficial de FreeLing \url{http://nlp.lsi.upc.edu/freeling/index.php/node/1}} es una herramienta PLN de código abierto bajo el lenguaje de programación C++ que ha sido desarrollada por la Universidad Politécnica de Cataluña. La biblioteca permite realizar análisis morfológico, detección de entidades con nombres o etiquetado gramatical para una gran variedad de idiomas. \\
@@ -194,7 +152,7 @@ Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos
 
 
 %-------------------------------------------------------------------
-\subsubsection{Conclusiones}
+\subsection{Conclusiones}
 %-------------------------------------------------------------------
 
 Una vez analizada la posibilidad de usar una u otra se ha llegado a la conclusión de que Spacy es la herramienta adecuada, ya que proporciona un análisis rápido y bastante preciso en Español lo cual es de gran importancia en este proyecto y además es muy sencilla de aprender a manejar gracias a su manual de uso.  
