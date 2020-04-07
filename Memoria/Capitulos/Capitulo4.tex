@@ -139,66 +139,65 @@ De esta forma, los integrantes del equipo y los tutores han estado informados co
 %-------------------------------------------------------------------
 \subsection{GITHUB}
 %-------------------------------------------------------------------
-Para la realizar la gestión del proyecto se ha decidido usar la herramienta de GitHub \footnote{\url{https://help.github.com/}} que es una plataforma basada en el sistema de control de versiones Git que permite ver y llevar el registro de todos los cambios realizados en el proyecto, organizarlos y resolver cualquier conflicto que pueda surgir. 
+Para la realizar la gestión del proyecto se ha decidido usar la herramienta de GitHub \footnote{\url{https://help.github.com/}} que es una plataforma basada en el sistema de control de versiones Git que permite ver y llevar el registro de todos los cambios realizados en el proyecto, organizarlos y resolver cualquier conflicto que pueda surgir. \\
 
-A continuación se explica la estructura que se ha seguido en el desarrollo del proyecto text2LSE (figura \ref{fig: imgGit})
+A continuación se explica la estructura que se ha seguido en el desarrollo del proyecto Text2LSE (Figura\ref{fig: imgGit})
 
 
 \subsection{Estructura de Trabajo con GITHUB}
 
-A la hora de desarrollar el proyecto con la herramienta Git, se ha establecido una estructura común para un correcto desarrollo del proyecto y poder gestionar así de manera eficiente y segura los cambios realizados.\\
-
-La estructura de ramas que hemos seguido es la siguiente:\\
-
-\textbf{MASTER:} Rama principal del proyecto donde todo ha sido revisado. De ella dependen:
+A la hora de desarrollar el proyecto con la herramienta Git, se ha establecido una estructura común para un correcto desarrollo del proyecto y poder gestionar así de manera eficiente y segura los cambios realizados. La estructura de ramas que hemos seguido es la siguiente:
 
 \begin{itemize}
-	\item \textbf{Memoria}: Rama principal de la memoria que contiene la versión revisada más reciente. De ella se crean nuevas ramas hijas por capítulo y funcionalidad para poder trabajar cada uno en su parte de la memoria dentro de un mismo capítulo:
+	\item\textbf{MASTER:} Rama principal del proyecto donde todo ha sido revisado. De ella dependen:
 
 	\begin{itemize}
-		\item Memoria-Capítulo-N: \textit{Memoria-Capítulo3}
+		\item \textbf{Memoria}: Rama principal de la memoria que contiene la versión revisada más reciente. De ella se crean nuevas ramas hijas por capítulo y funcionalidad para poder trabajar cada uno en su parte de la memoria dentro de un mismo capítulo:
+	
 		\begin{itemize}
-			\item Memoria-Capítulo-N-funcionalidad: \textit{Memoria-Capítulo3-Flask}
-		\end{itemize}
-	
-\end{itemize}
-
-		
-\end{itemize}
-
-\begin{itemize}
-	\item \textbf{API}: Rama principal de la API que contiene el código más reciente y en funcionamiento. Contiene dos ramas hijas:
-	
-	\begin{itemize}
-		\item API-Video: Rama donde se desarrolla toda la parte de procesamiento de vídeo. A partir de ella se crean ramas hijas por funcionalidad a desarrollar.
-		
-		\begin{itemize}
-			\item API-Video-funcionalidad: \textit{Api-Video-unaPalabra}
-		\end{itemize}
-	
-	\end{itemize}
-	
-
-	\begin{itemize}
-		\item API-PLN:Rama donde se desarrolla el procesamiento de lenguaje natural. A partir de ella se crean ramas hijas por funcionalidad a desarrollar.
-		
-		\begin{itemize}
-			\item API-PLN-funcionalidad: \textit{API-PLN-sujeto}
-		\end{itemize}
+			\item Memoria-Capítulo-N: \textit{Memoria-Capítulo3}
+			\begin{itemize}
+				\item Memoria-Capítulo-N-funcionalidad: \textit{Memoria-Capítulo3-Flask}
+			\end{itemize}
 		
 	\end{itemize}
 	
-\end{itemize}
-
-\begin{itemize}
-	\item \textbf{Web}: Rama principal del cliente que contiene el código más reciente y en funcionamiento. A partir de ella se crean ramas hijas por funcionalidad a desarrollar:
-	
-	\begin{itemize}
-		\item Web-funcionalidad: \textit{Web-llamadaFetch}
+			
 	\end{itemize}
 	
+	\begin{itemize}
+		\item \textbf{API}: Rama principal de la API que contiene el código más reciente y en funcionamiento. Contiene dos ramas hijas:
+		
+		\begin{itemize}
+			\item API-Video: Rama donde se desarrolla toda la parte de procesamiento de vídeo. A partir de ella se crean ramas hijas por funcionalidad a desarrollar.
+			
+			\begin{itemize}
+				\item API-Video-funcionalidad: \textit{Api-Video-unaPalabra}
+			\end{itemize}
+		
+		\end{itemize}
+		
+	
+		\begin{itemize}
+			\item API-PLN:Rama donde se desarrolla el procesamiento de lenguaje natural. A partir de ella se crean ramas hijas por funcionalidad a desarrollar.
+			
+			\begin{itemize}
+				\item API-PLN-funcionalidad: \textit{API-PLN-sujeto}
+			\end{itemize}
+			
+		\end{itemize}
+		
+	\end{itemize}
+	
+	\begin{itemize}
+		\item \textbf{Web}: Rama principal del cliente que contiene el código más reciente y en funcionamiento. A partir de ella se crean ramas hijas por funcionalidad a desarrollar:
+		
+		\begin{itemize}
+			\item Web-funcionalidad: \textit{Web-llamadaFetch}
+		\end{itemize}
+		
+	\end{itemize}
 \end{itemize}
-
 Nota: Todas las ramas creadas por funcionalidad se pueden borrar una vez se dejen de usar y se haya realizado un  previo merge a su rama principal.
 
 \begin{figure}[]
