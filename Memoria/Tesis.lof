@@ -30,3 +30,14 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Tablero \textit {``Memoria''} utilizado en el proyecto. \relax }}{38}{figure.caption.28}% 
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Estructura \textit {``Git''} utilizada en el proyecto. \relax }}{41}{figure.caption.29}% 
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Aplicaci\'on web Text2LSE \relax }}{44}{figure.caption.30}% 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Arquitectura de Text2LSE \relax }}{45}{figure.caption.31}% 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Esquema Proxy Inverso\relax }}{46}{figure.caption.32}% 
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Flujo del servicio de Traducci\'on de una palabra a v\IeC {\'\i }deo en LSE\relax }}{47}{figure.caption.33}% 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Flujo servicio de traducci\'on de texto en castellano a video en LSE \relax }}{49}{figure.caption.34}% 
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Flujo servicio de traducci\'on de texto en castellano a texto en LSE \relax }}{50}{figure.caption.35}% 
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Informaci\'on del token merendaban \relax }}{52}{figure.caption.36}% 
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Displacy grafo de dependencias \relax }}{52}{figure.caption.37}% 
+\contentsline {figure}{\numberline {5.9}{\ignorespaces \'Arbol binario de una oraci\'on \relax }}{53}{figure.caption.38}% 
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Aplicaci\'on Web vista desde un dispositivo m\'ovil \relax }}{56}{figure.caption.39}% 
+\addvspace {10\p@ }

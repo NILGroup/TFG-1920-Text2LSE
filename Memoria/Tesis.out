@@ -47,8 +47,14 @@
 \BOOKMARK [2][-]{subsection.4.5.1}{GIT}{section.4.5}% 47
 \BOOKMARK [2][-]{subsection.4.5.2}{GITHUB}{section.4.5}% 48
 \BOOKMARK [2][-]{subsection.4.5.3}{Estructura de Trabajo con GIT y GITHUB}{section.4.5}% 49
-\BOOKMARK [0][-]{chapter.5}{Trabajo individual}{}% 50
-\BOOKMARK [1][-]{section.5.1}{Sara Vegas Ca\361as}{chapter.5}% 51
-\BOOKMARK [1][-]{section.5.2}{Alejandro Torralbo Fuentes}{chapter.5}% 52
-\BOOKMARK [1][-]{section.5.3}{Miguel Rodr\355guez Cuesta}{chapter.5}% 53
-\BOOKMARK [0][-]{chapter*.30}{Bibliograf\355a}{}% 54
+\BOOKMARK [0][-]{chapter.5}{Text2LSE}{}% 50
+\BOOKMARK [1][-]{section.5.1}{Arquitectura}{chapter.5}% 51
+\BOOKMARK [1][-]{section.5.2}{Back-End}{chapter.5}% 52
+\BOOKMARK [2][-]{subsection.5.2.1}{Servicios}{section.5.2}% 53
+\BOOKMARK [2][-]{subsection.5.2.2}{Procesamiento del Lenguaje Natural de TEXT2LSE}{section.5.2}% 54
+\BOOKMARK [1][-]{section.5.3}{Front-End}{chapter.5}% 55
+\BOOKMARK [0][-]{chapter.6}{Trabajo individual}{}% 56
+\BOOKMARK [1][-]{section.6.1}{Sara Vegas Ca\361as}{chapter.6}% 57
+\BOOKMARK [1][-]{section.6.2}{Alejandro Torralbo Fuentes}{chapter.6}% 58
+\BOOKMARK [1][-]{section.6.3}{Miguel Rodr\355guez Cuesta}{chapter.6}% 59
+\BOOKMARK [0][-]{chapter*.40}{Bibliograf\355a}{}% 60
