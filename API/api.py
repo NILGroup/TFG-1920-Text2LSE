@@ -23,7 +23,7 @@ def handle_bad_request(error):
 	payload = dict(error.payload or ())
 	payload['status'] = error.status
 	payload['message'] = error.message
-	return jsonify(payload), 400
+	return jsonify(payload), 404
 
 
 # ---------------------------------------------------------------------------------------------------------
@@ -63,8 +63,7 @@ def getTextoTraducidoVideo():
 		if video.existeVideo(texto):
 			videoPalabra = video.getVideoPalabra(texto)
 
-		else: 
-			abort(404, { 'mensaje' : 'No existe el video para la palabra solicitada' })
+		else: raise BadRequest('osahfdolijahdsoiuhdfasoiuhfadsoihfdas', 40001, { 'ext': 1 })
 
 		response = make_response(send_file(videoPalabra.filename, mimetype='video/mp4'))
 		response.headers['Content-Transfer-Enconding']='base64'
