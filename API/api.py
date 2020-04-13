@@ -11,6 +11,19 @@ import constantes as const
 app = Flask(__name__)
 CORS(app)
 
+class BadRequest(Exception):
+	def __init__(self, message, status=400, payload=None):
+		self.message = message
+		self.status = status
+		self.payload = payload
+
+
+@app.errorhandler(BadRequest)
+def handle_bad_request(error):
+	payload = dict(error.payload or ())
+	payload['status'] = error.status
+	payload['message'] = error.message
+	return jsonify(payload), 400
 
 
 # ---------------------------------------------------------------------------------------------------------
@@ -21,8 +34,8 @@ CORS(app)
 def getVideoPalabra(palabra):
     if video.existeVideo(palabra):
         videoPalabra = video.getVideoPalabra(palabra)
-        
-    else: abort(404)
+
+    else: raise BadRequest('osahfdolijahdsoiuhdfasoiuhfadsoihfdas', 40001, { 'ext': 1 })
 
     response = make_response(send_file(videoPalabra.filename, mimetype='video/mp4'))
     response.headers['Content-Transfer-Enconding']='base64'
@@ -114,21 +127,25 @@ def getTextoTraducidoNombreVideos():
 	response = {"texto" : frase}
 	return response
 
-# ---------------------------------------------------------------------------------------------------------
-# -------------------------------------------- HANDLERS ---------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------
+# # ---------------------------------------------------------------------------------------------------------
+# # -------------------------------------------- HANDLERS ---------------------------------------------------
+# # ---------------------------------------------------------------------------------------------------------
 
-@app.errorhandler(400)
-def BadRequest(e):
-    return jsonify(error=str(e)), 400
+# @app.errorhandler(400)
+# def BadRequest(e):
+#     return jsonify(error=str(e)), 400
 
-@app.errorhandler(404)
-def resource_not_found(e):
-    return jsonify(error=str(e)), 404
+# @app.errorhandler(404)
+# def resource_not_found(error):
+#     #return jsonify(error=str(e)), 404
+#     payload = dict(error.payload or ())
+#     payload['status'] = error.status
+#     payload['message'] = error.message
+#     return jsonify(payload), 404
 
-@app.errorhandler(500)
-def InternalServerError(e):
-    return jsonify(error=str(e)), 500
+# @app.errorhandler(500)
+# def InternalServerError(e):
+#     return jsonify(error=str(e)), 500
 
 if __name__ == '__main__':
     app.run(port=8080)
