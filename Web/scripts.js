@@ -8,8 +8,6 @@ function handleErrors(response){
 
 	if(!response.ok) {
 		console.log('Error handleErrors: ' + response.statusText);
-		alert(response.statusText); 
-		location.reload();
 	}
 	return response;
 }
@@ -147,17 +145,21 @@ function GetVideoSentence(){
 			if(response.status != 200)
 			{
 				console.log('Error: ' + response.status);
-				// Mostrar error
+				return response.text();
+				
 			}
 			else{
 				var url = window.URL || window.webkitURL; 
 				response.blob().then(function(video) {
-				var objectUrl = url.createObjectURL(video);
-				$('#videoContainer').html('<video id="video" class="embeb-responsive-item" autoplay controls><source id="source" src="' + objectUrl + '" type=video/mp4></video>');	
-			})
+					var objectUrl = url.createObjectURL(video);
+					$('#videoContainer').html('<video id="video" class="embeb-responsive-item" autoplay controls><source id="source" src="' + objectUrl + '" type=video/mp4></video>');	
+				})
 			}
 			
 		})
+	.then(body => 
+		alert(JSON.parse(body).message)
+	)
 	.catch(
 		function(error){
 			// Mostrar error
@@ -166,7 +168,3 @@ function GetVideoSentence(){
 
 }
 
-
-// ---------------------------------- PENDIENTE ------------------------------------
-// 1. Control de errores en las llamadas -> mostrarlos correctamente.
-// 2. Poner spinner para que el usuario sepa que se está cargando.
