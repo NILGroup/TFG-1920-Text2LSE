@@ -11,6 +11,19 @@ import constantes as const
 app = Flask(__name__)
 CORS(app)
 
+class BadRequest(Exception):
+	def __init__(self, message, status=400, payload=None):
+		self.message = message
+		self.status = status
+		self.payload = payload
+
+
+@app.errorhandler(BadRequest)
+def handle_bad_request(error):
+	payload = dict(error.payload or ())
+	payload['status'] = error.status
+	payload['message'] = error.message
+	return jsonify(payload), 404
 
 
 # ---------------------------------------------------------------------------------------------------------
@@ -21,8 +34,8 @@ CORS(app)
 def getVideoPalabra(palabra):
     if video.existeVideo(palabra):
         videoPalabra = video.getVideoPalabra(palabra)
-        
-    else: abort(404)
+
+    else: raise BadRequest('osahfdolijahdsoiuhdfasoiuhfadsoihfdas', 40001, { 'ext': 1 })
 
     response = make_response(send_file(videoPalabra.filename, mimetype='video/mp4'))
     response.headers['Content-Transfer-Enconding']='base64'
@@ -50,8 +63,7 @@ def getTextoTraducidoVideo():
 		if video.existeVideo(texto):
 			videoPalabra = video.getVideoPalabra(texto)
 
-		else: 
-			abort(404, { 'mensaje' : 'No existe el video para la palabra solicitada' })
+		else: raise BadRequest('Lo sentimos, la palabra \'' + texto + '\' no se encuentra en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
 
 		response = make_response(send_file(videoPalabra.filename, mimetype='video/mp4'))
 		response.headers['Content-Transfer-Enconding']='base64'
@@ -59,11 +71,13 @@ def getTextoTraducidoVideo():
 	elif(size > 1):
 		doc = pln.TranslateSentence(texto)
 		print(doc)
-		nombreVideo = video.getTextoVideo(doc)
+		resultado = video.getTextoVideo(doc)
+		
 
-		if (nombreVideo == "error"):
-			abort(404, { 'message' : 'No existen videos para todas las palabras solicitadas' })
+		if (resultado['error'] == True):
+			raise BadRequest('Lo sentimos, las palabras \'' + resultado['resultado'] + '\' no se encuentran en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
 		else:
+			nombreVideo = resultado['resultado']
 			response = make_response(send_file(const.pathVideoGenerado + nombreVideo, mimetype='video/mp4'))
 			response.headers['Content-Transfer-Enconding']='base64'
 			os.remove(const.pathVideoGenerado + nombreVideo)
@@ -114,21 +128,25 @@ def getTextoTraducidoNombreVideos():
 	response = {"texto" : frase}
 	return response
 
-# ---------------------------------------------------------------------------------------------------------
-# -------------------------------------------- HANDLERS ---------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------
+# # ---------------------------------------------------------------------------------------------------------
+# # -------------------------------------------- HANDLERS ---------------------------------------------------
+# # ---------------------------------------------------------------------------------------------------------
 
-@app.errorhandler(400)
-def BadRequest(e):
-    return jsonify(error=str(e)), 400
+# @app.errorhandler(400)
+# def BadRequest(e):
+#     return jsonify(error=str(e)), 400
 
-@app.errorhandler(404)
-def resource_not_found(e):
-    return jsonify(error=str(e)), 404
+# @app.errorhandler(404)
+# def resource_not_found(error):
+#     #return jsonify(error=str(e)), 404
+#     payload = dict(error.payload or ())
+#     payload['status'] = error.status
+#     payload['message'] = error.message
+#     return jsonify(payload), 404
 
-@app.errorhandler(500)
-def InternalServerError(e):
-    return jsonify(error=str(e)), 500
+# @app.errorhandler(500)
+# def InternalServerError(e):
+#     return jsonify(error=str(e)), 500
 
 if __name__ == '__main__':
     app.run(port=8080)
