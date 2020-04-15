@@ -30,18 +30,34 @@ def getVideoPalabra(palabra):
 def getTextoVideo(sentence):
 
 	videos = []
+	errores = ''
+	correcto = True
+
+	resultado = {'error': False, 'resultado':''}
 
 	for palabra in sentence:
 		if existeVideo(palabra.lower()):
 			clip = VideoFileClip(const.path + palabra.lower() + ".mp4")
 			videos.append(clip)
 		else:
-			return "error"
+			correcto = False
 
-	idVideo = str(uuid.uuid4())
-	final_clip = concatenate_videoclips(videos, method="compose")
-	#final_clip.write_videofile(const.pathVideoGenerado + idVideo + ".mp4")
-	final_clip.write_videofile(const.pathVideoGenerado + idVideo + ".mp4", threads=6, audio=False, preset='ultrafast')
+			if errores == '':
+				errores = '\'' + palabra.lower() + '\''
+			else:
+				errores = errores + ', \'' + palabra.lower() + '\''
+			
+	if correcto:
+		
+		idVideo = str(uuid.uuid4())
+		final_clip = concatenate_videoclips(videos, method="compose")
+		#final_clip.write_videofile(const.pathVideoGenerado + idVideo + ".mp4")
+		final_clip.write_videofile(const.pathVideoGenerado + idVideo + ".mp4", threads=6, audio=False, preset='ultrafast')
 	
+		resultado['resultado'] = idVideo + ".mp4"
 
-	return idVideo + ".mp4"
+	else:
+		resultado['resultado'] = errores
+		resultado['error'] = True
+
+	return resultado

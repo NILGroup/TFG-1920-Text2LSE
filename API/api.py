@@ -63,7 +63,7 @@ def getTextoTraducidoVideo():
 		if video.existeVideo(texto):
 			videoPalabra = video.getVideoPalabra(texto)
 
-		else: raise BadRequest('osahfdolijahdsoiuhdfasoiuhfadsoihfdas', 40001, { 'ext': 1 })
+		else: raise BadRequest('Lo sentimos, la palabra \'' + texto + '\' no se encuentra en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
 
 		response = make_response(send_file(videoPalabra.filename, mimetype='video/mp4'))
 		response.headers['Content-Transfer-Enconding']='base64'
@@ -71,11 +71,13 @@ def getTextoTraducidoVideo():
 	elif(size > 1):
 		doc = pln.TranslateSentence(texto)
 		print(doc)
-		nombreVideo = video.getTextoVideo(doc)
+		resultado = video.getTextoVideo(doc)
+		
 
-		if (nombreVideo == "error"):
-			abort(404, { 'message' : 'No existen videos para todas las palabras solicitadas' })
+		if (resultado['error'] == True):
+			raise BadRequest('Lo sentimos, las palabras \'' + resultado['resultado'] + '\' no se encuentran en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
 		else:
+			nombreVideo = resultado['resultado']
 			response = make_response(send_file(const.pathVideoGenerado + nombreVideo, mimetype='video/mp4'))
 			response.headers['Content-Transfer-Enconding']='base64'
 			os.remove(const.pathVideoGenerado + nombreVideo)
