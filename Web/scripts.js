@@ -34,7 +34,6 @@ function GetTextLSEJson(){
 			if(response.status != 200)
 			{
 				console.log('Error: ' + response.status);
-				// Mostrar error
 			}
 			else{
 				return response.json();
@@ -43,12 +42,9 @@ function GetTextLSEJson(){
 		})
 	.then(function(text){ 
 		$('#JSONText').html(text.texto.toUpperCase())
-		//alert(text.texto);
-		// Hacer lo que se tenga que hacer con el texto.
 	})
 	.catch(
 		function(error){
-			// Mostrar error
 			console.log(error);
 		});
 
@@ -76,7 +72,7 @@ function GetTextLSEVideosJson(){
 			if(response.status != 200)
 			{
 				console.log('Error: ' + response.status);
-				// Mostrar error
+				return response.text();
 			}
 			else{
 				return response.json();
@@ -85,12 +81,9 @@ function GetTextLSEVideosJson(){
 		})
 	.then(function(text){ 
 		$('#JSONContainer').html(text.texto)
-		//alert(text.texto);
-		// Hacer lo que se tenga que hacer con el texto.
 	})
 	.catch(
 		function(error){
-			// Mostrar error
 			console.log(error);
 		});
 
@@ -109,16 +102,29 @@ function GetVideoWord(){
 	.then(handleErrors)
 	.then( 
 		function(response){
-			var url = window.URL || window.webkitURL; 
-			response.blob().then(function(video) {
-				var objectUrl = url.createObjectURL(video);
-				$('#videoContainer').html('<video id="video" width="300" height="240" controls><source id="source" src="' + objectUrl + '" type=video/mp4></video>');	
-			})
+			if(response.status != 200)
+			{
+				console.log('Error: ' + response.status);
+				return response.text();
+				
+			}
+			else{
+				var url = window.URL || window.webkitURL; 
+				response.blob().then(function(video) {
+					var objectUrl = url.createObjectURL(video);
+					$('#videoContainer').html('<video id="video" width="300" height="240" controls><source id="source" src="' + objectUrl + '" type=video/mp4></video>');	
+				})
+			}
 	})
+	.then(function(body){
+			$('#textoError').text(JSON.parse(body).message);
+			$('#errorModal').modal('show');
+			$('.loader').hide();
+		}
+	)
 	.catch(
 		function(error){
-			// Mostrar error
-
+			console.log(error);
 		});
 }
 
@@ -157,14 +163,15 @@ function GetVideoSentence(){
 			}
 			
 		})
-	.then(body => 
-		alert(JSON.parse(body).message)
+	.then(function(body){
+			$('#textoError').text(JSON.parse(body).message);
+			$('.loader').hide();
+			$('#errorModal').modal('show');
+		}
 	)
 	.catch(
 		function(error){
-			// Mostrar error
 			console.log(error);
 		});
 
 }
-
