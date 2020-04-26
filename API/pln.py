@@ -13,6 +13,7 @@ palabrasTiempo = {"segundo", "minuto", "hora", "día", "semana", "mes", "año", 
 
 posesivos = {
     "mi":["yo","yo"],"tu":["tu","tu"],"su":["él","ella"],
+    "mis":["yo","yo"],"tus":["tu","tu"],
     "nuestro":["nosotros","nosotras"],"vuestro":["vosotros","vosotras"],"sus": ["ellos","ellas"],
     "nuestra":["nosotros","nosotras"],"vuestra":["vosotros","vosotras"],
     "nuestros":["nosotros","nosotras"],"vuestros":["vosotros","vosotras"],
