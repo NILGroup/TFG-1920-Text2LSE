@@ -35,7 +35,7 @@ def getVideoPalabra(palabra):
     if video.existeVideo(palabra):
         videoPalabra = video.getVideoPalabra(palabra)
 
-    else: raise BadRequest('osahfdolijahdsoiuhdfasoiuhfadsoihfdas', 40001, { 'ext': 1 })
+    else: raise BadRequest('Lo sentimos, la palabra \'' + palabra + '\' no se encuentra en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
 
     response = make_response(send_file(videoPalabra.filename, mimetype='video/mp4'))
     response.headers['Content-Transfer-Enconding']='base64'
@@ -70,10 +70,8 @@ def getTextoTraducidoVideo():
 
 	elif(size > 1):
 		doc = pln.TranslateSentence(texto)
-		print(doc)
 		resultado = video.getTextoVideo(doc)
 		
-
 		if (resultado['error'] == True):
 			raise BadRequest('Lo sentimos, las palabras \'' + resultado['resultado'] + '\' no se encuentran en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
 		else:
@@ -128,25 +126,8 @@ def getTextoTraducidoNombreVideos():
 	response = {"texto" : frase}
 	return response
 
-# # ---------------------------------------------------------------------------------------------------------
-# # -------------------------------------------- HANDLERS ---------------------------------------------------
-# # ---------------------------------------------------------------------------------------------------------
 
-# @app.errorhandler(400)
-# def BadRequest(e):
-#     return jsonify(error=str(e)), 400
 
-# @app.errorhandler(404)
-# def resource_not_found(error):
-#     #return jsonify(error=str(e)), 404
-#     payload = dict(error.payload or ())
-#     payload['status'] = error.status
-#     payload['message'] = error.message
-#     return jsonify(payload), 404
-
-# @app.errorhandler(500)
-# def InternalServerError(e):
-#     return jsonify(error=str(e)), 500
 
 if __name__ == '__main__':
     app.run(port=8080)

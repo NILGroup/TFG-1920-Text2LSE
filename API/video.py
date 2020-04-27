@@ -1,6 +1,5 @@
 #------------------- Librerías Python -------------------#
-import os, uuid
-#import ffmpeg
+import os, uuid, pln
 from moviepy.editor import VideoFileClip, concatenate_videoclips
 
 #------------------- Archivos lógica --------------------#
@@ -19,7 +18,6 @@ def existeVideo(palabra):
 def getVideoPalabra(palabra):
     return VideoFileClip(const.path + palabra.lower() +".mp4")
 
- 
 # ------------------------------------------------------------------------------------------------------
 # -------------------------------- PROCESAMIENTO VIDEO DE VARIAS PALABRAS ------------------------------
 # ------------------------------------------------------------------------------------------------------
@@ -40,7 +38,33 @@ def getTextoVideo(sentence):
 			clip = VideoFileClip(const.path + palabra.lower() + ".mp4")
 			videos.append(clip)
 		else:
-			correcto = False
+			# tratar plurales y femeninos
+			diccionario = pln.getDiccionarioOracion()
+			if (pln.keyexits(palabra, diccionario)):
+				values = pln.getKeyValue(palabra, diccionario)
+				if(values.get("Pos") == "NOUN"):
+					# buscamos el vídeo de la palabra en masculino singular
+					if existeVideo(values.get("lemma")):
+						clip = VideoFileClip(const.path + values.get("lemma").lower() + ".mp4")
+						videos.append(clip)
+
+						# si la palabra era femenina añadir "mujer"
+						if values.get("Gender") == "Fem":
+							clip = VideoFileClip(const.path + "mujer" + ".mp4")
+							videos.append(clip)
+
+						# si la palabra era plural se añade "otro"
+						if values.get("Number") == "Plur":
+							clip = VideoFileClip(const.path + "otro" + ".mp4")
+							videos.append(clip)
+					
+					# si la palabra era plural añadir 'plural' (RECORDAR PONER EL VIDEO 'PLURAL' IGUAL QUE EL DE 'OTRO')
+					# si no existe -> error
+				else:
+					correcto = False
+			else:
+				correcto = False
+			
 
 			if errores == '':
 				errores = '\'' + palabra.lower() + '\''
