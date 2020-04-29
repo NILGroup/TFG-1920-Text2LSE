@@ -16,7 +16,8 @@ def existeVideo(palabra):
 # -------------------------------- PROCESAMIENTO VIDEO DE UNA PALABRA ----------------------------------
 # ------------------------------------------------------------------------------------------------------
 def getVideoPalabra(palabra):
-    return VideoFileClip(const.path + palabra.lower() +".mp4")
+	return VideoFileClip(const.path + palabra.lower() +".mp4")
+	
 
 # ------------------------------------------------------------------------------------------------------
 # -------------------------------- PROCESAMIENTO VIDEO DE VARIAS PALABRAS ------------------------------

@@ -1,20 +1,20 @@
 #------------------- Librerías Python -------------------#
 from flask import Flask, abort, jsonify, request, send_file, make_response
 from flask_cors import CORS
-import spacy
-import os
+import spacy, os
 #------------------- Archivos lógica --------------------#
-import video
-import pln
+import video, imagenes, pln
 import constantes as const
 
 app = Flask(__name__)
 CORS(app)
 
+
+#------------------- Gestion de errores --------------------#
 class BadRequest(Exception):
 	def __init__(self, message, status=400, payload=None):
 		self.message = message
-		self.status = status
+		self.status  = status
 		self.payload = payload
 
 
@@ -24,23 +24,26 @@ def handle_bad_request(error):
 	payload['status'] = error.status
 	payload['message'] = error.message
 	return jsonify(payload), 404
+#-----------------------------------------------------------#
 
 
 # ---------------------------------------------------------------------------------------------------------
 # ------------------------------------ PROCESAMIENTO VIDEO DE UNA PALABRA ---------------------------------
 # ---------------------------------------------------------------------------------------------------------
-
 @app.route("/video/<string:palabra>", methods=["GET"])
 def getVideoPalabra(palabra):
-    if video.existeVideo(palabra):
-        videoPalabra = video.getVideoPalabra(palabra)
+	
+	if video.existeVideo(palabra.lower()):
+		resultado = video.getVideoPalabra(palabra.lower())
+		
 
-    else: raise BadRequest('Lo sentimos, la palabra \'' + palabra + '\' no se encuentra en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
+	else: raise BadRequest('Lo sentimos, la palabra \'' + palabra + '\' no se encuentra en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
 
-    response = make_response(send_file(videoPalabra.filename, mimetype='video/mp4'))
-    response.headers['Content-Transfer-Enconding']='base64'
-    
-    return response
+	response = make_response(send_file(resultado.filename, mimetype='video/mp4'))
+	response.headers['Content-Transfer-Enconding']='base64'
+
+	return response 
+
 
 # ---------------------------------------------------------------------------------------------------------
 # ------------------------------------ PROCESAMIENTO VIDEO DE VARIAS PALABRAS -----------------------------
@@ -57,21 +60,14 @@ def getTextoTraducidoVideo():
 
 	texto = request.form['Texto']
 	size = len(texto.split())
-	
+
 	if(size == 1):
-		
-		if video.existeVideo(texto):
-			videoPalabra = video.getVideoPalabra(texto)
-
-		else: raise BadRequest('Lo sentimos, la palabra \'' + texto + '\' no se encuentra en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
-
-		response = make_response(send_file(videoPalabra.filename, mimetype='video/mp4'))
-		response.headers['Content-Transfer-Enconding']='base64'
+		return getVideoPalabra(texto) #Ya estamos llamando al servicio web 1 palabra!!!!
 
 	elif(size > 1):
 		doc = pln.TranslateSentence(texto)
 		resultado = video.getTextoVideo(doc)
-		
+
 		if (resultado['error'] == True):
 			raise BadRequest('Lo sentimos, las palabras \'' + resultado['resultado'] + '\' no se encuentran en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
 		else:
@@ -81,6 +77,7 @@ def getTextoTraducidoVideo():
 			os.remove(const.pathVideoGenerado + nombreVideo)
 
 	return response
+
 
 # ---------------------------------------------------------------------------------------------------------
 # ------------------------------------- PROCESAMIENTO TEXTO A LSE -----------------------------------------
@@ -103,6 +100,48 @@ def getTextoTraducido():
 
 	response = {"texto" : frase}
 	return response
+
+
+# ---------------------------------------------------------------------------------------------------------
+# -------------------------------- PROCESAMIENTO PALABRA A IMAGEN LSE -------------------------------------
+# ---------------------------------------------------------------------------------------------------------
+@app.route("/imagen/<string:palabra>", methods=["GET"])
+def getImagenPalabra(palabra):
+	
+	if imagenes.existeImagen(palabra.lower()):
+		resultado = imagenes.getImagenPalabra(palabra.lower())
+
+	else:  raise BadRequest('Lo sentimos, la palabra \'' + palabra + '\' no se encuentra en la biblioteca de imagenes de ARASAAC', 404, { 'ext': 1 })
+
+	response = make_response(send_file(resultado, mimetype='image/jpeg'))
+	response.headers["Content-Type"] = "charset=utf-8"
+	response.headers["Content-Type"] = "image/jpeg"
+	response.headers['Content-Transfer-Enconding']='base64'
+	
+	return response
+
+# ---------------------------------------------------------------------------------------------------------
+# -------------------------------- PROCESAMIENTO TEXTO A IMAGENES LSE -------------------------------------
+# ---------------------------------------------------------------------------------------------------------
+@app.route("/imagen/", methods=["POST"])
+def getTextoTraducidoImagen():
+	
+	texto = request.form['Texto']
+
+	doc = pln.TranslateSentence(texto)
+	resultado = imagenes.getImagenesTexto(doc)
+
+	if (resultado['error'] == True):
+		raise BadRequest('Lo sentimos, las palabras \'' + resultado['resultado'] + '\' no se encuentran en la biblioteca de imagenes de ARASAAC', 404, { 'ext': 1 })
+	else:
+		album = resultado['resultado']
+		response = make_response(jsonify(album))
+		response.headers["Content-Type"] = "charset=utf-8"
+		response.headers["Content-Type"] = "image/jpeg"
+		response.headers['Content-Transfer-Enconding']='base64'
+		
+	return response
+
 
 # ---------------------------------------------------------------------------------------------------------
 # -------------------------------- PROCESAMIENTO TEXTO A NOMBRE VIDEOS LSE --------------------------------
