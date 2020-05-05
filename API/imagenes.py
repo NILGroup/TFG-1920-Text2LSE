@@ -13,16 +13,23 @@ def existeImagen(palabra):
 def getImagenPalabra(palabra):
     return const.pathImagen + palabra.lower() +".jpg"
 
+def agregaErrores (errores, palabra):
+	if errores == '':
+		errores = '\'' + palabra.lower() + '\''
+	else:
+		errores = errores + ', \'' + palabra.lower() + '\''
 
-def getImagenesTexto(sentence):
-	album = []
+	return errores
+
+def getTextoImagenes(sentence):
+	frase = []
 	errores = ''
 	correcto = True
 	resultado = {'error': False, 'resultado':''}
 
 	for palabra in sentence:
 		if existeImagen(palabra.lower()):
-			album.append(getImagenPalabra(palabra.lower()))
+			frase.append(palabra.lower())
 
 		else:
 			# tratar plurales y femeninos
@@ -32,30 +39,31 @@ def getImagenesTexto(sentence):
 				if(values.get("Pos") == "NOUN"):
 					# buscamos el vídeo de la palabra en masculino singular
 					if existeImagen(values.get("lemma")):
-						album.append(getImagenPalabra(values.get("lemma").lower()))
+						frase.append(values.get("lemma").lower())
 
 						# si la palabra era femenina añadir "mujer"
 						if values.get("Gender") == "Fem":
-							album.append(getImagenPalabra("mujer"))
+							frase.append("mujer")
 
 						# si la palabra era plural se añade "otro"
 						if values.get("Number") == "Plur":
-							album.append(getImagenPalabra("otro"))
+							frase.append("otro")
 					
 					# si la palabra era plural añadir 'plural' (RECORDAR PONER EL VIDEO 'PLURAL' IGUAL QUE EL DE 'OTRO')
 					# si no existe -> error
 				else:
 					correcto = False
+					errores = agregaErrores(errores, palabra)
+					
 			else:
 				correcto = False
+				errores = agregaErrores(errores, palabra)
+				
 			
-			if errores == '':
-				errores = '\'' + palabra.lower() + '\''
-			else:
-				errores = errores + ', \'' + palabra.lower() + '\''
+			
 			
 	if correcto:
-		resultado['resultado'] = album
+		resultado['resultado'] = frase
 
 	else:
 		resultado['resultado'] = errores

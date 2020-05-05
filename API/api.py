@@ -111,7 +111,7 @@ def getImagenPalabra(palabra):
 	if imagenes.existeImagen(palabra.lower()):
 		resultado = imagenes.getImagenPalabra(palabra.lower())
 
-	else:  raise BadRequest('Lo sentimos, la palabra \'' + palabra + '\' no se encuentra en la biblioteca de imagenes de ARASAAC', 404, { 'ext': 1 })
+	else:  raise BadRequest(palabra, 404, { 'ext': 1 })
 
 	response = make_response(send_file(resultado, mimetype='image/jpeg'))
 	response.headers["Content-Type"] = "charset=utf-8"
@@ -123,22 +123,19 @@ def getImagenPalabra(palabra):
 # ---------------------------------------------------------------------------------------------------------
 # -------------------------------- PROCESAMIENTO TEXTO A IMAGENES LSE -------------------------------------
 # ---------------------------------------------------------------------------------------------------------
-@app.route("/imagen/", methods=["POST"])
+@app.route("/textoImagen/", methods=["POST"])
 def getTextoTraducidoImagen():
 	
 	texto = request.form['Texto']
 
 	doc = pln.TranslateSentence(texto)
-	resultado = imagenes.getImagenesTexto(doc)
+	resultado = imagenes.getTextoImagenes(doc)
 
 	if (resultado['error'] == True):
-		raise BadRequest('Lo sentimos, las palabras \'' + resultado['resultado'] + '\' no se encuentran en la biblioteca de imagenes de ARASAAC', 404, { 'ext': 1 })
+		raise BadRequest(resultado['resultado'], 404, { 'ext': 1 })
 	else:
-		album = resultado['resultado']
-		response = make_response(jsonify(album))
-		response.headers["Content-Type"] = "charset=utf-8"
-		response.headers["Content-Type"] = "image/jpeg"
-		response.headers['Content-Transfer-Enconding']='base64'
+		frase = resultado['resultado']
+		response = make_response(jsonify(frase = frase))
 		
 	return response
 
