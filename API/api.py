@@ -61,20 +61,17 @@ def getTextoTraducidoVideo():
 	texto = request.form['Texto']
 	size = len(texto.split())
 
-	if(size == 1):
-		return getVideoPalabra(texto) #Ya estamos llamando al servicio web 1 palabra!!!!
+	doc = pln.TranslateSentence(texto)
+	resultado = video.getTextoVideo(doc)
 
-	elif(size > 1):
-		doc = pln.TranslateSentence(texto)
-		resultado = video.getTextoVideo(doc)
-
-		if (resultado['error'] == True):
-			raise BadRequest('Lo sentimos, las palabras \'' + resultado['resultado'] + '\' no se encuentran en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
-		else:
-			nombreVideo = resultado['resultado']
-			response = make_response(send_file(const.pathVideoGenerado + nombreVideo, mimetype='video/mp4'))
-			response.headers['Content-Transfer-Enconding']='base64'
-			os.remove(const.pathVideoGenerado + nombreVideo)
+	if (resultado['error'] == True):
+		raise BadRequest('Lo sentimos, las palabras \'' + resultado['resultado'] + '\' no se encuentran en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
+	else:
+		
+		nombreVideo = video.getVideoTexto(resultado['resultado'])
+		response = make_response(send_file(const.pathVideoGenerado + nombreVideo, mimetype='video/mp4'))
+		response.headers['Content-Transfer-Enconding']='base64'
+		os.remove(const.pathVideoGenerado + nombreVideo)
 
 	return response
 
@@ -121,7 +118,7 @@ def getImagenPalabra(palabra):
 	return response
 
 # ---------------------------------------------------------------------------------------------------------
-# -------------------------------- PROCESAMIENTO TEXTO A IMAGENES LSE -------------------------------------
+# -------------------------------- PROCESAMIENTO TEXTO A TEXTO PARA IMAGENES LSE -------------------------------------
 # ---------------------------------------------------------------------------------------------------------
 @app.route("/textoImagen/", methods=["POST"])
 def getTextoTraducidoImagen():
@@ -155,11 +152,14 @@ def getTextoTraducidoNombreVideos():
 	frase = ""
 
 	doc = pln.TranslateSentence(text)
+	resultado = video.getTextoVideo(doc)
 
-	for palabra in doc:
-		frase += palabra + " "
+	if (resultado['error'] == True):
+		raise BadRequest(resultado['resultado'], 404, { 'ext': 1 })
+	else:
+		frase = resultado['resultado']
+		response = make_response(jsonify(frase = frase))
 
-	response = {"texto" : frase}
 	return response
 
 
