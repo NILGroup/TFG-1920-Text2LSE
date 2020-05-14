@@ -21,7 +21,16 @@ html {
 	width: 100%;
 	overflow-x: hidden!important;
  }
+
+ body {
+ 	padding-bottom: 88px !important;
+ 	position: relative;
+
+ }
  
+ .text-red {
+ 	color:#990033;
+ }
  
  .submitBtn{
 	 background-color: #990033;
@@ -78,15 +87,39 @@ html {
 	 height: auto;
 	 width: auto;
  }
+
+ .mt-30 {
+ 	margin-top: 30px;
+ }
  
+.disableGrey {
+	position:absolute;
+	top:0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	background: #ebebeb;
+	backdrop-filter: blur(4px);
+	opacity:.4;
+	z-index: 2;
+}
+
+#spinner {
+	position: :absolute;
+	z-index: 99;
+	margin-top:10px;
+}
+
  .loader {
-   border: 8px solid #f3f3f3;
+   border: 8px solid #f3f3f3 !important;
    border-radius: 50%;
-   border-top: 8px solid #990033;
+   border-top: 8px solid #990033 !important;
    width: 60px;
    height: 60px;
-   -webkit-animation: spin 2s linear infinite; /* Safari */
-   animation: spin 2s linear infinite;
+   -webkit-animation: spin 2s linear infinite !important; /* Safari */
+   animation: spin 2s linear infinite !important; 
+   z-index: 999 !important;
  }
  
  /* Safari */
@@ -105,13 +138,19 @@ html {
    top: 33%;
    left:43%;
  }
+
+ .fixed {
+ 	bottom: 0 !important;
+ 	position: absolute !important;
+ }
  
  footer {
 	 margin-top: 50px;
-	 /*position: relative !important;*/
-	 height: 100px !important;
-	 bottom: 0;
-	 background-color: #dbdbdb;
+	 position: absolute !important;
+	 height: 88px !important;
+	 /*bottom: 0;*/
+	 background-color: #ebebeb;
+	 width: 100% !important;
  }
  
  /*+++++++++++++++++++++++++++++ Miembros +++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -191,7 +230,9 @@ html {
 	 html, body {
 		overflow-x: hidden!important;
 	 }
- 
+ 	body {
+ 		padding-bottom: 88px;
+ 	}
    .show-menu-btn,.hide-menu-btn{
 	 display: block;
    }
@@ -199,8 +240,7 @@ html {
 	 position: absolute;
 	 width: 100%;
 	 height:100%;
-	 background: #bebebe;
-	 right: -100%;
+	 right: -1000%;
 	 top: 0;
 	 text-align: center;
 	 padding: 80px 0;
@@ -219,6 +259,7 @@ html {
    }
    #chk:checked ~ .menu{
 	 right: 0;
+	 background: #bebebe;
    }
  
    #JSONContainer{
@@ -240,11 +281,14 @@ html {
    }
  
    footer {
-	 margin-top: 50px;
-	 position: relative !important;
-	 height: 100px !important;
-	 bottom: 0;
-	 background-color: #dbdbdb;
+	 margin-top: 150px;
+	 /*position: relative !important;*/
+	 height: 88px !important;
+	 /*bottom: 0;*/
+	 background-color: #ebebeb;
+   }
+   #imageContainer {
+   	justify-content: center;
    }
  }
  
@@ -258,7 +302,9 @@ html {
 	 overflow-x: hidden!important;
 	 
  }
- 
+ body {
+ 	padding-bottom: 88px;
+ }
  *{
 	 box-sizing: border-box;
  }
@@ -367,7 +413,9 @@ html {
 	 html, body {
 		overflow-x: hidden!important;
 	 }
- 
+ 	body {
+ 		padding-bottom: 88px;
+ 	}
 	 .card2{
 		 width:50% !important;
 		 margin-bottom:30px;
@@ -387,10 +435,10 @@ html {
  
 	 footer {
 	 margin-top: 50px;
-	 position: absolute !important;
-	 height: 100px !important;
-	 bottom: 0;
-	 background-color: #dbdbdb;
+	 /*position: absolute !important;*/
+	 height: 88px !important;
+	 /*bottom: 0;*/
+	 background-color: #ebebeb;
    }
  
  }
@@ -402,7 +450,9 @@ html {
 	 html, body {
 		overflow-x: hidden!important;
 	 }
- 
+ 	body {
+	 	padding-bottom: 88px;
+	 }
 	 .card2{
 		 width:50% !important;
 		 margin-bottom:30px;
@@ -422,10 +472,10 @@ html {
  
 	 footer {
 	 margin-top: 50px;
-	 position: absolute !important;
-	 height: 100px !important;
-	 bottom: 0;
-	 background-color: #dbdbdb;
+	 /*position: absolute !important;*/
+	 height: 88px !important;
+	 /*bottom: 0;*/
+	 background-color: #ebebeb;
    }
  
  }
@@ -444,7 +494,10 @@ html {
 	 html, body {
 		overflow-x: hidden!important;
 	 }
- 
+ 	body {
+ 		padding-bottom: 88px;
+ 	}
+
 	 .card2, .card3{
 		 width:100% !important;
 		 
@@ -456,10 +509,10 @@ html {
  
 	 footer {
 	 margin-top: 50px;
-	 position: relative !important;
+	 /*position: relative !important;*/
 	 height: 100px !important;
-	 bottom: 0;
-	 background-color: #dbdbdb;
+	 /*bottom: 0;*/
+	 background-color: #ebebeb;
    }
  
  }
@@ -469,7 +522,9 @@ html {
 	 html, body {
 		overflow-x: hidden!important;
 	 }
-	 
+	 body {
+	 	padding-bottom: 88px;
+	 }
 	 .card2, .card3{
 		 width:100% !important;
 		 
@@ -481,12 +536,51 @@ html {
  
 	 footer {
 	 margin-top: 50px;
-	 position: relative !important;
-	 height: 100px !important;
-	 bottom: 0;
-	 background-color: #dbdbdb;
+	 /*position: relative !important;*/
+	 height: 88px !important;
+	 /*bottom: 0;*/
+	 background-color: #ebebeb;
    }
  
  }
  
  
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+#imageContainer, #JSONContainer, #videoContainer {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.imageLSE {
+	width: auto;
+	height: 200px;
+}
+
+.noDisplay {
+	display: none;
+}
+
+figure { 
+	display: table;  
+	margin-bottom:10px;    
+}
+
+figcaption{
+    display: table-caption; 
+	caption-side: bottom ;
+    padding-top:10px;
+    text-align: center;
+}
