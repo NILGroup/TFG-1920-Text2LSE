@@ -37,6 +37,8 @@ def getTextoImagenes(sentence):
 						# si la palabra era plural se añade "otro"
 						if values.get("Number") == "Plur":
 							frase.append("otro")
+					else:
+						frase.append(palabra)
 					
 					# si la palabra era plural añadir 'plural' (RECORDAR PONER EL VIDEO 'PLURAL' IGUAL QUE EL DE 'OTRO')
 					# si no existe -> error
