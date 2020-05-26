@@ -58,26 +58,35 @@ def getVideoPalabra(palabra):
 # Si hay más de una palabra -> Trata la oración en getTextVideo(sentence)
 # Si existen todos los videos -> Devuelve el video generado y lo elimina del sistema de ficheros
 # Si alguno de los videos no existe -> Devuelve error
-# @app.route("/video/", methods=["POST"])
-# def getTextoTraducidoVideo():
+@app.route("/video/", methods=["POST"])
+def getTextoTraducidoVideo():
+	texto = request.form['Texto']
 
-# 	texto = request.form['Texto']
-# 	size = len(texto.split())
+	doc = pln.TranslateSentence(texto)
+	frase = video.getTextoVideo(doc)
 
-# 	doc = pln.TranslateSentence(texto)
-# 	resultado = video.getTextoVideo(doc)
+	nombreVideo = video.getVideoTexto(frase)
+	response = make_response(send_file(const.pathVideoGenerado + nombreVideo, mimetype='video/mp4'))
+	response.headers['Content-Transfer-Enconding']='base64'
+	os.remove(const.pathVideoGenerado + nombreVideo)
 
-# 	if (resultado['error'] == True):
-# 		raise BadRequest('Lo sentimos, las palabras \'' + resultado['resultado'] + '\' no se encuentran en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
-# 	else:
-# 		nombreVideo = video.getVideoTexto(resultado['resultado'])
-# 		response = make_response(send_file(const.pathVideoGenerado + nombreVideo, mimetype='video/mp4'))
-# 		response.headers['Content-Transfer-Enconding']='base64'
-# 		os.remove(const.pathVideoGenerado + nombreVideo)
+	return response
 
-# 		return response
+	# texto = request.form['Texto']
+	# size = len(texto.split())
 
+	# doc = pln.TranslateSentence(texto)
+	# resultado = video.getTextoVideo(doc)
 
+	# if (resultado['error'] == True):
+	# 	raise BadRequest('Lo sentimos, las palabras \'' + resultado['resultado'] + '\' no se encuentran en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
+	# else:
+	# 	nombreVideo = video.getVideoTexto(resultado['resultado'])
+	# 	response = make_response(send_file(const.pathVideoGenerado + nombreVideo, mimetype='video/mp4'))
+	# 	response.headers['Content-Transfer-Enconding']='base64'
+	# 	os.remove(const.pathVideoGenerado + nombreVideo)
+
+	# 	return response
 # ---------------------------------------------------------------------------------------------------------
 # ------------------------------------- PROCESAMIENTO TEXTO A LSE -----------------------------------------
 # ---------------------------------------------------------------------------------------------------------

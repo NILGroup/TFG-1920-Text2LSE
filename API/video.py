@@ -119,13 +119,17 @@ def getVideoTexto(sentence):
 	videos = []
 	
 	for palabra in sentence:
-		clip = VideoFileClip(const.path + palabra.lower() + ".mp4")
-		videos.append(clip)
+		if existeVideo(palabra.lower()):
+			clip = VideoFileClip(const.path + palabra.lower() + ".mp4")
+			videos.append(clip)
 		
+		else:
+			clip = VideoFileClip(const.path + "error404.mp4")
+			videos.append(clip)
 			
 	
-		idVideo = str(uuid.uuid4())
-		final_clip = concatenate_videoclips(videos, method="compose")
-		final_clip.write_videofile(const.pathVideoGenerado + idVideo + ".mp4", threads=6, audio=False, preset='ultrafast')
+	idVideo = str(uuid.uuid4())
+	final_clip = concatenate_videoclips(videos, method="compose")
+	final_clip.write_videofile(const.pathVideoGenerado + idVideo + ".mp4", threads=6, audio=False, preset='ultrafast')
 
 	return idVideo + ".mp4"
