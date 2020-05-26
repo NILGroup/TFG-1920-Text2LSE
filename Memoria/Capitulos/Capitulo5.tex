@@ -7,9 +7,15 @@
 \chapter{Text2LSE}
 
 
-En este capítulo se muestra el desarrollo que se ha realizado a lo largo de este proyecto. Text2LSE es una aplicación web (ver Figura~\ref {fig: imgWebText2LSE}) que permite traducir textos escritos en castellano a LSE en formato vídeo y en formato texto en tiempo real. Está basada en servicios web, los cuales están disponibles para todo el mundo de manera gratuita. Los vídeos que utilizan los servicios web del proyecto para realizar la traducción a LSE son recursos de los signos que ofrece el catálogo de LSE de ARASAAC. \\
+En este capítulo se muestra el desarrollo que se ha realizado a lo largo de este proyecto. Text2LSE es una aplicación web (ver Figura~\ref {fig: imgWebText2LSE}) que permite traducir textos escritos en castellano a LSE en formato vídeo y en formato imagen en tiempo real. Está basada en servicios web, los cuales están disponibles para todo el mundo de manera gratuita. Los vídeos e imágenes utilizados en la traducción a LSE son los recursos ofrecidos en el catálogo de LSE de ARASAAC. \\
 
-En el apartado 5.1 se muestra la arquitectura de la aplicación web y cómo se comunica ésta con los servicios web. En el apartado 5.2 se explica en profundidad los servicios web desarrollados, tanto los utilizados en la aplicación web, como los desarrollados para aumentar las posibilidades de obtención de información para futuros desarrolladores. A continuación, en el apartado 5.3 se detalla más a fondo el desarrollo de la página web, tanto del diseño como de su funcionalidad. 
+En el apartado 5.1 se muestra la arquitectura de la aplicación web y cómo se comunica ésta con los servicios web. En el apartado 5.2 se explican en profundidad los servicios web desarrollados, tanto los utilizados en la aplicación web, como los desarrollados para aumentar las posibilidades de obtención de información para futuros desarrolladores. A continuación, en el apartado 5.3 se detalla más a fondo el desarrollo de la página web, tanto del diseño como de su funcionalidad. \\
+
+La página web desarrollada es pública, y se puede acceder desde la siguiente url:
+
+\begin{shaded}
+	\url{https://holstein.fdi.ucm.es/tfg-text2lse }	
+\end{shaded}
 
 \begin{figure}[]
 	\centering
@@ -27,9 +33,25 @@ Text2LSE es una aplicación de traducción de castellano a LSE basada en servicios
 
 Se ha optado por desarrollar una aplicación web debido a que ésta es accesible desde cualquier dispositivo que disponga de un navegador, ya sea un teléfono móvil, una tablet o un ordenador, sean de la marca y tamaño que sean. Para que se pueda ver de manera correcta en todos esos dispositivos, la aplicación web se ha desarrollado siguiendo un diseño responsive, es decir, que su visualización se adapte dependiendo de las dimensiones de la pantalla del dispositivo desde el cual se esté accediendo.\\
 
-Respecto a la parte del servidor, se han desarrollado tres servicios web distintos, uno para devolver de manera rápida el vídeo en LSE de una sola palabra, otro para devolver el texto traducido a texto en LSE y otro para devolver el texto traducido a video en LSE. Al no disponer de una API que nos devolviese directamente los vídeos de la LSE de ARASAAC, se descargaron desde su página web y se almacenaron en el servidor para poder acceder a ellos.\\
+Respecto a la parte del servidor, se han desarrollado tres servicios web distintos, uno para devolver de manera rápida el vídeo en LSE de una sola palabra, otro para devolver el texto traducido a texto en LSE y otro para devolver el texto traducido a video en LSE. \\
 
-Se ha utilizado un proxy inverso para poder acceder tanto a la página web como a los servicios web a través desde un mismo punto de acceso. Se han especificado una serie de rutas para diferenciar qué llamadas de usuario redireccionar a la página web y cuáles a los servicios web. Esta estructura se puede observar en la Figura~\ref {fig: imgProxy}.
+Se ha utilizado un proxy inverso para poder acceder tanto a la página web como a los servicios web a través desde un mismo punto de acceso. Un Proxy inverso \citep*{proxyInverso} es un método de redireccionamiento del tráfico a partes específicas de una infraestructura concreta. Las principales finalidades para las que se usa este tipo de servidores son:
+
+\begin{itemize}
+	
+	\item \textbf{Anonimización:} el proxy recibe todas las llamadas al servidor y se encarga de filtrarlas y redirigirlas como se haya configurado previamente. De esta manera, desde fuera del servidor no se va a poder obtener ningún tipo de información del servidor ni de los servicios que estén en él, solo se podrá obtener información del proxy.
+	
+	\item \textbf{Protección y cifrado:} al utilizar un proxy inverso se tiene la posibilidad de instalar sistemas de control y filtros de paquetes que protegen al servidor, aumentando así la seguridad del sistema.
+	
+	\item \textbf{Balanceo de carga:} permite redirigir las distintas solicitudes entrantes por varios servidores, permitiendo repartir la carga de trabajo para no sobrecargar ningún servidor o equilibrar la carga en el caso de que falle uno de ellos.
+	
+	\item \textbf{Caché:} el proxy se puede configurar para que sea capaz de almacenar las respuestas del servidor temporalmente para ofrecer una mayor velocidad de respuesta. De esta forma, si se recibe una solicitud cuya respuesta la tiene almacenada el proxy en su caché, se manda la respuesta de manera inmediata haciendo que no reciba tanta carga de procedimiento el back-end.
+	
+	\item \textbf{Compresión:} un proxy inverso también se puede utilizar como compresor de datos, tanto entrantes como salientes.
+	
+\end{itemize}
+
+En este proyecto, se ha configurado el servidor Nginx como servidor proxy inverso con el fin de redirigir las distintas solicitudes al servidor correspondientes. Se han especificado una serie de rutas para diferenciar qué llamadas de usuario redireccionar a la página web y cuáles a los servicios web. Esta estructura se puede observar en la Figura~\ref {fig: imgProxy}.
 
 
 
@@ -53,14 +75,11 @@ Se ha utilizado un proxy inverso para poder acceder tanto a la página web como a
 
 En esta sección se explican con detalle los servicios web desarrollados y su implementación. Para comenzar, en la sección 5.5.1 se detallan las funcionalidades de los tres servicios desarrollados, y posteriormente en la sección 5.5.2 se explica en profundidad la implementación de ellos haciendo uso de técnicas PLN.
 
-%-------------------------------------------------------------------
-\subsection{Servicios}
-%-------------------------------------------------------------------
-\label{cap4:sec:Servicios}
 
-\subsubsection{Servicio web para obtener el video de un signo en LSE de una determinada palabra}
 
-Este servicio permite obtener el video del signo en LSE correspondiente a una palabra determinada. Los videos utilizados en este servicio provienen del catálogo de vídeos de LSE de la web de ARASAAC. Para poder acceder a este servicio, se debe hacer una llamada GET a la API,  indicando la palabra que se desea traducir a LSE desde la siguiente url:\\
+\subsection{Servicio web de traducción de palabra a LSE (vídeo)}
+
+Este servicio permite obtener el video del signo en LSE correspondiente a una palabra determinada en lenguaje natural. Los videos utilizados en este servicio provienen del catálogo de vídeos de LSE de la web de ARASAAC. Para poder acceder a este servicio, se debe hacer una llamada GET a la API,  indicando la palabra que se desea traducir a LSE de la siguiente forma:\\
 
 \begin{shaded}
 	\url{https://holstein.fdi.ucm.es/tfg-text2lse/video/<palabra> }	
@@ -68,7 +87,14 @@ Este servicio permite obtener el video del signo en LSE correspondiente a una pa
 
 En el parámetro \textit{``palabra''} se debe indicar la palabra de la que se desea obtener su signo en LSE. \\
 
-En caso de que se encuentre el vídeo de la palabra buscada, este servicio devuelve el vídeo deseado en formato mp4. En caso de que no se encuentre, devuelve un mensaje de error. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujo1palabraText2LSE}.
+En caso de que se encuentre el vídeo de la palabra buscada, este servicio devuelve el vídeo deseado en formato mp4. En caso de que no se encuentre, devuelve un vídeo de error en formato .mp4. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujo1palabraText2LSE}. \\
+
+Por ejemplo, para obtener el vídeo en LSE de la palabra \textit{``agua''}, como podemos ver en la Figura~\ref {fig: videoAgua}, se debe realizar la siguiente llamada:
+
+\begin{shaded}
+	\url{https://holstein.fdi.ucm.es/tfg-text2lse/video/agua }	
+\end{shaded}
+
 
 \begin{figure}[]
 	\centering
@@ -77,10 +103,124 @@ En caso de que se encuentre el vídeo de la palabra buscada, este servicio devuel
 	\label {fig: imgFlujo1palabraText2LSE}
 \end{figure}
 
+\begin{figure}[]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Imagenes/Fuentes/Text2LSE/videoEjemplo.jpg}
+	\caption{Vídeo devuelto por el servicio de traducción de la palabra \textit{``agua''} a LSE}
+	\label {fig: videoAgua}
+\end{figure}
 
-\subsubsection{Servicio web para Traducción de texto a vídeo en LSE}
+\subsection{Servicio web de traducción de palabra a LSE (imagen)}
 
-Este servicio implementa la funcionalidad de traducción de un texto en castellano a LSE en formato video. Al igual que en el servicio anterior, los videos utilizados en este servicio provienen del catálogo de vídeos de LSE de la web de ARASAAC. Para poder acceder a este servicio, se debe realizar una petición POST a la API en la siguiente URL:\\
+Este servicio permite obtener la imagen del signo en LSE correspondiente a una palabra determinada en lenguaje natural. Las imágenes utilizadas en este servicio provienen del catálogo de imágenes de LSE de la web de ARASAAC. Para poder acceder a este servicio, se debe hacer una llamada GET a la API,  indicando la palabra que se desea traducir a LSE de la siguiente forma:\\
+
+\begin{shaded}
+	\url{https://holstein.fdi.ucm.es/tfg-text2lse/imagen/<palabra> }	
+\end{shaded}
+
+En el parámetro \textit{``palabra''} se debe indicar la palabra de la que se desea obtener su signo en LSE. \\
+
+En caso de que se encuentre la imagen de la palabra buscada, este servicio devuelve la imagen deseada .jpg. En caso de que no se encuentre, devuelve una imagen de error en formato .jpg. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujo1palabraImagenText2LSE}. \\
+
+Por ejemplo, para obtener la imagen en LSE de la palabra \textit{``coche''}, como podemos ver en la Figura~\ref {fig: imgCoche}, se debe realizar la siguiente llamada:
+
+\begin{shaded}
+	\url{https://holstein.fdi.ucm.es/tfg-text2lse/imagen/coche }	
+\end{shaded}
+
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoImagen1palabra.jpg}
+	\caption{Flujo del servicio de Traducción de una palabra a imagen en LSE}
+	\label {fig: imgFlujo1palabraImagenText2LSE}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Imagenes/Fuentes/Text2LSE/imagenEjemplo.jpg}
+	\caption{Imagen devuelto por el servicio de traducción de la palabra \textit{``coche''} a LSE}
+	\label {fig: imgCoche}
+\end{figure}
+
+\subsection{Servicio web para traducción de texto castellano a texto en LSE dependiendo de los vídeos existentes}
+
+Este servicio implementa la funcionalidad de traducción de un texto en castellano a LSE en formato texto en función de los vídeos existentes en el sistema. Al igual que en el servicio anterior, los videos utilizados en este servicio provienen del catálogo de vídeos de LSE de la web de ARASAAC. Para poder acceder a este servicio, se debe realizar la siguiente petición POST a la API:\\
+
+\begin{shaded}
+	\url{https://holstein.fdi.ucm.es/tfg-text2lse/TextoLSEVideos/  }	
+\end{shaded}
+
+
+Los datos a enviar en la petición POST deben tener la siguiente estructura en JSON: 
+\begin{center}
+	
+	\{ `Texto' : `<texto>' \}
+	
+\end{center}
+
+
+En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujoTextoVideoTextoText2LSE}.\\
+
+Por ejemplo, para traducir el texto \textit{``Mis tías comen chocolate''} a LSE en formato texto en función de los vídeos existentes, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
+
+
+\begin{center}
+	Entrada: \{ `Texto' : `Mis tías comen chocolate' \} \\
+	Salida: \{ `Texto' : `yo tío mujer otro chocolate comer' \}
+\end{center}
+
+En este caso, al no encontrar el vídeo para la palabra \textit{``tías''} busca el vídeo de esa palabra sin morfemas de género y número, en este caso busca el vídeo de la palabra \textit{``tío''} añadiendo la palabra  \textit{``mujer''} para indicar el femenino y la palabra  \textit{``otro''} para indicar el plural.
+
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoTextoVideoTexto.jpg}
+	\caption{ Flujo servicio de traducción de texto en castellano a texto en LSE en función de los vídeos existentes }
+	\label {fig: imgFlujoTextoVideoTextoText2LSE}
+\end{figure}
+
+\subsection{Servicio web para traducción de texto castellano a texto en LSE dependiendo de las imágenes existentes}
+
+Este servicio implementa la funcionalidad de traducción de un texto en castellano a LSE en formato texto en función de las imágenes existentes en el sistema. Al igual que en el servicio anterior, las imágenes utilizados en este servicio provienen del catálogo de imágenes de LSE de la web de ARASAAC. Para poder acceder a este servicio, se debe realizar la siguiente petición POST a la API:\\
+
+\begin{shaded}
+	\url{https://holstein.fdi.ucm.es/tfg-text2lse/textoImagen/  }	
+\end{shaded}
+
+
+Los datos a enviar en la petición POST deben tener la siguiente estructura en JSON: 
+\begin{center}
+	
+	\{ `Texto' : `<texto>' \}
+	
+\end{center}
+
+
+En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujoTextoImagenTextoText2LSE}.\\
+
+Por ejemplo, para traducir el texto \textit{``Los caballos son rápidos''} a LSE en formato texto en función de los vídeos existentes, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
+
+
+\begin{center}
+	Entrada: \{ `Texto' : `Los caballos son rápidos' \} \\
+	Salida: \{ `Texto' : `caballo otro rápido' \}
+\end{center}
+
+En este caso, al no encontrar la imagen para la palabra \textit{``caballos''} busca el vídeo de esa palabra sin morfemas de género y número, en este caso busca el vídeo de la palabra \textit{``caballo''} añadiendo la palabra  \textit{``otro''} para indicar el plural.
+
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoTextoImagenTexto.jpg}
+	\caption{ Flujo servicio de traducción de texto en castellano a texto en LSE en función de las imágenes existentes }
+	\label {fig: imgFlujoTextoImagenTextoText2LSE}
+\end{figure}
+
+
+\subsection{Servicio web para traducción de texto a LSE (vídeo)}
+
+Este servicio implementa la funcionalidad de traducción de un texto en castellano a LSE en formato video. Al igual que en el servicio anterior, los videos utilizados en este servicio provienen del catálogo de vídeos de LSE de la web de ARASAAC. Para poder acceder a este servicio, se debe realizar la siguiente petición POST a la API:\\
 
 \begin{shaded}
 	\url{https://holstein.fdi.ucm.es/tfg-text2lse/video/  }	
@@ -95,13 +235,29 @@ Los datos a enviar en la petición POST deben tener la siguiente estructura en JS
 \end{center}
 
 
-En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. En caso de que se encuentren los recursos para traducir las palabras solicitadas a formato vídeo, se ejecuta un proceso que junta todos los vídeos en uno solo. Este vídeo es el que devuelve el servicio en formato mp4. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujoVideoTextoText2LSE}.
+En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. En caso de que se encuentren los recursos para traducir las palabras solicitadas en formato vídeo, se ejecuta un proceso que junta todos los vídeos en uno solo. Este vídeo es el que devuelve el servicio en formato mp4. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujoVideoTextoText2LSE}.\\
+
+Por ejemplo, para obtener el vídeo en LSE del texto \textit{``Los niños comen chocolate''}, como podemos ver en la Figura~\ref {fig: videoOracion}, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
+
+\begin{center}
+	
+	\{ `Texto' : `Los niños comen chocolate' \}
+	
+\end{center}
+
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoVideoTexto.jpg}
-	\caption{ Flujo servicio de traducción de texto en castellano a video en LSE }
+	\caption{ Flujo servicio de traducción de texto en castellano a LSE en formato vídeo }
 	\label {fig: imgFlujoVideoTextoText2LSE}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Imagenes/Fuentes/Text2LSE/videoOracion.jpg}
+	\caption{Vídeo devuelto por el servicio de traducción del texto \textit{``Los niños comen chocolate''} a LSE}
+	\label {fig: videoOracion}
 \end{figure}
 
 \subsubsection{Servicio web para Traducción de texto en castellano a texto en LSE}
