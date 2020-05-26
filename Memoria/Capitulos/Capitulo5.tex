@@ -124,7 +124,18 @@ Los datos a enviar en la petición POST deben tener la siguiente estructura en JS
 	
 \end{center}
 
-En el parámetro `texto'   se debe incluir el texto que se desea traducir a LSE. El flujo lo podremos ver en la Figura~\ref {fig: imgFlujoFlujoTextoLSE}. 
+En el parámetro `texto' se debe incluir el texto que se desea traducir a LSE. Un ejemplo de uso sería: 
+ 
+
+ 
+\begin{center}
+ Entrada:  \{ 'Texto' : 'El niño bebe agua.' \}\\
+ Salida:   \{ 'Texto' : 'niño agua beber.' \}
+\end{center}
+
+
+El flujo de este servicio web lo podremos ver en la Figura~\ref {fig: imgFlujoFlujoTextoLSE}.
+
 
 \begin{figure}[]
 	\centering
@@ -133,24 +144,20 @@ En el parámetro `texto'   se debe incluir el texto que se desea traducir a LSE. 
 	\label {fig: imgFlujoFlujoTextoLSE}
 \end{figure}
 
+Para que el servicio web sea capaz de traducir una frase a la LSE se ha tenido que realizar un procesamiento previo del texto en castellano para poder adaptarlo a la Lengua de Signos Española. A pesar de disponer herramientas PLN de la Universidad, debido a la singularidad de Lengua de Signos y a la falta de tiempo para aprender a usa una herramienta nueva debido a su complejidad el procesamiento del Lenguaje Natural ha sido implementado desde cero por los tres integrantes del equipo utilizando únicamente la herramienta Spacy. \\
 
-\subsection{Procesamiento del Lenguaje Natural de TEXT2LSE}
 
-Como se ha visto en el apartado anterior ambos Servicios Web necesitan realizar un Procesamiento de Lenguaje Natural para poder adaptar el texto escrito en castellano a la LSE. En este apartado se explicará la implementación y el desarrollo del PLN utilizado en ambos servicios.\\
+La implementación del PLN está basada en un sistema de reglas las cuales filtran qué palabras deben de ser utilizadas y cuales no. La elección a la hora de desarrollar el Procesamiento del Lenguaje Natural para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje automático. La opción de desarrollar un aprendizaje automático no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligió el sistema basado en reglas ya que era más fácil de implementar y aunque puede limitar la capacidad de traducción de frases que no cumplan dichas reglas, cumple con los objetivos marcados en el proyecto que es traducir frases simples a LSE.\\
 
-El Procesamiento de Lenguaje Natural para el proyecto Text2LSE ha sido implementado desde cero por los tres integrantes del equipo. Debido a la singularidad de Lengua de Signos y la falta de documentación de otros servicios de PLN ya implementados de los cuales se podrían haber hecho uso, se llegó  a la conclusión de realizar un procesamiento propio utilizado únicamente la herramienta Spacy.\\
-
-La implementación del PLN está basada en un sistema de reglas las cuales filtran qué palabras deben de ser utilizadas y cuales no. La elección a la hora de desarrollar el Procesamiento del Lenguaje para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje automático. La opción de desarrollar un aprendizaje automático no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligió el sistema basado en reglas ya que era más fácil de implementar y aunque puede limitar la capacidad de traducción de frases que no cumplan dichas reglas, cumple con los objetivos marcados en el proyecto que es traducir frases simples y compuestas a LSE.\\
-
-A continuación se explican las tres partes diferenciadas en el desarrollo del PLN.
+Nuestro PLN se divide en tres fases.Lo primero que hace es recopilar información de la frase en castellano para luego realizar un análisis sintáctico y morfológico de la frase y así poder ordenarla respetando la estructura de la LSE. A continuación se explicará con más detalle cada una de las fases:
 
 \subsubsection{Recopilar la  información} 
-Para poder empezar con el desarrollo se necesita conocer la información de cada palabra dentro de la oración. Para ello se realizará el proceso de Tokenización el cual divide la frase en una lista de palabras las cuales pasan a denominarse ?tokens? pero con la diferencia de que ahora cada token contiene gran cantidad de información. Esta información es:
+Para poder realizar los análisis sintácticos y morfológicos de la frase se necesita obtener toda la información posible de la frase. Para ello se realizará el proceso de Tokenización el cual divide la frase en una lista de palabras las cuales pasan a denominarse \textit{tokens} pero con la diferencia de que ahora cada token contiene gran cantidad de información. Esta información es:
 
 
 \begin{itemize}
 	
-	\item \textbf{Dependencia:} función de la palabra dentro de la frase.
+	\item \textbf{Dependencia:} función de la palabra dentro de la frase. Ejemplo: `
 	\item \textbf{Tags:} información de la palabra como el género, el número, el tiempo verbal, etc.
 	\item \textbf{Pos:} tipo de palabra como nombre, adjetivo, etc.
 	\item \textbf{Lema:} Lema de palabra.	
@@ -158,18 +165,18 @@ Para poder empezar con el desarrollo se necesita conocer la información de cada 
 \end{itemize}
 
 
-Por ejemplo la información que se obtendría del token ?merendaban? sería ~\ref {fig: tokenInformacion}:
+Por ejemplo la información que se obtendría del la oración \textit{`Los niños merendaron chocolate'} sería ~\ref {fig: tokenInformacion}:
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/tokenInformacion.png}
+	\includegraphics[width=1 \textwidth]{Imagenes/Fuentes/PNL/InfoPLN.png}
 	\caption{ Información del token merendaban }
 	\label {fig: tokenInformacion}
 \end{figure}
 
 
 
-\subsubsection{Análisis sintáctico y orden de la oración} 
-Una vez separado la oración en tokens hay que diferenciar cuales forman parte del sujeto y cuales del predicado. Para ello hay que recorrer el árbol de dependencias  generado por Spacy mediante una función recursiva empezando desde el ROOT que es el token raíz del cual dependen todos los demás. Para entender cómo funcionan las dependencias se va a utilizar como ejemplo la oración `Ayer los niños merendaban chocolate'.
+\subsubsection{Análisis sintáctico} 
+Una vez separado la oración en tokens hay que diferenciar que palabras forman parte del sujeto y cuales del predicado. Para ello hay que recorrer el árbol de dependencias mediante una función recursiva empezando desde el ROOT que es el token raíz del cual dependen todos los demás. Para entender cómo funcionan las dependencias se va a utilizar como ejemplo la oración `Ayer los niños merendaban chocolate'. En la Figura ~\ref {fig: dependencias} se muestran las dependencias de esta frase.
 
 \begin{figure}[h]
 	\centering
@@ -179,9 +186,7 @@ Una vez separado la oración en tokens hay que diferenciar cuales forman parte de
 \end{figure}
 
 
-Como se puede apreciar en el diagrama ~\ref {fig: dependencias} hay un token `merendaban'  del cual dependen tres tokens [Ayer, niños,chocolate]  y de ellos también dependen otros y así sucesivamente. \\
-
-Estas dependencias se traducen en un árbol binario donde el ROOT es la raíz como podemos ver en la Figura~\ref {fig: grafo}:
+Como se puede apreciar en el diagrama del token `merendaban' dependen tres tokens (Ayer, niños y chocolate) y de ellos también dependen otros y así sucesivamente. Estas dependencias se traducen en un árbol donde el ROOT es la raíz como podemos ver en la Figura~\ref {fig: grafo}:\\
 
 
 \begin{figure}[]
@@ -192,53 +197,55 @@ Estas dependencias se traducen en un árbol binario donde el ROOT es la raíz como
 \end{figure}
 
 
+Para obtener las distintas partes de la oración se recorre el árbol de la siguiente forma. Lo primero es obtener el sujeto y para ello hay que buscar el token que contenga la dependencia ``nsuj''. Una vez encontrado hay que volver a llamar a la función recursiva para obtener los hijos y guardarlos en una lista. En el ejemplo anterior \textit{``Ayer los niños merendaban chocolate''} el sujeto sería (Los niños). Una vez obtenido los tokens que pertenecen al sujeto, los tokens restantantes pertenecen al predicado (Ayer, merendaban y chocolate) y añaden a una lista.
+\begin{center}
+	\begin{itemize}
+		\item \textbf{Sujeto:}  [Los, niños]
+		\item \textbf{Predicado:} [Ayer, merendaban, chocolate]
+		
+	\end{itemize}
+\end{center}
+\subsubsection{Análisis morfológico} 
+
+La Lengua de Signos Española tiene una estructura gramatical diferente al castellano y como el objetivo del TFG es llegar a traducir frases simples a LSE, la estructura de la oración que se ha tomado como referencia siguiente:
+\begin{center}
+	TIEMPO + SUJETO + OBJETO + VERBO.
+\end{center}
+
+A parte de seguir esta estructura, en la LSE las palabras pueden tener un orden distinto al castellano o se pueden añadir o eliminar palabras que la oración original en castellano no estaban.
+
+El análisis morfológico que hemos seguido es a la hora de añadir o quitar palabras de la oración para poder obtener una traducción lo mas real posible es el siguiente:
+
 \begin{itemize}
 	
-	\item \textbf{El sujeto:} Para poder obtener el sujeto hay que recorrer el árbol buscando un token que contenga la dependencia ``nsuj''. Una vez encontrado hay que volver a llamar a la función recursiva para obtener los hijos y guardarlos en una lista, pero no todos ellos formarán parte del sujeto. Por lo tanto mediante reglas se analiza qué palabras se descartan del nuevo sujeto de la oración en Lengua de Signos. En el ejemplo anterior ``Ayer los niños merendaban chocolate'':
+	\item \textbf{Determinantes:} Los determinantes se omiten a la hora de hacer la traducción. \textit{Ejemplo: ``El niño come carne''} se traduce como \textit{``Niño carne comer''.}
+	\item \textbf{Verbos copulativos:} Los verbos copulativos ser, estar o parecer se omiten a la hora de la traducción. \textit{Ejemplo: ``yo soy bajo''} se traduce como \textit{``yo bajo''.}
 	
-	\begin{itemize}
-		\item \textbf{Antes de PLN:}  [Los, niños]
-		\item \textbf{Después  de PLN:}  [niños]
-		
-		
-	\end{itemize}
+	\item \textbf{Posesivos:} Los determinantes posesivos se sustituyen por pronombres personales.  \textit{Ejemplo: ``Mi niño es bajo''} se traduce como \textit{``yo niño bajo''.}
 	
-	\newpage
+	\item \textbf{Preposiciones:} Algunas preposiciones se quitan y otras se añaden.  \textit{Ejemplo: ``Mi niño está en el parque''} se traduce como \textit{``yo hijo parque''.}
 	
-	\item \textbf{El predicado:} El predicado se obtiene de manera muy parecida al sujeto. Como ya se ha encontrado un token con dependencia = ``nsuj'' y de él todos sus hijos, los demás tokens excepto el root, el cual se analiza de forma independiente, pertenecen al predicado y hay que analizarlos para ver si se descartan o no.
+	\item \textbf{Adjetivos:} Los adjetivos se ponen en masculino.  \textit{Ejemplo: ``Mi mamá es fea''} se traduce como \textit{``yo mamá feo''.}
 	
-	Una vez completadas las reglas y se haya completado el recorrido del árbol ya se tendrá el predicado guardado en una lista. En el ejemplo ``Ayer los niños estaban en el parque'':
-	
-	\begin{itemize}
-		\item \textbf{Antes de PLN:}  [Ayer, estaban, en, el, parque]
-		\item \textbf{Después  de PLN:}  [Ayer,parque]
-		
-	\end{itemize}
-	
-	Una vez terminado el análisis sintáctico de la frase ``Ayer los niños estaban en el parque'' se obtiene el Sujeto: [niños], el Predicado: [Ayer,parque] y el Root: [estar]
-	
-	Como se ve la oración no tiene ningún sentido tan solo está separada sintácticamente po lo que ahora la 
-	hay que ordenarla para que cumpla la estructura de la LSE. Para ello primero se recorren las listas del sujeto y del predicado generadas en el análisis sintáctico cuyos tokens van siendo ordenados mediante reglas.
-	
-	El orden general que se ha seguido para estructurar las frases ha sido el siguiente:
-	
-	\begin{center}
-		PALABRAS DE TIEMPO + SUJETO + OBJETO + VERBO.
-	\end{center}
-	
-	En el ejemplo utilizado anteriormente, la frase ordenada quedaría:
-	
-	``Ayer los niños merendaban chocolate en el parque'' quedaría ahora como  ``Ayer niños chocolate parque merendar''.
+	\item \textbf{Temporalidad:} La temporalidad como vemos en la estructura de más arriba va al principio de la oración. \textit{Ejemplo: ``Yo comí chocolate ayer''} se traduce como \textit{``Ayer yo chocolate comer''.} Sin embargo no siempre hay adverbios de tiempo en la oración que indican la temporalidad. Quién indica en este caso el tiempo es el verbo por lo que habría que añadir la temporalidad con las signos PASADO o FUTURO.
+	\textit{Ejemplo: ``Yo comeré chocolate''} se traduce como \textit{``Futuro yo chocolate comer''.}
 		
 \end{itemize}
 
 
-\subsubsection{Análisis morfológico} 
-Una vez realizado el análisis sintáctico y orden de la oración hay que hacer un análisis morfológico detectando el tiempo verbal de la oración. el género y el número de cada token, así como los determinantes posesivos los cuales son sustituidos por pronombres personales.\\
+Una vez añadido y quitado las palabras el sujeto y predicado, la frase se tiene que ordenar según la estructura tiempo + sujeto + objeto + verbo por lo que el resultado final de la frase usada como ejemplo ``Los niños ayer merendaban chocolate'' sería: 
 
-Para entender mejor cómo funciona este apartado se va a usar de ejemplo la oración: ``Mis hermanos están de vacaciones''\\
+\begin{center}
+	\begin{itemize}
+		\item \textbf{Sujeto:}  [niños]
+		\item \textbf{Predicado:} [Ayer, merendar, chocolate]
+		\item \textbf{Frase ordenada:} ``Ayer niños chocolate merendar'' 
+		
+		
+	\end{itemize}
+\end{center}
 
-Tiempo verbal: Si es PRESENTE la frase no se ve alterada, pero por ejemplo si está en PASADO o en FUTURO se añaden al principio de la frase los adverbios de tiempo ``ayer'' y ``mañana'' respectivamente ya que como se comentará en el siguiente apartado no tenemos suficientes palabras por lo que no podemos expresar el pasado o futuro de otra forma.
+
 
 \section{Front-End}
 
