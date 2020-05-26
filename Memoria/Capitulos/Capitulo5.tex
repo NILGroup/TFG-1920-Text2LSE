@@ -242,15 +242,17 @@ Tiempo verbal: Si es PRESENTE la frase no se ve alterada, pero por ejemplo si es
 
 \section{Front-End}
 
-En esta sección se explica en detalle la aplicación web desarrollada, cuya finalidad es proporcionar a los usuarios una interfaz sencilla donde puedan introducir el texto que desean traducir y obtener la traducción del texto en LSE, tanto en imágenes como en vídeo. En la  Figura~\ref {fig: imgWebText2LSE} se muestra la interfaz de la aplicación, donde se puede observar que se han desarrollado tres funcionalidades:
+En esta sección se explica en detalle la aplicación web desarrollada, cuya finalidad es proporcionar a los usuarios una interfaz sencilla donde puedan introducir el texto que desean traducir y obtener la traducción del texto en LSE, tanto en imágenes como en vídeo. En la  Figura~\ref {fig: imgWebText2LSE} se muestra la interfaz de la aplicación, que consta de un input donde el usuario podrá introducir el texto en castellano que desee traducir, un desplegable donde podrá seleccionar el formato de salida y un botón para realizar la traducción.\\
+
+Los formatos de salida disponibles en el desplegable son los siguientes:
 
 \begin{itemize}
 
-	\item \textbf{Traducción a vídeo:} esta sección consta de un input donde el usuario podrá introducir el texto en castellano que desee traducir, y tras pulsar el botón ``traducir'', se realizará una llamada Fetch al servidor proxy, que redirigirá la petición a la API. Una función Fetch se encargará de recibir el resultado de la petición, incrustando el vídeo en el código HTML. Así, se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes.
+	\item \textbf{Traducción a vídeo:} tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch al microservicio de traducción a Texto Castellano a texto LSE dependiendo de los videos existentes, pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve el video LSE correspondiente. Posteriormente se incrustan todos los vídeos en orden en el código HTML, de tal manera que se reproduce uno detrás de otro. Así, se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes.
 	
-	\item \textbf{Traducción a imágenes:} esta sección consta de un input donde el usuario podrá introducir el texto en castellano que desee traducir, y tras pulsar el botón ``traducir'', se realizará una llamada Fetch al servidor proxy, que redirigirá la petición a la API. Una función Fetch se encargará de recibir el resultado de la petición, incrustando el vídeo en el código HTML. Así, se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes.
+	\item \textbf{Traducción a imágenes:} de la misma manera que en el caso de los vídeos, tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch  al microservicio de traducción a Texto Castellano a texto LSE dependiendo de las imágenes existentes, pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve la imagen LSE correspondiente. Posteriormente se incrustan todas las imágenes en orden en el código HTML. 
 
-	\item \textbf{Traducción a texto LSE:} de la misma manera que en la traducción a vídeo, en esta sección el usuario introducirá un texto en castellano y, tras pulsar el botón ``traducir'', se llamará a una función Fetch que realizará una petición a la url correspondiente. En caso de éxito aparecerá por pantalla dicho texto traducido a texto LSE.
+	\item \textbf{Traducción a texto LSE:} tras seleccionar este formato y pulsar el botón ``traducir'' se llamará a una función Fetch que realizará una petición a la url correspondiente. En caso de éxito aparecerá por pantalla dicho texto traducido a texto LSE.
 
 \end{itemize}
 
