@@ -21,6 +21,7 @@ posesivos = {
 }
 
 reflexivos = {"me","te","se","nos","os"}
+pronombresAtonos = {"lo","los","la","las","le", "les"}
 
 adverbios = {
     "tiempo": ["antes", "después", "luego", "pronto", "tarde", "temprano", "todavía", "aún", "ya", "ayer", "hoy", "mañana", "anteayer", 
@@ -81,7 +82,7 @@ def detPosToPronPers(child):
 # Función que devuelve si se añade o no una preposición a la oración final en LSE
 #---------------------------------------------------------#
 def getIfAddPreposition (child):
-  return preposiciones[child.text]
+  return preposiciones[child.text.lower()]
       
 #---------------------------------------------------------#
 # Función que devuelve si se añade o no un determinante a la oración final en LSE
@@ -187,7 +188,7 @@ def subtrees (word, esSujeto, tipoPadre):
 
   else:
 
-    if (word.pos_ == 'PRON' and word.text.lower() in reflexivos):
+    if (word.pos_ == 'PRON' and ((word.text.lower() in reflexivos) or (word.text.lower() in pronombresAtonos))):
       añadir = False
 
     # Comprobamos si hay un verbo en la oración -> guardamos su lemma_ si no es ser o estar
