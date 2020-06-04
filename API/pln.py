@@ -82,7 +82,10 @@ def detPosToPronPers(child):
 # Función que devuelve si se añade o no una preposición a la oración final en LSE
 #---------------------------------------------------------#
 def getIfAddPreposition (child):
-  return preposiciones[child.text.lower()]
+	if child.text.lower() in preposiciones:
+		return preposiciones[child.text.lower()]
+	else:
+		return False
       
 #---------------------------------------------------------#
 # Función que devuelve si se añade o no un determinante a la oración final en LSE
