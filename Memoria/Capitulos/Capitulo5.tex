@@ -308,7 +308,7 @@ En este caso, al no encontrar el vídeo para la palabra \textit{``tías''} busca e
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoTextoVideoTexto.jpg}
-	\caption{ Flujo servicio de traducción de texto en castellano a texto en LSE en función de los vídeos existentes }
+	\caption{ Flujo servicio web para traducción de texto en lenguaje natural a vídeo en formato texto LSE }
 	\label {fig: imgFlujoTextoVideoTextoText2LSE}
 \end{figure}
 
@@ -345,7 +345,7 @@ En este caso, al no encontrar la imagen para la palabra \textit{``caballos''} bu
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoTextoImagenTexto.jpg}
-	\caption{ Flujo servicio de traducción de texto en castellano a texto en LSE en función de las imágenes existentes }
+	\caption{ Flujo servicio web para traducción de texto en lenguaje natural a imágenes en formato texto LSE}
 	\label {fig: imgFlujoTextoImagenTextoText2LSE}
 \end{figure}
 
@@ -367,7 +367,7 @@ Los datos a enviar en la petición POST deben tener la siguiente estructura en JS
 \end{center}
 
 
-En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. En caso de que se encuentren los recursos para traducir las palabras solicitadas en formato vídeo, se ejecuta un proceso que junta todos los vídeos en uno solo. Este vídeo es el que devuelve el servicio en formato mp4. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujoVideoTextoText2LSE}.\\
+En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. En caso de que se encuentren todos los vídeos para traducir las palabras que forman el texto solicitado en formato vídeo, se ejecuta un proceso que junta todos los vídeos en uno solo. Este vídeo es el que devuelve el servicio en formato mp4. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujoVideoTextoText2LSE}.\\
 
 Por ejemplo, para obtener el vídeo en LSE del texto \textit{``Los niños comen chocolate''}, como podemos ver en la Figura~\ref {fig: videoOracion}, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
 
