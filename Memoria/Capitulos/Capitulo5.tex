@@ -66,8 +66,12 @@ En este proyecto, se ha configurado el servidor Nginx como servidor proxy invers
 
 \section{Back-End}
 
-En esta sección se explican con detalle los servicios web desarrollados y su implementación. La API donde están estos servicios es pública\footnote{\url{https://holstein.fdi.ucm.es/tfg-text2lse}} y en los siguientes apartados se indica la URL para acceder a cada servicio.
+En esta sección se explican con detalle los servicios web desarrollados, su implementación y cómo utilizan de los recursos LSE de ARASAAC. La API donde están estos servicios es pública\footnote{\url{https://holstein.fdi.ucm.es/tfg-text2lse}} y en los siguientes apartados se indica la URL para acceder a cada servicio.
 
+
+\subsection{Recursos LSE}
+
+Todas las imágenes y vídeos LSE que utilizan los servicios de traducción se almacenan en el propio servidor holstein (...). Estos recursos son accesibles mediante llamadas GET (...) a la API.
 
 \subsection{Servicio web de traducción de palabra a vídeo LSE }
 
@@ -392,6 +396,9 @@ Por ejemplo, para obtener el vídeo en LSE del texto \textit{``Los niños comen ch
 	\label {fig: videoOracion}
 \end{figure}
 
+El servicio web de traducción a vídeo en formato texto recibirá el texto que se desea traducir y obtendrá la traducción en texto LSE dependiendo de los vídeos disponibles. Por cada palabra de esta traducción se llamará al servicio de traducción de palabra a vídeo LSE, obteniendo así el vídeo en mp4 de todas las palabras. A continuación se concatenan todos estos vídeos, formando un único vídeo con la traducción completa que se devolverá como respuesta.
+
+En caso de no existir vídeo de una o varias palabras se devolverá un JSON notificando el error, que incluye una lista de las palabras que faltan para que desde el cliente se pueda notificar al usuario.
 
 
 
@@ -403,9 +410,9 @@ Los formatos de salida disponibles en el desplegable son los siguientes:
 
 \begin{itemize}
 
-	\item \textbf{Traducción a vídeo:} tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch al microservicio de traducción a Texto Castellano a texto LSE dependiendo de los videos existentes, pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve el video LSE correspondiente. Posteriormente se incrustan todos los vídeos en orden en el código HTML, de tal manera que se reproduce uno detrás de otro. Así, se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes.
+	\item \textbf{Traducción a vídeo:} tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch al servicio web de traducción de texto en lenguaje natural a texto LSE (ver sección X.X.X), pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve el video LSE correspondiente. Posteriormente se incrustan todos los vídeos en orden en el código HTML, de tal manera que se reproduce uno detrás de otro. Así, se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes. Se ha decidido utilizar este servicio web en lugar del servicio que devuelve el vídeo completo debido a que el tiempo de respuesta es bastante más largo y a la carga de trabajo que supone para el servidor concatenar vídeos mp4 y devolverlos como respuesta.
 	
-	\item \textbf{Traducción a imágenes:} de la misma manera que en el caso de los vídeos, tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch  al microservicio de traducción a Texto Castellano a texto LSE dependiendo de las imágenes existentes, pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve la imagen LSE correspondiente. Posteriormente se incrustan todas las imágenes en orden en el código HTML. 
+	\item \textbf{Traducción a imágenes:} de la misma manera que en el caso de los vídeos, tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch  al servicio web de traducción a Texto en lenguaje natural a texto LSE, pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve la imagen LSE correspondiente. Posteriormente se incrustan todas las imágenes en orden en el código HTML. 
 
 	\item \textbf{Traducción a texto LSE:} tras seleccionar este formato y pulsar el botón ``traducir'' se llamará a una función Fetch que realizará una petición a la url correspondiente. En caso de éxito aparecerá por pantalla dicho texto traducido a texto LSE.
 
