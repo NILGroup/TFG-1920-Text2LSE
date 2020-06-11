@@ -157,13 +157,13 @@ Los datos a enviar en la petición POST deben tener la siguiente estructura en JS
 	
 \end{center}
 
-En el parámetro `texto' se debe incluir el texto que se desea traducir a LSE. Un ejemplo de uso sería: 
+En el parámetro ``texto'' se debe incluir el texto que se desea traducir a LSE. Un ejemplo de uso sería: 
 
 
 
 \begin{center}
-	Entrada:  \{ 'Texto' : 'El niño bebe agua.' \}\\
-	Salida:   \{ 'Texto' : 'niño agua beber.' \}
+	Entrada:  \{ ``Texto'' : ``El niño bebe agua.'' \}\\
+	Salida:   \{ ``Texto'' : ``niño agua beber.'' \}
 \end{center}
 
 
@@ -172,44 +172,48 @@ El flujo de este servicio web lo podremos ver en la Figura~\ref {fig: imgFlujoFl
 
 \begin{figure}[]
 	\centering
-	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoTextoLSE.png}
+	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/textotextoLSE.png}
 	\caption{ Flujo servicio de traducción de texto en castellano a texto en LSE }
 	\label {fig: imgFlujoFlujoTextoLSE}
 \end{figure}
 
-Para que el servicio web sea capaz de traducir una frase a la LSE se ha tenido que realizar un procesamiento previo del texto en castellano para poder adaptarlo a la Lengua de Signos Española. A pesar de disponer herramientas PLN de la Universidad, debido a la singularidad de Lengua de Signos y a la falta de tiempo para aprender a usa una herramienta nueva debido a su complejidad el procesamiento del Lenguaje Natural ha sido implementado desde cero por los tres integrantes del equipo utilizando únicamente la herramienta Spacy. \\
+Para que el servicio web sea capaz de traducir una frase a LSE se ha tenido que realizar un procesamiento previo del texto en castellano para poder adaptarlo a la Lengua de Signos Española.
 
 
-La implementación del PLN está basada en un sistema de reglas las cuales filtran qué palabras deben de ser utilizadas y cuales no. La elección a la hora de desarrollar el Procesamiento del Lenguaje Natural para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje automático. La opción de desarrollar un aprendizaje automático no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligió el sistema basado en reglas ya que era más fácil de implementar y aunque puede limitar la capacidad de traducción de frases que no cumplan dichas reglas, cumple con los objetivos marcados en el proyecto que es traducir frases simples a LSE.\\
+Este procesamiento es realizado con sistema de reglas las cuales filtran qué palabras deben de ser utilizadas y cuales no al igual que determina su orden en la oración en LSE. La elección a la hora de desarrollar el Procesamiento del Lenguaje Natural para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje automático. La opción de desarrollar un aprendizaje automático no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligió el sistema basado en reglas ya que era más fácil de implementar y aunque puede limitar la capacidad de traducción de frases que no cumplan dichas reglas, cumple con los objetivos marcados en el proyecto que es traducir frases simples a LSE.\\
 
-Nuestro PLN se divide en tres fases.Lo primero que hace es recopilar información de la frase en castellano para luego realizar un análisis sintáctico y morfológico de la frase y así poder ordenarla respetando la estructura de la LSE. A continuación se explicará con más detalle cada una de las fases:
+Nuestro PLN se divide en tres fases. Lo primero que hace es recopilar información de la frase para luego realizar un análisis sintáctico y morfológico de la frase y así poder ordenarla respetando la estructura de la LSE. A continuación se explicará con más detalle cada una de las fases:
 
-\subsubsection{Recopilar la  información} 
-Para poder realizar los análisis sintácticos y morfológicos de la frase se necesita obtener toda la información posible de la frase. Para ello se realizará el proceso de Tokenización el cual divide la frase en una lista de palabras las cuales pasan a denominarse \textit{tokens} pero con la diferencia de que ahora cada token contiene gran cantidad de información. Esta información es:
+\subsubsection{Tokenización} 
+Para poder realizar el análisis sintáctico y morfológico de la frase se necesita obtener toda la información posible de la frase. Para ello se realizará el proceso de tokenización el cual divide la frase en una lista de palabras denominadas \textit{tokens} donde cada token contiene la siguiente información de cada palabra:
 
 
 \begin{itemize}
 	
-	\item \textbf{Dependencia:} función de la palabra dentro de la frase. Ejemplo: `
-	\item \textbf{Tags:} información de la palabra como el género, el número, el tiempo verbal, etc.
-	\item \textbf{Part of speech:} tipo de palabra como nombre, adjetivo, etc.
-	\item \textbf{Lema:} Lema de palabra.	
+	\item \textbf{Dependencia:} Indica la relación de dependencia sintáctica dentro de la oración, es decir, que función tiene la palabra dentro de la oración donde las más importantes son sujeto, raíz u objeto.
+	\item \textbf{Tags:} Indica el género, número, el tiempo verbal y la persona de cada token.
+	\item \textbf{Part of speech:} Indica el tipo de palabra en función de su uso en la oración, tales como nombres, adjetivos, adverbios y verbos.
+	\item \textbf{Lemma:} Indica el lema de una palabra,es decir, la palabra que se encuentra al frente del diccionario por ejemplo, El lemma de ``jugábamos'' es ``jugar''
 	
 \end{itemize}
 
 
-Por ejemplo la información que se obtendría del la oración \textit{`Los niños merendaron chocolate'} sería ~\ref {fig: tokenInformacion}:
+Por ejemplo los tokens que aparecen en \textit{`Los niños merendaron chocolate'} sería los que aparecen en la Figura ~\ref {fig: tokenInformacion}:
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1 \textwidth]{Imagenes/Fuentes/PNL/InfoPLN.png}
-	\caption{ Información del token ``Los niños meredaron chocolate'' }
+	\caption{ Tokens de la frase ``Los niños meredaron chocolate'' }
 	\label {fig: tokenInformacion}
 \end{figure}
 
+Como se ve en la Figura ~\ref {fig: tokenInformacion} cada token tiene su información detallada. Por ejemplo de los tokens \textit{``los''} y \textit{``niños''} la información obtenida sería:
+\begin{itemize}
+	\item \textbf{Los:} la dependencia indica que es un determinante y los tags que es artículo determinado, masculino y plural. 
+	\item \textbf{niños:} la dependencia indica que es el sujeto de la oración, los tags que es masculino y plural y el lemma proporciona la palabra que vendría en el diccionario.  
+	
+\end{itemize}
 
-
-\subsubsection{Análisis sintáctico} 
-Una vez separado la oración en tokens hay que diferenciar que palabras forman parte del sujeto y cuales del predicado. Para ello hay que recorrer el árbol de dependencias mediante una función recursiva empezando desde el ROOT que es el token raíz del cual dependen todos los demás. Para entender cómo funcionan las dependencias se va a utilizar como ejemplo la oración `Ayer los niños merendaban chocolate'. En la Figura ~\ref {fig: dependencias} se muestran las dependencias de esta frase.
+Mediante la tokenización a parte de poder obtener la información de cada palabra se obtiene un árbol de dependencias entre palabras. Para entender cómo funcionan las dependencias se va a utilizar como ejemplo la oración `Ayer los niños merendaban chocolate' donde sus dependencias se muestran en la Figura ~\ref {fig: dependencias} 
 
 \begin{figure}[h]
 	\centering
@@ -217,7 +221,6 @@ Una vez separado la oración en tokens hay que diferenciar que palabras forman pa
 	\caption{ Displacy grafo de dependencias }
 	\label {fig: dependencias}
 \end{figure}
-
 
 Como se puede apreciar en el diagrama del token `merendaban' dependen tres tokens (Ayer, niños y chocolate) y de ellos también dependen otros y así sucesivamente. Estas dependencias se traducen en un árbol donde el ROOT es la raíz como podemos ver en la Figura~\ref {fig: grafo}:\\
 
@@ -230,7 +233,13 @@ Como se puede apreciar en el diagrama del token `merendaban' dependen tres token
 \end{figure}
 
 
-Para obtener las distintas partes de la oración se recorre el árbol de la siguiente forma. Lo primero es obtener el sujeto y para ello hay que buscar el token que contenga la dependencia ``nsuj''. Una vez encontrado hay que volver a llamar a la función recursiva para obtener los hijos y guardarlos en una lista. En el ejemplo anterior \textit{``Ayer los niños merendaban chocolate''} el sujeto sería (Los niños). Una vez obtenido los tokens que pertenecen al sujeto, los tokens restantantes pertenecen al predicado (Ayer, merendaban y chocolate) y añaden a una lista.
+
+\subsubsection{Análisis sintáctico} 
+Una vez separado la oración en tokens hay que diferenciar que palabras forman parte del sujeto y cuales del predicado. Para ello hay que recorrer el árbol de dependencias mediante una función recursiva empezando desde el ROOT que es el token raíz del cual dependen todos los demás.\\
+
+Para obtener el sujeto se busca el token que contenga la dependencia ``nsuj''. A continuación se obtienen los hijos del token ``nsuj'' y se guardan como parte del sujeto mientras que los tokens restantes, es decir, aquellos que no pertenecen al sujeto formarían parte del predicado. En el ejemplo anterior \textit{``Ayer los niños merendaban chocolate''} el \textbf{sujeto} sería \textit{``Los, niños''} y el \textbf{predicado} \textit{``Ayer, merendaban y chocolate''}.\\
+
+El resultado de los tokens pertenecientes al sujeto y al predicado se almacena en una lista
 \begin{center}
 	\begin{itemize}
 		\item \textbf{Sujeto:}  [Los, niños]
@@ -238,30 +247,34 @@ Para obtener las distintas partes de la oración se recorre el árbol de la siguie
 		
 	\end{itemize}
 \end{center}
+
 \subsubsection{Análisis morfológico} 
 
-La Lengua de Signos Española tiene una estructura gramatical diferente al castellano y como el objetivo del TFG es llegar a traducir frases simples a LSE, la estructura de la oración que se ha tomado como referencia siguiente:
+La Lengua de Signos Española tiene una estructura gramatical diferente al castellano. Para comenzar con la traducción se toma como punto de partida la estructura más simple en LSE: 
 \begin{center}
 	TIEMPO + SUJETO + OBJETO + VERBO.
 \end{center}
 
-A parte de seguir esta estructura, en la LSE las palabras pueden tener un orden distinto al castellano o se pueden añadir o eliminar palabras que la oración original en castellano no estaban.
+Como se explica en la sección ~\ref {cap2:sec:Sintaxis de la Lengua de Signos} en la LSE las palabras pueden estar estructuradas de forma diferente con respecto a la oración original en castellano.
 
-El análisis morfológico que hemos seguido es a la hora de añadir o quitar palabras de la oración para poder obtener una traducción lo mas real posible es el siguiente:
+
+Para conseguir la traducción de la frase original en castellano a LSE se necesita un análisis morfológico que permita detectar:
 
 \begin{itemize}
 	
-	\item \textbf{Determinantes:} Los determinantes se omiten a la hora de hacer la traducción. \textit{Ejemplo: ``El niño come carne''} se traduce como \textit{``Niño carne comer''.}
-	\item \textbf{Verbos copulativos:} Los verbos copulativos ser, estar o parecer se omiten a la hora de la traducción. \textit{Ejemplo: ``yo soy bajo''} se traduce como \textit{``yo bajo''.}
+	\item \textbf{Determinantes:} Los determinantes se omiten a la hora de hacer la traducción \textit{por ejemplo, ``El niño come carne''} se traduce como \textit{``Niño carne comer''.}
 	
-	\item \textbf{Posesivos:} Los determinantes posesivos se sustituyen por pronombres personales.  \textit{Ejemplo: ``Mi niño es bajo''} se traduce como \textit{``yo niño bajo''.}
+	\item \textbf{Verbos copulativos:} Los verbos copulativos ser, estar o parecer se omiten a la hora de la traducción \textit{por ejemplo, ``yo soy bajo''} se traduce como \textit{``yo bajo''.}
 	
-	\item \textbf{Preposiciones:} Algunas preposiciones se quitan y otras se añaden.  \textit{Ejemplo: ``Mi niño está en el parque''} se traduce como \textit{``yo hijo parque''.}
+	\item \textbf{Posesivos:} Los determinantes posesivos se sustituyen por pronombres personales \textit{por ejemplo, ``Mi niño es bajo''} se traduce como \textit{``yo niño bajo''.}
 	
-	\item \textbf{Adjetivos:} Los adjetivos se ponen en masculino.  \textit{Ejemplo: ``Mi mamá es fea''} se traduce como \textit{``yo mamá feo''.}
+	\item \textbf{Preposiciones:} Algunas preposiciones se quitan y otras se añaden \textit{por ejemplo, ``Mi niño está en el parque''} se traduce como \textit{``yo hijo parque''.} o \textit{por ejemplo, ``yo jugaba con el perro''} se traduce como \textit{``yo perro jugar''.}
 	
-	\item \textbf{Temporalidad:} La temporalidad como vemos en la estructura de más arriba va al principio de la oración. \textit{Ejemplo: ``Yo comí chocolate ayer''} se traduce como \textit{``Ayer yo chocolate comer''.} Sin embargo no siempre hay adverbios de tiempo en la oración que indican la temporalidad. Quién indica en este caso el tiempo es el verbo por lo que habría que añadir la temporalidad con las signos PASADO o FUTURO.
-	\textit{Ejemplo: ``Yo comeré chocolate''} se traduce como \textit{``Futuro yo chocolate comer''.}
+	\item \textbf{Adjetivos:} Los adjetivos se ponen en masculino\textit{por ejemplo, ``Mi mamá es fea''} se traduce como \textit{``yo mamá feo''.}
+	
+	\item \textbf{Temporalidad:} La temporalidad va al principio de la oración. \textit{por ejemplo, ``Yo comí chocolate ayer''} se traduce como \textit{``Ayer yo chocolate comer''.} Sin embargo no siempre hay adverbios de tiempo en la oración que indican la temporalidad, en este caso el tiempo viene determinado por el tiempo verbal \textit{por ejemplo, ``Yo comeré chocolate''} se traduce como \textit{``Futuro yo chocolate comer''.}
+	
+	
 	
 \end{itemize}
 
@@ -277,7 +290,6 @@ Una vez añadido y quitado las palabras el sujeto y predicado, la frase se tiene 
 		
 	\end{itemize}
 \end{center}
-
 
 \subsection{Servicio web para traducción de texto en lenguaje natural a vídeo en formato texto LSE }
 \label{cap5:sec:textoLSEvideo}
@@ -401,6 +413,34 @@ El servicio web de traducción a vídeo en formato texto recibirá el texto que se 
 
 En caso de no existir vídeo de una o varias palabras se introducirá en su lugar un vídeo que marque el error, que se corresponde a la reproducción durante un segundo de imagen mostrada en la Figura~\ref {fig: imgError}.
 
+
+
+
+\subsection{Servicio web para traducción de texto a LSE (Imágen)}
+
+Este servicio implementa la funcionalidad de traducción de un texto en castellano a LSE en formato imagen. Las imágenes utilizadas en este servicio provienen del catálogo de imágenes de LSE de la web de ARASAAC. Para poder acceder a este servicio, se debe realizar la siguiente petición POST a la API:\\
+
+\begin{shaded}
+	\url{https://holstein.fdi.ucm.es/tfg-text2lse/imágenes/  }	
+\end{shaded}
+
+Los datos a enviar en la petición POST deben tener la siguiente estructura en JSON:
+
+\begin{center}
+	
+	\{ 'Texto' : '<texto>' \}
+	
+\end{center}
+
+
+En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. En caso de que se encuentren los recursos para traducir las palabras solicitadas en formato imagen, se van añadiendo en un array respetando el orden de la traducción. Este array es el que devuelve el servicio en formato json. Este flujo lo podemos observar en la Figura~\ref {fig: FlujoImagenTexto}.\\
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoImagenText.jpg}
+	\caption{ Flujo servicio de traducción de texto en castellano a LSE en formato vídeo }
+	\label {fig: FlujoImagenTexto}
+\end{figure}
 
 
 \section{Front-End}
