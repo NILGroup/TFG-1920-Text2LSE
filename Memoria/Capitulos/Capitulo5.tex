@@ -34,7 +34,7 @@ Text2LSE es una aplicación de traducción de castellano a LSE basada en servicios
 
 Se ha optado por desarrollar una aplicación web debido a que ésta es accesible desde cualquier dispositivo que disponga de un navegador, ya sea un teléfono móvil, una tablet o un ordenador, sean de la marca y tamaño que sean. Para que se pueda ver de manera correcta en todos esos dispositivos, la aplicación web se ha desarrollado siguiendo un diseño responsive, es decir, que su visualización se adapte dependiendo de las dimensiones de la pantalla del dispositivo desde el cual se esté accediendo.\\
 
-La aplicación web ha sido desarrollada en html, css y javascrypt, alojada en un servidor Flask.\\
+La aplicación web ha sido desarrollada en html, css y javascript.\\
 
 Respecto a la parte del servidor, se han desarrollado siete servicios web distintos: dos para devolver de manera rápida el vídeo y la imagen en LSE de una sola palabra, otro para devolver el texto traducido a texto en LSE, dos para devolver el texto LSE para vídeos e imágenes y otros dos para devolver el texto traducido a video e imágenes en LSE. \\
 
@@ -71,7 +71,7 @@ En esta sección se explican con detalle los servicios web desarrollados, su impl
 
 \subsection{Recursos LSE}
 
-Todas las imágenes y vídeos LSE que utilizan los servicios de traducción se almacenan en el propio servidor holstein (...). Estos recursos son accesibles mediante llamadas GET (...) a la API.
+Todas las imágenes y vídeos LSE se han obtenido del catálogo de recursos de ARASAAC\footnote{\url{http://www.http://www.arasaac.org/descargas.php}}, y se almacenan en el propio servidor holstein. Los servicios de traducción de palabra a vídeo LSE y a imagen LSE permiten obtener estos recursos mediante una llamada GET, como se explica a continuación.
 
 \subsection{Servicio web de traducción de palabra a vídeo LSE }
 
@@ -280,6 +280,7 @@ Una vez añadido y quitado las palabras el sujeto y predicado, la frase se tiene 
 
 
 \subsection{Servicio web para traducción de texto en lenguaje natural a vídeo en formato texto LSE }
+\label{cap5:sec:textoLSEvideo}
 
 Este servicio implementa la funcionalidad de traducción de un texto en castellano a LSE en formato texto en función de los vídeos existentes en el sistema. Los videos utilizados en este servicio provienen del catálogo de vídeos de LSE de la web de ARASAAC\footnote{\url{http://www.arasaac.org/videos_lse.php}}. Para poder acceder a este servicio, se debe realizar la siguiente petición POST a la API:\\
 
@@ -396,9 +397,9 @@ Por ejemplo, para obtener el vídeo en LSE del texto \textit{``Los niños comen ch
 	\label {fig: videoOracion}
 \end{figure}
 
-El servicio web de traducción a vídeo en formato texto recibirá el texto que se desea traducir y obtendrá la traducción en texto LSE dependiendo de los vídeos disponibles. Por cada palabra de esta traducción se llamará al servicio de traducción de palabra a vídeo LSE, obteniendo así el vídeo en mp4 de todas las palabras. A continuación se concatenan todos estos vídeos, formando un único vídeo con la traducción completa que se devolverá como respuesta.
+El servicio web de traducción a vídeo en formato texto recibirá el texto que se desea traducir y obtendrá la traducción en texto LSE dependiendo de los vídeos disponibles. Por cada palabra de esta traducción se llamará al servicio de traducción de palabra a vídeo LSE, obteniendo así el vídeo en mp4 de todas las palabras. A continuación se concatenan todos estos vídeos, formando un único vídeo con la traducción completa que se devolverá como respuesta.\\
 
-En caso de no existir vídeo de una o varias palabras se devolverá un JSON notificando el error, que incluye una lista de las palabras que faltan para que desde el cliente se pueda notificar al usuario.
+En caso de no existir vídeo de una o varias palabras se introducirá en su lugar un vídeo que marque el error, que se corresponde a la reproducción durante un segundo de imagen mostrada en la Figura~\ref {fig: imgError}.
 
 
 
@@ -410,14 +411,38 @@ Los formatos de salida disponibles en el desplegable son los siguientes:
 
 \begin{itemize}
 
-	\item \textbf{Traducción a vídeo:} tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch al servicio web de traducción de texto en lenguaje natural a texto LSE (ver sección X.X.X), pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve el video LSE correspondiente. Posteriormente se incrustan todos los vídeos en orden en el código HTML, de tal manera que se reproduce uno detrás de otro. Así, se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes. Se ha decidido utilizar este servicio web en lugar del servicio que devuelve el vídeo completo debido a que el tiempo de respuesta es bastante más largo y a la carga de trabajo que supone para el servidor concatenar vídeos mp4 y devolverlos como respuesta.
+	\item \textbf{Traducción a vídeo:} tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch al servicio web de traducción de texto en lenguaje natural a texto LSE (ver sección \ref{cap5:sec:textoLSEvideo}), pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve el video LSE correspondiente. Posteriormente se incrustan todos los vídeos en orden en el código HTML, de tal manera que se reproduce uno detrás de otro. Así, se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes. En la Figura~\ref {fig: esquemaTradVideo} se puede observar el flujo para la traducción en este formato. Se ha decidido utilizar este servicio web en lugar del servicio que devuelve el vídeo completo debido a que el tiempo de respuesta es bastante más largo y a la carga de trabajo que supone para el servidor concatenar vídeos mp4 y devolverlos como respuesta.
 	
-	\item \textbf{Traducción a imágenes:} de la misma manera que en el caso de los vídeos, tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch  al servicio web de traducción a Texto en lenguaje natural a texto LSE, pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve la imagen LSE correspondiente. Posteriormente se incrustan todas las imágenes en orden en el código HTML. 
 
-	\item \textbf{Traducción a texto LSE:} tras seleccionar este formato y pulsar el botón ``traducir'' se llamará a una función Fetch que realizará una petición a la url correspondiente. En caso de éxito aparecerá por pantalla dicho texto traducido a texto LSE.
+	
+	\item \textbf{Traducción a imágenes:} de la misma manera que en el caso de los vídeos, tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch  al servicio web de traducción a Texto en lenguaje natural a texto LSE, pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve la imagen LSE correspondiente. Posteriormente se incrustan todas las imágenes en orden en el código HTML. En la Figura~\ref {fig: esquemaTradImagen} se puede observar el flujo para la traducción a imágenes.
+
+	\item \textbf{Traducción a texto LSE:} tras seleccionar este formato y pulsar el botón ``traducir'' se llamará a una función Fetch que realizará una petición a la url correspondiente. En caso de éxito aparecerá por pantalla dicho texto traducido a texto LSE.En la Figura~\ref {fig: esquemaTradTexto} se puede observar el flujo para esta traducción.
 
 \end{itemize}
 
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/esquemaTradVideo.jpg}
+	\caption{ Flujo de traducción de texto en castellano a LSE en formato vídeo }
+	\label {fig: esquemaTradVideo}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/esquemaTradImagen.jpg}
+	\caption{ Flujo de traducción de texto en castellano a LSE en formato imagen }
+	\label {fig: esquemaTradImagen}
+\end{figure}
+
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/esquemaTradTexto.jpg}
+	\caption{ Flujo de traducción de texto en castellano a texto LSE }
+	\label {fig: esquemaTradTexto}
+\end{figure}
 
 En caso de error en cualquiera de las dos funcionalidades, la aplicación mostrará un modal con el tipo y detalle del error obtenido al realizar la petición a la API donde se encuentran nuestros servicios web.\\ 
 
