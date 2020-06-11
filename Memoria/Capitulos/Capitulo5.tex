@@ -1,27 +1,27 @@
 %---------------------------------------------------------------------
 %
-%                          CapÌtulo 5
+%                          Cap√≠tulo 5
 %
 %---------------------------------------------------------------------
 
 \chapter{Text2LSE}
 
 
-En este capÌtulo se muestra el desarrollo que se ha realizado a lo largo de este proyecto. Text2LSE es una aplicaciÛn web (ver Figura~\ref {fig: imgWebText2LSE}) que permite traducir textos escritos en castellano a LSE en formato texto, vÌdeo e imagen en tiempo real. Text2LSE es p˙blica, y se puede acceder a ella desde la siguiente url: 
+En este cap√≠tulo se muestra el desarrollo que se ha realizado a lo largo de este proyecto. Text2LSE es una aplicaci√≥n web (ver Figura~\ref {fig: imgWebText2LSE}) que permite traducir textos escritos en castellano a LSE en formato texto, v√≠deo e imagen en tiempo real. Text2LSE es p√∫blica, y se puede acceder a ella desde la siguiente url: 
 
 \begin{shaded}
 	\url{https://holstein.fdi.ucm.es/tfg-text2lse }	
 \end{shaded}
 
-Est· basada en servicios web, los cuales est·n disponibles para todo el mundo de manera gratuita. Los vÌdeos e im·genes utilizados en la traducciÛn a LSE son los recursos ofrecidos en el cat·logo de LSE de ARASAAC. \\
+Est√° basada en servicios web, los cuales est√°n disponibles para todo el mundo de manera gratuita. Los v√≠deos e im√°genes utilizados en la traducci√≥n a LSE son los recursos ofrecidos en el cat√°logo de LSE de ARASAAC. \\
 
-En la secciÛn 5.1 se muestra la arquitectura de la aplicaciÛn web y cÛmo se comunica Èsta con los servicios web. En la secciÛn 5.2 se explican en profundidad los servicios web desarrollados, tanto los utilizados en la aplicaciÛn web, como los desarrollados para aumentar las posibilidades de obtenciÛn de informaciÛn para futuros desarrolladores. A continuaciÛn, en la secciÛn 5.3 se detalla la aplicaciÛn web, tanto el diseÒo como su funcionalidad. \\
+En la secci√≥n 5.1 se muestra la arquitectura de la aplicaci√≥n web y c√≥mo se comunica √©sta con los servicios web. En la secci√≥n 5.2 se explican en profundidad los servicios web desarrollados, tanto los utilizados en la aplicaci√≥n web, como los desarrollados para aumentar las posibilidades de obtenci√≥n de informaci√≥n para futuros desarrolladores. A continuaci√≥n, en la secci√≥n 5.3 se detalla la aplicaci√≥n web, tanto el dise√±o como su funcionalidad. \\
 
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/WebText2LSE.png}
-	\caption{AplicaciÛn web Text2LSE }
+	\caption{Aplicaci√≥n web Text2LSE }
 	\label {fig: imgWebText2LSE}
 \end{figure}
 
@@ -30,31 +30,31 @@ En la secciÛn 5.1 se muestra la arquitectura de la aplicaciÛn web y cÛmo se comu
 %-------------------------------------------------------------------
 \label{cap4:sec:Arquitectura}
 
-Text2LSE es una aplicaciÛn de traducciÛn de castellano a LSE basada en servicios web, de manera que el cÛdigo desarrollado sea f·cilmente reutilizable. La arquitectura utilizada para el desarrollo de este proyecto es la arquitectura de cliente-servidor, es decir, un cliente muestra una web, la cual hace peticiones al servidor, que almacena los servicios web y devuelve la respuesta al cliente.\\
+Text2LSE es una aplicaci√≥n de traducci√≥n de castellano a LSE basada en servicios web, de manera que el c√≥digo desarrollado sea f√°cilmente reutilizable. La arquitectura utilizada para el desarrollo de este proyecto es la arquitectura de cliente-servidor, es decir, un cliente muestra una web, la cual hace peticiones al servidor, que almacena los servicios web y devuelve la respuesta al cliente.\\
 
-Se ha optado por desarrollar una aplicaciÛn web debido a que Èsta es accesible desde cualquier dispositivo que disponga de un navegador, ya sea un telÈfono mÛvil, una tablet o un ordenador, sean de la marca y tamaÒo que sean. Para que se pueda ver de manera correcta en todos esos dispositivos, la aplicaciÛn web se ha desarrollado siguiendo un diseÒo responsive, es decir, que su visualizaciÛn se adapte dependiendo de las dimensiones de la pantalla del dispositivo desde el cual se estÈ accediendo.\\
+Se ha optado por desarrollar una aplicaci√≥n web debido a que √©sta es accesible desde cualquier dispositivo que disponga de un navegador, ya sea un tel√©fono m√≥vil, una tablet o un ordenador, sean de la marca y tama√±o que sean. Para que se pueda ver de manera correcta en todos esos dispositivos, la aplicaci√≥n web se ha desarrollado siguiendo un dise√±o responsive, es decir, que su visualizaci√≥n se adapte dependiendo de las dimensiones de la pantalla del dispositivo desde el cual se est√© accediendo.\\
 
-La aplicaciÛn web ha sido desarrollada en html, css y javascript.\\
+La aplicaci√≥n web ha sido desarrollada en html, css y javascript.\\
 
-Respecto a la parte del servidor, se han desarrollado siete servicios web distintos: dos para devolver de manera r·pida el vÌdeo y la imagen en LSE de una sola palabra, otro para devolver el texto traducido a texto en LSE, dos para devolver el texto LSE para vÌdeos e im·genes y otros dos para devolver el texto traducido a video e im·genes en LSE. \\
+Respecto a la parte del servidor, se han desarrollado siete servicios web distintos: dos para devolver de manera r√°pida el v√≠deo y la imagen en LSE de una sola palabra, otro para devolver el texto traducido a texto en LSE, dos para devolver el texto LSE para v√≠deos e im√°genes y otros dos para devolver el texto traducido a video e im√°genes en LSE. \\
 
-Se ha utilizado un proxy inverso para poder acceder tanto a la p·gina web como a los servicios web a travÈs desde un mismo punto de acceso. Un Proxy inverso es un mÈtodo de redireccionamiento del tr·fico a partes especÌficas de una infraestructura concreta\citep*{proxyInverso}. Las principales finalidades para las que se usa este tipo de servidores son:
+Se ha utilizado un proxy inverso para poder acceder tanto a la p√°gina web como a los servicios web a trav√©s desde un mismo punto de acceso. Un Proxy inverso es un m√©todo de redireccionamiento del tr√°fico a partes espec√≠ficas de una infraestructura concreta\citep*{proxyInverso}. Las principales finalidades para las que se usa este tipo de servidores son:
 
 \begin{itemize}
 	
-	\item \textbf{AnonimizaciÛn:} el proxy recibe todas las llamadas al servidor y se encarga de filtrarlas y redirigirlas como se haya configurado previamente. De esta manera, desde fuera del servidor no se va a poder obtener ning˙n tipo de informaciÛn del servidor ni de los servicios que estÈn en Èl, solo se podr· obtener informaciÛn del proxy.
+	\item \textbf{Anonimizaci√≥n:} el proxy recibe todas las llamadas al servidor y se encarga de filtrarlas y redirigirlas como se haya configurado previamente. De esta manera, desde fuera del servidor no se va a poder obtener ning√∫n tipo de informaci√≥n del servidor ni de los servicios que est√©n en √©l, solo se podr√° obtener informaci√≥n del proxy.
 	
-	\item \textbf{ProtecciÛn y cifrado:} al utilizar un proxy inverso se tiene la posibilidad de instalar sistemas de control y filtros de paquetes que protegen al servidor, aumentando asÌ la seguridad del sistema.
+	\item \textbf{Protecci√≥n y cifrado:} al utilizar un proxy inverso se tiene la posibilidad de instalar sistemas de control y filtros de paquetes que protegen al servidor, aumentando as√≠ la seguridad del sistema.
 	
-	\item \textbf{Balanceo de carga:} permite redirigir las distintas solicitudes entrantes por varios servidores, permitiendo repartir la carga de trabajo para no sobrecargar ning˙n servidor o equilibrar la carga en el caso de que falle uno de ellos.
+	\item \textbf{Balanceo de carga:} permite redirigir las distintas solicitudes entrantes por varios servidores, permitiendo repartir la carga de trabajo para no sobrecargar ning√∫n servidor o equilibrar la carga en el caso de que falle uno de ellos.
 	
-	\item \textbf{CachÈ:} el proxy se puede configurar para que sea capaz de almacenar las respuestas del servidor temporalmente para ofrecer una mayor velocidad de respuesta. De esta forma, si se recibe una solicitud cuya respuesta la tiene almacenada el proxy en su cachÈ, se manda la respuesta de manera inmediata haciendo que no reciba tanta carga de procedimiento el back-end.
+	\item \textbf{Cach√©:} el proxy se puede configurar para que sea capaz de almacenar las respuestas del servidor temporalmente para ofrecer una mayor velocidad de respuesta. De esta forma, si se recibe una solicitud cuya respuesta la tiene almacenada el proxy en su cach√©, se manda la respuesta de manera inmediata haciendo que no reciba tanta carga de procedimiento el back-end.
 	
-	\item \textbf{CompresiÛn:} un proxy inverso tambiÈn se puede utilizar como compresor de datos, tanto entrantes como salientes.
+	\item \textbf{Compresi√≥n:} un proxy inverso tambi√©n se puede utilizar como compresor de datos, tanto entrantes como salientes.
 	
 \end{itemize}
 
-En este proyecto, se ha configurado el servidor Nginx como servidor proxy inverso con el fin de redirigir las distintas solicitudes al servidor correspondientes. Se han especificado una serie de rutas para diferenciar quÈ llamadas de usuario redireccionar a la p·gina web y cu·les a los servicios web. Esta estructura se puede observar en la Figura~\ref {fig: imgProxy}.
+En este proyecto, se ha configurado el servidor Nginx como servidor proxy inverso con el fin de redirigir las distintas solicitudes al servidor correspondientes. Se han especificado una serie de rutas para diferenciar qu√© llamadas de usuario redireccionar a la p√°gina web y cu√°les a los servicios web. Esta estructura se puede observar en la Figura~\ref {fig: imgProxy}.
 
 \begin{figure}[]
 	\centering
@@ -66,26 +66,26 @@ En este proyecto, se ha configurado el servidor Nginx como servidor proxy invers
 
 \section{Back-End}
 
-En esta secciÛn se explican con detalle los servicios web desarrollados, su implementaciÛn y cÛmo utilizan de los recursos LSE de ARASAAC. La API donde est·n estos servicios es p˙blica\footnote{\url{https://holstein.fdi.ucm.es/tfg-text2lse}} y en los siguientes apartados se indica la URL para acceder a cada servicio.
+En esta secci√≥n se explican con detalle los servicios web desarrollados, su implementaci√≥n y c√≥mo utilizan de los recursos LSE de ARASAAC. La API donde est√°n estos servicios es p√∫blica\footnote{\url{https://holstein.fdi.ucm.es/tfg-text2lse}} y en los siguientes apartados se indica la URL para acceder a cada servicio.
 
 
 \subsection{Recursos LSE}
 
-Todas las im·genes y vÌdeos LSE se han obtenido del cat·logo de recursos de ARASAAC\footnote{\url{http://www.http://www.arasaac.org/descargas.php}}, y se almacenan en el propio servidor holstein. Los servicios de traducciÛn de palabra a vÌdeo LSE y a imagen LSE permiten obtener estos recursos mediante una llamada GET, como se explica a continuaciÛn.
+Todas las im√°genes y v√≠deos LSE se han obtenido del cat√°logo de recursos de ARASAAC\footnote{\url{http://www.http://www.arasaac.org/descargas.php}}, y se almacenan en el propio servidor holstein. Los servicios de traducci√≥n de palabra a v√≠deo LSE y a imagen LSE permiten obtener estos recursos mediante una llamada GET, como se explica a continuaci√≥n.
 
-\subsection{Servicio web de traducciÛn de palabra a vÌdeo LSE }
+\subsection{Servicio web de traducci√≥n de palabra a v√≠deo LSE }
 
-Este servicio permite obtener el video del signo en LSE correspondiente a una palabra en lenguaje natural. Los videos utilizados en este servicio provienen del cat·logo de vÌdeos de LSE de la web de ARASAAC\footnote{\url{http://www.arasaac.org/videos_lse.php}}. Para poder acceder a este servicio, se debe hacer una llamada GET a la API,  indicando la palabra que se desea traducir a LSE de la siguiente forma:\\
+Este servicio permite obtener el video del signo en LSE correspondiente a una palabra en lenguaje natural. Los videos utilizados en este servicio provienen del cat√°logo de v√≠deos de LSE de la web de ARASAAC\footnote{\url{http://www.arasaac.org/videos_lse.php}}. Para poder acceder a este servicio, se debe hacer una llamada GET a la API,  indicando la palabra que se desea traducir a LSE de la siguiente forma:\\
 
 \begin{shaded}
 	\url{https://holstein.fdi.ucm.es/tfg-text2lse/video/<palabra> }	
 \end{shaded}
 
-En el par·metro \textit{``palabra''} se debe indicar la palabra para la que se desea obtener su traducciÛn en LSE. \\
+En el par√°metro \textit{``palabra''} se debe indicar la palabra para la que se desea obtener su traducci√≥n en LSE. \\
 
-En caso de que se encuentre el vÌdeo de la palabra buscada, este servicio devuelve el vÌdeo en formato mp4. En caso de que no se encuentre, devuelve un vÌdeo de error en formato .mp4. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujo1palabraText2LSE}. \\
+En caso de que se encuentre el v√≠deo de la palabra buscada, este servicio devuelve el v√≠deo en formato mp4. En caso de que no se encuentre, devuelve un v√≠deo de error en formato .mp4. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujo1palabraText2LSE}. \\
 
-Por ejemplo, para obtener el vÌdeo en LSE de la palabra \textit{``agua''} se debe realizar la siguiente llamada:
+Por ejemplo, para obtener el v√≠deo en LSE de la palabra \textit{``agua''} se debe realizar la siguiente llamada:
 
 \begin{shaded}
 	\url{https://holstein.fdi.ucm.es/tfg-text2lse/video/agua }	
@@ -95,19 +95,19 @@ Por ejemplo, para obtener el vÌdeo en LSE de la palabra \textit{``agua''} se deb
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoVideo1palabra.jpg}
-	\caption{Flujo del servicio de TraducciÛn de una palabra a vÌdeo en LSE}
+	\caption{Flujo del servicio de Traducci√≥n de una palabra a v√≠deo en LSE}
 	\label {fig: imgFlujo1palabraText2LSE}
 \end{figure}
 
-\subsection{Servicio web de traducciÛn de palabra a imagen LSE }
+\subsection{Servicio web de traducci√≥n de palabra a imagen LSE }
 
-Este servicio permite obtener la imagen del signo en LSE correspondiente a una palabra en lenguaje natural. Las im·genes utilizadas en este servicio provienen del cat·logo de im·genes de LSE de la web de ARASAAC\footnote{\url{http://www.arasaac.org/signos_lse_color.php}}. Para poder acceder a este servicio, se debe hacer una llamada GET a la API,  indicando la palabra que se desea traducir a LSE de la siguiente forma:\\
+Este servicio permite obtener la imagen del signo en LSE correspondiente a una palabra en lenguaje natural. Las im√°genes utilizadas en este servicio provienen del cat√°logo de im√°genes de LSE de la web de ARASAAC\footnote{\url{http://www.arasaac.org/signos_lse_color.php}}. Para poder acceder a este servicio, se debe hacer una llamada GET a la API,  indicando la palabra que se desea traducir a LSE de la siguiente forma:\\
 
 \begin{shaded}
 	\url{https://holstein.fdi.ucm.es/tfg-text2lse/imagen/<palabra> }	
 \end{shaded}
 
-En el par·metro \textit{``palabra''} se debe indicar la palabra de la que se desea obtener su traducciÛn en LSE. \\
+En el par√°metro \textit{``palabra''} se debe indicar la palabra de la que se desea obtener su traducci√≥n en LSE. \\
 
 En caso de que se encuentre la imagen de la palabra buscada, este servicio devuelve la imagen en formato .jpg. En caso de que no se encuentre, devuelve una imagen de error en formato .jpg (Figura~\ref {fig: imgError}). Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujo1palabraImagenText2LSE}. \\
 
@@ -117,53 +117,53 @@ Por ejemplo, para obtener la imagen en LSE de la palabra \textit{``coche''} se d
 	\url{https://holstein.fdi.ucm.es/tfg-text2lse/imagen/coche }	
 \end{shaded}
 
-La respuesta a la llamada del ejemplo devolver· la imagen de la Figura~\ref {fig: imgCoche}.
+La respuesta a la llamada del ejemplo devolver√° la imagen de la Figura~\ref {fig: imgCoche}.
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Imagenes/Fuentes/Text2LSE/imgError.jpg}
-	\caption{Imagen de error devuelta en la traducciÛn de una palabra a LSE}
+	\caption{Imagen de error devuelta en la traducci√≥n de una palabra a LSE}
 	\label {fig: imgError}
 \end{figure}
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoImagen1palabra.jpg}
-	\caption{Flujo del servicio de TraducciÛn de una palabra a imagen en LSE}
+	\caption{Flujo del servicio de Traducci√≥n de una palabra a imagen en LSE}
 	\label {fig: imgFlujo1palabraImagenText2LSE}
 \end{figure}
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Imagenes/Fuentes/Text2LSE/imagenEjemplo.jpg}
-	\caption{Imagen devuelto por el servicio de traducciÛn de la palabra \textit{``coche''} a LSE}
+	\caption{Imagen devuelto por el servicio de traducci√≥n de la palabra \textit{``coche''} a LSE}
 	\label {fig: imgCoche}
 \end{figure}
 
 
-\subsection{Servicio web para TraducciÛn de texto en castellano a texto en LSE}
-Este servicio implementa la funcionalidad de traducciÛn de un texto en castellano a LSE en formato texto.
-Para poder acceder a este servicio, se debe realizar una peticiÛn POST a la API en la siguiente URL:
+\subsection{Servicio web para Traducci√≥n de texto en castellano a texto en LSE}
+Este servicio implementa la funcionalidad de traducci√≥n de un texto en castellano a LSE en formato texto.
+Para poder acceder a este servicio, se debe realizar una petici√≥n POST a la API en la siguiente URL:
 
 \begin{shaded}
 	\url{https://holstein.fdi.ucm.es/tfg-text2lse/TextoLSE}	
 \end{shaded}
 
 
-Los datos a enviar en la peticiÛn POST deben tener la siguiente estructura en JSON: 
+Los datos a enviar en la petici√≥n POST deben tener la siguiente estructura en JSON: 
 \begin{center}
 	
 	\{ 'Texto' : '<texto>' \}
 	
 \end{center}
 
-En el par·metro `texto' se debe incluir el texto que se desea traducir a LSE. Un ejemplo de uso serÌa: 
+En el par√°metro ``texto'' se debe incluir el texto que se desea traducir a LSE. Un ejemplo de uso ser√≠a: 
 
 
 
 \begin{center}
-	Entrada:  \{ 'Texto' : 'El niÒo bebe agua.' \}\\
-	Salida:   \{ 'Texto' : 'niÒo agua beber.' \}
+	Entrada:  \{ ``Texto'' : ``El ni√±o bebe agua.'' \}\\
+	Salida:   \{ ``Texto'' : ``ni√±o agua beber.'' \}
 \end{center}
 
 
@@ -172,44 +172,48 @@ El flujo de este servicio web lo podremos ver en la Figura~\ref {fig: imgFlujoFl
 
 \begin{figure}[]
 	\centering
-	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoTextoLSE.png}
-	\caption{ Flujo servicio de traducciÛn de texto en castellano a texto en LSE }
+	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/textotextoLSE.png}
+	\caption{ Flujo servicio de traducci√≥n de texto en castellano a texto en LSE }
 	\label {fig: imgFlujoFlujoTextoLSE}
 \end{figure}
 
-Para que el servicio web sea capaz de traducir una frase a la LSE se ha tenido que realizar un procesamiento previo del texto en castellano para poder adaptarlo a la Lengua de Signos EspaÒola. A pesar de disponer herramientas PLN de la Universidad, debido a la singularidad de Lengua de Signos y a la falta de tiempo para aprender a usa una herramienta nueva debido a su complejidad el procesamiento del Lenguaje Natural ha sido implementado desde cero por los tres integrantes del equipo utilizando ˙nicamente la herramienta Spacy. \\
+Para que el servicio web sea capaz de traducir una frase a LSE se ha tenido que realizar un procesamiento previo del texto en castellano para poder adaptarlo a la Lengua de Signos Espa√±ola.
 
 
-La implementaciÛn del PLN est· basada en un sistema de reglas las cuales filtran quÈ palabras deben de ser utilizadas y cuales no. La elecciÛn a la hora de desarrollar el Procesamiento del Lenguaje Natural para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje autom·tico. La opciÛn de desarrollar un aprendizaje autom·tico no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligiÛ el sistema basado en reglas ya que era m·s f·cil de implementar y aunque puede limitar la capacidad de traducciÛn de frases que no cumplan dichas reglas, cumple con los objetivos marcados en el proyecto que es traducir frases simples a LSE.\\
+Este procesamiento es realizado con sistema de reglas las cuales filtran qu√© palabras deben de ser utilizadas y cuales no al igual que determina su orden en la oraci√≥n en LSE. La elecci√≥n a la hora de desarrollar el Procesamiento del Lenguaje Natural para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje autom√°tico. La opci√≥n de desarrollar un aprendizaje autom√°tico no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligi√≥ el sistema basado en reglas ya que era m√°s f√°cil de implementar y aunque puede limitar la capacidad de traducci√≥n de frases que no cumplan dichas reglas, cumple con los objetivos marcados en el proyecto que es traducir frases simples a LSE.\\
 
-Nuestro PLN se divide en tres fases.Lo primero que hace es recopilar informaciÛn de la frase en castellano para luego realizar un an·lisis sint·ctico y morfolÛgico de la frase y asÌ poder ordenarla respetando la estructura de la LSE. A continuaciÛn se explicar· con m·s detalle cada una de las fases:
+Nuestro PLN se divide en tres fases. Lo primero que hace es recopilar informaci√≥n de la frase para luego realizar un an√°lisis sint√°ctico y morfol√≥gico de la frase y as√≠ poder ordenarla respetando la estructura de la LSE. A continuaci√≥n se explicar√° con m√°s detalle cada una de las fases:
 
-\subsubsection{Recopilar la  informaciÛn} 
-Para poder realizar los an·lisis sint·cticos y morfolÛgicos de la frase se necesita obtener toda la informaciÛn posible de la frase. Para ello se realizar· el proceso de TokenizaciÛn el cual divide la frase en una lista de palabras las cuales pasan a denominarse \textit{tokens} pero con la diferencia de que ahora cada token contiene gran cantidad de informaciÛn. Esta informaciÛn es:
+\subsubsection{Tokenizaci√≥n} 
+Para poder realizar el an√°lisis sint√°ctico y morfol√≥gico de la frase se necesita obtener toda la informaci√≥n posible de la frase. Para ello se realizar√° el proceso de tokenizaci√≥n el cual divide la frase en una lista de palabras denominadas \textit{tokens} donde cada token contiene la siguiente informaci√≥n de cada palabra:
 
 
 \begin{itemize}
 	
-	\item \textbf{Dependencia:} funciÛn de la palabra dentro de la frase. Ejemplo: `
-	\item \textbf{Tags:} informaciÛn de la palabra como el gÈnero, el n˙mero, el tiempo verbal, etc.
-	\item \textbf{Part of speech:} tipo de palabra como nombre, adjetivo, etc.
-	\item \textbf{Lema:} Lema de palabra.	
+	\item \textbf{Dependencia:} Indica la relaci√≥n de dependencia sint√°ctica dentro de la oraci√≥n, es decir, que funci√≥n tiene la palabra dentro de la oraci√≥n donde las m√°s importantes son sujeto, ra√≠z u objeto.
+	\item \textbf{Tags:} Indica el g√©nero, n√∫mero, el tiempo verbal y la persona de cada token.
+	\item \textbf{Part of speech:} Indica el tipo de palabra en funci√≥n de su uso en la oraci√≥n, tales como nombres, adjetivos, adverbios y verbos.
+	\item \textbf{Lemma:} Indica el lema de una palabra,es decir, la palabra que se encuentra al frente del diccionario por ejemplo, El lemma de ``jug√°bamos'' es ``jugar''
 	
 \end{itemize}
 
 
-Por ejemplo la informaciÛn que se obtendrÌa del la oraciÛn \textit{`Los niÒos merendaron chocolate'} serÌa ~\ref {fig: tokenInformacion}:
+Por ejemplo los tokens que aparecen en \textit{`Los ni√±os merendaron chocolate'} ser√≠a los que aparecen en la Figura ~\ref {fig: tokenInformacion}:
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1 \textwidth]{Imagenes/Fuentes/PNL/InfoPLN.png}
-	\caption{ InformaciÛn del token ``Los niÒos meredaron chocolate'' }
+	\caption{ Tokens de la frase ``Los ni√±os meredaron chocolate'' }
 	\label {fig: tokenInformacion}
 \end{figure}
 
-
-
-\subsubsection{An·lisis sint·ctico} 
-Una vez separado la oraciÛn en tokens hay que diferenciar que palabras forman parte del sujeto y cuales del predicado. Para ello hay que recorrer el ·rbol de dependencias mediante una funciÛn recursiva empezando desde el ROOT que es el token raÌz del cual dependen todos los dem·s. Para entender cÛmo funcionan las dependencias se va a utilizar como ejemplo la oraciÛn `Ayer los niÒos merendaban chocolate'. En la Figura ~\ref {fig: dependencias} se muestran las dependencias de esta frase.
+Como se ve en la Figura ~\ref {fig: tokenInformacion} cada token tiene su informaci√≥n detallada. Por ejemplo de los tokens \textit{``los''} y \textit{``ni√±os''} la informaci√≥n obtenida ser√≠a:
+\begin{itemize}
+		\item \textbf{Los:} la dependencia indica que es un determinante y los tags que es art√≠culo determinado, masculino y plural. 
+		\item \textbf{ni√±os:} la dependencia indica que es el sujeto de la oraci√≥n, los tags que es masculino y plural y el lemma proporciona la palabra que vendr√≠a en el diccionario.  
+	
+\end{itemize}
+ 
+Mediante la tokenizaci√≥n a parte de poder obtener la informaci√≥n de cada palabra se obtiene un √°rbol de dependencias entre palabras. Para entender c√≥mo funcionan las dependencias se va a utilizar como ejemplo la oraci√≥n `Ayer los ni√±os merendaban chocolate' donde sus dependencias se muestran en la Figura ~\ref {fig: dependencias} 
 
 \begin{figure}[h]
 	\centering
@@ -218,78 +222,87 @@ Una vez separado la oraciÛn en tokens hay que diferenciar que palabras forman pa
 	\label {fig: dependencias}
 \end{figure}
 
-
-Como se puede apreciar en el diagrama del token `merendaban' dependen tres tokens (Ayer, niÒos y chocolate) y de ellos tambiÈn dependen otros y asÌ sucesivamente. Estas dependencias se traducen en un ·rbol donde el ROOT es la raÌz como podemos ver en la Figura~\ref {fig: grafo}:\\
+Como se puede apreciar en el diagrama del token `merendaban' dependen tres tokens (Ayer, ni√±os y chocolate) y de ellos tambi√©n dependen otros y as√≠ sucesivamente. Estas dependencias se traducen en un √°rbol donde el ROOT es la ra√≠z como podemos ver en la Figura~\ref {fig: grafo}:\\
 
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/grafo.png}
-	\caption{ ¡rbol de ls oraciÛn ``Los niÒos merendaron chocolate'' }
+	\caption{ √Årbol de ls oraci√≥n ``Los ni√±os merendaron chocolate'' }
 	\label {fig: grafo}
 \end{figure}
 
 
-Para obtener las distintas partes de la oraciÛn se recorre el ·rbol de la siguiente forma. Lo primero es obtener el sujeto y para ello hay que buscar el token que contenga la dependencia ``nsuj''. Una vez encontrado hay que volver a llamar a la funciÛn recursiva para obtener los hijos y guardarlos en una lista. En el ejemplo anterior \textit{``Ayer los niÒos merendaban chocolate''} el sujeto serÌa (Los niÒos). Una vez obtenido los tokens que pertenecen al sujeto, los tokens restantantes pertenecen al predicado (Ayer, merendaban y chocolate) y aÒaden a una lista.
+
+\subsubsection{An√°lisis sint√°ctico} 
+Una vez separado la oraci√≥n en tokens hay que diferenciar que palabras forman parte del sujeto y cuales del predicado. Para ello hay que recorrer el √°rbol de dependencias mediante una funci√≥n recursiva empezando desde el ROOT que es el token ra√≠z del cual dependen todos los dem√°s.\\
+
+Para obtener el sujeto se busca el token que contenga la dependencia ``nsuj''. A continuaci√≥n se obtienen los hijos del token ``nsuj'' y se guardan como parte del sujeto mientras que los tokens restantes, es decir, aquellos que no pertenecen al sujeto formar√≠an parte del predicado. En el ejemplo anterior \textit{``Ayer los ni√±os merendaban chocolate''} el \textbf{sujeto} ser√≠a \textit{``Los, ni√±os''} y el \textbf{predicado} \textit{``Ayer, merendaban y chocolate''}.\\
+
+El resultado de los tokens pertenecientes al sujeto y al predicado se almacena en una lista
 \begin{center}
 	\begin{itemize}
-		\item \textbf{Sujeto:}  [Los, niÒos]
+		\item \textbf{Sujeto:}  [Los, ni√±os]
 		\item \textbf{Predicado:} [Ayer, merendaban, chocolate]
 		
 	\end{itemize}
 \end{center}
-\subsubsection{An·lisis morfolÛgico} 
 
-La Lengua de Signos EspaÒola tiene una estructura gramatical diferente al castellano y como el objetivo del TFG es llegar a traducir frases simples a LSE, la estructura de la oraciÛn que se ha tomado como referencia siguiente:
+\subsubsection{An√°lisis morfol√≥gico} 
+
+La Lengua de Signos Espa√±ola tiene una estructura gramatical diferente al castellano. Para comenzar con la traducci√≥n se toma como punto de partida la estructura m√°s simple en LSE: 
 \begin{center}
 	TIEMPO + SUJETO + OBJETO + VERBO.
 \end{center}
 
-A parte de seguir esta estructura, en la LSE las palabras pueden tener un orden distinto al castellano o se pueden aÒadir o eliminar palabras que la oraciÛn original en castellano no estaban.
+Como se explica en la secci√≥n ~\ref {cap2:sec:Sintaxis de la Lengua de Signos} en la LSE las palabras pueden estar estructuradas de forma diferente con respecto a la oraci√≥n original en castellano.
 
-El an·lisis morfolÛgico que hemos seguido es a la hora de aÒadir o quitar palabras de la oraciÛn para poder obtener una traducciÛn lo mas real posible es el siguiente:
+
+Para conseguir la traducci√≥n de la frase original en castellano a LSE se necesita un an√°lisis morfol√≥gico que permita detectar:
 
 \begin{itemize}
 	
-	\item \textbf{Determinantes:} Los determinantes se omiten a la hora de hacer la traducciÛn. \textit{Ejemplo: ``El niÒo come carne''} se traduce como \textit{``NiÒo carne comer''.}
-	\item \textbf{Verbos copulativos:} Los verbos copulativos ser, estar o parecer se omiten a la hora de la traducciÛn. \textit{Ejemplo: ``yo soy bajo''} se traduce como \textit{``yo bajo''.}
+	\item \textbf{Determinantes:} Los determinantes se omiten a la hora de hacer la traducci√≥n \textit{por ejemplo, ``El ni√±o come carne''} se traduce como \textit{``Ni√±o carne comer''.}
 	
-	\item \textbf{Posesivos:} Los determinantes posesivos se sustituyen por pronombres personales.  \textit{Ejemplo: ``Mi niÒo es bajo''} se traduce como \textit{``yo niÒo bajo''.}
+	\item \textbf{Verbos copulativos:} Los verbos copulativos ser, estar o parecer se omiten a la hora de la traducci√≥n \textit{por ejemplo, ``yo soy bajo''} se traduce como \textit{``yo bajo''.}
 	
-	\item \textbf{Preposiciones:} Algunas preposiciones se quitan y otras se aÒaden.  \textit{Ejemplo: ``Mi niÒo est· en el parque''} se traduce como \textit{``yo hijo parque''.}
+	\item \textbf{Posesivos:} Los determinantes posesivos se sustituyen por pronombres personales \textit{por ejemplo, ``Mi ni√±o es bajo''} se traduce como \textit{``yo ni√±o bajo''.}
 	
-	\item \textbf{Adjetivos:} Los adjetivos se ponen en masculino.  \textit{Ejemplo: ``Mi mam· es fea''} se traduce como \textit{``yo mam· feo''.}
+	\item \textbf{Preposiciones:} Algunas preposiciones se quitan y otras se a√±aden \textit{por ejemplo, ``Mi ni√±o est√° en el parque''} se traduce como \textit{``yo hijo parque''.} o \textit{por ejemplo, ``yo jugaba con el perro''} se traduce como \textit{``yo perro jugar''.}
 	
-	\item \textbf{Temporalidad:} La temporalidad como vemos en la estructura de m·s arriba va al principio de la oraciÛn. \textit{Ejemplo: ``Yo comÌ chocolate ayer''} se traduce como \textit{``Ayer yo chocolate comer''.} Sin embargo no siempre hay adverbios de tiempo en la oraciÛn que indican la temporalidad. QuiÈn indica en este caso el tiempo es el verbo por lo que habrÌa que aÒadir la temporalidad con las signos PASADO o FUTURO.
-	\textit{Ejemplo: ``Yo comerÈ chocolate''} se traduce como \textit{``Futuro yo chocolate comer''.}
+	\item \textbf{Adjetivos:} Los adjetivos se ponen en masculino\textit{por ejemplo, ``Mi mam√° es fea''} se traduce como \textit{``yo mam√° feo''.}
+	
+	\item \textbf{Temporalidad:} La temporalidad va al principio de la oraci√≥n. \textit{por ejemplo, ``Yo com√≠ chocolate ayer''} se traduce como \textit{``Ayer yo chocolate comer''.} Sin embargo no siempre hay adverbios de tiempo en la oraci√≥n que indican la temporalidad, en este caso el tiempo viene determinado por el tiempo verbal \textit{por ejemplo, ``Yo comer√© chocolate''} se traduce como \textit{``Futuro yo chocolate comer''.}
+	
+
 	
 \end{itemize}
 
 
-Una vez aÒadido y quitado las palabras el sujeto y predicado, la frase se tiene que ordenar seg˙n la estructura tiempo + sujeto + objeto + verbo por lo que el resultado final de la frase usada como ejemplo ``Los niÒos ayer merendaban chocolate'' serÌa: 
+Una vez a√±adido y quitado las palabras el sujeto y predicado, la frase se tiene que ordenar seg√∫n la estructura tiempo + sujeto + objeto + verbo por lo que el resultado final de la frase usada como ejemplo ``Los ni√±os ayer merendaban chocolate'' ser√≠a: 
 
 \begin{center}
 	\begin{itemize}
-		\item \textbf{Sujeto:}  [niÒos]
+		\item \textbf{Sujeto:}  [ni√±os]
 		\item \textbf{Predicado:} [Ayer, merendar, chocolate]
-		\item \textbf{Frase ordenada:} ``Ayer niÒos chocolate merendar'' 
+		\item \textbf{Frase ordenada:} ``Ayer ni√±os chocolate merendar'' 
 		
 		
 	\end{itemize}
 \end{center}
 
 
-\subsection{Servicio web para traducciÛn de texto en lenguaje natural a vÌdeo en formato texto LSE }
+\subsection{Servicio web para traducci√≥n de texto en lenguaje natural a v√≠deo en formato texto LSE }
 \label{cap5:sec:textoLSEvideo}
 
-Este servicio implementa la funcionalidad de traducciÛn de un texto en castellano a LSE en formato texto en funciÛn de los vÌdeos existentes en el sistema. Los videos utilizados en este servicio provienen del cat·logo de vÌdeos de LSE de la web de ARASAAC\footnote{\url{http://www.arasaac.org/videos_lse.php}}. Para poder acceder a este servicio, se debe realizar la siguiente peticiÛn POST a la API:\\
+Este servicio implementa la funcionalidad de traducci√≥n de un texto en castellano a LSE en formato texto en funci√≥n de los v√≠deos existentes en el sistema. Los videos utilizados en este servicio provienen del cat√°logo de v√≠deos de LSE de la web de ARASAAC\footnote{\url{http://www.arasaac.org/videos_lse.php}}. Para poder acceder a este servicio, se debe realizar la siguiente petici√≥n POST a la API:\\
 
 \begin{shaded}
 	\url{https://holstein.fdi.ucm.es/tfg-text2lse/TextoLSEVideos/  }	
 \end{shaded}
 
 
-Los datos a enviar en la peticiÛn POST deben tener la siguiente estructura en JSON: 
+Los datos a enviar en la petici√≥n POST deben tener la siguiente estructura en JSON: 
 \begin{center}
 	
 	\{ `Texto' : `<texto>' \}
@@ -297,36 +310,36 @@ Los datos a enviar en la peticiÛn POST deben tener la siguiente estructura en JS
 \end{center}
 
 
-En el par·metro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujoTextoVideoTextoText2LSE}.\\
+En el par√°metro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujoTextoVideoTextoText2LSE}.\\
 
-Por ejemplo, para traducir el texto \textit{``Mis tÌas comen chocolate''} a LSE en formato texto en funciÛn de los vÌdeos existentes, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
+Por ejemplo, para traducir el texto \textit{``Mis t√≠as comen chocolate''} a LSE en formato texto en funci√≥n de los v√≠deos existentes, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
 
 
 \begin{center}
-	Entrada: \{ `Texto' : `Mis tÌas comen chocolate' \} \\
-	Salida: \{ `Texto' : `YO TÕO FEMENINO PLURAL CHOCOLATE COMER' \}
+	Entrada: \{ `Texto' : `Mis t√≠as comen chocolate' \} \\
+	Salida: \{ `Texto' : `YO T√çO FEMENINO PLURAL CHOCOLATE COMER' \}
 \end{center}
 
-En este caso, al no encontrar el vÌdeo para la palabra \textit{``tÌas''} busca el vÌdeo de esa palabra sin morfemas de gÈnero y n˙mero, en este caso busca el vÌdeo de la palabra \textit{``tÌo''} aÒadiendo la palabra  \textit{``FEMENINO''} para indicar el femenino y la palabra  \textit{``PLURAL''} para indicar el plural.
+En este caso, al no encontrar el v√≠deo para la palabra \textit{``t√≠as''} busca el v√≠deo de esa palabra sin morfemas de g√©nero y n√∫mero, en este caso busca el v√≠deo de la palabra \textit{``t√≠o''} a√±adiendo la palabra  \textit{``FEMENINO''} para indicar el femenino y la palabra  \textit{``PLURAL''} para indicar el plural.
 
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoTextoVideoTexto.jpg}
-	\caption{ Flujo servicio web para traducciÛn de texto en lenguaje natural a vÌdeo en formato texto LSE }
+	\caption{ Flujo servicio web para traducci√≥n de texto en lenguaje natural a v√≠deo en formato texto LSE }
 	\label {fig: imgFlujoTextoVideoTextoText2LSE}
 \end{figure}
 
-\subsection{Servicio web para traducciÛn de texto en lenguaje natural a im·genes en formato texto LSE}
+\subsection{Servicio web para traducci√≥n de texto en lenguaje natural a im√°genes en formato texto LSE}
 
-Este servicio implementa la funcionalidad de traducciÛn de un texto en castellano a LSE en formato texto en funciÛn de las im·genes existentes en el sistema. Las im·genes utilizados en este servicio provienen del cat·logo de im·genes de LSE de la web de ARASAAC\footnote{\url{http://www.arasaac.org/signos_lse_color.php}}. Para poder acceder a este servicio, se debe realizar la siguiente peticiÛn POST a la API:\\
+Este servicio implementa la funcionalidad de traducci√≥n de un texto en castellano a LSE en formato texto en funci√≥n de las im√°genes existentes en el sistema. Las im√°genes utilizados en este servicio provienen del cat√°logo de im√°genes de LSE de la web de ARASAAC\footnote{\url{http://www.arasaac.org/signos_lse_color.php}}. Para poder acceder a este servicio, se debe realizar la siguiente petici√≥n POST a la API:\\
 
 \begin{shaded}
 	\url{https://holstein.fdi.ucm.es/tfg-text2lse/textoImagen/  }	
 \end{shaded}
 
 
-Los datos a enviar en la peticiÛn POST deben tener la siguiente estructura en JSON: 
+Los datos a enviar en la petici√≥n POST deben tener la siguiente estructura en JSON: 
 \begin{center}
 	
 	\{ `Texto' : `<texto>' \}
@@ -334,37 +347,37 @@ Los datos a enviar en la peticiÛn POST deben tener la siguiente estructura en JS
 \end{center}
 
 
-En el par·metro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujoTextoImagenTextoText2LSE}.\\
+En el par√°metro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujoTextoImagenTextoText2LSE}.\\
 
-Por ejemplo, para traducir el texto \textit{``Los caballos son r·pidos''} a LSE en formato texto en funciÛn de los vÌdeos existentes, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
+Por ejemplo, para traducir el texto \textit{``Los caballos son r√°pidos''} a LSE en formato texto en funci√≥n de los v√≠deos existentes, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
 
 
 \begin{center}
-	Entrada: \{ `Texto' : `Los caballos son r·pidos' \} \\
-	Salida: \{ `Texto' : `CABALLO PLURAL R¡PIDO' \}
+	Entrada: \{ `Texto' : `Los caballos son r√°pidos' \} \\
+	Salida: \{ `Texto' : `CABALLO PLURAL R√ÅPIDO' \}
 \end{center}
 
-En este caso, al no encontrar la imagen para la palabra \textit{``caballos''} busca el vÌdeo de esa palabra sin morfemas de gÈnero y n˙mero, en este caso busca el vÌdeo de la palabra \textit{``caballo''} aÒadiendo la palabra  \textit{``otro''} para indicar el plural.
+En este caso, al no encontrar la imagen para la palabra \textit{``caballos''} busca el v√≠deo de esa palabra sin morfemas de g√©nero y n√∫mero, en este caso busca el v√≠deo de la palabra \textit{``caballo''} a√±adiendo la palabra  \textit{``otro''} para indicar el plural.
 
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoTextoImagenTexto.jpg}
-	\caption{ Flujo servicio web para traducciÛn de texto en lenguaje natural a im·genes en formato texto LSE}
+	\caption{ Flujo servicio web para traducci√≥n de texto en lenguaje natural a im√°genes en formato texto LSE}
 	\label {fig: imgFlujoTextoImagenTextoText2LSE}
 \end{figure}
 
 
-\subsection{Servicio web para traducciÛn de texto a LSE (vÌdeo)}
+\subsection{Servicio web para traducci√≥n de texto a LSE (v√≠deo)}
 
-Este servicio implementa la funcionalidad de traducciÛn de un texto en castellano a LSE en formato video.  Para poder acceder a este servicio, se debe realizar la siguiente peticiÛn POST a la API:\\
+Este servicio implementa la funcionalidad de traducci√≥n de un texto en castellano a LSE en formato video.  Para poder acceder a este servicio, se debe realizar la siguiente petici√≥n POST a la API:\\
 
 \begin{shaded}
 	\url{https://holstein.fdi.ucm.es/tfg-text2lse/video/  }	
 \end{shaded}
 
 
-Los datos a enviar en la peticiÛn POST deben tener la siguiente estructura en JSON: 
+Los datos a enviar en la petici√≥n POST deben tener la siguiente estructura en JSON: 
 \begin{center}
 
 		\{ 'Texto' : '<texto>' \}
@@ -372,13 +385,13 @@ Los datos a enviar en la peticiÛn POST deben tener la siguiente estructura en JS
 \end{center}
 
 
-En el par·metro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. En caso de que se encuentren todos los vÌdeos para traducir las palabras que forman el texto solicitado en formato vÌdeo, se ejecuta un proceso que junta todos los vÌdeos en uno solo. Este vÌdeo es el que devuelve el servicio en formato mp4. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujoVideoTextoText2LSE}.\\
+En el par√°metro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. En caso de que se encuentren todos los v√≠deos para traducir las palabras que forman el texto solicitado en formato v√≠deo, se ejecuta un proceso que junta todos los v√≠deos en uno solo. Este v√≠deo es el que devuelve el servicio en formato mp4. Este flujo lo podemos observar en la Figura~\ref {fig: imgFlujoVideoTextoText2LSE}.\\
 
-Por ejemplo, para obtener el vÌdeo en LSE del texto \textit{``Los niÒos comen chocolate''}, como podemos ver en la Figura~\ref {fig: videoOracion}, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
+Por ejemplo, para obtener el v√≠deo en LSE del texto \textit{``Los ni√±os comen chocolate''}, como podemos ver en la Figura~\ref {fig: videoOracion}, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
 
 \begin{center}
 	
-	\{ `Texto' : `Los niÒos comen chocolate' \}
+	\{ `Texto' : `Los ni√±os comen chocolate' \}
 	
 \end{center}
 
@@ -386,38 +399,62 @@ Por ejemplo, para obtener el vÌdeo en LSE del texto \textit{``Los niÒos comen ch
 \begin{figure}[]
 	\centering
 	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoVideoTexto.jpg}
-	\caption{ Flujo servicio de traducciÛn de texto en castellano a LSE en formato vÌdeo }
+	\caption{ Flujo servicio de traducci√≥n de texto en castellano a LSE en formato v√≠deo }
 	\label {fig: imgFlujoVideoTextoText2LSE}
 \end{figure}
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Imagenes/Fuentes/Text2LSE/videoOracion.jpg}
-	\caption{VÌdeo devuelto por el servicio de traducciÛn del texto \textit{``Los niÒos comen chocolate''} a LSE}
+	\caption{V√≠deo devuelto por el servicio de traducci√≥n del texto \textit{``Los ni√±os comen chocolate''} a LSE}
 	\label {fig: videoOracion}
 \end{figure}
 
-El servicio web de traducciÛn a vÌdeo en formato texto recibir· el texto que se desea traducir y obtendr· la traducciÛn en texto LSE dependiendo de los vÌdeos disponibles. Por cada palabra de esta traducciÛn se llamar· al servicio de traducciÛn de palabra a vÌdeo LSE, obteniendo asÌ el vÌdeo en mp4 de todas las palabras. A continuaciÛn se concatenan todos estos vÌdeos, formando un ˙nico vÌdeo con la traducciÛn completa que se devolver· como respuesta.\\
+El servicio web de traducci√≥n a v√≠deo en formato texto recibir√° el texto que se desea traducir y obtendr√° la traducci√≥n en texto LSE dependiendo de los v√≠deos disponibles. Por cada palabra de esta traducci√≥n se llamar√° al servicio de traducci√≥n de palabra a v√≠deo LSE, obteniendo as√≠ el v√≠deo en mp4 de todas las palabras. A continuaci√≥n se concatenan todos estos v√≠deos, formando un √∫nico v√≠deo con la traducci√≥n completa que se devolver√° como respuesta.\\
 
-En caso de no existir vÌdeo de una o varias palabras se introducir· en su lugar un vÌdeo que marque el error, que se corresponde a la reproducciÛn durante un segundo de imagen mostrada en la Figura~\ref {fig: imgError}.
+En caso de no existir v√≠deo de una o varias palabras se introducir√° en su lugar un v√≠deo que marque el error, que se corresponde a la reproducci√≥n durante un segundo de imagen mostrada en la Figura~\ref {fig: imgError}.
 
+\subsection{Servicio web para traducci√≥n de texto a LSE (Im√°gen)}
+Este servicio implementa la funcionalidad de traducci√≥n de un texto en castellano a LSE en formato imagen. Las im√°genes utilizadas en este servicio provienen del cat√°logo de im√°genes de LSE de la web de ARASAAC. Para poder acceder a este servicio, se debe realizar la siguiente petici√≥n POST a la API:\\
+
+\begin{shaded}
+	\url{https://holstein.fdi.ucm.es/tfg-text2lse/im√°genes/  }	
+\end{shaded}
+
+Los datos a enviar en la petici√≥n POST deben tener la siguiente estructura en JSON:
+
+\begin{center}
+	
+	\{ 'Texto' : '<texto>' \}
+	
+\end{center}
+
+
+En el par√°metro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. En caso de que se encuentren los recursos para traducir las palabras solicitadas en formato imagen, se van a√±adiendo en un array respetando el orden de la traducci√≥n. Este array es el que devuelve el servicio en formato json. Este flujo lo podemos observar en la Figura~\ref {fig: FlujoImagenTexto}.\\
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoImagenTexto.jpg}
+	\caption{ Flujo servicio de traducci√≥n de texto en castellano a LSE en formato v√≠deo }
+	\label {fig: FlujoImagenTexto}
+\end{figure}
 
 
 \section{Front-End}
 
-En esta secciÛn se explica en detalle la aplicaciÛn web desarrollada, cuya finalidad es proporcionar a los usuarios una interfaz sencilla donde puedan introducir el texto que desean traducir y obtener la traducciÛn del texto en LSE, tanto en im·genes como en vÌdeo. En la  Figura~\ref {fig: imgWebText2LSE} se muestra la interfaz de la aplicaciÛn, que consta de un input donde el usuario podr· introducir el texto en castellano que desee traducir, un desplegable donde podr· seleccionar el formato de salida y un botÛn para realizar la traducciÛn.\\
+En esta secci√≥n se explica en detalle la aplicaci√≥n web desarrollada, cuya finalidad es proporcionar a los usuarios una interfaz sencilla donde puedan introducir el texto que desean traducir y obtener la traducci√≥n del texto en LSE, tanto en im√°genes como en v√≠deo. En la  Figura~\ref {fig: imgWebText2LSE} se muestra la interfaz de la aplicaci√≥n, que consta de un input donde el usuario podr√° introducir el texto en castellano que desee traducir, un desplegable donde podr√° seleccionar el formato de salida y un bot√≥n para realizar la traducci√≥n.\\
 
 Los formatos de salida disponibles en el desplegable son los siguientes:
 
 \begin{itemize}
 
-	\item \textbf{TraducciÛn a vÌdeo:} tras seleccionar este formato y pulsar el botÛn ``traducir'', se realizar· una llamada Fetch al servicio web de traducciÛn de texto en lenguaje natural a texto LSE (ver secciÛn \ref{cap5:sec:textoLSEvideo}), pasando por el servidor proxy, que a su vez redirigir· la peticiÛn a la API. Una funciÛn Fetch se encargar· de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve el video LSE correspondiente. Posteriormente se incrustan todos los vÌdeos en orden en el cÛdigo HTML, de tal manera que se reproduce uno detr·s de otro. AsÌ, se podr· visualizar por pantalla un vÌdeo en el que se podr· ver a un intÈrprete de ARASAAC realizando los signos LSE correspondientes. En la Figura~\ref {fig: esquemaTradVideo} se puede observar el flujo para la traducciÛn en este formato. Se ha decidido utilizar este servicio web en lugar del servicio que devuelve el vÌdeo completo debido a que el tiempo de respuesta es bastante m·s largo y a la carga de trabajo que supone para el servidor concatenar vÌdeos mp4 y devolverlos como respuesta.
+	\item \textbf{Traducci√≥n a v√≠deo:} tras seleccionar este formato y pulsar el bot√≥n ``traducir'', se realizar√° una llamada Fetch al servicio web de traducci√≥n de texto en lenguaje natural a texto LSE (ver secci√≥n \ref{cap5:sec:textoLSEvideo}), pasando por el servidor proxy, que a su vez redirigir√° la petici√≥n a la API. Una funci√≥n Fetch se encargar√° de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve el video LSE correspondiente. Posteriormente se incrustan todos los v√≠deos en orden en el c√≥digo HTML, de tal manera que se reproduce uno detr√°s de otro. As√≠, se podr√° visualizar por pantalla un v√≠deo en el que se podr√° ver a un int√©rprete de ARASAAC realizando los signos LSE correspondientes. En la Figura~\ref {fig: esquemaTradVideo} se puede observar el flujo para la traducci√≥n en este formato. Se ha decidido utilizar este servicio web en lugar del servicio que devuelve el v√≠deo completo debido a que el tiempo de respuesta es bastante m√°s largo y a la carga de trabajo que supone para el servidor concatenar v√≠deos mp4 y devolverlos como respuesta.
 	
 
 	
-	\item \textbf{TraducciÛn a im·genes:} de la misma manera que en el caso de los vÌdeos, tras seleccionar este formato y pulsar el botÛn ``traducir'', se realizar· una llamada Fetch  al servicio web de traducciÛn a Texto en lenguaje natural a texto LSE, pasando por el servidor proxy, que a su vez redirigir· la peticiÛn a la API. Una funciÛn Fetch se encargar· de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve la imagen LSE correspondiente. Posteriormente se incrustan todas las im·genes en orden en el cÛdigo HTML. En la Figura~\ref {fig: esquemaTradImagen} se puede observar el flujo para la traducciÛn a im·genes.
+	\item \textbf{Traducci√≥n a im√°genes:} de la misma manera que en el caso de los v√≠deos, tras seleccionar este formato y pulsar el bot√≥n ``traducir'', se realizar√° una llamada Fetch  al servicio web de traducci√≥n a Texto en lenguaje natural a texto LSE, pasando por el servidor proxy, que a su vez redirigir√° la petici√≥n a la API. Una funci√≥n Fetch se encargar√° de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve la imagen LSE correspondiente. Posteriormente se incrustan todas las im√°genes en orden en el c√≥digo HTML. En la Figura~\ref {fig: esquemaTradImagen} se puede observar el flujo para la traducci√≥n a im√°genes.
 
-	\item \textbf{TraducciÛn a texto LSE:} tras seleccionar este formato y pulsar el botÛn ``traducir'' se llamar· a una funciÛn Fetch que realizar· una peticiÛn a la url correspondiente. En caso de Èxito aparecer· por pantalla dicho texto traducido a texto LSE.En la Figura~\ref {fig: esquemaTradTexto} se puede observar el flujo para esta traducciÛn.
+	\item \textbf{Traducci√≥n a texto LSE:} tras seleccionar este formato y pulsar el bot√≥n ``traducir'' se llamar√° a una funci√≥n Fetch que realizar√° una petici√≥n a la url correspondiente. En caso de √©xito aparecer√° por pantalla dicho texto traducido a texto LSE.En la Figura~\ref {fig: esquemaTradTexto} se puede observar el flujo para esta traducci√≥n.
 
 \end{itemize}
 
@@ -425,14 +462,14 @@ Los formatos de salida disponibles en el desplegable son los siguientes:
 \begin{figure}[]
 	\centering
 	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/esquemaTradVideo.jpg}
-	\caption{ Flujo de traducciÛn de texto en castellano a LSE en formato vÌdeo }
+	\caption{ Flujo de traducci√≥n de texto en castellano a LSE en formato v√≠deo }
 	\label {fig: esquemaTradVideo}
 \end{figure}
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/esquemaTradImagen.jpg}
-	\caption{ Flujo de traducciÛn de texto en castellano a LSE en formato imagen }
+	\caption{ Flujo de traducci√≥n de texto en castellano a LSE en formato imagen }
 	\label {fig: esquemaTradImagen}
 \end{figure}
 
@@ -440,19 +477,19 @@ Los formatos de salida disponibles en el desplegable son los siguientes:
 \begin{figure}[]
 	\centering
 	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/esquemaTradTexto.jpg}
-	\caption{ Flujo de traducciÛn de texto en castellano a texto LSE }
+	\caption{ Flujo de traducci√≥n de texto en castellano a texto LSE }
 	\label {fig: esquemaTradTexto}
 \end{figure}
 
-En caso de error en cualquiera de las dos funcionalidades, la aplicaciÛn mostrar· un modal con el tipo y detalle del error obtenido al realizar la peticiÛn a la API donde se encuentran nuestros servicios web.\\ 
+En caso de error en cualquiera de las dos funcionalidades, la aplicaci√≥n mostrar√° un modal con el tipo y detalle del error obtenido al realizar la petici√≥n a la API donde se encuentran nuestros servicios web.\\ 
 
-Por otro lado, la interfaz tambiÈn cuenta con un men˙ en la parte superior, donde adem·s de a la p·gina principal podemos acceder a una p·gina con informaciÛn sobre los miembros del equipo y de los tutores, y a otra con informaciÛn sobre la aplicaciÛn. Todo ello se ha implementado siguiendo un diseÒo responsive, haciendo uso de Bootstrap 3, para garantizar que la herramienta sea accesible desde cualquier dispositivo. En la Figura~\ref {fig: imgResponsive} podemos observar la interfaz vista desde un dispositivo mÛvil.\\
+Por otro lado, la interfaz tambi√©n cuenta con un men√∫ en la parte superior, donde adem√°s de a la p√°gina principal podemos acceder a una p√°gina con informaci√≥n sobre los miembros del equipo y de los tutores, y a otra con informaci√≥n sobre la aplicaci√≥n. Todo ello se ha implementado siguiendo un dise√±o responsive, haciendo uso de Bootstrap 3, para garantizar que la herramienta sea accesible desde cualquier dispositivo. En la Figura~\ref {fig: imgResponsive} podemos observar la interfaz vista desde un dispositivo m√≥vil.\\
 
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.75\textwidth]{Imagenes/Fuentes/Text2LSE/responsive.jpg}
-	\caption{ AplicaciÛn Web vista desde un dispositivo mÛvil }
+	\caption{ Aplicaci√≥n Web vista desde un dispositivo m√≥vil }
 	\label {fig: imgResponsive}
 \end{figure}
 
