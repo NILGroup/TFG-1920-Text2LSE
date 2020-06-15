@@ -6,7 +6,7 @@
 
 \chapter{Evaluación}
 
-Al terminar la fase de desarrollo, comenzó la fase de evaluación, cuya finalidad es comprobar la precisión y alcance de las traducciones. En este capítulo se muestra el proceso de dicha evaluación para poder determinar qué tipo de frases se logra traducir y con qué nivel de fiabilidad. En la Sección 5.1 se explica el método de evaluación seguido, en la Sección 5.2 se analizan los resultados y en la Sección 5.3 se explican las conclusiones finales a las que se ha llegado mediante el análisis de los resultados.
+Al terminar la fase de desarrollo, comenzó la fase de evaluación, cuya finalidad es comprobar la precisión y alcance de las traducciones. En este capítulo se muestra el proceso de dicha evaluación para poder determinar qué tipo de frases se logra traducir y con qué nivel de fiabilidad. En la Sección \ref{cap6:sec:Diseño de la evaluación} se explica el método de evaluación seguido, en la Sección \ref{cap6:sec:Resultados de la Evaluación} se analizan los resultados y en la Sección \ref{cap6:sec:Análisis de los Resultados} se explican las conclusiones finales a las que se ha llegado mediante el análisis de los resultados.
 
 %-------------------------------------------------------------------
 \section{Diseño de la evaluación}
@@ -20,9 +20,94 @@ Es importante recordar que el objetivo de la aplicación desarrollada es traducir
 La evaluación se realizó de manera manual, introduciendo todas las oraciones recopiladas en el traductor una a una, obteniendo la salida en formato imagen y en formato vídeo. A continuación explicamos los corpus seleccionados.
 
 \begin{enumerate}
-	\item \textbf{Corpus de oraciones de instrucciones de seguridad de un vuelo de Iberia\footnote{\url{https://www.youtube.com/watch?v=rFohg-glVCU}}:} Este corpus está formado por frases muy complejas que componen los subtítulos de un video real de las instrucciones de seguridad de un avión. Consta de oraciones compuestas con varios verbos y con varios sustantivos tanto en el sujeto como en el predicado. Está formado por 55 oraciones que podemos observar en el Apéndice A. En la Figura X podemos observar algunas de las frases que componen este corpus.
+	\item \textbf{Corpus de oraciones de instrucciones de seguridad de un vuelo\footnote{\url{https://www.youtube.com/watch?v=rFohg-glVCU}}:} Este corpus está formado por frases muy complejas que componen los subtítulos de un video real de las instrucciones de seguridad de un avión. Consta de oraciones compuestas con varios verbos y con varios sustantivos, tanto en el sujeto como en el predicado. Está formado por 54 oraciones que podemos observar en el Apéndice \ref{ap1:A}. Algunas de las frases que componen este corpus son: 
+		
+		\begin{itemize}
+			\item Les damos la bienvenida a este vuelo de Iberia en nuestro nombre y en el de Madrid.
+			\item Antes de despegar tenemos que darles unas instrucciones de seguridad. 
+			\item Es importante que presten atención.
+		\end{itemize}
 	
-	\item \textbf{Corpus de oraciones de un capítulo de una serie infantil\footnote{\url{https://www.youtube.com/watch?v=B1rgTUWqWzI}}:}
+	\item \textbf{Corpus de oraciones de un capítulo de una serie infantil\footnote{\url{https://www.youtube.com/watch?v=B1rgTUWqWzI}}:} Corpus compuesto por 34 oraciones generalmente simples, en las que se incluyen construcciones específicas del español. En el Apéndice \ref{ap1:B} encontramos las oraciones que componen este corpus. Algunas de estas frases son:
+	
+		\begin{itemize}
+			\item Yo soy Pepa.
+			\item Este es mi hermano pequeño.
+			\item A Pepa le encanta saltar en los charcos.
+		\end{itemize}
+	
+	\item \textbf{Corpus de subtítulos de un trailer de una película\footnote{\url{https://www.youtube.com/watch?v=42ubb5bIs9o}}:} Compuesto por 11 oraciones,  desde frases simples con estructura SUJETO + VERBO + OBJETO, hasta oraciones más complejas, las cuales incluyes varios verbos y diversos tipos de complementos. El texto en su totalidad lo podemos encontrar en el Apéndice \ref{ap1:C}. Algunas de estas oraciones son:
+	
+		\begin{itemize}
+			\item Mi negocio son los perros.
+			\item Solo un hombre y un perro pueden hacer esa carrera.
+			\item Yo siempre pensé que vivía para los trineos.
+		\end{itemize}
+		
+	
+	\item \textbf{Corpus de subtítulos de un anuncio\footnote{\url{https://www.youtube.com/watch?v=oSncDP_vC3Q}}:} Conjunto de 11 oraciones con distintos niveles de complejidad. Cuenta desde frases simples hasta compuestas con más de un verbo y diversidad de complementos. Algunas de ellas cuentan con lenguaje metafórico y frases hechas específicas del castellano. El texto que compone este corpus lo encontramos en el Apéndice \ref{ap1:D}. Algunas de las oraciones que lo componen son:
+	
+		\begin{itemize}
+			\item Quédate en casa.
+			\item Mantén una distancia de dos metros.
+			\item Evita tocar cualquier superficie si es necesario.
+		\end{itemize}
+	
+	\item \textbf{Corpus de frases simples:} Conjunto de 25 frases, desde oraciones simples con estructura SUJETO + VERBO + SUJETO, hasta oraciones a las que se le va añadiendo complejidad con diversos complementos (temporalidad, preposiciones, etc) y varios sustantivos dentro del sujeto. Podemos encontrar todas las oraciones que componen este corpus en el Apéndice \ref{ap1:E}. Algunas de estas frases son:
+	
+		\begin{itemize}
+			\item Él bebe agua.
+			\item Mis tíos irán al supermercado en coche.
+			\item Mi hermana y mi tía están de vacaciones en la playa.
+		\end{itemize}
 	
 \end{enumerate}
 
+%-------------------------------------------------------------------
+\section{Resultados de la Evaluación}
+%-------------------------------------------------------------------
+\label{cap6:sec:Resultados de la Evaluación}
+
+A continuación, se muestran los resultados de la evaluación de los corpus nombrados en el apartado anterior. En la Tabla \ref{tabla:resultadosCorrectos} se detalla la evaluación de cada corpus: número de frases que componen el corpus, número de frases correctas y su porcentaje, frases no traducidas a la perfección, pero cuyo significado se comprende y su porcentaje.
+
+\begin{table}[htbp]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Corpus}  & \textbf{Nº frases} & \textbf{Nº aciertos} & \textbf{\% acierto}    \\
+			\hline \hline
+			Instrucciones de avión & 54 & 6 &  11.11 \%  \\ \hline
+			Serie infantil & 34 & 4 & 11.76 \%   \\ \hline
+			Trailer de película & 13 & 1 & 7.69 \%  \\ \hline
+			Anuncio & 11 & 1 & 9.09 \%   \\ \hline
+			Frases simples & 25 & X & \%  \\ \hline
+		\end{tabular}
+		\caption{Resultados de la evaluación correctos}
+		\label{tabla:resultadosCorrectos}
+	\end{center}
+\end{table}
+
+\begin{table}[htbp]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Corpus}  & \textbf{Nº frases} & \textbf{Nº entendibles} & \textbf{\% entendible}  \\
+			\hline \hline
+			Instrucciones de avión & 54 & 15 & 27.77 \% \\ \hline
+			Serie infantil & 34 & 8 & 23.52 \%  \\ \hline
+			Trailer de película & 13 & 3 & 23.07 \%  \\ \hline
+			Anuncio & 11 & 2 & 18.18 \%  \\ \hline
+			Frases simples & 25 & X & \%  \\ \hline
+		\end{tabular}
+		\caption{Resultados de la evaluación entendibles}
+		\label{tabla:resultadosEntendibles}
+	\end{center}
+\end{table}
+
+
+
+
+%-------------------------------------------------------------------
+\section{Análisis de los Resultados}
+%-------------------------------------------------------------------
+\label{cap6:sec:Análisis de los Resultados}
