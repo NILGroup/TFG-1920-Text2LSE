@@ -50,11 +50,11 @@ def getTextoVideo(sentence):
 
 						# si la palabra era femenina añadir "mujer"
 						if values.get("Gender") == "Fem":
-							frase.append("mujer")
+							frase.append("femenino")
 
 						# si la palabra era plural se añade "otro"
 						if values.get("Number") == "Plur":
-							frase.append("otro")
+							frase.append("plural")
 					else: frase.append(palabra)
 					# si la palabra era plural añadir 'plural' (RECORDAR PONER EL VIDEO 'PLURAL' IGUAL QUE EL DE 'OTRO')
 					# si no existe -> error

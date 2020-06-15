@@ -49,11 +49,11 @@ def getVideoPalabra(palabra):
 
 
 # ---------------------------------------------------------------------------------------------------------
-# ------------------------------------ PROCESAMIENTO VIDEO DE VARIAS PALABRAS -----------------------------
+# ------------------------------------ PROCESAMIENTO VIDEO DE VARIAS PALABRAS SERVER-----------------------
 # ---------------------------------------------------------------------------------------------------------
 
 
-# Procesa la petición realizada a la API para traducir varias palabras
+# Procesa la petición realizada a la API para traducir varias palabras en el servidor
 # Si es una palabra -> Busca el video y lo trata en getVideoPalabra(filename)
 # Si hay más de una palabra -> Trata la oración en getTextVideo(sentence)
 # Si existen todos los videos -> Devuelve el video generado y lo elimina del sistema de ficheros
@@ -158,7 +158,7 @@ def getTextoTraducidoImagen():
 
 # Procesa la petición realizada a la API para traducir varias palabras
 # Trata la oración en pln.py
-# Devuelve la frase traducida con los nombres de los videos que representen cada p
+# Devuelve la frase traducida con los nombres de los videos que representen cada palabra
 @app.route("/TextoLSEVideos/", methods=["POST"])
 def getTextoTraducidoNombreVideos():
 
@@ -181,6 +181,28 @@ def getTextoTraducidoNombreVideos():
 	# 	response = make_response(jsonify(frase = frase))
 
 	return response
+
+# ---------------------------------------------------------------------------------------------------------
+# -------------------------------- PROCESAMIENTO TEXTO A URL IMAGENS LSE --------------------------------
+# ---------------------------------------------------------------------------------------------------------
+# Procesa la petición realizada a la API para traducir varias palabras
+# Trata la oración en pln.py
+# Devuelve un json con las url de las imagenes para recorrerlas en cliente
+@app.route("/imagenes/", methods=["POST"])
+def getImagenesTextos():
+		texto = request.form['Texto']
+		response = []
+
+		doc = pln.TranslateSentence(texto)
+		frase = imagenes.getTextoImagenes(doc)
+
+
+		imagenes.getImagenesTexto(frase)
+
+		response = make_response(jsonify(imagenes))
+
+		return response
+
 
 
 
