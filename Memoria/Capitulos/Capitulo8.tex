@@ -1,0 +1,136 @@
+%---------------------------------------------------------------------
+%
+%                          Conclusiones y Trabajo futuro
+%
+%---------------------------------------------------------------------
+
+\chapter{Conclusiones y Trabajo Futuro}
+
+
+%-------------------------------------------------------------------
+
+A lo largo de este capítulo se presentarán las conclusiones principales de este TFG y el trabajo futuro que se podría realizar si se continuara el desarrollo del proyecto.
+
+\section{Conclusiones}
+
+Aquí faltan cosillas...
+
+Nos gustaría destacar que al comienzo de este TFG no encontramos ninguna aplicación que realizara traducciones de texto a LSE por lo que podemos afirmar que aún no siendo perfecto el resultado, este trabajo es una buena base para la traducción de lenguaje natural a Lengua de Signos Española. \\
+
+Un objetivo a parte de la traducción era crear una aplicación intuitiva y accesible para cualquier persona pero no ha sido posible realizar una evaluación para ver las opiniones de usuarios reales de esta aplicación. Gracias a los consejos de los tutores creemos que la aplicación es muy intuitiva y fácil de usar, además la puede utilizar cualquier persona que sea capaz de conectarse a internet ya que es válida para cualquier tipo de dispositivo ya sea ordenador, móvil o tabletas.
+
+Otro objetivo de este trabajo era implementar las funcionalidades de la aplicación utilizando servicios web. Estos servicios web permiten que cualquier desarrollador pueda crear su propia apliación de traducción a LSE llamando solamente a los servicios web que se han implementado para ello.\\
+
+Este proyecto, además, nos ha permitido aplicar muchos de los conocimientos adquiridos durante la carera en un proyecto grande y con una utilidad que no solo es académica. Algunas de las asignaturas que nos han ayudado a desarrollar este TFG son las siguientes:
+
+\begin{itemize}
+	
+	
+	\item \textbf{Aplicaciones web: } Nos ha servido mucho a la hora de realizar el Front-end ya que nos aportó grandes conocimientos sobre el desarrollo web con HTML, CSS y Javascript que han sido muy útiles para este TFG.
+	
+	\item \textbf{Tecnología de la programación:} Gracias a esta asignatura aprendimos a como realizar un proyecto en JAVA. Aunque el TFG esté hecho en Python lo importante de esta asignatura es que nos aportó un gran conocimiento a la hora de programar por lo que aprender un nuevo lenguaje como PYTHON no ha sido tan complicado.
+	
+	\item \textbf{Estructura de Datos Algorítmicos}: De esta asignatura lo que más nos ha ayudado ha sido saber como utilizar la recursión a la hora de programar ya que ha sido un pilar fundamental en el PLN.
+	
+	\item \textbf{Ética, Legislación y Profesión} Es una asignatura que nos ha enseñado como usar las licencias con las que proteger nuestro trabajo así como aprender a utilizar el software libre y referenciar bien toda la información utilizada en el proyecto.
+	
+	
+	
+	
+	
+\end{itemize}
+
+
+
+
+\section{Trabajo Futuro}
+\label{cap8:sec:TrabajoFuturo}
+
+Con el objetivo de mejorar algunas funcionalidades de la aplicación de Text2LSE de cara a obtener una aplicación más completa, pensamos que se podría marcar como trabajo futuro lo siguiente:
+
+\begin{itemize}
+	
+	
+	
+	\item \textbf{Traducción de nombres propios:} En la LSE los nombres propios se puede traducir usando el signo de cada letra hasta completar el nombre o utilizar un signo propio que defina a la persona. Actualmente la apliación detecta el nombre propio pero no encuentra traducción ya que no hay imágenes o vídeos para ese nombre como se puede ver en la Figura  ~\ref {fig: AnaAlta}. La solución sería utilizar el signo de cada letra del nombre propio como se puede ver en la Figura ~\ref {fig: NombreBien}
+	
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Conclusiones/AnaAlta.jpg}
+		\caption{Ejemplo de mala traducción de un nombre propio }
+		\label {fig: AnaAlta}
+	\end{figure}
+
+	
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Conclusiones/NombreBien.jpg}
+		\caption{Ejemplo de buena traducción de un nombre propio}
+		\label {fig: NombreBien}
+	\end{figure}
+
+
+	\item \textbf{Mejorar el Género y Número:} Como se indica en el capítulo 6 (referncia) una mejora sería detectar cuando añadir el signo que indica Femenino o el signo que indica el Plural ya que hay veces que no es necesario añadirlo por ejemplo, en la palabra ``rampas'' cuya traducción sería el signo \textit{``RAMPAS''} Figura ~\ref {fig: rampas} sin embargo la apliación a veces lo traduce como ``RAMPAS + FEMENINO + PLURAL''
+	como se puede ver en la Figura ~\ref {fig: rampasMal}
+	
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Conclusiones/rampas.jpg}
+		\caption{Traducción correcta de la palabra rampas}
+		\label {fig: rampas}
+	\end{figure}
+
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Conclusiones/rampasMal.jpg}
+		\caption{Traducción incorrecta de la palabra rampas}
+		\label {fig: rampasMal}
+	\end{figure}
+
+	\item \textbf{Añadir la negación:} Actualmente el sistema de reglas no contempla la negación de las oraciones por lo que sería un gran avance añadir una regla que permita traducir bien una oración negativa en LSE como se puede ver en la sección capitulo 6 (referencia)
+
+	\item \textbf{Reconocimiento de tiempos compuestos:} La aplicación actualemente no es capaz de reconocer los tiempos compuestos como pueden ser ``han comido'' o ``estaban comiendo'' por lo que sería importante desarrollar el PLN para que este tipo de verbos se traduzcan de manera correcta. En la Figura ~\ref {fig: hanComidoPanMal}	se puede ver que intenta traducir el verbo haber y no encuentra resultado. La opción correcta sería la de la Figura ~\ref {fig: hanComidoPanBien}
+	
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Conclusiones/hanComidoPanMal.jpg}
+		\caption{Ejemplo de mala traducción de tiempos compuestos }
+		\label {fig: hanComidoPanMal}
+	\end{figure}
+
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Conclusiones/hanComidoPanBien.jpg}
+		\caption{Ejemplo de buena traducción de tiempos compuestos }
+		\label {fig: hanComidoPanBien}
+	\end{figure}
+	
+	\item \textbf{Particularidad:} Contemplar frases hechas que no requieren traducción ya que la LSE tiene un signo propio para esa frase como por ejemplo, la frase ``Secar el pelo'' es un solo signo como se puede ver en la Figura ~\ref {fig: pelosecar} sin embargo nuestra aplicación realiza la traducción como si fuera una oración normal. 
+	
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Conclusiones/pelosecar.jpg}
+		\caption{Ejemplo de Particularidad }
+		\label {fig: pelosecar}
+	\end{figure}
+
+	\item \textbf{Traducción de oraciones compuestas:} La traducción actual permite traducir frases simples pero no traduce frases compuestas como por ejemplo, ``Los niños fueron al parque para jugar con sus amigos''. En esta oración se puede apreciar que hay oraciones más simples bien distiguidas ``Los niños fueron al parque'' y ``(Los niños) jugar con sus amigos'' por lo que una posible solución sería dividir cualquier frase compuesta en pequeñas frases más simples. 
+
+
+	\item \textbf{Mejora en el Procesamiento de Lenguaje Natural:} El PLN utilizado en el proyecto ha sido mediante un sistema de reglas utilizando la herramienta Spacy. Este sistema no es capaz de traducir frases que no estén contempladas en las reglas previamente programadas. Un cambio interesante y muy importante sería cambiar el sistema basado en reglas por uno basado en aprendizaje automático que sea capaz de aprender por sí mismo a traducir cualquier tipo de frase a base de entrenamiento.
+	
+
+	
+\end{itemize}
+
+
+
+
+
+
+
+
+%-------------------------------------------------------------------
+
+
+
