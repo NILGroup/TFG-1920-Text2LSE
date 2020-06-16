@@ -13,7 +13,7 @@ Al terminar la fase de desarrollo, comenzó la fase de evaluación, cuya finalidad
 %-------------------------------------------------------------------
 \label{cap6:sec:Diseño de la evaluación}
 
-Hemos enfocado la fase de evaluación en la traducción a LSE, probando diversas oraciones  en castellano y verificando la traducción que nos proporciona la aplicación con ayuda de un experto en LSE, nuestro tutor Antonio. Se ha verificado tanto la salida en formato imagen como la salida en formato vídeo.\\
+Hemos enfocado la fase de evaluación en la traducción a LSE, probando diversas oraciones  en castellano y verificando la traducción que nos proporciona la aplicación con ayuda de un experto en LSE, nuestro tutor Antonio. Se ha verificado tanto la salida en formato imagen como la salida en formato vídeo, obteniendo como resultado que ambas traducciones son similares.\\
 
 Es importante recordar que el objetivo de la aplicación desarrollada es traducir texto en castellano a LSE, por lo que una de las aplicaciones más interesantes es traducir el texto de los subtítulos de un determinado contenido audiovisual, transcripciones de megafonías de estaciones de tren o aeropuertos, etc, con el fin de incorporar la LSE a la vida cotidiana de manera sencilla. A diferencia de los subtítulos, la LSE permite expresar y asimilar información de manera mucho más rápida, por lo que incorporar las traducciones en LSE a este tipo de elementos resultaría de gran ayuda para las personas con discapacidad auditiva. Teniendo en cuenta todo esto, hemos seleccionado algunos elementos cotidianos y hemos obtenido la totalidad de las oraciones en castellano que aparecen en ellos formando distintos corpus. Estos se componen por las instrucciones de seguridad de un avión, un capítulo de una serie infantil, un anuncio de televisión y un trailer de una película. También se ha añadido un corpus de frases sencillas para ver hasta donde puede llegar la traducción de la aplicación. \\
 
@@ -63,12 +63,14 @@ La evaluación se realizó de manera manual, introduciendo todas las oraciones rec
 	
 \end{enumerate}
 
+Como podemos observar en estos resultados (COMPLETAR)
+
 %-------------------------------------------------------------------
 \section{Resultados de la Evaluación}
 %-------------------------------------------------------------------
 \label{cap6:sec:Resultados de la Evaluación}
 
-A continuación se muestran los resultados de la evaluación de los corpus nombrados en el apartado anterior. Hemos decidido clasificar los resultados en dos grupos: frases traducidas correctamente y frases cuya traducción no es exacta pero se entiende su significado. En la Tabla \ref{tabla:resultadosCorrectos} se detallan los resultados obtenidos en la evaluación de cada corpus incluyendo únicamente las frases traducidas correctamente. La tabla contiene el número de frases que componen el corpus, número de frases correctas y el porcentaje de aciertos. A continuación, en la tabla \ref{tabla:resultadosNoExactas} se muestra el número de frases no traducidas a la perfección, pero cuyo significado se comprende, y el porcentaje que representa. Además, en la tabla \ref{tabla:resultadosEntendibles} se hace referencia a la suma de ambos grupos, mostrando el número y porcentaje de frases entendibles, que incluye tanto las frases traducidas a la perfección como las no exactas.
+A continuación se muestran los resultados de la evaluación de los corpus nombrados en el apartado anterior. En el apéndice \ref{ap1:F} pueden verse todas las traducciones de las oraciones evaluadas en formato imágen, cuya traducción es similar en formato vídeo. Hemos decidido clasificar los resultados en dos grupos: frases traducidas correctamente y frases cuya traducción no es exacta pero se entiende su significado. En la Tabla \ref{tabla:resultadosCorrectos} se detallan los resultados obtenidos en la evaluación de cada corpus incluyendo únicamente las frases traducidas correctamente. La tabla contiene el número de frases que componen el corpus, número de frases correctas y el porcentaje de aciertos. A continuación, en la tabla \ref{tabla:resultadosNoExactas} se muestra el número de frases no traducidas a la perfección, pero cuyo significado se comprende, y el porcentaje que representa. Además, en la tabla \ref{tabla:resultadosEntendibles} se hace referencia a la suma de ambos grupos, mostrando el número y porcentaje de frases entendibles, que incluye tanto las frases traducidas a la perfección como las no exactas.
 
 \begin{table}[]
 	\begin{center}
@@ -127,7 +129,7 @@ A continuación se muestran los resultados de la evaluación de los corpus nombrad
 %-------------------------------------------------------------------
 \label{cap6:sec:Análisis de los Resultados}
 
-En este apartado se han analizado los resultados obtenidos dividiendo los errores en varios tipos. En la Tabla \ref{tabla:analisisResultados} podemos observar el número de fallos de cada tipo y su porcentaje de error:
+En este apartado se han analizado los resultados en las oraciones traducidas incorrectamente, agrupándolas según el tipo de error que se ha obtenido. Para realizar esta clasificación se han analizado las traducciones en formato imagen, ya que el resultado es similar al formato vídeo, y teniendo en cuenta que tanto el signo como el texto que lo acompaña sean correctos. En caso de no disponer de una imagen para un signo determinado, se ha revisado si la traducción en texto ha sido correcta y si es así, se ha dado la traducción por buena, ya que en este caso particular bastaría con añadir el signo en vídeo e imagen a nuestros recursos LSE. Para el resto de casos hemos agrupado los resultados dependiendo del tipo de error obtenido, tal y como se explica a continuación. Además, en la Tabla \ref{tabla:analisisResultados} podemos observar el número de fallos de cada tipo y su porcentaje de error.
 
 \begin{itemize}
 	
@@ -145,10 +147,12 @@ En este apartado se han analizado los resultados obtenidos dividiendo los errore
 	
 	\item \textbf{Misma palabra con distinto significado:} El sistema no tiene en cuenta que para una misma palabra pueda haber distintos signos que signifiquen cosas totalmente diferentes. Por ejemplo, en la oración \textit{``Encontraron la cura''} el signo de la palabra \textit{``cura''} se refiere a persona católica, no a cura de sanación.
 	
-	\item \textbf{Fallo del analizador:} Text2LSE ha utilizado el analizador Spacy, el cual no tiene un porcentaje de acierto perfecto al analizar oraciones. Esto lo podemos comprobar en oraciones como \textit{``Solo es barro''}, ya que la palabra \textit{``barro''} no lo toma como sustantivo, lo trata como verbo \textit{``barrer''}, generando la traducción \textit{``SOLO BARRER''}.
+	\item \textbf{Fallo del analizador Spacy:} Text2LSE ha utilizado el analizador Spacy, el cual no tiene un porcentaje de acierto perfecto al analizar oraciones. Esto lo podemos comprobar en oraciones como \textit{``Solo es barro''}, ya que la palabra \textit{``barro''} no lo toma como sustantivo, lo trata como verbo \textit{``barrer''}, generando la traducción \textit{``SOLO BARRER''}.
 	
 \end{itemize}
 		
+		
+Los resultados obtenidos han sido muy beneficiosos, ya que nos permiten ver con claridad en qué aspectos se puede mejorar la aplicación desarrollada.(COMPLETAR)
 
 \begin{table}[htbp]
 	\begin{center}
