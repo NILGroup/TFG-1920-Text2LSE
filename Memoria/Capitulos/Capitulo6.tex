@@ -1,0 +1,177 @@
+%---------------------------------------------------------------------
+%
+%                          Capítulo 6
+%
+%---------------------------------------------------------------------
+
+\chapter{Evaluación}
+
+Al terminar la fase de desarrollo, comenzó la fase de evaluación, cuya finalidad es comprobar la precisión y alcance de las traducciones. En este capítulo se muestra el proceso de dicha evaluación para poder determinar qué tipo de oraciones se logra traducir y con qué nivel de fiabilidad. En la Sección \ref{cap6:sec:Diseño de la evaluación} se explica el método de evaluación seguido, en la Sección \ref{cap6:sec:Resultados de la Evaluación} se analizan los resultados y en la Sección \ref{cap6:sec:Análisis de los Resultados} se explican las conclusiones finales a las que se ha llegado mediante el análisis de los resultados.
+
+%-------------------------------------------------------------------
+\section{Diseño de la evaluación}
+%-------------------------------------------------------------------
+\label{cap6:sec:Diseño de la evaluación}
+
+Hemos enfocado la fase de evaluación en la traducción a LSE, dejando fuera aspectos de usabilidad de la aplicación web desarrollada. Para llevar a cabo la evaluación, se han introducido manualmente en el traductor diversas oraciones en castellano, y se ha analizado la traducción que nos proporciona con ayuda de un experto en LSE, nuestro tutor Antonio. Se ha revisado tanto la salida en formato imagen como la salida en formato vídeo, obteniendo como resultado que ambas traducciones son similares.\\
+
+Es importante recordar que el objetivo de la aplicación desarrollada es traducir texto en castellano a LSE, por lo que una de las aplicaciones más interesantes es traducir el texto de los subtítulos de un determinado contenido audiovisual, transcripciones de megafonías de estaciones de tren o aeropuertos, etc, con el fin de incorporar la LSE a la vida cotidiana de manera sencilla. A diferencia de los subtítulos, la LSE permite expresar y asimilar información de manera mucho más rápida, por lo que incorporar las traducciones en LSE a este tipo de elementos resultaría de gran ayuda para las personas con discapacidad auditiva. Teniendo en cuenta todo esto, hemos seleccionado algunos elementos cotidianos y hemos obtenido la totalidad de las oraciones en castellano que aparecen en ellos, formando distintos corpus. Estos elementos cotidianos son las instrucciones de seguridad de un avión, un capítulo de una serie infantil, un anuncio de televisión y un trailer de una película. También se ha añadido un corpus de oraciones sencillas para determinar mejor el alcance de la traducción de la aplicación. A continuación explicamos en detalle los corpus seleccionados. \\
+
+
+
+\begin{enumerate}
+	\item \textbf{Corpus de oraciones de instrucciones de seguridad de un vuelo\footnote{\url{https://www.youtube.com/watch?v=rFohg-glVCU}}:} Este corpus está formado por oraciones muy complejas que componen los subtítulos de un video real de las instrucciones de seguridad de un avión. Consta de oraciones compuestas con varios verbos y con varios sustantivos, tanto en el sujeto como en el predicado. Está formado por 54 oraciones que podemos observar en el Apéndice \ref{ap1:A}. Algunas de las oraciones que componen este corpus son: 
+		
+		\begin{itemize}
+			\item Les damos la bienvenida a este vuelo de Iberia en nuestro nombre y en el de Madrid.
+			\item Antes de despegar tenemos que darles unas instrucciones de seguridad. 
+			\item Es importante que presten atención.
+		\end{itemize}
+	
+	\item \textbf{Corpus de oraciones de un capítulo de una serie infantil\footnote{\url{https://www.youtube.com/watch?v=B1rgTUWqWzI}}:} Corpus compuesto por 34 oraciones generalmente simples, en las que se incluyen construcciones específicas del español. En el Apéndice \ref{ap1:B} encontramos las oraciones que componen este corpus. Algunas de estas oraciones son:
+	
+		\begin{itemize}
+			\item Yo soy Pepa.
+			\item Este es mi hermano pequeño.
+			\item A Pepa le encanta saltar en los charcos.
+		\end{itemize}
+	
+	\item \textbf{Corpus de subtítulos de un trailer de una película\footnote{\url{https://www.youtube.com/watch?v=42ubb5bIs9o}}:} Compuesto por 13 oraciones,  desde oraciones simples con estructura SUJETO + VERBO + OBJETO, hasta oraciones más complejas, las cuales incluyes varios verbos y diversos tipos de complementos. El texto en su totalidad lo podemos encontrar en el Apéndice \ref{ap1:C}. Algunas de estas oraciones son:
+	
+		\begin{itemize}
+			\item Mi negocio son los perros.
+			\item Solo un hombre y un perro pueden hacer esa carrera.
+			\item Yo siempre pensé que vivía para los trineos.
+		\end{itemize}
+		
+	
+	\item \textbf{Corpus de subtítulos de un anuncio\footnote{\url{https://www.youtube.com/watch?v=oSncDP_vC3Q}}:} Conjunto de 11 oraciones con distintos niveles de complejidad. Cuenta desde oraciones simples hasta compuestas con más de un verbo y diversidad de complementos. Algunas de ellas cuentan con lenguaje metafórico y oraciones hechas específicas del castellano. El texto que compone este corpus lo encontramos en el Apéndice \ref{ap1:D}. Algunas de las oraciones que lo componen son:
+	
+		\begin{itemize}
+			\item Quédate en casa.
+			\item Mantén una distancia de dos metros.
+			\item Evita tocar cualquier superficie si es necesario.
+		\end{itemize}
+	
+	\item \textbf{Corpus de oraciones simples:} Conjunto de 25 oraciones, desde oraciones simples con estructura SUJETO + VERBO + SUJETO, hasta oraciones a las que se le va añadiendo complejidad con diversos complementos (temporalidad, preposiciones, etc) y varios sustantivos dentro del sujeto. Podemos encontrar todas las oraciones que componen este corpus en el Apéndice \ref{ap1:E}. Algunas de estas oraciones son:
+	
+		\begin{itemize}
+			\item Él bebe agua.
+			\item Mis tíos irán al supermercado en coche.
+			\item Mi hermana y mi tía están de vacaciones en la playa.
+		\end{itemize}
+	
+\end{enumerate}
+
+
+
+%-------------------------------------------------------------------
+\section{Resultados de la Evaluación}
+%-------------------------------------------------------------------
+\label{cap6:sec:Resultados de la Evaluación}
+
+A continuación se muestran los resultados de la evaluación de los corpus nombrados en el apartado anterior. En el apéndice \ref{ap1:F} pueden verse todas las traducciones de las oraciones evaluadas en formato imágen, cuya traducción es similar en formato vídeo. Hemos decidido clasificar los resultados en dos grupos: oraciones traducidas correctamente y oraciones cuya traducción no es exacta pero se entiende su significado. En la Tabla \ref{tabla:resultadosCorrectos} se detallan los resultados obtenidos en la evaluación de cada corpus incluyendo únicamente las oraciones traducidas correctamente. La tabla contiene el número de oraciones que componen el corpus, número de oraciones correctas y el porcentaje de aciertos. A continuación, en la tabla \ref{tabla:resultadosNoExactas} se muestra el número de oraciones no traducidas a la perfección, pero cuyo significado se comprende, y el porcentaje que representa. Además, en la tabla \ref{tabla:resultadosEntendibles} se hace referencia a la suma de ambos grupos, mostrando el número y porcentaje de oraciones entendibles, que incluye tanto las oraciones traducidas a la perfección como las no exactas.\\
+
+\begin{table}[]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Corpus}  & \textbf{Nº oraciones} & \textbf{Nº aciertos} & \textbf{\% acierto}    \\
+			\hline \hline
+			Instrucciones de avión & 54 & 7 &  12.96 \%  \\ \hline
+			Serie infantil & 34 & 4 & 11.76 \%   \\ \hline
+			Trailer de película & 13 & 1 & 7.69 \%  \\ \hline
+			Anuncio & 11 & 1 & 9.09 \%   \\ \hline
+			Oraciones simples & 25 & 11 & 44 \%  \\ \hline
+		\end{tabular}
+		\caption{Resultados de la evaluación: traducciones correctas}
+		\label{tabla:resultadosCorrectos}
+	\end{center}
+\end{table}
+
+\begin{table}[]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Corpus}  & \textbf{Nº oraciones} & \textbf{Nº no exactas} & \textbf{\% no exactas}  \\
+			\hline \hline
+			Instrucciones de avión & 54 & 14 & 25.92 \% \\ \hline
+			Serie infantil & 34 & 7 & 20.58 \%  \\ \hline
+			Trailer de película & 13 & 3 & 23.07 \%  \\ \hline
+			Anuncio & 11 & 2 & 18.18 \%  \\ \hline
+			Oraciones simples & 25 & 8 & 32\%  \\ \hline
+		\end{tabular}
+		\caption{Resultados de la evaluación: traducciones no exactas}
+		\label{tabla:resultadosNoExactas}
+	\end{center}
+\end{table}
+
+\begin{table}[]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Corpus}  & \textbf{Nº oraciones} & \textbf{Nº entendibles} & \textbf{\% entendible}  \\
+			\hline \hline
+			Instrucciones de avión & 54 & 21 &  38.88\% \\ \hline
+			Serie infantil & 34 & 11 &  28.94\%  \\ \hline
+			Trailer de película & 13 & 4 & 30.76 \%  \\ \hline
+			Anuncio & 11 & 3 &  27.27\%  \\ \hline
+			Oraciones simples & 25 & 19 & 76\%  \\ \hline
+		\end{tabular}
+		\caption{Resultados de la evaluación: traducciones entendibles}
+		\label{tabla:resultadosEntendibles}
+	\end{center}
+\end{table}
+
+Como podemos observar en estos resultados, el corpus de oraciones sencillas cuenta con un porcentaje de traducciones entendibles bastante más alto (76\%) que el resto de corpus, cuyos porcentajes rondan el 20 o el 30\%. Esto es debido a que en estos últimos la complejidad y riqueza de vocabulario de las oraciones es más elevada, produciendo así una serie de errores que analizaremos a continuación.
+
+%-------------------------------------------------------------------
+\section{Análisis de los Resultados}
+%-------------------------------------------------------------------
+\label{cap6:sec:Análisis de los Resultados}
+
+En este apartado se han analizado los resultados en las oraciones que no se han traducido a la perfección (traducciones erróneas y traducciones no exactas), agrupándolas según el tipo de error que se ha obtenido. De cada una de estas oraciones únicamente se ha extraído el error más grave, ya que el resto de errores (si los hubiera), podrían haber sido provocados por este. Para realizar esta clasificación se han analizado las traducciones en formato imagen, ya que el resultado es similar al formato vídeo, y se ha revisado tanto los signos como el texto que los acompaña con el fin de determinar de qué tipo de error se trata. En caso de no disponer de una imagen para un signo determinado, se ha revisado si la traducción en texto ha sido correcta y si es así, se ha dado la traducción por buena, ya que en este caso particular bastaría con añadir el signo en vídeo e imagen a nuestros recursos LSE. Para el resto de casos hemos agrupado los resultados dependiendo del tipo de error obtenido, tal y como se explica a continuación. Además, en la Tabla \ref{tabla:analisisResultados} podemos observar el número de fallos de cada tipo y su porcentaje de error.
+
+\begin{itemize}
+	
+	\item \textbf{Género y número:} El sistema si no encuentra el signo de un sustantivo busca esa palabra sin morfemas de género y número, y si así encuentra el signo se añade a continuación los signos \textit{``FEMENINO''} y \textit{``PLURAL''} en caso de que el sustantivo fuese femenino y plural. Hay ocasiones que no haría falta añadirlo. Por ejemplo, en la oración \textit{``y disponen de rampas o balsas de evacuación''} se traduce \textit{``rampas''} como \textit{``RAMPA FEMENINO PLURAL''}, pero en este caso al ser la palabra \textit{``rampa''} femenino no haría falta añadir el signo \textit{``FEMENINO''}.
+	
+	\item \textbf{Cambio de significado:} El sistema, al traducir todas las oraciones por igual, cuando traduce a LSE cambia el significado de la oración. Por ejemplo, en la oración \textit{``Mi negocio son los perros''} al \textit{``perros''} como \textit{``PERRO PLURAL''}, en esta oración no se entiende que su negocio sean los perros en plural, si no que su negocio son los perros y cosas similares.
+	
+	\item \textbf{Preposiciones:} La aplicación no tiene en cuenta todas las particularidades de las preposiciones en la LSE. Por ejemplo, al traducir la oración \textit{``Le ganó a todos los demás''}  elimina la preposición Le ganó a todos los demás \textit{``a''} cuando sí debería de aparecer en la traducción final.
+	
+	\item \textbf{Negación:} Text2LSE no ha contemplado el orden de aparición de la negación en una oración. Por eso en oraciones, como por ejemplo, \textit{``Él no es un perro de trineo''} realiza la traducción \textit{``ÉL PERRO NO TRINEO''}, cuando debería ser \textit{``ÉL PERRO TRINEO NO''}
+	
+	\item \textbf{Particularidad LSE:} La aplicación traduce todas las oraciones por igual, no se han creado reglas específicas para oraciones concretas. En LSE existen construcciones que se dicen con unos signos determinados o se dicen de una forma totalmente distinta. Por ejemplo, la oración \textit{``No saludes dando la mano''} es una oración hecha y en LSE se traduce como un solo signo que representa saludar dando la mano.
+	
+	\item \textbf{Estructuras compuestas:} En esta primera versión de Text2LSE no se ha tenido en cuenta en el desarrollo las estructuras más complejas, como pueden ser verbos compuestos, como pasados perfectos, o oraciones compuestas con varios verbos. Esto se puede observar en la traducción de la oración \textit{``Antes de despegar tenemos que darles unas instrucciones de seguridad''}, ya que se genera una traducción en la que no se comprende la oración.
+	
+	\item \textbf{Misma palabra con distinto significado:} El sistema no tiene en cuenta que para una misma palabra pueda haber distintos signos que signifiquen cosas totalmente diferentes. Por ejemplo, en la oración \textit{``Encontraron la cura''} el signo de la palabra \textit{``cura''} se refiere a persona católica, no a cura de sanación.
+	
+	\item \textbf{Fallo del analizador Spacy:} Text2LSE ha utilizado el analizador Spacy, el cual no tiene un porcentaje de acierto perfecto al analizar oraciones. Esto lo podemos comprobar en oraciones como \textit{``Solo es barro''}, ya que la palabra \textit{``barro''} no lo toma como sustantivo, lo trata como verbo \textit{``barrer''}, generando la traducción \textit{``SOLO BARRER''}.
+	
+\end{itemize}
+		
+		
+Los resultados obtenidos han sido muy beneficiosos, ya que nos permiten ver con claridad en qué aspectos se puede mejorar la aplicación desarrollada. Como podemos observar, las oraciones con un margen de mejora más amplio son las que contienen estructuras compuestas, que suponen un 37\% del total de errores obtenidos. Esto se debe a que en el desarrollo de la aplicación nos hemos centrado mucho más en la traducción de oraciones con estructuras simples. Otro aspecto a mejorar serían las particularidades de la LSE, cuya solución sería introducir reglas concretas en el código para tratar todas estas particularidades de forma correcta. A pesar de estos errores en las traducciones, los resultados de la evaluación han sido muy satisfactorios. Teniendo en cuenta que actualmente no existe ninguna aplicación capaz de traducir castellano a LSE en tiempo real, Text2LSE en un futuro puede ser de gran ayuda para el colectivo de personas sordas, ya que actualmente traduce un número de oraciones considerable, que fácilmente se puede ampliar trabajando en los problemas anteriormente mencionados.
+
+\begin{table}[htbp]
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Tipos de fallos}  & \textbf{Nº fallos / Total Fallos} & \textbf{\% fallos}  \\
+			\hline \hline
+			Género y número 							& 2 / 114 	&  1.75\%  \\ \hline
+			Cambio de significado  						& 2 / 114 	&  1.75\%  \\ \hline
+			Preposiciones  								& 8 / 114	&  7.01\%  \\ \hline
+			Negación	  								& 3 / 114 	&  2.63\%  \\ \hline
+			Particularidad LSE  						& 35 / 114 	&  30.70\%  \\ \hline
+			Estructuras compuestas	  					& 42 / 114 	&  36.84\%  \\ \hline
+			Misma palabra con distinto significado  	& 1 / 114 	&  0.87\%  \\ \hline
+			Fallo del analizador	  					& 21 / 114 	&  18.42\%  \\ \hline
+			
+		\end{tabular}
+		\caption{Oraciones traducidas incorrectamente por cada tipo de error}
+		\label{tabla:analisisResultados}
+	\end{center}
+\end{table}
