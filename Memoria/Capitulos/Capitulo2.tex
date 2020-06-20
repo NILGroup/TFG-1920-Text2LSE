@@ -15,7 +15,7 @@
 %	\end{Fuente}
 %\end{FraseCelebre}
 
-En este capítulo se presenta la información esencial acerca de la discapacidad auditiva y de la Lengua de Signos Española. En la sección 2.1 de este capítulo se introducen los tipos y características más importantes de la discapacidad auditiva. En la sección 2.2 se presentan las distintas vías de comunicación alternativa que utilizan las personas con discapacidad auditiva para relacionarse. A continuación, en la sección 2.3 se da una explicación detallada de qué es la Lengua de Signos y por qué es la vía de comunicación más usada por las personas con discapacidad auditiva. Posteriormente, en la sección 2.4 se muestran las soluciones de accesibilidad digital que existen para personas con discapacidad auditiva, así como tecnologías ya desarrolladas similares a la aplicación que se va a desarrollar en este TFG. 
+En este capítulo se introduce la discapacidad auditiva y la Lengua de Signos Española (LSE), junto con algunas aplicaciones de traducción a LSE existentes y los conceptos básicos del Procesamiento del Lenguaje Natural (PLN). En la sección 2.1 de este capítulo se introducen los tipos y características más importantes de la discapacidad auditiva. En la sección 2.2 se presentan las distintas vías de comunicación alternativa que utilizan las personas con discapacidad auditiva para relacionarse. A continuación, en la sección 2.3 se da una explicación detallada de qué es la Lengua de Signos y por qué es la vía de comunicación más usada por las personas con discapacidad auditiva. Posteriormente, en la sección 2.4 se muestran las soluciones de accesibilidad digital que existen para personas con discapacidad auditiva, así como tecnologías ya desarrolladas similares a la aplicación que se va a desarrollar en este TFG. Finalmente, en la sección 2.5 se explican los conceptos más importantes del Procesamiento del Lenguaje Natural (PLN).
 \\
 
 
@@ -76,7 +76,7 @@ Las personas que más usan este tipo de sistemas son aquellas que presentan disca
 Dependiendo de las necesidades de cada persona se pueden distinguir dos tipos de SAAC:
 
 \begin{itemize}
-	\item \textbf{SAACs gestuales} \citep*{tchSimGest}: No se apoya en ningún soporte físico (libros, dispositivos tecnológicos, etc), sino que se usa el propio cuerpo. Algunos ejemplos son los siguientes:
+	\item \textbf{SAACs gestuales} \citep*{tchSimGest}: No se apoyan en ningún soporte físico (libros, dispositivos tecnológicos, etc), sino que se usa el propio cuerpo. Algunos ejemplos son los siguientes:
 	
 	\begin{itemize}
 		\item \textit{\textbf{Bimodal:}} es el uso simultáneo de palabras articuladas y signos gestuales manteniendo la estructura sintáctica de la lengua oral.\\
@@ -475,7 +475,7 @@ TeCuento\footnote{\url{https://play.google.com/}}  es una aplicación Android gra
 
 Como se ha podido comprobar existe un abanico amplio de aplicaciones que son capaces de traducir texto a LSE. Estas herramientas en su mayoría cumplen el propósito de facilitar el uso de la Lengua de Signos a las personas que quieran comunicarse con ella. No obstante, presentan algunas limitaciones como licencias de pago, tiempo de respuesta lento o disponibilidad en un solo tipo de dispositivo.\\
 
-Nuestro proyecto Text2LSE pretende solventar muchas de estas limitaciones proporcionando una aplicación gratuita que sea accesible desde cualquier dispositivo, ya sea web o móvil. El objetivo de Text2LSE es ofrecer una traducción al instante de cualquier frase o palabra en castellano a LSE y la posibilidad de integrar nuestra herramienta mediante servicios web en aplicaciones que requieran su uso.
+Nuestro proyecto Text2LSE pretende solventar muchas de estas limitaciones proporcionando una aplicación gratuita que sea accesible desde cualquier dispositivo, ya sea web o móvil. El objetivo de Text2LSE será ofrecer una traducción al instante de cualquier frase o palabra en castellano a LSE y la posibilidad de integrar nuestra herramienta mediante servicios web en aplicaciones que requieran su uso.
 
 
 
@@ -488,36 +488,37 @@ El Procesamiento del Lenguaje Natural (PLN) es un campo dentro de la inteligenci
 
 Su evolución en los últimos años ha ido creciendo de forma exponencial debido a la capacidad computacional de la que disponemos hoy en día y los avances realizados en la algoritmia. Sus aplicaciones son muy variadas, ya sea desde traducción automática y chatbots hasta asistentes virtuales como Alexa de Amazon y Siri de Apple.
 
+El Procesamiento del Lenguaje Natural en este proyecto es imprescindible ya que como se ha indicado en el apartado \ref{cap2:sec:Sintaxis de la Lengua de Signos} la LSE no es una simple representación del castellano. Por este motivo para poder traducir el catellano a LSE hay que realizar un procesamiento previo del texto y obtener todos los datos gramaticales para así poder realizar una traducción que cumpla las reglas de la Lengua de Signos Española.
 
 
 %-------------------------------------------------------------------
 \subsection{Estructura del Procesamiento del Lenguaje Natural}
 %-------------------------------------------------------------------
-Para que una máquina sea capaz de entender y procesar el lenguaje natural, es necesario analizar la estructura de dicho lenguaje, teniendo en cuenta los siguientes aspectos:
+Para que una máquina sea capaz de entender y procesar el lenguaje natural, es necesario analizar la estructura de dicho lenguaje, y gracias al PLN podemos realizar distintos análisis como:
 
 
 \begin{itemize}
 	
-	\item\textbf{Nivel Fonológico:} se encarga de analizar cómo las palabras se relacionan con los sonidos que representan.
+	\item\textbf{Análisis Fonológico:} se encarga de analizar cómo las palabras se relacionan con los sonidos que representan.
 	
 	\item\textbf{Nivel Morfológico:} trata de cómo las palabras se construyen a partir de unas unidades de significado más pequeñas llamadas morfemas. Un ejemplo sería el morfema de género: \textit{Chic-o (masculino) y Chic-a (femenino).}
 	
 	
-	\item\textbf{Nivel Sintáctico:} es el encargado de cómo se pueden unir las palabras para formar oraciones sintácticamente correctas, donde el orden de las palabras es el necesario para que se establezca la comunicación. Un ejemplo sería la concordancia entre sujeto y verbo ya que estos comparten siempre misma persona y número.
+	\item\textbf{Análisis Sintáctico:} es el encargado de cómo se pueden unir las palabras para formar oraciones sintácticamente correctas, donde el orden de las palabras es el necesario para que se establezca la comunicación. Un ejemplo sería la concordancia entre sujeto y verbo ya que estos comparten siempre misma persona y número.
 	\newline
 	\textit{Yo bebo agua: Yo(1ª per, Sg) y bebo (1ª per, Sg)}
 	\newline
 	\textit{El bebe agua: Él (3ª per, Sg) y bebe (3ª per, Sg)}
 	
 	
-	\item\textbf{Nivel Semántico:} estudio del significado de las expresiones del lenguaje y de cómo los significados de las palabras se unen para dar sentido a una oración. Un ejemplo sería: \textit{``Pedro habla la Lengua de Signos''.}
+	\item\textbf{Análisis Semántico:} estudio del significado de las expresiones del lenguaje y de cómo los significados de las palabras se unen para dar sentido a una oración. Un ejemplo sería: \textit{``Pedro habla la Lengua de Signos''.}
 	
 	
-	\item\textbf{Nivel Pragmático:} trata de cómo las oraciones se usan en distintas situaciones y de cómo el uso afecta al significado de las oraciones.
+	\item\textbf{Análisis Pragmático:} trata de cómo las oraciones se usan en distintas situaciones y de cómo el uso afecta al significado de las oraciones.
 	
 \end{itemize}
 
-El Procesamiento del Lenguaje Natural en este proyecto es imprescindible ya que como se ha indicado en el apartado \ref{cap2:sec:Sintaxis de la Lengua de Signos} la LSE no es una simple representación del castellano. Para traducir el catellano a LSE hay que realizar un procesamiento previo del texto y obtener todos los datos gramaticales para así poder realizar una traducción que cumpla las reglas de la Lengua de Signos Española. 
+ 
 
 
 

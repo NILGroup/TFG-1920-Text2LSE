@@ -130,7 +130,27 @@ de Lenguaje Natural que existen actualmente.
 %-------------------------------------------------------------------
 \subsection{Spacy}
 %-------------------------------------------------------------------
-Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}}  es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python. Permite el desarrollo de aplicaciones que sean capaces de procesar y entender grandes volúmenes de texto obteniendo un análisis completo del lenguaje. Actualmente es considerada una de las mejores herramientas para el PLN ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías.
+Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}} es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python. Permite el desarrollo de aplicaciones que sean capaces de procesar y entender grandes volúmenes de texto obteniendo un análisis completo del lenguaje. Actualmente es considerada una de las mejores herramientas para el PLN ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías como se puede comprobar en la imagen ~\ref {fig: benchmark}
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=\textwidth]{Imagenes/Fuentes/PNL/Spacy_fast.png}
+	\caption{Benchmark de diferentes procesadores de lenguaje}
+	\label {fig: benchmark}
+\end{figure}
+
+Spacy mediante la clase Tokenizer es capaz de dividir el texto de entrada en palabras aportando la siguiente información de cada palabra. 
+
+	
+\begin{itemize}
+	
+	\item \textbf{Dependencia:} Indica la relación de dependencia sintáctica dentro de la oración, es decir, que función tiene la palabra dentro de la oración donde las más importantes son sujeto, raíz u objeto.
+	\item \textbf{Tags:} Indica el género, número, el tiempo verbal y la persona de cada token.
+	\item \textbf{Part of speech:} Indica el tipo de palabra en función de su uso en la oración, tales como nombres, adjetivos, adverbios y verbos.
+	\item \textbf{Lemma:} Indica el lema de una palabra,es decir, la palabra que se encuentra al frente del diccionario por ejemplo, El lemma de ``jugábamos'' es ``jugar''
+	
+\end{itemize}
+	
 
 
 
@@ -155,8 +175,7 @@ Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos
 \subsection{Conclusiones}
 %-------------------------------------------------------------------
 
-Una vez analizada la posibilidad de usar una u otra se ha llegado a la conclusión de que Spacy es la herramienta adecuada, ya que proporciona un análisis rápido y bastante preciso en Español lo cual es de gran importancia en este proyecto y además es muy sencilla de aprender a manejar gracias a su manual de uso.  
-
+Una vez analizadas en detalle cada una de las herramientas presentadas en esta sección, se llega a la conclusión de que Spacy es la herramienta adecuada, ya que proporciona un análisis rápido y bastante preciso en Español lo cual es de gran importancia en este proyecto ya que necesitamos traducir textos en español. Aademás es muy sencilla de aprender a manejar gracias a tener un manual de uso claro y sencillo con gran cantidad de ejemplos.
 
 
 
