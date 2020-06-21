@@ -414,7 +414,7 @@ La respuesta recibida será un único vídeo en formato mp4 con la traducción desea
 Este servicio implementa la funcionalidad de traducción de un texto en castellano a LSE en formato imagen. Para poder acceder a este servicio, se debe realizar la siguiente petición POST a la API:\\
 
 \begin{shaded}
-	\url{https://holstein.fdi.ucm.es/tfg-text2lse/imágenes/  }	
+	\url{https://holstein.fdi.ucm.es/tfg-text2lse/imagenes/  }	
 \end{shaded}
 
 Los datos a enviar en la petición POST deben tener la siguiente estructura en JSON:
@@ -426,23 +426,33 @@ Los datos a enviar en la petición POST deben tener la siguiente estructura en JS
 \end{center}
 
 
-En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. Al recibir este parámetro, este servicio lo utilizará para hacer una llamada al servicio de traducción de texto en LN a texto LSE adaptado al catálogo de imágenes de ARASAAC, con el fin obtener la traducción a texto LSE. Una vez obtenida esta traducción, por cada palabra se llamará al servicio de traducción de palabra a imagen LSE, que devolverá la ruta de la imagen correspondiente o la imagen de error en caso de que no exista la imagen buscada. Al finalizar con todas las palabras se añadirán sus rutas en orden en un array JSON que se devolverá como respuesta. El flujo de este servicio lo podemos observar en la Figura~\ref {fig: FlujoImagenTexto}.\\
+En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. Al recibir este parámetro, este servicio lo utilizará para hacer una llamada al servicio de traducción de texto en LN a texto LSE adaptado al catálogo de imágenes de ARASAAC, con el fin obtener la traducción a texto LSE. Una vez obtenida esta traducción, por cada palabra se llamará al servicio de traducción de palabra a imagen LSE, que devolverá la ruta de la imagen correspondiente o la ruta de la imagen de error en caso de que no exista la imagen buscada. Al finalizar con todas las palabras se añadirán sus rutas en orden en un array JSON que se devolverá como respuesta. El flujo de este servicio lo podemos observar en la Figura~\ref {fig: FlujoImagenTexto}.\\
 
-Por ejemplo, para obtener las imágenes en LSE del texto \textit{``Los niños comen chocolate''}, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
+Por ejemplo, para obtener las imágenes en LSE del texto \textit{``Mañana yo iré al médico''}, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
 
 \begin{center}
 	
-	\{ `Texto' : `Los niños comen chocolate' \}
+	\{ `Texto' : `Mañana yo iré al médico' \}
 	
 \end{center}
 
-La respuesta recibida será un JSON que contendrá un array con todas las rutas de las imágenes, como podemos ver a continuación. COMPLETAR EJEMPLO
+La respuesta recibida será un JSON que contendrá un array con todas las rutas de las imágenes, como podemos ver a continuación en la Figura \ref{fig: jsonImagenes}. 
+
+
+
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/FlujoImagenText.jpg}
 	\caption{ Flujo del servicio web para traducción de texto a LSE (imagen) }
 	\label {fig: FlujoImagenTexto}
+\end{figure}
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Text2LSE/arrayImagenes.jpg}
+	\caption{ JSON devuelto por el servicio web para traducción de texto a LSE (imagen) }
+	\label {fig: jsonImagenes}
 \end{figure}
 
 
