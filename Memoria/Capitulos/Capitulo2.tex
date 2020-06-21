@@ -149,6 +149,7 @@ En España hay alrededor de 1.064.000 personas mayores de seis años con algún gra
 
 La LSE es una lengua normativizada, es decir, consta de unas reglas que marcan el correcto uso de la misma, tal y como se muestra en la siguiente subsección.
 
+
 %-------------------------------------------------------------------
 \subsection{Reglas de la Lengua de Signos Española}
 %-------------------------------------------------------------------
@@ -235,7 +236,15 @@ Los signos de la LSE están formados por siete elementos esenciales:
 %-------------------------------------------------------------------
 \label{cap2:sec:Sintaxis de la Lengua de Signos}
 
-Las oraciones en la LSE no se estructuran igual que en castellano. La estructura básica de las oraciones se compone de sujeto-objeto-verbo, aunque existen excepciones. Por ejemplo, la oración \textit{``Él come patatas''} en LSE se traduciría como \textit{``Él patatas comer''}. Según se van incorporando elementos a las oraciones, la estructura se va volviendo más compleja siguiendo un orden temporal, es decir, las acciones se nombran en el orden en el que suceden. Por ejemplo, la oración \textit{``Después de comer me fui a dormir''}, se traduciría a LSE como \textit{``Yo comer fin dormir ir''}, indicando que primero se realizó la acción de comer y después la acción de irse a dormir.
+Las oraciones en la LSE no se estructuran igual que en castellano. La estructura básica de las oraciones se compone de sujeto-objeto-verbo, aunque existen excepciones. Por ejemplo, la oración \textit{``Él come patatas''} en LSE se traduciría como \textit{``Él patatas comer''}. Según se van incorporando elementos a las oraciones, la estructura se va volviendo más compleja siguiendo un orden temporal, es decir, las acciones se nombran en el orden en el que suceden. Por ejemplo, la oración \textit{``Después de comer me fui a dormir''}, se traduciría a LSE como \textit{``Yo comer fin dormir ir''}, indicando que primero se realizó la acción de comer y después la acción de irse a dormir.\\
+
+Para aprender esta estructura en muchos libros de aprendizaje de la Lengua de Signos \citep*{bkApuntesLing} utilizan el texto en LSE. Este texto en LSE sirve para comparar las diferencias a la hora de estructurar una misma frase en castellano y en LSE. Ver Figura ~\ref {fig: textoLSElibro}.
+\begin{figure}[]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/Fuentes/SAAC/libroTextoLSE.png}
+	\caption{Uso de texto para la enseñar la estructura de la LSE }
+	\label {fig: textoLSElibro}
+\end{figure}
 
 
 %-------------------------------------------------------------------
@@ -479,6 +488,8 @@ Nuestro proyecto Text2LSE pretende solventar muchas de estas limitaciones propor
 
 
 
+
+
 %-------------------------------------------------------------------
 \section{Procesamiento del Lenguaje Natural}
 %-------------------------------------------------------------------
@@ -486,40 +497,90 @@ Nuestro proyecto Text2LSE pretende solventar muchas de estas limitaciones propor
 
 El Procesamiento del Lenguaje Natural (PLN) es un campo dentro de la inteligencia artificial y la lingüística aplicada que analizan el lenguaje humano, lo interpretan y le dan significado para que pueda ser utilizado por una máquina de manera práctica.\\
 
-Su evolución en los últimos años ha ido creciendo de forma exponencial debido a la capacidad computacional de la que disponemos hoy en día y los avances realizados en la algoritmia. Sus aplicaciones son muy variadas, ya sea desde traducción automática y chatbots hasta asistentes virtuales como Alexa de Amazon y Siri de Apple.
+Su evolución en los últimos años ha ido creciendo de forma exponencial debido a la capacidad computacional de la que disponemos hoy en día y los avances realizados en la algoritmia. Sus aplicaciones son muy variadas, ya sea desde traducción automática y chatbots hasta asistentes virtuales como Alexa de Amazon y Siri de Apple.\\
 
-El Procesamiento del Lenguaje Natural en este proyecto es imprescindible ya que como se ha indicado en el apartado \ref{cap2:sec:Sintaxis de la Lengua de Signos} la LSE no es una simple representación del castellano. Por este motivo para poder traducir el catellano a LSE hay que realizar un procesamiento previo del texto y obtener todos los datos gramaticales para así poder realizar una traducción que cumpla las reglas de la Lengua de Signos Española.
+El PLN en este proyecto es imprescindible, ya que como se ha indicado en el apartado \ref{cap2:sec:Sintaxis de la Lengua de Signos} la LSE no es una simple representación del castellano. Por este motivo, para poder traducir el catellano a LSE hay que realizar un procesamiento previo del texto y obtener todos los datos gramaticales, para así poder realizar una traducción que cumpla las reglas de la Lengua de Signos Española. 
 
 
-%-------------------------------------------------------------------
-\subsection{Estructura del Procesamiento del Lenguaje Natural}
-%-------------------------------------------------------------------
-Para que una máquina sea capaz de entender y procesar el lenguaje natural, es necesario analizar la estructura de dicho lenguaje, y gracias al PLN podemos realizar distintos análisis como:
+\subsection{Análisis Sintáctico}
+\label{cap2:sec:Análisis Sintáctico}
+Para poder realizar el análisis sintáctico se necesita obtener toda la información de todas las palabras que componen la frase y como dependen unas de otras. Para ello se realizará con herramientas PLN el proceso de tokenización, el cual divide la frase en una lista de palabras denominadas \textit{tokens} donde cada token contiene la siguiente información de cada palabra:
 
 
 \begin{itemize}
 	
-	\item\textbf{Análisis Fonológico:} se encarga de analizar cómo las palabras se relacionan con los sonidos que representan.
+	\item \textbf{Dependencia:} Indica la relación de dependencia sintáctica dentro de la oración, es decir, que función tiene la palabra dentro de la oración. 
+	\item \textbf{Tags:} Indica el género, número, el tiempo verbal y la persona de cada token.
+	\item \textbf{Part of speech:} Indica el tipo de palabra en función de su uso en la oración, tales como nombres, adjetivos, adverbios y verbos.
+	\item \textbf{Lemma:} Es la palabra que encabeza un artículo de un diccionario o de una enciclopedia, por ejemplo el lemma de ``jugábamos'' es ``jugar''	
 	
-	\item\textbf{Nivel Morfológico:} trata de cómo las palabras se construyen a partir de unas unidades de significado más pequeñas llamadas morfemas. Un ejemplo sería el morfema de género: \textit{Chic-o (masculino) y Chic-a (femenino).}
-	
-	
-	\item\textbf{Análisis Sintáctico:} es el encargado de cómo se pueden unir las palabras para formar oraciones sintácticamente correctas, donde el orden de las palabras es el necesario para que se establezca la comunicación. Un ejemplo sería la concordancia entre sujeto y verbo ya que estos comparten siempre misma persona y número.
-	\newline
-	\textit{Yo bebo agua: Yo(1ª per, Sg) y bebo (1ª per, Sg)}
-	\newline
-	\textit{El bebe agua: Él (3ª per, Sg) y bebe (3ª per, Sg)}
-	
-	
-	\item\textbf{Análisis Semántico:} estudio del significado de las expresiones del lenguaje y de cómo los significados de las palabras se unen para dar sentido a una oración. Un ejemplo sería: \textit{``Pedro habla la Lengua de Signos''.}
-	
-	
-	\item\textbf{Análisis Pragmático:} trata de cómo las oraciones se usan en distintas situaciones y de cómo el uso afecta al significado de las oraciones.
 	
 \end{itemize}
 
- 
+Una vez obtenida la información esta se analizará para poder obtener el sujeto y predicado de la oración utilizando algoritmos propios con la ayuda de herramientas de PLN.
 
+
+\subsection{Análisis Morfológico}
+Una vez obtenidos el sujeto y el predicado de la oración hay que adaptarlos a la estructura de la LSE (TIEMPO + SUJETO + OBJETO + VERBO) y para ello hay que añadir, eliminar o cambiar de orden algunas palabras.  
+
+
+\begin{itemize}
+	
+	\item \textbf{Determinantes:} Se omiten a la hora de hacer la traducción.
+	
+	\item \textbf{Verbos copulativos:} Los verbos copulativos ser, estar o parecer también se omiten a la hora de la traducción a LSE.
+	
+	\item \textbf{Posesivos:} Los determinantes posesivos se sustituyen por pronombres personales.
+	
+	
+	\item \textbf{Adjetivos:} Al traducir una frase a LSE los adjetivos siempre van en masculino.
+	
+	\item \textbf{Temporalidad:} la temporalidad va al principio de la oración. \textit{Por ejemplo, ``Yo comí chocolate ayer''} se traduce como \textit{``AYER YO CHOCOLATE COMER''.} Sin embargo no siempre hay adverbios de tiempo en la oración que indican la temporalidad, en ese caso el tiempo viene determinado por el tiempo verbal. \textit{Por ejemplo, ``Yo comeré chocolate''} se traduce como \textit{``FUTURO YO CHOCOLATE COMER''.}
+		
+\end{itemize}
+
+\subsection{Herramientas PLN}
+En la actualidad hay una gran cantidad de herramientas para poder realizar el Procesamiento de Lenguaje Natural de una forma más sencilla y rápida. A continuación, vamos a explicar algunas de estas herramientas de Procesamiento de Lenguaje Natural que existen actualmente. 
+
+%-------------------------------------------------------------------
+\subsection{Spacy}
+%-------------------------------------------------------------------
+Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}} es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python. Permite el desarrollo de aplicaciones que sean capaces de procesar y entender grandes volúmenes de texto obteniendo un análisis completo del lenguaje. Actualmente es considerada una de las mejores herramientas para el PLN, ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías, como se puede comprobar en la imagen ~\ref {fig: benchsmark}
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=\textwidth]{Imagenes/Fuentes/PNL/Spacy_fast.png}
+	\caption{Benchmark de diferentes procesadores de lenguaje}
+	\label {fig: benchsmark}
+\end{figure}
+
+Spacy permite hacer el proceso de Tokenización de forma muy sencilla llamando únicamente a la función nlp(). De cada token se puede obtener gran cantidad de información como la indicada en la sección \ref{cap2:sec:Análisis Sintáctico}.
+
+
+
+
+%-------------------------------------------------------------------
+\subsection{NLTK}
+%-------------------------------------------------------------------
+Natural Language ToolKit (NLTK)\footnote{Web oficial de NLTK \url{https://www.nltk.org/}}  es una librería dedicada al análisis del lenguaje natural en Python. En la actualidad incluye utilidades para más de 10 idiomas y fue creada por académicos e investigadores como una herramienta para crear funciones complejas de PLN. Esta biblioteca es muy útil cuando se quiere construir un modelo desde cero, ya que proporciona acceso a muchos algoritmos y facilita el desarrollo de algoritmos propios permitiendo realizar un procesamiento del lenguaje más adaptado a un proyecto en concreto.
+
+NLTK también permite hacer el proceso de Tokenización de forma muy sencilla llamando únicamente a la función nlp(). De cada token se puede obtener gran cantidad de información como la indicada en la sección \ref{cap2:sec:Análisis Sintáctico}.
+
+%-------------------------------------------------------------------
+\subsection{FreeLing}
+%-------------------------------------------------------------------
+
+FreeLing\footnote{Web oficial de FreeLing \url{http://nlp.lsi.upc.edu/freeling/index.php/node/1}} es una herramienta PLN de código abierto bajo el lenguaje de programación C++ que ha sido desarrollada por la Universidad Politécnica de Cataluña. La biblioteca permite realizar análisis morfológico, detección de entidades con nombres o etiquetado gramatical para una gran variedad de idiomas. \\
+
+Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos, adaptarlos a dominios particulares e incluso desarrollar otros nuevos para idiomas específicos o necesidades particulares. 
+
+
+
+%-------------------------------------------------------------------
+\subsection{Conclusiones}
+%-------------------------------------------------------------------
+Tanto Spacy, Freeling y NLTK tienen características muy parecidas, ya que con ellas se puede hacer el proceso de Tokenización y te aportan funciones para realizar el análisis sintáctico y morfológico.
+Una vez analizadas en detalle cada una de las herramientas presentadas en esta sección, se llegó a la conclusión de que Spacy es la herramienta más adecuada para nuestro TFG, ya que proporciona un análisis rápido y bastante preciso en español lo cual es de gran importancia en este proyecto, ya que necesitamos traducir textos en tiempo real teniendo que hacer este procesamiento del lenguaje los más rápido y preciso posible. Además es muy sencillo de aprender e implementar, ya que utiliza un lenguaje de programación sencillo, como es Python, y gracias a su manual de uso, ya que explica todos sus elementos y funciones de forma clara, incluyendo gran variedad de ejemplos.
 
 
 
