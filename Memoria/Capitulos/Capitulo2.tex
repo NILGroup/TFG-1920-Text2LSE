@@ -493,32 +493,81 @@ Su evolución en los últimos años ha ido creciendo de forma exponencial debido a 
 El PLN en este proyecto es imprescindible, ya que como se ha indicado en el apartado \ref{cap2:sec:Sintaxis de la Lengua de Signos} la LSE no es una simple representación del castellano. Por este motivo, para poder traducir el catellano a LSE hay que realizar un procesamiento previo del texto y obtener todos los datos gramaticales, para así poder realizar una traducción que cumpla las reglas de la Lengua de Signos Española. 
 
 
+\subsection{Análisis Sintáctico}
+Para poder realizar el análisis sintáctico se necesita obtener toda la información posible de la frase. Para ello se realizará con herramientas PLN el proceso de tokenización el cual divide la frase en una lista de palabras denominadas \textit{tokens} donde cada token contiene la siguiente información de cada palabra:
 
-\subsection{Tokenización}
-\label{cap2:sec:Tokenización}
-Para poder la traducción de castellano a LSE primero hay que obtener información del texto. Este proceso recibe el nombre de tokenización el cual divide la frase en una lista de palabras denominadas \textit{tokens} donde cada token contiene la siguiente información de cada palabra:
 
 \begin{itemize}
 	
 	\item \textbf{Dependencia:} Indica la relación de dependencia sintáctica dentro de la oración, es decir, que función tiene la palabra dentro de la oración. 
 	\item \textbf{Tags:} Indica el género, número, el tiempo verbal y la persona de cada token.
 	\item \textbf{Part of speech:} Indica el tipo de palabra en función de su uso en la oración, tales como nombres, adjetivos, adverbios y verbos.
-	\item \textbf{Lemma:} Es la palabra que encabeza un artículo de un diccionario o de una enciclopedia, por ejemplo el lemma de ``jugábamos'' es ``jugar''
+	\item \textbf{Lemma:} Es la palabra que encabeza un artículo de un diccionario o de una enciclopedia, por ejemplo el lemma de ``jugábamos'' es ``jugar''	
 	
 	
 \end{itemize}
 
+Una vez obtenida la información esta se analizará para poder obtener el sujeto y predicado de la oración utilizando algoritmos propios con la ayuda de herramientas de PLN.
 
-\subsection{Análisis Sintáctico y morfológico}
-\label{cap2:sec:Análisis Sintáctico}
-Con el PLN se puede realizar análisis sintácticos y morfológicos de una oración o texto. Para el proyecto es necesario porque para poder adaptar la estructura gramatical del castellano a la LSE se necesita hacer ambos análisis.
 
- \begin{itemize}
- 	
- 	\item \textbf{Sintáctico:} Permite obtener el sujeto y predicado de la oración.
- 	\item \textbf{Morfológico:} Permite saber cual es la función de cada palabra dentro de la oración y así ordenarlas según la estructura de la LSE.
- 	
- \end{itemize}
+\subsection{Análisis Morfológico}
+Una vez obtenidos el sujeto y el predicado de la oración hay que adaptarlos a la estructura de la LSE (TIEMPO + SUJETO + OBJETO + VERBO) y para ello hay que añadir, eliminar o cambiar de orden algunas palabras.  
+
+
+\begin{itemize}
+	
+	\item \textbf{Determinantes:} Se omiten a la hora de hacer la traducción.
+	
+	\item \textbf{Verbos copulativos:} Los verbos copulativos ser, estar o parecer también se omiten a la hora de la traducción a LSE.
+	
+	\item \textbf{Posesivos:} Los determinantes posesivos se sustituyen por pronombres personales.
+	
+	
+	\item \textbf{Adjetivos:} Al traducir una frase a LSE los adjetivos siempre van en masculino.
+	
+	\item \textbf{Temporalidad:} la temporalidad va al principio de la oración. \textit{Por ejemplo, ``Yo comí chocolate ayer''} se traduce como \textit{``Ayer yo chocolate comer''.} Sin embargo no siempre hay adverbios de tiempo en la oración que indican la temporalidad, en ese caso el tiempo viene determinado por el tiempo verbal. \textit{Por ejemplo, ``Yo comeré chocolate''} se traduce como \textit{``Futuro yo chocolate comer''.}
+		
+\end{itemize}
+
+\subsection{Herramientas PLN}
+En la actualidad hay una gran cantidad de herramientas para poder realizar el Procesamiento de Lenguaje Natural de una forma más sencilla y rápida. A continuación, vamos a explicar algunas de estas herramientas de Procesamiento de Lenguaje Natural que existen actualmente. 
+
+%-------------------------------------------------------------------
+\subsection{Spacy}
+%-------------------------------------------------------------------
+Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}} es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python. Permite el desarrollo de aplicaciones que sean capaces de procesar y entender grandes volúmenes de texto obteniendo un análisis completo del lenguaje. Actualmente es considerada una de las mejores herramientas para el PLN ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías como se puede comprobar en la imagen ~\ref {fig: benchsmark}
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=\textwidth]{Imagenes/Fuentes/PNL/Spacy_fast.png}
+	\caption{Benchmark de diferentes procesadores de lenguaje}
+	\label {fig: benchsmark}
+\end{figure}
+
+
+%-------------------------------------------------------------------
+\subsection{NLTK}
+%-------------------------------------------------------------------
+Natural Language ToolKit (NLTK)\footnote{Web oficial de NLTK \url{https://www.nltk.org/}}  es una librería dedicada al análisis del lenguaje natural en Python. En la actualidad incluye utilidades para más de 10 idiomas y fue creada por académicos e investigadores como una herramienta para crear funciones complejas de PLN. Esta biblioteca es muy útil cuando se quiere construir un modelo desde cero ya que proporciona acceso a muchos algoritmos y facilita el desarrollo de algoritmos propios permitiendo realizar un procesamiento del lenguaje más adaptado a un proyecto en concreto.
+
+
+%-------------------------------------------------------------------
+\subsection{FreeLing}
+%-------------------------------------------------------------------
+
+FreeLing\footnote{Web oficial de FreeLing \url{http://nlp.lsi.upc.edu/freeling/index.php/node/1}} es una herramienta PLN de código abierto bajo el lenguaje de programación C++ que ha sido desarrollada por la Universidad Politécnica de Cataluña. La biblioteca permite realizar análisis morfológico, detección de entidades con nombres o etiquetado gramatical para una gran variedad de idiomas. \\
+
+Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos, adaptarlos a dominios particulares e incluso desarrollar otros nuevos para idiomas específicos o necesidades particulares. 
+
+
+
+%-------------------------------------------------------------------
+\subsection{Conclusiones}
+%-------------------------------------------------------------------
+
+Una vez analizadas en detalle cada una de las herramientas presentadas en esta sección, se llega a la conclusión de que Spacy es la herramienta adecuada, ya que proporciona un análisis rápido y bastante preciso en Español lo cual es de gran importancia en este proyecto ya que necesitamos traducir textos en español. Es muy sencillo de aprender e implementar, ya que utiliza un lenguaje de programación sencillo como es PYTHON y en comparación con otros la documentación de uso es muy clara y explicativa.
+
+
 
 
 
