@@ -153,14 +153,12 @@ Para poder acceder a este servicio, se debe realizar una petición POST a la API 
 \end{shaded}
 
 
-Los datos de entrada en la petición POST deben tener la siguiente estructura en JSON: 
+Los datos de entrada en la petición POST deben tener la siguiente estructura en JSON donde el parámetro ``texto'' se debe incluir el texto que se desea traducir a LSE. 
 \begin{center}
 	
 	\{ ``Texto'' : ``<texto>'' \}
 	
 \end{center}
-
-En el parámetro ``texto'' se debe incluir el texto que se desea traducir a LSE. 
 
 La salida tiene la misma estructura en formato JSON:
 \begin{center}
@@ -177,12 +175,10 @@ Un ejemplo de uso sería:
 \end{center}
 
 
+Para que el servicio web sea capaz de traducir una frase a texto LSE, se debe que realizar un procesamiento previo del texto en castellano para poder adaptarlo a la Lengua de Signos Española. Este procesamiento es realizado con un sistema de reglas las cuales filtran qué palabras deben de ser utilizadas y cuales no, al igual que determina su orden en la oración en LSE puesto que la estructura gramatical de la LSE es diferente al castellano, tal y como se contó en la sección ~\ref {cap2:sec:Sintaxis de la Lengua de Signos}. La elección a la hora de desarrollar el Procesamiento del Lenguaje Natural para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje automático. La opción de desarrollar un aprendizaje automático no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligió el sistema basado en reglas ya que era más fácil de implementar y aunque puede limitar la capacidad de traducción de frases que no cumplan dichas reglas, cumple con los objetivos marcados en el proyecto que es traducir frases simples a LSE.\\
 
 
-Para que el servicio web sea capaz de traducir una frase a texto LSE se debe que realizar un procesamiento previo del texto en castellano para poder adaptarlo a la Lengua de Signos Española. Este procesamiento es realizado con un sistema de reglas las cuales filtran qué palabras deben de ser utilizadas y cuales no, al igual que determina su orden en la oración en LSE puesto que la estructura gramatical de la LSE es diferente al castellano, tal y como se contó en la sección ~\ref {cap2:sec:Sintaxis de la Lengua de Signos}. La elección a la hora de desarrollar el Procesamiento del Lenguaje Natural para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje automático. La opción de desarrollar un aprendizaje automático no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligió el sistema basado en reglas ya que era más fácil de implementar y aunque puede limitar la capacidad de traducción de frases que no cumplan dichas reglas, cumple con los objetivos marcados en el proyecto que es traducir frases simples a LSE.\\
-
-
-Este servicio web lo primero que hace es recopilar información de la frase para luego realizar un análisis sintáctico y morfológico de la frase y así poder ordenarla respetando la estructura de la LSE. En las siguientes subsecciones se explicará con más detalle cada cada uno de los pasos del flujo de este servicio (Ver Figura:  ~\ref {fig: imgFlujoFlujoTextoLSE})
+Este servicio web lo primero que hace es recopilar información de la frase para luego realizar un análisis sintáctico y morfológico y así poder ordenarla respetando la estructura de la LSE. En las siguientes subsecciones se explicará con más detalle cada cada uno de los pasos del flujo de este servicio (Ver Figura:  ~\ref {fig: imgFlujoFlujoTextoLSE})
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/Fuentes/Text2LSE/textotextoLSE.png}
@@ -192,11 +188,11 @@ Este servicio web lo primero que hace es recopilar información de la frase para 
 
 
 \subsubsection{Tokenización} 
-Para poder realizar el análisis sintáctico y morfológico de la frase se necesita obtener toda la información posible de la frase. Para ello se realizará con Spacy se hace el proceso de tokenización el cual divide la frase en una lista de palabras denominadas \textit{tokens} donde cada token contiene la siguiente información de cada palabra:
+Para poder realizar el análisis sintáctico y morfológico de la frase se necesita obtener toda la información posible de la frase. Para ello se realizará con Spacy el proceso de tokenización, el cual divide la frase en una lista de palabras denominadas \textit{tokens}, donde cada token contiene la siguiente información de cada palabra:
 
 \begin{itemize}
 		
-	 \item \textbf{Dependencia:} Indica la relación de dependencia sintáctica dentro de la oración, es decir, que función tiene la palabra dentro de la oración. Las funciones principales son sujeto, raíz que es la palabra de la que dependen todas las demás u objeto. En la Figura ~\ref {fig: raizEjemplo} se puede ver un ejemplo donde yo es el sujeto, el verbo comer la raíz y chocolate el objeto. 
+	 \item \textbf{Dependencia:} Indica la relación de dependencia sintáctica dentro de la oración, es decir, que función tiene la palabra dentro de la oración. Las funciones principales son sujeto, raíz que es la palabra de la que dependen todas las demás u objeto. En la Figura ~\ref {fig: raizEjemplo} se puede ver un ejemplo donde ``\textit{yo}'' es el sujeto, el verbo ``\textit{comer}'' la raíz y ``\textit{chocolate}'' el objeto. 
 	
 	\begin{figure}[h]
 		\centering
@@ -213,7 +209,7 @@ Para poder realizar el análisis sintáctico y morfológico de la frase se necesita
 \end{itemize}
 
 
-Por ejemplo los tokens que aparecen en \textit{`Los niños merendaron chocolate'} sería los que aparecen en la Figura ~\ref {fig: tokenInformacion}. Como se puede ver cada token tiene su información detallada. Por ejemplo de los tokens \textit{``los''} y \textit{``niños''} la información obtenida sería:
+Por ejemplo los tokens de la frase \textit{`Los niños merendaron chocolate'} sería los que aparecen en la Figura ~\ref {fig: tokenInformacion}. Como se puede ver cada token tiene su información detallada. Por ejemplo de los tokens \textit{``los''} y \textit{``niños''} la información obtenida sería:
 \begin{itemize}
 	\item \textbf{Los:} la dependencia indica que es un determinante y los tags que es artículo determinado, masculino y plural. 
 	\item \textbf{niños:} la dependencia indica que es el sujeto de la oración, los tags que es masculino y plural y el lemma es niño.
@@ -225,7 +221,6 @@ Por ejemplo los tokens que aparecen en \textit{`Los niños merendaron chocolate'}
 	\caption{ Tokens de la frase ``Los niños meredaron chocolate'' }
 	\label {fig: tokenInformacion}
 \end{figure}
-
 
 
 Durante el proceso de tokenización también se obtiene un árbol de dependencias entre palabras. Para entender cómo funcionan las dependencias se va a utilizar como ejemplo la oración `Ayer los niños merendaban chocolate' donde sus dependencias se muestran en la Figura ~\ref {fig: dependencias} 
@@ -250,9 +245,9 @@ Como se puede apreciar en el diagrama del token `merendaban' que es la raíz depe
 
 
 \subsubsection{Análisis sintáctico} 
-Una vez separada la oración en tokens hay que diferenciar que palabras forman parte del sujeto y cuales del predicado. Para ello hay que recorrer el árbol de dependencias mediante una función recursiva implementada por nosotros empezando desde el ROOT que es el token raíz del cual dependen todos los demás. Para obtener el sujeto se busca el token que contenga la dependencia ``nsuj''. A continuación se obtienen los hijos del token ``nsuj'' y se guardan como parte del sujeto mientras que los tokens restantes, es decir, aquellos que no pertenecen al sujeto formarían parte del predicado. En el ejemplo anterior \textit{``Ayer los niños merendaban chocolate''} el \textbf{sujeto} sería \textit{``Los, niños''} y el \textbf{predicado} \textit{``Ayer, merendaban y chocolate''}.\\
+Una vez separada la oración en tokens, hay que diferenciar que palabras forman parte del sujeto y cuales del predicado. Para ello hay que recorrer el árbol de dependencias mediante una función recursiva implementada por nosotros, empezando desde el ROOT que es el token raíz del cual dependen todos los demás. Para obtener el sujeto se busca el token que contenga la dependencia ``nsuj''. A continuación se obtienen los hijos del token ``nsuj'' y se guardan como parte del sujeto mientras que los tokens restantes, es decir, aquellos que no pertenecen al sujeto formarían parte del predicado. En el ejemplo anterior \textit{``Ayer los niños merendaban chocolate''} el \textbf{sujeto} sería \textit{``Los, niños''} y el \textbf{predicado} \textit{``Ayer, merendaban y chocolate''}.\\
 
-El resultado de los tokens pertenecientes al sujeto y al predicado se almacena en una lista. Para el ejemplo anterior las dos listas resultantes serían:
+El resultado de los tokens pertenecientes al sujeto y al predicado se almacenan en una lista. Para el ejemplo anterior las dos listas resultantes serían:
 \begin{center}
 	\begin{itemize}
 		\item \textbf{Sujeto:}  [Los, niños]
