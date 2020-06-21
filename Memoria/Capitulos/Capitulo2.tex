@@ -488,13 +488,14 @@ Nuestro proyecto Text2LSE pretende solventar muchas de estas limitaciones propor
 
 El Procesamiento del Lenguaje Natural (PLN) es un campo dentro de la inteligencia artificial y la lingüística aplicada que analizan el lenguaje humano, lo interpretan y le dan significado para que pueda ser utilizado por una máquina de manera práctica.\\
 
-Su evolución en los últimos años ha ido creciendo de forma exponencial debido a la capacidad computacional de la que disponemos hoy en día y los avances realizados en la algoritmia. Sus aplicaciones son muy variadas, ya sea desde traducción automática y chatbots hasta asistentes virtuales como Alexa de Amazon y Siri de Apple.
+Su evolución en los últimos años ha ido creciendo de forma exponencial debido a la capacidad computacional de la que disponemos hoy en día y los avances realizados en la algoritmia. Sus aplicaciones son muy variadas, ya sea desde traducción automática y chatbots hasta asistentes virtuales como Alexa de Amazon y Siri de Apple.\\
 
 El PLN en este proyecto es imprescindible, ya que como se ha indicado en el apartado \ref{cap2:sec:Sintaxis de la Lengua de Signos} la LSE no es una simple representación del castellano. Por este motivo, para poder traducir el catellano a LSE hay que realizar un procesamiento previo del texto y obtener todos los datos gramaticales, para así poder realizar una traducción que cumpla las reglas de la Lengua de Signos Española. 
 
 
 \subsection{Análisis Sintáctico}
-Para poder realizar el análisis sintáctico se necesita obtener toda la información posible de la frase. Para ello se realizará con herramientas PLN el proceso de tokenización el cual divide la frase en una lista de palabras denominadas \textit{tokens} donde cada token contiene la siguiente información de cada palabra:
+\label{cap2:sec:Análisis Sintáctico}
+Para poder realizar el análisis sintáctico se necesita obtener toda la información de todas las palabras que componen la frase y como dependen unas de otras. Para ello se realizará con herramientas PLN el proceso de tokenización, el cual divide la frase en una lista de palabras denominadas \textit{tokens} donde cada token contiene la siguiente información de cada palabra:
 
 
 \begin{itemize}
@@ -525,7 +526,7 @@ Una vez obtenidos el sujeto y el predicado de la oración hay que adaptarlos a la
 	
 	\item \textbf{Adjetivos:} Al traducir una frase a LSE los adjetivos siempre van en masculino.
 	
-	\item \textbf{Temporalidad:} la temporalidad va al principio de la oración. \textit{Por ejemplo, ``Yo comí chocolate ayer''} se traduce como \textit{``Ayer yo chocolate comer''.} Sin embargo no siempre hay adverbios de tiempo en la oración que indican la temporalidad, en ese caso el tiempo viene determinado por el tiempo verbal. \textit{Por ejemplo, ``Yo comeré chocolate''} se traduce como \textit{``Futuro yo chocolate comer''.}
+	\item \textbf{Temporalidad:} la temporalidad va al principio de la oración. \textit{Por ejemplo, ``Yo comí chocolate ayer''} se traduce como \textit{``AYER YO CHOCOLATE COMER''.} Sin embargo no siempre hay adverbios de tiempo en la oración que indican la temporalidad, en ese caso el tiempo viene determinado por el tiempo verbal. \textit{Por ejemplo, ``Yo comeré chocolate''} se traduce como \textit{``FUTURO YO CHOCOLATE COMER''.}
 		
 \end{itemize}
 
@@ -535,7 +536,7 @@ En la actualidad hay una gran cantidad de herramientas para poder realizar el Pr
 %-------------------------------------------------------------------
 \subsection{Spacy}
 %-------------------------------------------------------------------
-Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}} es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python. Permite el desarrollo de aplicaciones que sean capaces de procesar y entender grandes volúmenes de texto obteniendo un análisis completo del lenguaje. Actualmente es considerada una de las mejores herramientas para el PLN ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías como se puede comprobar en la imagen ~\ref {fig: benchsmark}
+Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}} es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python. Permite el desarrollo de aplicaciones que sean capaces de procesar y entender grandes volúmenes de texto obteniendo un análisis completo del lenguaje. Actualmente es considerada una de las mejores herramientas para el PLN, ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías, como se puede comprobar en la imagen ~\ref {fig: benchsmark}
 
 \begin{figure}[]
 	\centering
@@ -544,12 +545,17 @@ Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}} es una librería de 
 	\label {fig: benchsmark}
 \end{figure}
 
+Spacy permite hacer el proceso de Tokenización de forma muy sencilla llamando únicamente a la función nlp(). De cada token se puede obtener gran cantidad de información como la indicada en la sección \ref{cap2:sec:Análisis Sintáctico}.
+
+
+
 
 %-------------------------------------------------------------------
 \subsection{NLTK}
 %-------------------------------------------------------------------
 Natural Language ToolKit (NLTK)\footnote{Web oficial de NLTK \url{https://www.nltk.org/}}  es una librería dedicada al análisis del lenguaje natural en Python. En la actualidad incluye utilidades para más de 10 idiomas y fue creada por académicos e investigadores como una herramienta para crear funciones complejas de PLN. Esta biblioteca es muy útil cuando se quiere construir un modelo desde cero ya que proporciona acceso a muchos algoritmos y facilita el desarrollo de algoritmos propios permitiendo realizar un procesamiento del lenguaje más adaptado a un proyecto en concreto.
 
+NLTK también permite hacer el proceso de Tokenización de forma muy sencilla llamando únicamente a la función nlp(). De cada token se puede obtener gran cantidad de información como la indicada en la sección \ref{cap2:sec:Análisis Sintáctico}.
 
 %-------------------------------------------------------------------
 \subsection{FreeLing}
@@ -564,11 +570,8 @@ Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos
 %-------------------------------------------------------------------
 \subsection{Conclusiones}
 %-------------------------------------------------------------------
-
-Una vez analizadas en detalle cada una de las herramientas presentadas en esta sección, se llega a la conclusión de que Spacy es la herramienta adecuada, ya que proporciona un análisis rápido y bastante preciso en Español lo cual es de gran importancia en este proyecto ya que necesitamos traducir textos en español. Es muy sencillo de aprender e implementar, ya que utiliza un lenguaje de programación sencillo como es PYTHON y en comparación con otros la documentación de uso es muy clara y explicativa.
-
-
-
+Tanto Spacy, Freeling y NLTK tienen características muy parecidas ya que con ellas se puede hacer el proceso de Tokenización y te aportan funciones para realizar el análisis sintáctico y morfológico
+Una vez analizadas en detalle cada una de las herramientas presentadas en esta sección, se llegó a la conclusión de que Spacy es la herramienta más adecuada para nuestro TFG, ya que proporciona un análisis rápido y bastante preciso en español lo cual es de gran importancia en este proyecto, ya que necesitamos traducir textos en tiempo real teniendo que hacer este procesamiento del lenguaje los más rápido y preciso posible. Además es muy sencillo de aprender e implementar, ya que utiliza un lenguaje de programación sencillo, como es Python, y gracias a su manual de uso, ya que explica todos sus elementos y funciones de forma clara, incluyendo gran variedad de ejemplos.
 
 
 
