@@ -114,9 +114,9 @@ def getImagenesTexto(sentence):
 	imagenes = []
 	for palabra in sentence:
 		if existeImagen(palabra.lower()):
-    			imagenes.append(getImagenPalabra(palabra.lower()))
+    			imagenes.append( "https://holstein.fdi.ucm.es/tfg-text2lse/imagen/" + palabra.lower())
 		else:
-    			imagenes.append(getImagenPalabra("error404"))
+    			imagenes.append("https://holstein.fdi.ucm.es/tfg-text2lse/imagen/error404")
 	
 	return imagenes
 
