@@ -197,9 +197,9 @@ def getImagenesTextos():
 		frase = imagenes.getTextoImagenes(doc)
 
 
-		imagenes.getImagenesTexto(frase)
+		img = imagenes.getImagenesTexto(frase)
 
-		response = make_response(jsonify(imagenes))
+		response = make_response(jsonify(img))
 
 		return response
 
