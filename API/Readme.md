@@ -49,7 +49,7 @@ https://holstein.fdi.ucm.es/tfg-text2lse/imagen/<palabra>
 Te permite obtener un listado de imagenes que representan los signos de la frase a traducir.
 * Método: ``POST``
 * Json: ``{ 'Texto' : '<texto>'}``
-* Response: ``.json``
+* Response: ``.json -> { "rutas" : [rutas de imágenes] }``
 ```
 https://holstein.fdi.ucm.es/tfg-text2lse/imagenes/
 ```
@@ -57,7 +57,7 @@ https://holstein.fdi.ucm.es/tfg-text2lse/imagenes/
 Te permite obtener un json con el nombre de las imágenes a reproducir adptadas a la biblioteca  de ARASAAC. Desde el cliente se pueden obtener estas imágenes con el servicio **Signo de una palabra (Imagen)**.
 * Método: ``POST``
 * Json: ``{ 'Texto' : '<texto>'}``
-* Response: ``.json -> { "rutas" : [frase traducida] }``
+* Response: ``.json -> { "frase" : <frase traducida> }``
 
 ```
 https://holstein.fdi.ucm.es/tfg-text2lse/textoImagen/
@@ -72,7 +72,7 @@ Traducción a texto en LSE
 Te permite obtener un json con el texto traducido a sordo.
 * Método: ``POST``
 * Json: ``{ 'Texto' : '<texto>'}``
-* Response: ``json -> { "frase" : [frase traducida] } ``
+* Response: ``json -> { "frase" : <frase traducida> } ``
 
 ```
 https://holstein.fdi.ucm.es/tfg-text2lse/TextoLSE/
