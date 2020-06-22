@@ -56,11 +56,9 @@ def getImagenesTexto(sentence):
 	imagenes = []
 	for palabra in sentence:
 		image = getImagenPalabra(palabra)
-		imagenes.append("https://holstein.fdi.ucm.es/tfg-text2lse/imagen/" + os.path.basename(image))
-		#if existeImagen(palabra.lower()):
-    			#imagenes.append( "https://holstein.fdi.ucm.es/tfg-text2lse/imagen/" + palabra.lower())
-		#else:
-    			#imagenes.append("https://holstein.fdi.ucm.es/tfg-text2lse/imagen/error404")
+		fileName = os.path.basename(image)
+		nameImage =  os.path.splitext(fileName)
+		imagenes.append("https://holstein.fdi.ucm.es/tfg-text2lse/imagen/" + nameImage[0])
 	
 	return imagenes
 
