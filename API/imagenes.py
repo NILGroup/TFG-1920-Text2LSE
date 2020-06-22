@@ -32,11 +32,11 @@ def getTextoImagenes(sentence):
 
 						# si la palabra era femenina añadir "mujer"
 						if values.get("Gender") == "Fem":
-							frase.append("mujer")
+							frase.append("femenino")
 
 						# si la palabra era plural se añade "otro"
 						if values.get("Number") == "Plur":
-							frase.append("otro")
+							frase.append("plural")
 					else:
 						frase.append(palabra)
 					
@@ -52,62 +52,16 @@ def getTextoImagenes(sentence):
 	return frase
 
 
-# def agregaErrores (errores, palabra):
-# 	if errores == '':
-# 		errores = '\'' + palabra.lower() + '\''
-# 	else:
-# 		errores = errores + ', \'' + palabra.lower() + '\''
+def getImagenesTexto(sentence):
+	imagenes = []
+	for palabra in sentence:
+		image = getImagenPalabra(palabra)
+		imagenes.append("https://holstein.fdi.ucm.es/tfg-text2lse/imagen/" + os.path.basename(image))
+		#if existeImagen(palabra.lower()):
+    			#imagenes.append( "https://holstein.fdi.ucm.es/tfg-text2lse/imagen/" + palabra.lower())
+		#else:
+    			#imagenes.append("https://holstein.fdi.ucm.es/tfg-text2lse/imagen/error404")
+	
+	return imagenes
 
-# 	return errores
 
-# def getTextoImagenes(sentence):
-# 	frase = []
-# 	errores = ''
-# 	correcto = True
-# 	resultado = {'error': False, 'resultado':''}
-
-# 	for palabra in sentence:
-# 		if existeImagen(palabra.lower()):
-# 			frase.append(palabra.lower())
-
-# 		else:
-# 			# tratar plurales y femeninos
-# 			diccionario = pln.getDiccionarioOracion()
-# 			if (pln.keyexits(palabra, diccionario)):
-# 				values = pln.getKeyValue(palabra, diccionario)
-# 				if(values.get("Pos") == "NOUN"):
-# 					# buscamos el vídeo de la palabra en masculino singular
-# 					if existeImagen(values.get("lemma")):
-# 						frase.append(values.get("lemma").lower())
-
-# 						# si la palabra era femenina añadir "mujer"
-# 						if values.get("Gender") == "Fem":
-# 							frase.append("mujer")
-
-# 						# si la palabra era plural se añade "otro"
-# 						if values.get("Number") == "Plur":
-# 							frase.append("otro")
-					
-# 					# si la palabra era plural añadir 'plural' (RECORDAR PONER EL VIDEO 'PLURAL' IGUAL QUE EL DE 'OTRO')
-# 					# si no existe -> error
-# 				else:
-# 					correcto = False
-# 					errores = agregaErrores(errores, palabra)
-					
-# 			else:
-# 				correcto = False
-# 				errores = agregaErrores(errores, palabra)
-				
-			
-			
-			
-# 	if correcto:
-# 		resultado['resultado'] = frase
-
-# 	else:
-# 		resultado['resultado'] = errores
-# 		resultado['error'] = True
-
-# 	return resultado
-
-			

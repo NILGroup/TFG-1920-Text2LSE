@@ -2,6 +2,7 @@
 from flask import Flask, abort, jsonify, request, send_file, make_response
 from flask_cors import CORS
 import spacy, os
+import re
 #------------------- Archivos lógica --------------------#
 import video, imagenes, pln
 import constantes as const
@@ -35,12 +36,9 @@ def getVideoPalabra(palabra):
 	
 	if video.existeVideo(palabra.lower()):
 		resultado = video.getVideoPalabra(palabra.lower())
-		
 
 	else: 
-		#raise BadRequest('Lo sentimos, la palabra \'' + palabra + '\' no se encuentra en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
 		resultado = video.getVideoPalabra("error404")
-
 
 	response = make_response(send_file(resultado.filename, mimetype='video/mp4'))
 	response.headers['Content-Transfer-Enconding']='base64'
@@ -49,11 +47,11 @@ def getVideoPalabra(palabra):
 
 
 # ---------------------------------------------------------------------------------------------------------
-# ------------------------------------ PROCESAMIENTO VIDEO DE VARIAS PALABRAS -----------------------------
+# ------------------------------------ PROCESAMIENTO VIDEO DE VARIAS PALABRAS SERVER-----------------------
 # ---------------------------------------------------------------------------------------------------------
 
 
-# Procesa la petición realizada a la API para traducir varias palabras
+# Procesa la petición realizada a la API para traducir varias palabras en el servidor
 # Si es una palabra -> Busca el video y lo trata en getVideoPalabra(filename)
 # Si hay más de una palabra -> Trata la oración en getTextVideo(sentence)
 # Si existen todos los videos -> Devuelve el video generado y lo elimina del sistema de ficheros
@@ -62,8 +60,8 @@ def getVideoPalabra(palabra):
 def getTextoTraducidoVideo():
 	texto = request.form['Texto']
 
-	doc = pln.TranslateSentence(texto)
-	frase = video.getTextoVideo(doc)
+	res = getTextoTraducidoNombreVideos()
+	frase = res.json['frase']
 
 	nombreVideo = video.getVideoTexto(frase)
 	response = make_response(send_file(const.pathVideoGenerado + nombreVideo, mimetype='video/mp4'))
@@ -72,21 +70,6 @@ def getTextoTraducidoVideo():
 
 	return response
 
-	# texto = request.form['Texto']
-	# size = len(texto.split())
-
-	# doc = pln.TranslateSentence(texto)
-	# resultado = video.getTextoVideo(doc)
-
-	# if (resultado['error'] == True):
-	# 	raise BadRequest('Lo sentimos, las palabras \'' + resultado['resultado'] + '\' no se encuentran en la biblioteca de vídeos de ARASAAC', 404, { 'ext': 1 })
-	# else:
-	# 	nombreVideo = video.getVideoTexto(resultado['resultado'])
-	# 	response = make_response(send_file(const.pathVideoGenerado + nombreVideo, mimetype='video/mp4'))
-	# 	response.headers['Content-Transfer-Enconding']='base64'
-	# 	os.remove(const.pathVideoGenerado + nombreVideo)
-
-	# 	return response
 # ---------------------------------------------------------------------------------------------------------
 # ------------------------------------- PROCESAMIENTO TEXTO A LSE -----------------------------------------
 # ---------------------------------------------------------------------------------------------------------
@@ -120,7 +103,6 @@ def getImagenPalabra(palabra):
 		resultado = imagenes.getImagenPalabra(palabra.lower())
 
 	else:  
-		#raise BadRequest(palabra, 404, { 'ext': 1 })
 		resultado = imagenes.getImagenPalabra("error404")
 
 	response = make_response(send_file(resultado, mimetype='image/jpeg'))
@@ -137,18 +119,12 @@ def getImagenPalabra(palabra):
 def getTextoTraducidoImagen():
 	
 	texto = request.form['Texto']
+	res = getTextoTraducido()
+	doc = re.sub("[^\w]", " ", res["texto"]).split()
 
-	doc = pln.TranslateSentence(texto)
 	frase = imagenes.getTextoImagenes(doc)
 	response = make_response(jsonify(frase = frase))
-	
 
-	# if (resultado['error'] == True):
-	# 	raise BadRequest(resultado['resultado'], 404, { 'ext': 1 })
-	# else:
-	# 	frase = resultado['resultado']
-	# 	response = make_response(jsonify(frase = frase))
-		
 	return response
 
 
@@ -158,29 +134,39 @@ def getTextoTraducidoImagen():
 
 # Procesa la petición realizada a la API para traducir varias palabras
 # Trata la oración en pln.py
-# Devuelve la frase traducida con los nombres de los videos que representen cada p
+# Devuelve la frase traducida con los nombres de los videos que representen cada palabra
 @app.route("/TextoLSEVideos/", methods=["POST"])
 def getTextoTraducidoNombreVideos():
 
 	text = request.form['Texto']
 	response = []
 
-	doc = pln.TranslateSentence(text)
+	res = getTextoTraducido()
+	doc = re.sub("[^\w]", " ", res["texto"]).split()
 	frase = video.getTextoVideo(doc)
 
 	response = make_response(jsonify(frase = frase))
 
-	# doc = pln.TranslateSentence(text)
-	# resultado = video.getTextoVideo(doc)
-
-
-	# if (resultado['error'] == True):
-	# 	raise BadRequest(resultado['resultado'], 404, { 'ext': 1 })
-	# else:
-	# 	frase = resultado['resultado']
-	# 	response = make_response(jsonify(frase = frase))
-
 	return response
+
+# ---------------------------------------------------------------------------------------------------------
+# -------------------------------- PROCESAMIENTO TEXTO A URL IMAGENES LSE --------------------------------
+# ---------------------------------------------------------------------------------------------------------
+# Procesa la petición realizada a la API para traducir varias palabras a imagen
+# Trata la oración en pln.py
+# Devuelve un json con las url de las imagenes para recorrerlas en cliente
+@app.route("/imagenes/", methods=["POST"])
+def getImagenesTextos():
+		texto = request.form['Texto']
+		response = []
+		res = getTextoTraducidoImagen()
+		frase = res.json['frase']
+
+		img = imagenes.getImagenesTexto(frase)
+		response = make_response(jsonify(img))
+
+		return response
+
 
 
 
