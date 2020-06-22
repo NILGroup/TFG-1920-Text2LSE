@@ -163,7 +163,7 @@ def getImagenesTextos():
 		frase = res.json['frase']
 
 		img = imagenes.getImagenesTexto(frase)
-		response = make_response(jsonify(img))
+		response = make_response(jsonify(rutas = img))
 
 		return response
 
