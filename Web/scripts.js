@@ -1,4 +1,3 @@
-
 // Inicializamos el contenido de la web
 $(document).ready(function () {
 	$('#spinner').hide();
@@ -23,8 +22,8 @@ $(document).ready(function () {
 
 });
 
-//var ruta = 'http://127.0.0.1:8080/';
-var ruta = 'https://holstein.fdi.ucm.es/tfg-text2lse/';
+var ruta = 'http://127.0.0.1:8080/';
+//var ruta = 'https://holstein.fdi.ucm.es/tfg-text2lse/';
 
 // ------------------------------------------------------------------------------------------------------------------------------------------
 // 							CONTROL ERRORES
@@ -141,7 +140,7 @@ function GetImageSentence(){
 
 			if(response.status != 200)
 			{
-				return response.text();
+				//return response.text();
 			}
 			else{
 				return response.text();
@@ -158,20 +157,20 @@ function GetImageSentence(){
 			$('#imageContainer').show();
 		}
 		else{
-			$('#textoError').text("Lo sentimos, las siguientes palabras no se encuentran en la base de datos de ARASAAC: " + JSON.parse(body).message);
+			/*$('#textoError').text("Lo sentimos, las siguientes palabras no se encuentran en la base de datos de ARASAAC: " + JSON.parse(body).message);
 			$('body').removeClass('disableGrey');
 			$('#spinner').hide();
-			$('#errorModal').modal('show');
+			$('#errorModal').modal('show');*/
 		}
 			
 	})
-	.catch(
+	/*.catch(
 		function(error){
 			('#textoError').text("Lo sentimos, ha ocurrido un error. Vuelva a intentarlo en unos minutos.");
 			$('body').removeClass('disableGrey');
 			$('#spinner').hide();
 			$('#errorModal').modal('show');
-		});
+		});*/
 
 	$('body').removeClass('disableGrey');
 	$('#spinner').hide();
@@ -212,7 +211,7 @@ function GetSentenceVideo(){
 
 			if(response.status != 200)
 			{
-				return response.text();
+				//return response.text();
 			}
 			else{
 				return response.text();
@@ -229,20 +228,20 @@ function GetSentenceVideo(){
 			
 		}
 		else{
-			$('#textoError').text("Lo sentimos, las siguientes palabras no se encuentran en la base de datos de ARASAAC: " + JSON.parse(body).message);
+			/*$('#textoError').text("Lo sentimos, las siguientes palabras no se encuentran en la base de datos de ARASAAC: " + JSON.parse(body).message);
 			$('body').removeClass('disableGrey');
 			$('#spinner').hide();
-			$('#errorModal').modal('show');
+			$('#errorModal').modal('show');*/
 		}
 			
 	})
-	.catch(
+	/*.catch(
 		function(error){
 			('#textoError').text("Lo sentimos, ha ocurrido un error. Vuelva a intentarlo en unos minutos.");
 			$('body').removeClass('disableGrey');
 			$('#spinner').hide();
 			$('#errorModal').modal('show');
-		});
+		});*/
 
 	$('body').removeClass('disableGrey');
 	$('#spinner').hide();
@@ -362,10 +361,10 @@ function GetVideoSentence(){
 			
 		})
 	.then(function(body){
-			$('#textoError').text(JSON.parse(body).message);
-			$('body').removeClass('disableGrey');
-			$('#spinner').hide();
-			$('#errorModal').modal('show');
+			// $('#textoError').text(JSON.parse(body).message);
+			// $('body').removeClass('disableGrey');
+			// $('#spinner').hide();
+			// $('#errorModal').modal('show');
 		}
 	)
 	.catch(
