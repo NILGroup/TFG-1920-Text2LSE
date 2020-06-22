@@ -28,7 +28,7 @@ https://holstein.fdi.ucm.es/tfg-text2lse/video/
 Te permite obtener un json con el nombre de los videos a reproducir adptados a la biblioteca  de ARASAAC. Desde el cliente se pueden obtener los videos con el servicio **Signo de una palabra (Vídeo)**.
 * Método: ``POST``
 * Json: ``{ 'Texto' : '<texto>'}``
-* Response: ``.json``
+* Response: ``.json -> { "frase" : frase traducida }``
 
 ```
 https://holstein.fdi.ucm.es/tfg-text2lse/TextoLSEVideos/
@@ -57,7 +57,7 @@ https://holstein.fdi.ucm.es/tfg-text2lse/imagenes/
 Te permite obtener un json con el nombre de las imágenes a reproducir adptadas a la biblioteca  de ARASAAC. Desde el cliente se pueden obtener estas imágenes con el servicio **Signo de una palabra (Imagen)**.
 * Método: ``POST``
 * Json: ``{ 'Texto' : '<texto>'}``
-* Response: ``.json``
+* Response: ``.json -> { "rutas" : [frase traducida] }``
 
 ```
 https://holstein.fdi.ucm.es/tfg-text2lse/textoImagen/
@@ -72,7 +72,7 @@ Traducción a texto en LSE
 Te permite obtener un json con el texto traducido a sordo.
 * Método: ``POST``
 * Json: ``{ 'Texto' : '<texto>'}``
-* Response: ``json -> { "texto" : <frase traducida> } ``
+* Response: ``json -> { "frase" : [frase traducida] } ``
 
 ```
 https://holstein.fdi.ucm.es/tfg-text2lse/TextoLSE/
