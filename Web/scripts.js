@@ -123,7 +123,7 @@ function GetTextLSEJson(){
 function GetImageSentence(){
 	$('#imageContainer').html('');
 	var text = $('#textToTranslate').val();
-	var url_api = ruta + 'textoImagen/';
+	var url_api = ruta + 'imagenes/';
 	event.preventDefault();
 	
 	var data = new FormData();
@@ -140,7 +140,7 @@ function GetImageSentence(){
 
 			if(response.status != 200)
 			{
-				//return response.text();
+				return response.text();
 			}
 			else{
 				return response.text();
@@ -148,41 +148,39 @@ function GetImageSentence(){
 			
 		})
 	.then(function(body){
-
+		debugger;
 		var bodyJson = JSON.parse(body);
 
-		if (bodyJson.hasOwnProperty('frase'))
+		if (bodyJson.hasOwnProperty('rutas'))
 		{
-			getImagenes(bodyJson.frase);
+			getImagenes(bodyJson.rutas);
 			$('#imageContainer').show();
 		}
 		else{
-			/*$('#textoError').text("Lo sentimos, las siguientes palabras no se encuentran en la base de datos de ARASAAC: " + JSON.parse(body).message);
+			$('#errorModal').modal('show');
+			$('#textoError').text("Lo sentimos, ha ocurrido un error. Vuelva a intentarlo en unos minutos.");
 			$('body').removeClass('disableGrey');
 			$('#spinner').hide();
-			$('#errorModal').modal('show');*/
 		}
 			
 	})
-	/*.catch(
+	.catch(
 		function(error){
-			('#textoError').text("Lo sentimos, ha ocurrido un error. Vuelva a intentarlo en unos minutos.");
+			$('#errorModal').modal('show');
+			$('#textoError').text("Lo sentimos, ha ocurrido un error. Vuelva a intentarlo en unos minutos.");
 			$('body').removeClass('disableGrey');
 			$('#spinner').hide();
-			$('#errorModal').modal('show');
-		});*/
+		});
 
 	$('body').removeClass('disableGrey');
 	$('#spinner').hide();
 }
 
-async function getImagenes(frase)
+async function getImagenes(rutas)
 {	
-	var url_api = ruta + 'imagen/';
-
-	for (palabra of frase){
-		//$('#imageContainer').append('<img class="imageLSE" src="' + url_api + palabra + '"/>');	
-		$('#imageContainer').append('<figure class="wide"><img class="imageLSE" src="' + url_api + palabra + '"><figcaption><strong>' + palabra + '</strong></figcaption></figure>');
+	for (url_img of rutas){
+		var palabra = url_img.substring(url_img.lastIndexOf('/') + 1);
+		$('#imageContainer').append('<figure class="wide"><img class="imageLSE" src="' + url_img + '"><figcaption><strong>' + palabra.toUpperCase() + '</strong></figcaption></figure>');
 	}
 }
 
@@ -211,7 +209,7 @@ function GetSentenceVideo(){
 
 			if(response.status != 200)
 			{
-				//return response.text();
+				return response.text();
 			}
 			else{
 				return response.text();
@@ -228,20 +226,20 @@ function GetSentenceVideo(){
 			
 		}
 		else{
-			/*$('#textoError').text("Lo sentimos, las siguientes palabras no se encuentran en la base de datos de ARASAAC: " + JSON.parse(body).message);
+			$('#errorModal').modal('show');
+			$('#textoError').text("Lo sentimos, ha ocurrido un error. Vuelva a intentarlo en unos minutos.");
 			$('body').removeClass('disableGrey');
 			$('#spinner').hide();
-			$('#errorModal').modal('show');*/
 		}
 			
 	})
-	/*.catch(
+	.catch(
 		function(error){
-			('#textoError').text("Lo sentimos, ha ocurrido un error. Vuelva a intentarlo en unos minutos.");
+			$('#errorModal').modal('show');
+			$('#textoError').text("Lo sentimos, ha ocurrido un error. Vuelva a intentarlo en unos minutos.");
 			$('body').removeClass('disableGrey');
 			$('#spinner').hide();
-			$('#errorModal').modal('show');
-		});*/
+		});
 
 	$('body').removeClass('disableGrey');
 	$('#spinner').hide();
@@ -281,7 +279,7 @@ async function getVideos(frase)
 
 	videoObjects[0][0].autoplay = true;
 	videoObjects[0].attr("src", vidSources[nextActiveVideo]);
-	$('#txtVideo').text(fraseVideo[nextActiveVideo]);
+	$('#txtVideo').text(fraseVideo[nextActiveVideo].toUpperCase());
 	$('#videoContainer').show();
 }
 
@@ -310,7 +308,7 @@ function initVideoElement(video)
     {
         this.style.display = 'none';
         nextVideo.style.display = 'inline';
-        $('#txtVideo').text(fraseVideo[nextActiveVideo]);
+        $('#txtVideo').text(fraseVideo[nextActiveVideo].toUpperCase());
         if (nextActiveVideo != 0)
         {
         	nextVideo.play();
