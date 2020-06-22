@@ -15,7 +15,7 @@ https://holstein.fdi.ucm.es/tfg-text2lse/video/<palabra>
 
 ## Traducción en video de una oración
 
-Te permite obtener un video con los signos de cada palabra del texto concatenados.
+Te permite obtener un video con la traducción a LSE.
 * Método: ``POST``
 * Json: ``{ 'Texto' : '<texto>'}``
 * Response: ``.mp4``
