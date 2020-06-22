@@ -22,7 +22,6 @@ Te permite obtener un video con los signos de cada palabra del texto concatenado
 
 ```
 https://holstein.fdi.ucm.es/tfg-text2lse/video/
-
 ```
 
 ## Traducción adaptada al catálogo de vídeos de ARASAAC
@@ -33,7 +32,6 @@ Te permite obtener un json con el nombre de los videos a reproducir adptados a l
 
 ```
 https://holstein.fdi.ucm.es/tfg-text2lse/TextoLSEVideos/
-
 ```
 
 Traducción a Imagen
@@ -63,7 +61,6 @@ Te permite obtener un json con el nombre de las imágenes a reproducir adptadas 
 
 ```
 https://holstein.fdi.ucm.es/tfg-text2lse/textoImagen/
-
 ```
 
 Traducción a texto en LSE
