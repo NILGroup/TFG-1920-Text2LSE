@@ -15,7 +15,7 @@ https://holstein.fdi.ucm.es/tfg-text2lse/video/<palabra>
 
 ## Traducción en video de una oración
 
-Te permite obtener un video con la traducción a LSE.
+Te permite obtener un video con la traducción a LSE de una oración.
 * Método: ``POST``
 * Json: ``{ 'Texto' : '<texto>'}``
 * Response: ``.mp4``
@@ -25,7 +25,7 @@ https://holstein.fdi.ucm.es/tfg-text2lse/video/
 ```
 
 ## Traducción adaptada al catálogo de vídeos de ARASAAC
-Te permite obtener un json con el nombre de los videos a reproducir adptados a la biblioteca  de ARASAAC. Desde el cliente se pueden obtener los videos con el servicio **Signo de una palabra (Vídeo)**.
+Te permite obtener un json con el nombre de los videos a reproducir adaptados a la biblioteca de ARASAAC. Desde el cliente se pueden obtener los videos con el servicio **Signo de una palabra (Vídeo)**.
 * Método: ``POST``
 * Json: ``{ 'Texto' : '<texto>'}``
 * Response: ``.json -> { "frase" : frase traducida }``
@@ -69,7 +69,7 @@ Traducción a texto en LSE
 
 ## Json con la oración traducida a texto LSE
 
-Te permite obtener un json con el texto traducido a sordo.
+Te permite obtener un json con el texto traducido a texto LSE.
 * Método: ``POST``
 * Json: ``{ 'Texto' : '<texto>'}``
 * Response: ``json -> { "frase" : <frase traducida> } ``
