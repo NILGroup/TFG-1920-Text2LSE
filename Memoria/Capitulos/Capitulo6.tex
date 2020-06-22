@@ -6,21 +6,21 @@
 
 \chapter{Evaluación}
 
-Al terminar la fase de desarrollo, comenzó la fase de evaluación, cuya finalidad es comprobar la precisión y alcance de las traducciones. En este capítulo se muestra el proceso de dicha evaluación para poder determinar qué tipo de oraciones se logra traducir y con qué nivel de fiabilidad. En la Sección \ref{cap6:sec:Diseño de la evaluación} se explica el método de evaluación seguido, en la Sección \ref{cap6:sec:Resultados de la Evaluación} se analizan los resultados y en la Sección \ref{cap6:sec:Análisis de los Resultados} se explican las conclusiones finales a las que se ha llegado mediante el análisis de los resultados.
+Al terminar la fase de desarrollo, comenzó la fase de evaluación, cuya finalidad era comprobar la precisión y alcance de las traducciones. En este capítulo se muestra el proceso de dicha evaluación para poder determinar qué tipo de oraciones se logra traducir y con qué nivel de fiabilidad. En la Sección \ref{cap6:sec:Diseño de la evaluación} se explica el diseño de la evaluación realizada, en la Sección \ref{cap6:sec:Resultados de la Evaluación} se presentan los resultados y en la Sección \ref{cap6:sec:Análisis de los Resultados} se realiza el análisis y discusión de los resultados obtenidos.
 
 %-------------------------------------------------------------------
 \section{Diseño de la evaluación}
 %-------------------------------------------------------------------
 \label{cap6:sec:Diseño de la evaluación}
 
-Hemos enfocado la fase de evaluación en la traducción a LSE, dejando fuera aspectos de usabilidad de la aplicación web desarrollada. Para llevar a cabo la evaluación, se han introducido manualmente en el traductor diversas oraciones en castellano, y se ha analizado la traducción que nos proporciona con ayuda de un experto en LSE, nuestro tutor Antonio. Se ha revisado tanto la salida en formato imagen como la salida en formato vídeo, obteniendo como resultado que ambas traducciones son similares.\\
+Hemos enfocado la fase de evaluación en la traducción a LSE, dejando fuera aspectos de usabilidad de la aplicación web desarrollada. Para llevar a cabo la evaluación, se creó un corpus de evaluación compuesto por 5 textos, con un total de 137 oraciones. Todas las frases del corpus fueron traducidas a LSE (en formato imagen y vídeo) y fueron enviadas a un experto en LSE para su evaluación.\\
 
-Es importante recordar que el objetivo de la aplicación desarrollada es traducir texto en castellano a LSE, por lo que una de las aplicaciones más interesantes es traducir el texto de los subtítulos de un determinado contenido audiovisual, transcripciones de megafonías de estaciones de tren o aeropuertos, etc, con el fin de incorporar la LSE a la vida cotidiana de manera sencilla. A diferencia de los subtítulos, la LSE permite expresar y asimilar información de manera mucho más rápida, por lo que incorporar las traducciones en LSE a este tipo de elementos resultaría de gran ayuda para las personas con discapacidad auditiva. Teniendo en cuenta todo esto, hemos seleccionado algunos elementos cotidianos y hemos obtenido la totalidad de las oraciones en castellano que aparecen en ellos, formando distintos corpus. Estos elementos cotidianos son las instrucciones de seguridad de un avión, un capítulo de una serie infantil, un anuncio de televisión y un trailer de una película. También se ha añadido un corpus de oraciones sencillas para determinar mejor el alcance de la traducción de la aplicación. A continuación explicamos en detalle los corpus seleccionados. \\
+A la hora de seleccionar los textos del corpus de evaluación se tuvieron en cuenta las aplicaciones que podría tener nuestra herramienta de traducción de texto a LSE: traducción de subtítulos, traducción de transcripciones de megafonías de estaciones de tren o aeropuertos, etc. Teniendo en cuenta todo esto, hemos seleccionado como textos para la evaluación las instrucciones de seguridad de un avión, un capítulo de una serie infantil, un anuncio de televisión y un trailer de una película, de los que se reliazó una transcripción manual para obtener todas las oraciones que contenían y que fueron usadas para la evaluación. También se ha añadido un corpus de oraciones sencillas. A continuación explicamos en detalle los textos seleccionados. \\
 
 
 
 \begin{enumerate}
-	\item \textbf{Corpus de oraciones de instrucciones de seguridad de un vuelo\footnote{\url{https://www.youtube.com/watch?v=rFohg-glVCU}}:} Este corpus está formado por oraciones muy complejas que componen los subtítulos de un video real de las instrucciones de seguridad de un avión. Consta de oraciones compuestas con varios verbos y con varios sustantivos, tanto en el sujeto como en el predicado. Está formado por 54 oraciones que podemos observar en el Apéndice \ref{ap1:A}. Algunas de las oraciones que componen este corpus son: 
+	\item \textbf{Corpus de oraciones de instrucciones de seguridad de un vuelo\footnote{\url{https://www.youtube.com/watch?v=rFohg-glVCU}}:} Este corpus está formado por oraciones complejas que componen los subtítulos de un video real de las instrucciones de seguridad de un avión. Consta de oraciones compuestas con varios verbos y con varios sustantivos, tanto en el sujeto como en el predicado. Está formado por 54 oraciones que podemos observar en el Apéndice \ref{ap1:A}. Algunas de las oraciones que componen este corpus son: 
 		
 		\begin{itemize}
 			\item Les damos la bienvenida a este vuelo de Iberia en nuestro nombre y en el de Madrid.
@@ -28,7 +28,7 @@ Es importante recordar que el objetivo de la aplicación desarrollada es traducir
 			\item Es importante que presten atención.
 		\end{itemize}
 	
-	\item \textbf{Corpus de oraciones de un capítulo de una serie infantil\footnote{\url{https://www.youtube.com/watch?v=B1rgTUWqWzI}}:} Corpus compuesto por 34 oraciones generalmente simples, en las que se incluyen construcciones específicas del español. En el Apéndice \ref{ap1:B} encontramos las oraciones que componen este corpus. Algunas de estas oraciones son:
+	\item \textbf{Corpus de oraciones de un capítulo de la serie infantil Peppa Pig\footnote{\url{https://www.youtube.com/watch?v=B1rgTUWqWzI}}:} Corpus compuesto por 34 oraciones simples, en las que se incluyen construcciones específicas del español. En el Apéndice \ref{ap1:B} encontramos las oraciones que componen este corpus. Algunas de estas oraciones son:
 	
 		\begin{itemize}
 			\item Yo soy Pepa.
@@ -36,7 +36,7 @@ Es importante recordar que el objetivo de la aplicación desarrollada es traducir
 			\item A Pepa le encanta saltar en los charcos.
 		\end{itemize}
 	
-	\item \textbf{Corpus de subtítulos de un trailer de una película\footnote{\url{https://www.youtube.com/watch?v=42ubb5bIs9o}}:} Compuesto por 13 oraciones,  desde oraciones simples con estructura SUJETO + VERBO + OBJETO, hasta oraciones más complejas, las cuales incluyes varios verbos y diversos tipos de complementos. El texto en su totalidad lo podemos encontrar en el Apéndice \ref{ap1:C}. Algunas de estas oraciones son:
+	\item \textbf{Corpus de subtítulos del trailer de la película Togo\footnote{\url{https://www.youtube.com/watch?v=42ubb5bIs9o}}:} Compuesto por 13 oraciones.  En este corpus hay oraciones simples con estructura SUJETO + VERBO + OBJETO, y oraciones más complejasque incluyen varios verbos y diversos tipos de complementos. El texto en su totalidad lo podemos encontrar en el Apéndice \ref{ap1:C}. Algunas de estas oraciones son:
 	
 		\begin{itemize}
 			\item Mi negocio son los perros.
@@ -45,7 +45,7 @@ Es importante recordar que el objetivo de la aplicación desarrollada es traducir
 		\end{itemize}
 		
 	
-	\item \textbf{Corpus de subtítulos de un anuncio\footnote{\url{https://www.youtube.com/watch?v=oSncDP_vC3Q}}:} Conjunto de 11 oraciones con distintos niveles de complejidad. Cuenta desde oraciones simples hasta compuestas con más de un verbo y diversidad de complementos. Algunas de ellas cuentan con lenguaje metafórico y oraciones hechas específicas del castellano. El texto que compone este corpus lo encontramos en el Apéndice \ref{ap1:D}. Algunas de las oraciones que lo componen son:
+	\item \textbf{Corpus de subtítulos de un anuncio de la Covid-19\footnote{\url{https://www.youtube.com/watch?v=oSncDP_vC3Q}}:} Conjunto de 11 oraciones con distintos niveles de complejidad. Hay desde oraciones más simples hasta más complejas con más de un verbo y diversidad de complementos. Algunas de las frases de este corpus cuentan con lenguaje metafórico y oraciones hechas específicas del castellano. El texto que compone este corpus lo encontramos en el Apéndice \ref{ap1:D}. Algunas de las oraciones que lo componen son:
 	
 		\begin{itemize}
 			\item Quédate en casa.
