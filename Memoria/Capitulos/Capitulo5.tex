@@ -312,7 +312,7 @@ Este servicio implementa la funcionalidad de traducción de un texto en castellan
 Los datos a enviar en la petición POST deben tener la siguiente estructura en JSON: 
 \begin{center}
 	
-	\{ `Texto' : `<texto>' \}
+	\{ ``Texto'' : ``<texto>'' \}
 	
 \end{center}
 
@@ -323,13 +323,13 @@ Por ejemplo, para traducir el texto \textit{``Mis tías comen chocolate''} a LSE 
 
 
 \begin{center}
-	Entrada: \{ `Texto' : `Mis tías comen chocolate' \} \\
+	Entrada: \{ ``Texto'' : ``Mis tías comen chocolate'' \} \\
 \end{center}
 
 Al no existir el vídeo para la palabra \textit{``tías''}, busca el vídeo de esa palabra sin morfemas de género y número, que en este caso es la palabra \textit{``tío''}. Como \textit{``tías''} es plural y femenino, se añaden las palabras  \textit{``FEMENINO''} para indicar el femenino y \textit{``PLURAL''} para indicar el plural. Para finalizar, se crea la respuesta en formato JSON y se devuelve. La salida en este caso sería:
 
 \begin{center}
-	Salida: \{ `Texto' : `YO TÍO FEMENINO PLURAL CHOCOLATE COMER' \}
+	Salida: \{ ``Texto'' : ``YO TÍO FEMENINO PLURAL CHOCOLATE COMER'' \}
 \end{center}
 
 \begin{figure}[]
@@ -351,7 +351,7 @@ Este servicio implementa la funcionalidad de traducción de un texto en castellan
 Los datos a enviar en la petición POST deben tener la siguiente estructura en JSON: 
 \begin{center}
 	
-	\{ `Texto' : `<texto>' \}
+	\{ ``Texto'' : ``<texto>'' \}
 	
 \end{center}
 
@@ -362,13 +362,13 @@ Por ejemplo, para traducir el texto \textit{``Los caballos son rápidos''} a LSE 
 
 
 \begin{center}
-	Entrada: \{ `Texto' : `Los caballos son rápidos' \} 
+	Entrada: \{ ``Texto'' : ``Los caballos son rápidos'' \} 
 \end{center}
 
 Al no existir la imagen para la palabra  \textit{``caballos''}, busca la imagen de esa palabra sin morfemas de género y número, que en este caso es la palabra \textit{``caballo''}. Como \textit{``caballos''} es plural, se añade la palabra \textit{``PLURAL''} para indicar el plural. Para finalizar, se crea la respuesta en formato JSON y se devuelve. La salida en este caso sería:
  
 \begin{center}
-	Salida: \{ `Texto' : `CABALLO PLURAL RÁPIDO' \}
+	Salida: \{ ``Texto'' : ``CABALLO PLURAL RÁPIDO'' \}
 \end{center}
 
 \begin{figure}[]
@@ -403,7 +403,7 @@ Por ejemplo, para obtener el vídeo en LSE del texto \textit{``Los niños comen ch
 
 \begin{center}
 	
-	\{ `Texto' : `Los niños comen chocolate' \}
+	\{ ``Texto'' : ``Los niños comen chocolate'' \}
 	
 \end{center}
 
@@ -442,7 +442,7 @@ Por ejemplo, para obtener las imágenes en LSE del texto \textit{``Mañana yo iré 
 
 \begin{center}
 	
-	\{ `Texto' : `Mañana yo iré al médico' \}
+	\{ ``Texto'' : ``Mañana yo iré al médico'' \}
 	
 \end{center}
 
