@@ -238,7 +238,7 @@ Los signos de la LSE están formados por siete elementos esenciales:
 
 Las oraciones en la LSE no se estructuran igual que en castellano. La estructura básica de las oraciones se compone de sujeto-objeto-verbo, aunque existen excepciones. Por ejemplo, la oración \textit{``Él come patatas''} en LSE se traduciría como \textit{``Él patatas comer''}. Según se van incorporando elementos a las oraciones, la estructura se va volviendo más compleja siguiendo un orden temporal, es decir, las acciones se nombran en el orden en el que suceden. Por ejemplo, la oración \textit{``Después de comer me fui a dormir''}, se traduciría a LSE como \textit{``Yo comer fin dormir ir''}, indicando que primero se realizó la acción de comer y después la acción de irse a dormir.\\
 
-Para aprender esta estructura en muchos libros de aprendizaje de la Lengua de Signos \citep*{bkApuntesLing} utilizan el texto en LSE. Este texto en LSE sirve para comparar las diferencias a la hora de estructurar una misma frase en castellano y en LSE. Ver Figura ~\ref {fig: textoLSElibro}.
+Para aprender esta estructura en muchos libros de aprendizaje de la Lengua de Signos \citep*{bkApuntesLing} utilizan el texto en LSE. Este texto en LSE sirve para comparar las diferencias a la hora de estructurar una misma frase en castellano y en LSE como se puede ver en la Figura ~\ref {fig: textoLSElibro}. A lo largo de la memoria cuando nos refiramos a texto LSE nos referimos a este tipo de estructura. 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/Fuentes/SAAC/libroTextoLSE.png}
@@ -494,18 +494,21 @@ El Procesamiento del Lenguaje Natural (PLN) es un campo dentro de la inteligenci
 
 La complejidad del lenguaje hace que su tratamiento automático no sea nada fácil por ello el PLN es un campo en pleno desarrollo, que necesita seguir evolucionando y superando los retos planteados por el propio lenguaje natural. Durante los últimos años ha ido creciendo de forma exponencial debido a la capacidad computacional de la que disponemos hoy en día y los avances realizados en la algoritmia, donde algunas de sus aplicaciones actuales son en la traducción automática, sistemas de recuperación de información, elaboración automática de resúmenes, etc.
 
+El PLN en nuestro proyecto es muy importante ya que es necesario para traducir un texto en castellano a la LSE, ya que son lenguas distintas y tienen una estructura gramatical diferente una de la otra.
+
 
 
 %-------------------------------------------------------------------
-\subsection{Estructura del Lenguaje Natural}
+\subsection{Niveles del Procesamiento del Lenguaje Natural}
 %-------------------------------------------------------------------
+\label{cap2:sec:Estructura del Lenguaje Natural}
 Sin un conocimiento lingüístico profundo, el uso de técnicas computacionales procedentes de la Inteligencia Artificial no aportarían soluciones adecuadas. Por ello el PLN se estructura normalmente en cuatro niveles de análisis que son: morfológico, sintáctico, semántico y pragmático.
 
 \begin{itemize}
 	
-	\item \textbf{Análisis Morfológico:} El análisis morfológico se encarga de la formación de las palabras a partir de los morfemas. Detecta las relaciones que se establecen entre las unidades mínimas que forman una palabra como sufijos o prefijos y la relación con el léxico siendo este, un conjunto de información sobre cada palabra que el sistema utiliza para el procesamiento. A nivel morfológico una misma palabra puede tener diferentes usos morfosintácticos en función del contexto en el que aparecen, por ejemplo en la frase ``Deja el sobre que sobre sobre la mesa de la oficina'' la palabra ``sobre'' actúa como sustantivo, verbo y preposición. 
+	\item \textbf{Análisis Morfológico:} El análisis morfológico se encarga de la formación de las palabras a partir de los morfemas. Detecta las relaciones que se establecen entre las unidades mínimas que forman una palabra como sufijos o prefijos y la relación con el léxico, siendo este un conjunto de información sobre cada palabra que el sistema utiliza para el procesamiento. A nivel morfológico una misma palabra puede tener diferentes usos morfosintácticos en función del contexto en el que aparecen, por ejemplo en la frase ``\textit{Deja el sobre que sobre sobre la mesa de la oficina}'' la palabra ``\textit{sobre}'' actúa como sustantivo, verbo y preposición. 
 	
-	\item \textbf{Análisis Sintáctico:} El análisis sintáctico se ocupa de la estructura de las oraciones, es decir, como se relacionan las palabras de una oración entre sí. Dentro del PLN la función del análisis sintáctico es asignar etiquetas a cada uno de los componentes a analizar de manera que sepamos como se combinan las palabras y forman las estructuras gramaticales correctas (Ver Figura).
+	\item \textbf{Análisis Sintáctico:} El análisis sintáctico se ocupa de la estructura de las oraciones, es decir, como se relacionan las palabras de una oración entre sí. Dentro del PLN la función del análisis sintáctico es asignar etiquetas a cada uno de los componentes a analizar, de manera que sepamos como se combinan las palabras y se forman las estructuras gramaticales correctas, como se puede ver en la Figura ~\ref {fig: AnalisisSintactico}.
 	
 	\begin{figure}[h]
 		\centering
@@ -514,7 +517,7 @@ Sin un conocimiento lingüístico profundo, el uso de técnicas computacionales pro
 		\label {fig: AnalisisSintactico}
 	\end{figure}
 
-	\item \textbf{Análisis Semántico:} El análisis semántico trata del significado de las palabras, y de cómo los significados se unen para dar sentido a una oración. Es posible distinguir entre un análisis de significado independiente de contexto y un análisis de significado dependiente de contexto. El primero tratado por la semántica, se refiere al estudio del significado de las palabras de forma individual mientras que el segundo estudia como estas palabras se conjugan para formar significados complejos y para ello se realiza el análisis pragmático.
+	\item \textbf{Análisis Semántico:} El análisis semántico trata del significado de las palabras y de cómo los significados se unen para dar sentido a una oración. Es posible distinguir entre un análisis de significado independiente de contexto y un análisis de significado dependiente de contexto. El primero tratado por la semántica, se refiere al estudio del significado de las palabras de forma individual mientras que el segundo estudia como estas palabras se conjugan para formar significados complejos y para ello se realiza el análisis pragmático.
 	
 	\item \textbf{Análisis Pragmático:} Es el encargado de analizar el significado de la frase en función del contexto en el que se desarrolla. En muchas ocasiones las oraciones y las palabras no se pueden tomar su significado de forma literal ya que dependen en gran medida del contexto en el que se desarrolla la acción.
 	
@@ -529,7 +532,7 @@ Debido a que el Procesamiento de Lenguaje Natural es una disciplina muy compleja
 
 \begin{itemize}
 	
-	\item \textbf{Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}}:}  es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python. Permite el desarrollo de aplicaciones que sean capaces de procesar y entender grandes volúmenes de texto obteniendo un análisis completo del lenguaje. Actualmente es considerada una de las mejores herramientas para el PLN, ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías, como se puede comprobar en la imagen ~\ref {fig: benchsmark}
+	\item \textbf{Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}}:}  es una librería de código abierto para realizar Procesamiento de Lenguaje Natural en Python.  Actualmente es considerada una de las mejores herramientas para el PLN, ya que proporciona modelos en nueve idiomas distintos en los cuales está incluido el español y destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías, como se puede comprobar en la imagen ~\ref {fig: benchsmark}
 	
 	\begin{figure}[h]
 		\centering
@@ -537,23 +540,31 @@ Debido a que el Procesamiento de Lenguaje Natural es una disciplina muy compleja
 		\caption{Benchmark de diferentes procesadores de lenguaje}
 		\label {fig: benchsmark}
 	\end{figure}
+
+	Spacy actualmente permite hacer un procesamiento completo del lenguaje permitiendo realizar los distintos análisis del PLN explicados en ~\ref {cap2:sec:Estructura del Lenguaje Natural}. Algunas funciones que dispone Spacy para facilitar el desarrollo del PLN son:
 	
 	
-	\item \textbf{Natural Language ToolKit (NLTK)\footnote{Web oficial de NLTK \url{https://www.nltk.org/}}:} es una librería dedicada al análisis del lenguaje natural en Python. En la actualidad incluye utilidades para más de 10 idiomas y fue creada por académicos e investigadores como una herramienta para crear funciones complejas de PLN. Esta biblioteca es muy útil cuando se quiere construir un modelo desde cero, ya que proporciona acceso a muchos algoritmos y facilita el desarrollo de algoritmos propios permitiendo realizar un procesamiento del lenguaje más adaptado a un proyecto en concreto.
+	\begin{itemize}
+		\item \textbf{Tokenización:} Divide una oración en \textit{tokens}, donde cada token representa cada una de las palabras que componen dicha oración. Además permite eliminar caracteres expeciales como puntos, comas y signos de interrogación. 
+		
+		\item \textbf{Part of Speech:} Es el etiquetado gramatical, a cada palabra le asigna su categoría gramatical.
+	 	
+		 			
+		\item \textbf{Lematización:} permite obtener el lema correspondiente de una palabra. Por ejemplo el lema gat- representaría a las palabras \textit{gatas} o \textit{gattita}.
+		
+	\end{itemize}
+		
 	
-	\item \textbf{FreeLing\footnote{Web oficial de FreeLing \url{http://nlp.lsi.upc.edu/freeling/index.php/node/1}}:} es una herramienta PLN de código abierto bajo el lenguaje de programación C++ que ha sido desarrollada por la Universidad Politécnica de Cataluña. La biblioteca permite realizar análisis morfológico, detección de entidades con nombres o etiquetado gramatical para una gran variedad de idiomas. Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos, adaptarlos a dominios particulares e incluso desarrollar otros nuevos para idiomas específicos o necesidades particulares. 
+	
+	\item \textbf{Natural Language ToolKit (NLTK)\footnote{Web oficial de NLTK \url{https://www.nltk.org/}}:} es una librería dedicada al análisis del lenguaje natural en Python. En la actualidad incluye utilidades para más de 10 idiomas y fue creada por académicos e investigadores como una herramienta para crear funciones complejas de PLN. Esta biblioteca es muy útil cuando se quiere construir un modelo desde cero, ya que proporciona acceso a muchos algoritmos y facilita el desarrollo de algoritmos propios permitiendo realizar un procesamiento del lenguaje más adaptado a un proyecto en concreto. Con ella se realizar tanto análisis morfológico, sintáctico, semántico y pragmático. 
+	
+	\item \textbf{FreeLing\footnote{Web oficial de FreeLing \url{http://nlp.lsi.upc.edu/freeling/index.php/node/1}}:} es una herramienta PLN de código abierto bajo el lenguaje de programación C++ que ha sido desarrollada por la Universidad Politécnica de Cataluña. La biblioteca permite realizar análisis morfológico, sintáctico, semántico y pragmático para una gran variedad de idiomas. Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos, adaptarlos a dominios particulares e incluso desarrollar otros nuevos para idiomas específicos o necesidades particulares. 
 	
 	
 \end{itemize}
 
 
-Tanto Spacy, Freeling y NLTK tienen características muy parecidas, ya que con ellas se puede hacer el proceso de Tokenización y te aportan funciones para realizar el análisis sintáctico y morfológico.
-Una vez analizadas en detalle cada una de las herramientas presentadas en esta sección, se llegó a la conclusión de que Spacy es la herramienta más adecuada para nuestro TFG, ya que proporciona un análisis rápido y bastante preciso en español lo cual es de gran importancia en este proyecto, ya que necesitamos traducir textos en tiempo real teniendo que hacer este procesamiento del lenguaje los más rápido y preciso posible. Además es muy sencillo de aprender e implementar, ya que utiliza un lenguaje de programación sencillo, como es Python, y gracias a su manual de uso, ya que explica todos sus elementos y funciones de forma clara, incluyendo gran variedad de ejemplos.
-
-
-
-
-
+Una vez analizadas en detalle cada una de las herramientas presentadas en esta sección, se llegó a la conclusión de que Spacy es la herramienta más adecuada para nuestro TFG, ya que proporciona un análisis rápido y bastante preciso en español lo cual es de gran importancia en este proyecto, ya que necesitamos traducir textos en castellano en tiempo real, teniendo que hacer este procesamiento del lenguaje los más rápido y preciso posible. Además es muy sencillo de aprender e implementar, ya que utiliza un lenguaje de programación sencillo, como es Python, y gracias a su manual de uso, ya que explica todos sus elementos y funciones de forma clara, incluyendo gran variedad de ejemplos útiles para realizar un buen análisis sin ser expertos con la herramienta.
 
 
 
