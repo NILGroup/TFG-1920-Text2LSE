@@ -69,7 +69,7 @@ En esta sección se explican con detalle los servicios web desarrollados, su impl
 
 \subsection{Recursos LSE}
 
-Todas las imágenes y vídeos LSE se han descargado del catálogo de recursos de ARASAAC\footnote{\url{http://www.http://www.arasaac.org/descargas.php}}, que cuenta con 4.138 imágenes en formato jpg, y 4.102 vídeos en formato mp4. Estos recursos los hemos almacenado en dos carpetas alojadas en el propio servidor holstein: carpeta ``imagenes'' y carpeta ``videos''. Los servicios de traducción de palabra a vídeo LSE y a imagen LSE permiten obtener estos recursos mediante una llamada GET, en la cual se accede a la carpeta correspondiente y se busca el recurso con el nombre del signo buscado, concatenado con el formato que corresponda (jpg en el caso del servicio de traducción a imagen y mp4 en el de traducción a vídeo). Para crear la respuesta tanto en imágenes como en vídeo, se ha utilizado la función \textit{``sendfile''} de Flask, que indicando como parámetro el fichero y su formato permite devolver archivos transformados en formato JSON.
+Todas las imágenes y vídeos LSE que usa Text2LSE se han descargado del catálogo de recursos de ARASAAC\footnote{\url{http://www.http://www.arasaac.org/descargas.php}}, que cuenta con 4.138 imágenes en formato jpg, y 4.102 vídeos en formato mp4. Estos recursos están almacenados en dos carpetas alojadas en el propio servidor, y cada uno de ellos se llama igual que el signo al que representa. Además, hemos añadido para ambos formatos el signo PLURAL, copiando y renombrando el fichero correspondiente al signo OTRO, y el signo FEMENINO, copiando y renombrando el signo MUJER.
 
 \subsection{Servicio web de traducción de palabra a vídeo LSE }
 
@@ -277,7 +277,7 @@ Para conseguir la traducción de la frase original en castellano a LSE se necesit
 	
 	\item \textbf{Adjetivos:} Al traducir una frase a LSE los adjetivos siempre van en masculino.\textit{Por ejemplo, ``Mi mamá es fea''} se traduce como \textit{``yo mamá feo''.}
 	
-	\item \textbf{Temporalidad:} la temporalidad va al principio de la oración. \textit{Por ejemplo, ``Yo comí chocolate ayer''} se traduce como \textit{``Ayer yo chocolate comer''.} Sin embargo no siempre hay adverbios de tiempo en la oración que indican la temporalidad, en ese caso el tiempo viene determinado por el tiempo verbal. \textit{Por ejemplo, ``Yo comeré chocolate''} se traduce como \textit{``Futuro yo chocolate comer''.}
+	\item \textbf{Temporalidad:} En la LSE la temporalidad va al principio de la oración. \textit{Por ejemplo, ``Yo comí chocolate ayer''} se traduce como \textit{``Ayer yo chocolate comer''.} Sin embargo no siempre hay adverbios de tiempo en la oración que indican la temporalidad, en ese caso el tiempo viene determinado por el tiempo verbal. \textit{Por ejemplo, ``Yo comeré chocolate''} se traduce como \textit{``Futuro yo chocolate comer''.}
 	
 	
 	
@@ -294,10 +294,8 @@ Una vez añadidas y quitadas las palabras que correspondan del sujeto y del predi
 	\end{itemize}
 
 
-El texto en LSE final que devuelve el servicio es:
-\begin{itemize}
-	\item \textbf{Texto LSE:} ``Ayer niños chocolate merendar''
-\end{itemize} 
+El texto en LSE final que devolvería el servicio en este caso sería: ``Ayer niños chocolate merendar''
+
 
 \subsection{Servicio web de traducción de texto en LN a texto LSE adaptado al catálogo de vídeos de ARASAAC }
 \label{cap5:sec:textoLSEvideo}
@@ -312,24 +310,24 @@ Este servicio implementa la funcionalidad de traducción de un texto en castellan
 Los datos a enviar en la petición POST deben tener la siguiente estructura en JSON: 
 \begin{center}
 	
-	\{ `Texto' : `<texto>' \}
+	\{ ``Texto'' : ``<texto>'' \}
 	
 \end{center}
 
 
-En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. Al recibir este parámetro, este servicio lo utilizará para hacer una llamada al servicio de traducción de texto en LN a texto LSE, con el fin obtener la traducción a texto LSE. Una vez obtenida esta traducción, se realizarán una serie de comprobaciones y transformaciones por cada palabra que sea un sustantivo, con la finalidad de adaptarlas al catálogo de vídeos de ARASAAC. Para comenzar, se comprueba si existe vídeo para ese sustantivo, y en caso de que exista se pasa a comprobar la siguiente palabra. Si por el contrario no existe el vídeo, se eliminan los morfemas de género y número, y se vuelve a comprobar si existe el vídeo. Si tras este cambio sigue sin existir el vídeo, se deja la palabra sin modificar y se pasa a comprobar la siguiente. Si existe vídeo tras el cambio, se comprueba si la palabra era femenina y si es así se añade a continuación la palabra \textit{``FEMENINO''}. Después se comprueba si la palabra estaba en plural y si es así se añade a continuación la palabra \textit{``PLURAL''}. Al realizar estas comprobaciones con todas las palabras, se crea la respuesta en formato JSON y se devuelve. El flujo de este servicio lo podemos observar en la Figura~\ref {fig: imgFlujoTextoVideoTextoText2LSE}.\\
+En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. Este servicio utilizará este parámetro para hacer una llamada al servicio de traducción de texto en LN a texto LSE, con el fin de obtener la traducción a texto LSE. Una vez obtenida esta traducción, se realizarán una serie de comprobaciones y transformaciones por cada palabra que sea un sustantivo, con la finalidad de adaptarlas al catálogo de vídeos de ARASAAC. Para comenzar, se comprueba si existe vídeo para ese sustantivo, y en caso de que exista se pasa a realizar la misma comprobación para la siguiente palabra. Si por el contrario no existe el vídeo, se eliminan los morfemas de género y número, y se vuelve a comprobar si existe el vídeo. Si tras este cambio sigue sin existir el vídeo, se deja la palabra sin modificar y se pasa a comprobar la siguiente. Si existe vídeo tras el cambio, se comprueba si la palabra era femenina y si es así se añade a continuación la palabra \textit{``FEMENINO''}. Después se comprueba si la palabra estaba en plural y si es así se añade a continuación la palabra \textit{``PLURAL''}. Al realizar estas comprobaciones con todas las palabras, se crea la respuesta en formato JSON y se devuelve. El flujo de este servicio lo podemos observar en la Figura~\ref {fig: imgFlujoTextoVideoTextoText2LSE}.\\
 
 Por ejemplo, para traducir el texto \textit{``Mis tías comen chocolate''} a LSE en formato texto en función de los vídeos existentes, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
 
 
 \begin{center}
-	Entrada: \{ `Texto' : `Mis tías comen chocolate' \} \\
+	Entrada: \{ ``Texto'' : ``Mis tías comen chocolate'' \} \\
 \end{center}
 
 Al no existir el vídeo para la palabra \textit{``tías''}, busca el vídeo de esa palabra sin morfemas de género y número, que en este caso es la palabra \textit{``tío''}. Como \textit{``tías''} es plural y femenino, se añaden las palabras  \textit{``FEMENINO''} para indicar el femenino y \textit{``PLURAL''} para indicar el plural. Para finalizar, se crea la respuesta en formato JSON y se devuelve. La salida en este caso sería:
 
 \begin{center}
-	Salida: \{ `Texto' : `YO TÍO FEMENINO PLURAL CHOCOLATE COMER' \}
+	Salida: \{ ``Texto'' : ``YO TÍO FEMENINO PLURAL CHOCOLATE COMER'' \}
 \end{center}
 
 \begin{figure}[]
@@ -351,7 +349,7 @@ Este servicio implementa la funcionalidad de traducción de un texto en castellan
 Los datos a enviar en la petición POST deben tener la siguiente estructura en JSON: 
 \begin{center}
 	
-	\{ `Texto' : `<texto>' \}
+	\{ ``Texto'' : ``<texto>'' \}
 	
 \end{center}
 
@@ -362,13 +360,13 @@ Por ejemplo, para traducir el texto \textit{``Los caballos son rápidos''} a LSE 
 
 
 \begin{center}
-	Entrada: \{ `Texto' : `Los caballos son rápidos' \} 
+	Entrada: \{ ``Texto'' : ``Los caballos son rápidos'' \} 
 \end{center}
 
 Al no existir la imagen para la palabra  \textit{``caballos''}, busca la imagen de esa palabra sin morfemas de género y número, que en este caso es la palabra \textit{``caballo''}. Como \textit{``caballos''} es plural, se añade la palabra \textit{``PLURAL''} para indicar el plural. Para finalizar, se crea la respuesta en formato JSON y se devuelve. La salida en este caso sería:
  
 \begin{center}
-	Salida: \{ `Texto' : `CABALLO PLURAL RÁPIDO' \}
+	Salida: \{ ``Texto'' : ``CABALLO PLURAL RÁPIDO'' \}
 \end{center}
 
 \begin{figure}[]
@@ -392,7 +390,7 @@ Este servicio implementa la funcionalidad de traducción de un texto en castellan
 Los datos a enviar en la petición POST deben tener la siguiente estructura en JSON: 
 \begin{center}
 
-		\{ 'Texto' : '<texto>' \}
+		\{ ``Texto'' : ``<texto>'' \}
 
 \end{center}
 
@@ -403,7 +401,7 @@ Por ejemplo, para obtener el vídeo en LSE del texto \textit{``Los niños comen ch
 
 \begin{center}
 	
-	\{ `Texto' : `Los niños comen chocolate' \}
+	\{ ``Texto'' : ``Los niños comen chocolate'' \}
 	
 \end{center}
 
@@ -431,18 +429,18 @@ Los datos a enviar en la petición POST deben tener la siguiente estructura en JS
 
 \begin{center}
 	
-	\{ 'Texto' : '<texto>' \}
+	\{ ``Texto'' : ``<texto>'' \}
 	
 \end{center}
 
 
-En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. Al recibir este parámetro, este servicio lo utilizará para hacer una llamada al servicio de traducción de texto en LN a texto LSE adaptado al catálogo de imágenes de ARASAAC, con el fin obtener la traducción a texto LSE. Una vez obtenida esta traducción, por cada palabra se llamará al servicio de traducción de palabra a imagen LSE, que devolverá la ruta de la imagen correspondiente o la ruta de la imagen de error en caso de que no exista la imagen buscada. Al finalizar con todas las palabras se añadirán sus rutas en orden en un array JSON que se devolverá como respuesta. El flujo de este servicio lo podemos observar en la Figura~\ref {fig: FlujoImagenTexto}.\\
+En el parámetro \textit{``texto''} se debe incluir el texto que se desea traducir a LSE. Al recibir este parámetro, este servicio lo utilizará para hacer una llamada al servicio de traducción de texto en LN a texto LSE adaptado al catálogo de imágenes de ARASAAC, con el fin obtener la traducción a texto LSE. Una vez obtenida esta traducción, por cada palabra se incluirá de manera ordenada en un array la ruta necesaria para obtener dicha imagen mediante una petición al servicio de traducción de palabra a imagen LSE. Al finalizar con todas las palabras, se añadirán dicho array a un JSON que se devolverá como respuesta. El flujo de este servicio lo podemos observar en la Figura~\ref {fig: FlujoImagenTexto}.\\
 
 Por ejemplo, para obtener las imágenes en LSE del texto \textit{``Mañana yo iré al médico''}, se debe realizar la llamada POST indicada anteriormente con el siguiente JSON:
 
 \begin{center}
 	
-	\{ `Texto' : `Mañana yo iré al médico' \}
+	\{ ``Texto'' : ``Mañana yo iré al médico'' \}
 	
 \end{center}
 
@@ -474,11 +472,11 @@ Los formatos de salida disponibles en el desplegable son los siguientes:
 
 \begin{itemize}
 
-	\item \textbf{Traducción a vídeo:} tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch al servicio web de traducción de texto en lenguaje natural a texto LSE (ver sección \ref{cap5:sec:textoLSEvideo}), pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve el video LSE correspondiente. Posteriormente se incrustan todos los vídeos en orden en el código HTML, de tal manera que se reproduce uno detrás de otro. Así, se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes. En la Figura~\ref {fig: esquemaTradVideo} se puede observar el flujo para la traducción en este formato. Se ha decididohacerlo así en lugar de llamar directamente servicio de traducción de texto a LSE (vídeo), explicado en la sección \ref{cap5:sec:textoLSEvideoCompleto}, porque el tiempo de respuesta de ese servicio web es largo y supone una gran carga de trabajo para el servidor concatenar vídeos mp4 y devolverlos como respuesta.
+	\item \textbf{Traducción a vídeo:} tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch al servicio web de traducción de texto en lenguaje natural a texto LSE (ver sección \ref{cap5:sec:textoLSEvideo}), pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve el video LSE correspondiente. Posteriormente se incrustan todos los vídeos en orden en el código HTML, de tal manera que se reproduce uno detrás de otro. Así, se podrá visualizar por pantalla un vídeo en el que se podrá ver a un intérprete de ARASAAC realizando los signos LSE correspondientes. En la Figura~\ref {fig: esquemaTradVideo} se puede observar el flujo para la traducción en este formato. Se ha decidido hacerlo así en lugar de llamar directamente servicio de traducción de texto a LSE (vídeo), explicado en la sección \ref{cap5:sec:textoLSEvideoCompleto}, porque el tiempo de respuesta de ese servicio web es largo y supone una gran carga de trabajo para el servidor concatenar vídeos mp4 y devolverlos como respuesta.
 	
 
 	
-	\item \textbf{Traducción a imágenes:} de la misma manera que en el caso de los vídeos, tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch  al servicio web de traducción de texto en lenguaje natural a texto LSE adaptado al catálogo de imágenes de ARASAAC, pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el texto resultante y de llamar por cada una de esas palabras al servicio que devuelve la imagen LSE correspondiente. Posteriormente se incrustan todas las imágenes en orden en el código HTML. En la Figura~\ref {fig: esquemaTradImagen} se puede observar el flujo para la traducción a imágenes.
+	\item \textbf{Traducción a imágenes:} de la misma manera que en el caso de los vídeos, tras seleccionar este formato y pulsar el botón ``traducir'', se realizará una llamada Fetch  al servicio web para traducción de texto a LSE (imagen), pasando por el servidor proxy, que a su vez redirigirá la petición a la API. Una función Fetch se encargará de recibir el JSON resultante, que contendrá un array con las URLs necesarias para obtener las imágenes. Posteriormente se utilizan dichas URLs para incrustar todas las imágenes en orden en el código HTML, mostrando así la traducción deseada. En la Figura~\ref {fig: esquemaTradImagen} se puede observar el flujo para la traducción a imágenes.
 
 	\item \textbf{Traducción a texto LSE:} tras seleccionar este formato y pulsar el botón ``traducir'' se llamará a una función Fetch que realizará una petición al servicio de traducción de texto en castellano a texto en LSE. En caso de éxito aparecerá por pantalla dicho texto traducido a texto LSE. En la Figura~\ref {fig: esquemaTradTexto} se puede observar el flujo para esta traducción.
 
