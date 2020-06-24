@@ -245,13 +245,13 @@ Como hemos visto, la falta de imágenes y vídeos para muchas palabras del corpus 
 Como podemos observar en estos resultados, el corpus de oraciones sencillas cuenta con un porcentaje de traducciones entendibles bastante más alto (76\%) que el resto de corpus, cuyos porcentajes rondan el 20 o el 30\%. Esto es debido a que en estos últimos la complejidad y riqueza de vocabulario de las oraciones es más elevada. En comparación con los resultados globales, llegamos a la conclusión de que añadiendo más recursos a la biblioteca de recursos LSE de ARASAAC, los porcentajes de éxito aumentan de manera notable, por lo que merece la pena trabajar en este sentido.\\
 
 
-Por otro lado, se han analizado todas las traducciones que cuyo texto LSE es entendible, haciendo un recuento de los gestos que se buscan y viendo qué porcentaje de signos no se encuentran en el catálogo de ARASAAC, con el fin de dar una idea de qué parte de fallos son debidos a la falta de signos en el catálogo. En la tabla \ref{tabla:resultadoGestos} se muestra el número de gestos buscados en el catálogo de ARASAAC, el número de gestos que no se encuentran y el porcentaje que este representa.\\
+Por otro lado, se han analizado todas las traducciones que cuyo texto LSE es entendible, haciendo un recuento de los signos que se buscan y viendo qué porcentaje de signos no se encuentran en el catálogo de ARASAAC, con el fin de dar una idea de qué parte de fallos son debidos a la falta de signos en el catálogo. En la tabla \ref{tabla:resultadoSignos} se muestra el número de signos buscados en el catálogo de ARASAAC, el número de signos que no se encuentran y el porcentaje que este representa.\\
 
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{|m{4cm}|M{2.1cm}|M{2.3cm}|M{2.1cm}|}
 			\hline
-			\textbf{Corpus}  & \textbf{Nº gestos buscados} & \textbf{Nº gestos no encontrados}  & \textbf{\% error}  \\
+			\textbf{Corpus}  & \textbf{Nº signos buscados} & \textbf{Nº signos no encontrados}  & \textbf{\% error}  \\
 			\hline \hline
 			Instrucciones de avión & 101 & 53 &  52.47\% \\ \hline
 			Serie infantil & 44 & 17 & 38.63\%  \\ \hline
@@ -259,9 +259,9 @@ Por otro lado, se han analizado todas las traducciones que cuyo texto LSE es ent
 			Anuncio & 14 & 5 & 35.71\%  \\ \hline
 			Oraciones simples & 86 & 7 & 8.13\%  \\ \hline
 		\end{tabular}
-		\caption{Resultados de la evaluación: gestos buscados y gestos no encontrados}
-		\label{tabla:resultadoGestos}
+		\caption{Resultados de la evaluación: signos buscados y signos no encontrados}
+		\label{tabla:resultadoSignos}
 	\end{center}
 \end{table}
 
-Como podemos observar en la tabla \ref{tabla:resultadoGestos}, la cantidad de signos que se buscan pero no están en el catálogo representan un porcentaje considerable del total, llegando incluso a ser más de la mitad en el caso del corpus de instrucciones de avión. Esto quiere decir que oraciones que Text2LSE es capaz de traducir correctamente acaban siendo erróneas por culpa de un catálogo insuficiente, lo que refuerza la conclusión de que merece la pena trabajar en añadir más recursos al catálogo actual.
+Como podemos observar en la tabla \ref{tabla:resultadoSignos}, la cantidad de signos que se buscan pero no están en el catálogo representan un porcentaje considerable del total, llegando incluso a ser más de la mitad en el caso del corpus de instrucciones de avión. Esto quiere decir que oraciones que Text2LSE es capaz de traducir correctamente acaban siendo erróneas por culpa de un catálogo insuficiente, lo que refuerza la conclusión de que merece la pena trabajar en añadir más recursos al catálogo actual.
