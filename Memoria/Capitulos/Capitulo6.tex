@@ -123,7 +123,8 @@ En el Apéndice \ref{ap1:F} pueden verse todas las traducciones de las oraciones 
 	\end{center}
 \end{table}
 
-Como podemos observar en estos resultados, el corpus de oraciones sencillas cuenta con un porcentaje de traducciones entendibles bastante alto (60\%), mientras que el resto de corpus cuentan con mayor margen de mejora. Esto es debido a que en estos últimos la complejidad de las oraciones es más elevada, produciendo así una serie de errores que analizaremos a continuación.
+Como podemos observar en estos resultados, el corpus de oraciones sencillas cuenta con un porcentaje de traducciones entendibles bastante alto (60\%), mientras que el resto de corpus cuentan con mayor margen de mejora. Esto es debido a que en estos últimos la complejidad de las oraciones es más elevada, produciendo así una serie de errores que analizaremos en la sección \ref{cap6:sec:Análisis de los Resultados}.
+
 
 %-------------------------------------------------------------------
 \section{Análisis de los Resultados}
@@ -246,3 +247,20 @@ Además de la evaluación completa, ya que este TFG se centra en uso del PLN, hemo
 
 
 Como podemos observar en estos resultados, el corpus de oraciones sencillas cuenta con un porcentaje de traducciones entendibles bastante más alto (76\%) que el resto de corpus, cuyos porcentajes rondan el 20 o el 30\%. Esto es debido a que en estos últimos la complejidad y riqueza de vocabulario de las oraciones es más elevada. En comparación con los resultados globales, llegamos a la conclusión de que añadiendo más recursos a la biblioteca de recursos LSE de ARASAAC, los porcentajes de éxito aumentan de manera notable, por lo que merece la pena trabajar en este sentido.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|l|c|c|c|c|}
+			\hline
+			\textbf{Corpus}  & \textbf{Nº oraciones} & \textbf{Nº gestos buscados} & \textbf{Nº gestos no encontrados}  & \textbf{\% error}  \\
+			\hline \hline
+			Instrucciones de avión & x & x &  x &  x\% \\ \hline
+			Serie infantil & x & x & x & x\%  \\ \hline
+			Trailer de película & x & x & x & x\%  \\ \hline
+			Anuncio & x & x & x &  x\%  \\ \hline
+			Oraciones simples & x & x & x & x\%  \\ \hline
+		\end{tabular}
+		\caption{Resultados de la evaluación: gestos buscados y no encontrados}
+		\label{tabla:resultadoGestos}
+	\end{center}
+\end{table}
