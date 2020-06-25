@@ -69,7 +69,9 @@ En esta sección se explican con detalle los servicios web desarrollados, su impl
 
 \subsection{Recursos LSE}
 
-Todas las imágenes y vídeos LSE que usa Text2LSE se han descargado del catálogo de recursos de ARASAAC\footnote{\url{http://www.http://www.arasaac.org/descargas.php}}, que cuenta con 4.138 imágenes en formato jpg, y 4.102 vídeos en formato mp4. Estos recursos están almacenados en dos carpetas alojadas en el propio servidor, y cada uno de ellos se llama igual que el signo al que representa. Además, hemos añadido para ambos formatos el signo PLURAL, copiando y renombrando el fichero correspondiente al signo OTRO, y el signo FEMENINO, copiando y renombrando el signo MUJER.
+Todas las imágenes y vídeos LSE que usa Text2LSE se han descargado del catálogo de recursos de ARASAAC\footnote{\url{http://www.http://www.arasaac.org/descargas.php}}, que cuenta con 4.138 imágenes en formato jpg, y 4.102 vídeos en formato mp4. Estos recursos están almacenados en dos carpetas alojadas en el propio servidor, y cada uno de ellos se llama igual que el signo al que representa. Por ejemplo, para el signo \textit{AGUA}, existen los ficheros agua.jpg y agua.mp4. Además, para poder traducir correctamente sustantivos con género femenino y sustantivos con número plural, necesitamos añadir a la traducción el gesto \textit{FEMENINO} y el gesto \textit{PLURAL} respectivamente, que no se incluyen en el catálogo de recursos de ARASAAC. Sin embargo, el gesto MUJER está en el catálogo y es equivalente al gesto FEMENINO, por lo que hemos copiado los ficheros mujer.jpg y mujer.mp4 y, cambiando el nombre de las copias, hemos creado los ficheros femenino.jpg y femenino.mp4. Lo mismo sucede con el gesto OTRO y el gesto PLURAL, son equivalentes, por lo que hemos copiado los ficheros otro.jpg y otro.mp4 para crear los ficheros plural.jpg y plural.mp4.
+
+
 
 \subsection{Servicio web de traducción de palabra a vídeo LSE }
 
