@@ -494,7 +494,7 @@ El Procesamiento del Lenguaje Natural (PLN) es un campo dentro de la inteligenci
 
 La complejidad del lenguaje hace que su tratamiento automático no sea nada fácil por ello el PLN es un campo en pleno desarrollo, que necesita seguir evolucionando y superando los retos planteados por el propio lenguaje natural. Durante los últimos años ha ido creciendo de forma exponencial debido a la capacidad computacional de la que disponemos hoy en día y los avances realizados en la algoritmia, donde algunas de sus aplicaciones actuales son en la traducción automática, sistemas de recuperación de información, elaboración automática de resúmenes, etc.\\
 
-La Lengua de Signos Española gramaticalmente es muy diferente al castellano (ver sección \ref{cap2:sec:La Lengua de Signos}). Por ejemplo la frase ``La niña es alta'' en LSE se traduce mediante los gestos ``NIÑA ALTA''. Ambas frases tienen el mismo significado pero distinta estructura gramatical, por lo que para hacer la traducción hay que obtener información sobre la frase a traducir como lemas, categorías gramaticales, morfemas, etc. De ahí la importancia del PLN en nuestro proyecto, ya que es esencial para poder obtener todo este tipo de información del Lenguaje.
+La Lengua de Signos Española gramaticalmente es muy diferente al castellano (ver sección \ref{cap2:sec:La Lengua de Signos}). Por ejemplo la frase ``La niña es alta'' en LSE se traduce mediante los gestos ``NIÑA ALTA''. Ambas frases tienen el mismo significado pero distinta estructura gramatical, por lo que para hacer la traducción hay que obtener información sobre la frase a traducir, como lemas, categorías gramaticales, morfemas, etc. De ahí la importancia del PLN en nuestro proyecto, ya que es esencial para poder obtener todo este tipo de información del Lenguaje.
 
 
 
@@ -528,8 +528,12 @@ Para poder obtener el significado de una frase será necesario hacer un análisis 
 	
 	\item \textbf{Análisis Pragmático:} Es el encargado de analizar el significado de la frase en función del contexto en el que se desarrolla. En muchas ocasiones las oraciones y las palabras no se pueden tomar su significado de forma literal ya que dependen en gran medida del contexto en el que se desarrolla la acción.
 	
-	
 \end{itemize}
+
+
+En las aplicaciones que requieren de PLN no siempre se aplican todos los niveles de análisis, depende del objetivo de la aplicación. En nuestro caso solo serán necesarios los dos primeros niveles de análisis (mofologico y sintáctico).
+
+
 
 %-------------------------------------------------------------------
 \subsection{Herramientas PLN}
