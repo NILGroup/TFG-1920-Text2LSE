@@ -254,7 +254,7 @@
 \ifpdf
    \RequirePackage[pdfborder=0,colorlinks,hyperindex,pdfpagelabels]{hyperref}
    \def\pdfBorderAttrs{/Border [0 0 0] } % Ningún borde en los enlaces
-\fi
+\usepackage{bookmark}\fi
 
 % Cuando se  genera el  índice, se necesita  el paquete  hyperref, que
 % permite referencias  (o enlaces) en el propio  documento. El paquete
@@ -734,3 +734,4 @@
 
 \usepackage{array}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
