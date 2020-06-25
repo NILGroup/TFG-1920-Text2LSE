@@ -68,7 +68,7 @@
 \newcommand{\imagenPortada}[1]{
 \def\imagenPortadaVal{#1}
 }
-\def\escalaImagenPortadaVal{1.0}
+\def\escalaImagenPortadaVal{0.6}
 \newcommand{\escalaImagenPortada}[1]{
 \def\escalaImagenPortadaVal{#1}
 }
@@ -279,7 +279,6 @@
 % Comienza el tex...
 \begin{huge}
 \mbox{ }
-\vfill
 
 % Cuidado: Ajustarlo si el título cambia...
 \newlength{\longTitulo}
@@ -287,26 +286,30 @@
 \textbf{Traductor de Texto a Lengua de Signos}}
 \begin{center}
 \rule{\longTitulo}{.5mm}\\
-\vskip 1cm
+\vskip 0.6cm
 \textbf{\tituloPortadaVal}
-\vskip 0.7cm
+\vskip 0.6cm
 \rule{\longTitulo}{.5mm}\\
 \end{center}
 \end{huge}
 
-\vfill
+\begin{center}
+  {\Large \textbf{Text2LSE: Text to Spanish Sign Language Translator}}
+\end{center}
+
+
 
 \begin{center}
   \includegraphics[scale=\escalaImagenPortadaVal]{\imagenPortadaVal}
 \end{center}
 
-\vfill
+
 
 \begin{center}
   {\Large \textbf{\tipoDocumentoVal}}
 \end{center}
 
-\vfill
+
 
 \begin{large}
 
@@ -320,7 +323,7 @@
 
 \end{large}
 
-\vfill
+
 
 \end{cambiamargen}
 
@@ -365,7 +368,12 @@ cara.
 \end{center}
 \end{Huge}
 
+\begin{center}
+  {\Large \textbf{Text2LSE: Text to Spanish Sign Language Translator}}
+\end{center}
+
 \vfill
+
 
 \begin{large}
 \begin{center}

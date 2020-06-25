@@ -15,7 +15,7 @@ En este capítulo se presentarán las conclusiones finales del TFG así como las po
 
 En la sociedad actual la comunicación es esencial en la vida diaria de las personas, ya que permite transmitir información e intercambiar opiniones y sentimientos unos con otros, lo cual es algo imprescindible como seres humanos. A día de hoy la sociedad no está completamente adaptada a las necesidades de todos, pues hay muchas personas que tienen distintas discapacidades: cognitivas, físicas, visuales, auditivas... Algunas de las personas con estas discapacidades a veces pueden sentirse un poco apartadas del resto por no tener acceso completo a la información, como el caso de una persona con discapacidad auditiva a la hora de escuchar mensajes de megafonía en una estación de tren.\\
 
-Las personas con discapacidad auditiva disponen de una gran cantidad de posibilidades de comunicarse con los demás ya que la gran mayoría sabe leer y escribir, pero además tienen una Lengua propia que es la Lengua de Signos que les permite expresar emociones y sentimientos a la hora de comunicarse. Para ayudar a las personas con discapacidad auditiva vimos necesario desarrollar una herramienta que fuera capaz de traducir texto a la Lengua de Signos Española, ya que podría tener muchas utilidades y facilitar el día a día de las personas de este colectivo. Algunas de estas utilidades podrían ser aprendizaje de la LSE, traducción de subtítulos de películas o un texto informativo como las instrucciones de un avión a LSE...\\
+Las personas con discapacidad auditiva disponen de una gran cantidad de posibilidades de comunicarse con los demás ya que la gran mayoría sabe leer y escribir, pero además tienen una Lengua propia que es la lengua de Signos que les permite expresar emociones y sentimientos a la hora de comunicarse. Para ayudar a las personas con discapacidad auditiva vimos necesario desarrollar una herramienta que fuera capaz de traducir texto a la LSE, ya que podría tener muchas utilidades y facilitar el día a día de las personas de este colectivo. Algunas de estas utilidades podrían ser aprendizaje de la LSE, traducción de subtítulos de películas o un texto informativo como las instrucciones de un avión a LSE...\\
 
 El objetivo principal de este TFG era desarrollar una aplicación capaz de traducir cualquier texto en castellano a LSE en formato vídeo, imagen o texto LSE y para ello se ha desarrollado Text2LSE.\\
 
@@ -69,7 +69,7 @@ Tex2LSE actualmente es capaz de traducir frases simples que siguen la estructura
 
 Aunque queda mucho trabajo por hacer, nos gustaría destacar que al comienzo de este TFG se hizo un análisis de distintas aplicaciones similares en el mercado pero no encontramos ninguna aplicación que realizara traducciones de texto a LSE en tiempo real, por lo que podemos afirmar que aún no siendo perfecto el resultado, este trabajo es una buena base para la traducción de lenguaje natural a Lengua de Signos Española. \\
 
-Otro aspecto importante del trabajo que hemos desarrollado ha sido crear una API pública con los servicios web desarrollados, de tal forma que sea fácil de utilizar en otros proyectos.\\ 
+Otro aspecto importante del trabajo que hemos desarrollado ha sido crear una API pública \footnote{\url{https://holstein.fdi.ucm.es/tfg-text2lse/}} con los servicios web desarrollados, de tal forma que sea fácil de utilizar en otros proyectos.\\ 
 
 
 Aparte de la traducción, el propósito era crear también una aplicación con una interfaz intuitiva y accesible para todos desde cualquier dispositivo. Se tenía la intención de hacer una evaluación de la interfaz con usuarios reales pero debido a la Covid-19 no ha sido posible realizar dicha evaluación. Aún así, teniendo en cuenta las opiniones de los tutores en este sentido y siguiendo sus consejos de diseño creemos que la interfaz es sencilla e intuitiva y cumplimos el objetivo marcado.\\
@@ -155,7 +155,7 @@ Con el objetivo de mejorar algunas funcionalidades de la aplicación de Text2LSE 
 		\label {fig: hanComidoPanBien}
 	\end{figure}
 	
-	\item \textbf{Frases que no necesitan PLN:} Contemplar frases o palabras que no requieren traducción, ya que la LSE tiene un signo propio para esa frase o palabra. Por ejemplo la frase ``Secar el pelo'' se traduce con un solo signo, como se puede ver en la Figura ~\ref {fig: pelosecar}. Sin embargo, nuestra aplicación realiza la traducción como si fuera una oración normal (Ver Figura ~\ref {fig: SecarPeloMAL})
+	\item \textbf{Tratamieto de frases hechas:} Contemplar la identificación de frases hechas que tienen un signo propio y no requiere una traducción palabra a palabra. Por ejemplo la frase ``Secar el pelo'' se traduce con un solo signo, como se puede ver en la Figura ~\ref {fig: pelosecar}. Sin embargo, nuestra aplicación realiza la traducción como si fuera una oración normal (Ver Figura ~\ref {fig: SecarPeloMAL})
 	
 	\begin{figure}[]
 		\centering
@@ -171,7 +171,7 @@ Con el objetivo de mejorar algunas funcionalidades de la aplicación de Text2LSE 
 		\label {fig: SecarPeloMAL}
 	\end{figure}
 
-	\item \textbf{Traducción de oraciones compuestas:} La versión actual permite traducir frases simples, pero no traduce frases compuestas, como por ejemplo ``Los niños fueron al parque para jugar con sus amigos''. En esta oración se puede apreciar que hay dos oraciones más simples bien distinguidas: ``Los niños fueron al parque'' y ``(Los niños) jugar con sus amigos''. Una posible mejora sería realizar un conjunto de reglas que permitan traducir estas frases compuestas.
+	\item \textbf{Traducción de oraciones compuestas:} La versión actual de Text2LSE permite traducir frases simples, pero no traduce frases compuestas, como por ejemplo ``Los niños fueron al parque para jugar con sus amigos''. En esta oración se puede apreciar que hay dos oraciones más simples bien distinguidas: ``Los niños fueron al parque'' y ``(Los niños) jugar con sus amigos''. Una posible mejora sería realizar un conjunto de reglas que permitan traducir estas frases compuestas.
 
 
 	\item \textbf{Mejora en el PLN del Sistema:} El PLN utilizado en el proyecto ha sido mediante un sistema de reglas utilizando la herramienta Spacy. Este sistema no es capaz de traducir frases que no estén contempladas en las reglas previamente programadas. Un cambio interesante y muy importante sería cambiar el sistema basado en reglas por uno basado en aprendizaje automático, que sea capaz de aprender por sí mismo a traducir cualquier tipo de frase a base de entrenamiento.
