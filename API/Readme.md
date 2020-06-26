@@ -72,7 +72,7 @@ Traducción a texto en LSE
 Te permite obtener un json con el texto traducido a texto LSE.
 * Método: ``POST``
 * Json: ``{ 'Texto' : '<texto>'}``
-* Response: ``json -> { "frase" : <frase traducida> } ``
+* Response: ``json -> { "Texto" : <frase traducida> } ``
 
 ```
 https://holstein.fdi.ucm.es/tfg-text2lse/TextoLSE/
