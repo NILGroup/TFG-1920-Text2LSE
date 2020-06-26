@@ -206,7 +206,7 @@
 % tener que escribir  \'a ... aunque eso en teoría  lo hace el paquete
 % inputenc :-m
 
-\usepackage[spanish,activeacute]{babel}
+\usepackage[english,spanish,activeacute]{babel}
 
 % El paquete url sirve para poder  poner direcciones Web y no morir en
 % el intento,  sobre todo  en la bibliografía.   Es útil porque  si la
@@ -254,7 +254,7 @@
 \ifpdf
    \RequirePackage[pdfborder=0,colorlinks,hyperindex,pdfpagelabels]{hyperref}
    \def\pdfBorderAttrs{/Border [0 0 0] } % Ningún borde en los enlaces
-\fi
+\usepackage{bookmark}\fi
 
 % Cuando se  genera el  índice, se necesita  el paquete  hyperref, que
 % permite referencias  (o enlaces) en el propio  documento. El paquete
@@ -265,7 +265,7 @@
 \usepackage{hyperref}
 \fi
 
-\hypersetup{colorlinks=false}
+\hypersetup{ hidelinks}
 
 
 % Durante  la infancia  de TeXiS  (es decir,  cuando estábamos  en las
@@ -731,4 +731,7 @@
 
 \usepackage{framed, color}
 \definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+
+\usepackage{array}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 
