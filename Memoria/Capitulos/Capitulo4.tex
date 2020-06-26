@@ -27,7 +27,7 @@ Al comienzo de este TFG, los integrantes del proyecto desconocíamos tanto su alc
 Las metodologías ágiles \citep*{tchMetAgiles} son aquellas que permiten adaptar la forma de trabajo a las condiciones particulares de cada proyecto, consiguiendo flexibilidad e inmediatez en la respuesta para amoldar el proyecto y su desarrollo a las circunstancias específicas del entorno.\\
 
 
-Nuestros tutores han tomado el papel de Product Owner y han estado involucrados de manera muy activa a lo largo de todo el proyecto. A lo largo de todo el proyecto se les iba informando de los logros y progresos del mismo para optimizar el resultado final, obteniendo en todo momento una visión completa de su estado. La continua interacción entre los alumnos y los tutores tenia como objetivo asegurar que el resultado final era exactamente lo que se buscaba y necesitaba. Además, de este modo se detectaban de forma rápida tanto errores como problemas que pudieran aparecer a lo largo del proyecto, por lo que es posible dar respuesta a todos aquellos contratiempos que puedan darse desde el inicio. Todo esto fue posible gracias a que estabamos en permanente contacto a través del correo electrónico para poder resolver dudas puntuales, y a las constantes reuniones que se realizaron tanto entre los integrantes del grupo como entre los alumnos y los tutores. Estas reuniones se explican con más en detalle en la sección \ref{cap4:sec:Reuniones}.\\
+Nuestros tutores han tomado el papel de Product Owner y han estado involucrados de manera muy activa a lo largo de todo el proyecto. Se les iba informando de los logros y progresos del mismo para optimizar el resultado final, obteniendo en todo momento una visión completa de su estado. La continua interacción entre los alumnos y los tutores tenia como objetivo asegurar que el resultado final era exactamente lo que se buscaba y necesitaba. Además, de este modo se detectaban de forma rápida tanto errores como problemas que pudieran aparecer a lo largo del proyecto, por lo que es posible dar respuesta a todos aquellos contratiempos que puedan darse desde el inicio. Todo esto fue posible gracias a que estabamos en permanente contacto a través del correo electrónico para poder resolver dudas puntuales, y a las constantes reuniones que se realizaron tanto entre los integrantes del grupo como entre los alumnos y los tutores. Estas reuniones se explican con más en detalle en la sección \ref{cap4:sec:Reuniones}.\\
 
 A lo largo de todo el TFG se fueron realizando entregas parciales del proyecto. De este  modo, se entregaba en el menor intervalo de tiempo posible una versión funcional de la aplicación y de la memoria, para que los tutores pudieran revisar el trabajo realizado y comprobar que el trabajo iba por buen camino. \\
 
@@ -116,12 +116,14 @@ A partir de marzo, debido a las situación causada por la Covid-19, se tuvieron q
 \section{Control de versiones}
 %-------------------------------------------------------------------
 \label{cap4:sec:Control de versiones}
-Para realizar la gestión del proyecto se ha decidido usar la herramienta GitHub\footnote{\url{https://github.com/NILGroup/TFG-1920-Text2LSE.git}} que es una plataforma basada en el sistema de control de versiones Git que permite ver y llevar el registro de todos los cambios realizados en el proyecto, organizarlos y resolver cualquier conflicto que pueda surgir. \\
+Para realizar la gestión del proyecto se ha decidido usar la herramienta GitHub, que es una plataforma basada en el sistema de control de versiones Git, que permite ver y llevar el registro de todos los cambios realizados en el proyecto, organizarlos y resolver cualquier conflicto que pueda surgir.\\
+
+Se ha utilizado la cuenta del grupo NIL\footnote{\url{https://github.com/NILGroup/TFG-1920-Text2LSE.git}}, que nos permite gestionar todo el código del proyecto de manera privada, ya que únicamente los miembros de dicho grupo tienen acceso a él. Al finalizar este TFG, dicha cuenta se hará pública con la finalidad de que cualquier persona pueda consultar el código. \\
 
 
 \subsection{Estructura de Trabajo}
 
-Debido a la necesidad de trabajar los tres miembros del equipo de forma independiente, se ha decidido estructurar las ramas de trabajo de forma que se impida interferir en el trabajo de los demás compañeros. Por este motivo, se han creado tres ramas principales como se puede ver en la Figura \ref{fig: imgGit}: Memoria, API, y Web. Desde cada una de estas ramas se crearán ramas hijas según las funcionalidades a desarrollar, lo que permite que un miembro del equipo pueda trabajar sobre ella sin necesidad de modificar el resto del proyecto. Una vez finalizado el trabajo sobre esa rama hija, esta podrá eliminarse una vez realizada la correspondiente actualización sobre la rama padre. A continuación se detalla la estructura de las ramas de trabajo:
+Debido a la necesidad de trabajar los tres miembros del equipo de forma independiente, se ha decidido estructurar las ramas de trabajo de forma que se impida interferir en el trabajo de los demás compañeros. Por este motivo, se han creado tres ramas principales, como se puede ver en la Figura \ref{fig: imgGit}: Memoria, API, y Web. Desde cada una de estas ramas se crearán ramas hijas según las funcionalidades a desarrollar, lo que permite que un miembro del equipo pueda trabajar sobre ella sin necesidad de modificar el resto del proyecto. Una vez finalizado el trabajo sobre esa rama hija, esta podrá eliminarse una vez realizada la correspondiente actualización sobre la rama padre. A continuación se detalla la estructura de las ramas de trabajo:
 
 \begin{itemize}
 	\item\textbf{MASTER:} Rama principal del proyecto donde todo ha sido revisado. De ella dependen:
@@ -174,7 +176,7 @@ Debido a la necesidad de trabajar los tres miembros del equipo de forma independ
 	\end{itemize}
 \end{itemize}
 
-Cada vez que se termina con el desarrollo en las ramas hijas se hace un merge a cada una de ramas principales para tener la versión mas reciente de cada rama. Por último, a la hora de hacer la entrega del TFG, con el fin de tener en una sola rama la versión definitiva del proyecto, se ha hecho un merge desde las ramas principales a la rama Master.
+Cada vez que se termina con el desarrollo en las ramas hijas se hace un merge a cada una de ramas principales para tener la versión mas reciente de cada rama. Una vez revisadas estas ramas, se actualiza la rama Master con la última versión.
 
 
 \begin{figure}[]

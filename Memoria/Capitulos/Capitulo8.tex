@@ -9,15 +9,15 @@
 
 %-------------------------------------------------------------------
 
-En este capítulo se presentarán las conclusiones finales del TFG así como las posibles mejoras que se podrían realizar como trabajo futuro si se continua con el proyecto.
+En este capítulo se presentarán las conclusiones finales del TFG, así como las posibles mejoras que se podrían realizar como trabajo futuro si se continua con el proyecto.
 
 \section{Conclusiones}
 
-En la sociedad actual la comunicación es esencial en la vida diaria de las personas, ya que permite transmitir información e intercambiar opiniones y sentimientos unos con otros, lo cual es algo imprescindible como seres humanos. A día de hoy la sociedad no está completamente adaptada a las necesidades de todos, pues hay muchas personas que tienen distintas discapacidades: cognitivas, físicas, visuales, auditivas... Algunas de las personas con estas discapacidades a veces pueden sentirse un poco apartadas del resto por no tener acceso completo a la información, como el caso de una persona con discapacidad auditiva a la hora de escuchar mensajes de megafonía en una estación de tren.\\
+En la sociedad actual la comunicación es esencial en la vida diaria de las personas, ya que permite transmitir información e intercambiar opiniones y sentimientos unos con otros, lo que es algo imprescindible como seres humanos. A día de hoy la sociedad no está completamente adaptada a las necesidades de todos, pues hay muchas personas que tienen distintas discapacidades: cognitivas, físicas, visuales, auditivas... Algunas de las personas con estas discapacidades a veces pueden sentirse un poco apartadas del resto por no tener acceso completo a la información, como el caso de una persona con discapacidad auditiva a la hora de escuchar mensajes de megafonía en una estación de tren.\\
 
-Las personas con discapacidad auditiva disponen de una gran cantidad de posibilidades de comunicarse con los demás ya que la gran mayoría sabe leer y escribir, pero además tienen una Lengua propia que es la lengua de Signos que les permite expresar emociones y sentimientos a la hora de comunicarse. Para ayudar a las personas con discapacidad auditiva vimos necesario desarrollar una herramienta que fuera capaz de traducir texto a la LSE, ya que podría tener muchas utilidades y facilitar el día a día de las personas de este colectivo. Algunas de estas utilidades podrían ser aprendizaje de la LSE, traducción de subtítulos de películas o un texto informativo como las instrucciones de un avión a LSE...\\
+Las personas con discapacidad auditiva disponen de una gran cantidad de posibilidades de comunicarse con los demás, ya que la gran mayoría sabe leer y escribir. Además, tienen una lengua propia, la Lengua de Signos, que les permite expresar emociones y sentimientos a la hora de comunicarse. Para ayudar a las personas con discapacidad auditiva, vimos necesario desarrollar una herramienta que fuera capaz de traducir texto a LSE, ya que podría tener muchas utilidades y facilitar el día a día de las personas de este colectivo. Algunas de estas utilidades podrían ser el aprendizaje de la LSE, traducción de subtítulos de películas o un texto informativo como las instrucciones de un avión a LSE.\\
 
-El objetivo principal de este TFG era desarrollar una aplicación capaz de traducir cualquier texto en castellano a LSE en formato vídeo, imagen o texto LSE y para ello se ha desarrollado Text2LSE.\\
+El objetivo principal de este TFG era desarrollar una aplicación capaz de traducir cualquier texto en castellano a LSE en formato vídeo, imagen o texto LSE, y para ello se ha desarrollado Text2LSE.\\
 
 Tex2LSE actualmente es capaz de traducir frases simples que siguen la estructura TIEMPO + SUJETO + OBJETO + VERBO, además de tener en cuenta un gran número de reglas gramaticales de la LSE, siendo alguna de ellas:
 
@@ -26,7 +26,7 @@ Tex2LSE actualmente es capaz de traducir frases simples que siguen la estructura
 \begin{itemize}
 	
 	
-	\item \textbf{Añadir el tiempo verbal: } Detecta el tiempo verbal de cada frase y añade el signo correspondiente ya sea ``FUTURO'' o ``PASADO'' como se puede ver en la Figura ~\ref {fig: AP_E15_cap8}.
+	\item \textbf{Añadir el tiempo verbal: }Detecta el tiempo verbal de cada frase y añade el signo correspondiente ya sea ``FUTURO'' o ``PASADO'' como se puede ver en la Figura~\ref {fig: AP_E15_cap8}.
 	
 	\begin{figure}[]
 		\centering
@@ -36,7 +36,7 @@ Tex2LSE actualmente es capaz de traducir frases simples que siguen la estructura
 	\end{figure}
 
 	
-	\item \textbf{Cambiar los determinantes posesivos:} Los determinantes que indican posesión los sustituye por pronombres personales como se puede ver también en la Figura ~\ref {fig: AP_E17_cap8}.
+	\item \textbf{Cambiar los determinantes posesivos:} Los determinantes que indican posesión los sustituye por pronombres personales como se puede ver también en la Figura~\ref{fig: AP_E17_cap8}.
 	
 	\begin{figure}[]
 		\centering
@@ -45,7 +45,7 @@ Tex2LSE actualmente es capaz de traducir frases simples que siguen la estructura
 		\label {fig: AP_E17_cap8}
 	\end{figure}
 	
-	\item \textbf{Género y Número}: Detecta el género y número de cada sustantivo e indica el signo de ``PLURAL'' en caso del número o ``FEMENINO'' en caso del género, como se puede ver en la Figura  ~\ref {fig: AP_E16_cap8}.
+	\item \textbf{Género y Número}: Detecta el género y número de cada sustantivo e indica el signo de ``PLURAL'' en caso del número o ``FEMENINO'' en caso del género, como se puede ver en la Figura ~\ref{fig: AP_E16_cap8}.
 	
 	\begin{figure}[]
 		\centering
@@ -54,7 +54,7 @@ Tex2LSE actualmente es capaz de traducir frases simples que siguen la estructura
 		\label {fig: AP_E16_cap8}
 	\end{figure}
 	
-	\item \textbf{Adjetivos}: Detecta todos los adjetivos de la oración y los pasa a masculino singular como por ejemplo la Figura ~\ref {fig: AP_E2_cap8}.
+	\item \textbf{Adjetivos}: Detecta todos los adjetivos de la oración y los pasa a masculino singular como por ejemplo la Figura~\ref{fig: AP_E2_cap8}.
 	
 		\begin{figure}[]
 		\centering
@@ -67,12 +67,12 @@ Tex2LSE actualmente es capaz de traducir frases simples que siguen la estructura
 \end{itemize}
 
 
-Aunque queda mucho trabajo por hacer, nos gustaría destacar que al comienzo de este TFG se hizo un análisis de distintas aplicaciones similares en el mercado pero no encontramos ninguna aplicación que realizara traducciones de texto a LSE en tiempo real, por lo que podemos afirmar que aún no siendo perfecto el resultado, este trabajo es una buena base para la traducción de lenguaje natural a Lengua de Signos Española. \\
+Aunque queda mucho trabajo por hacer, nos gustaría destacar que al comienzo de este TFG se hizo un análisis de distintas aplicaciones similares en el mercado, pero no encontramos ninguna aplicación que realizara traducciones de texto a LSE en tiempo real, por lo que podemos afirmar que aún no siendo perfecto el resultado, este trabajo es una buena base para la traducción de lenguaje natural a Lengua de Signos Española. \\
 
 Otro aspecto importante del trabajo que hemos desarrollado ha sido crear una API pública \footnote{\url{https://holstein.fdi.ucm.es/tfg-text2lse/}} con los servicios web desarrollados, de tal forma que sea fácil de utilizar en otros proyectos.\\ 
 
 
-Aparte de la traducción, el propósito era crear también una aplicación con una interfaz intuitiva y accesible para todos desde cualquier dispositivo. Se tenía la intención de hacer una evaluación de la interfaz con usuarios reales pero debido a la Covid-19 no ha sido posible realizar dicha evaluación. Aún así, teniendo en cuenta las opiniones de los tutores en este sentido y siguiendo sus consejos de diseño creemos que la interfaz es sencilla e intuitiva y cumplimos el objetivo marcado.\\
+Aparte de la traducción, el propósito era crear también una aplicación con una interfaz intuitiva y accesible para todos desde cualquier dispositivo. Se tenía la intención de hacer una evaluación de la interfaz con usuarios reales pero debido a la Covid-19 no ha sido posible realizar dicha evaluación. Aún así, teniendo en cuenta las opiniones de los tutores en este sentido y siguiendo sus consejos de diseño, creemos que la interfaz es sencilla e intuitiva y cumplimos el objetivo marcado.\\
 
 
 El desarrollo de Text2LSE nos ha permitido aplicar muchos conocimientos adquiridos durante el Grado de Ingeniería Informática en un proyecto grande y con una utilidad social, no solo para el ámbito académico. Algunas asignaturas que han sido muy importantes para poder realizar este proyecto han sido:
@@ -92,7 +92,7 @@ El desarrollo de Text2LSE nos ha permitido aplicar muchos conocimientos adquirid
 	
 \end{itemize}
 
-También el proyecto nos ha permitido desarrollar muchos conocimientos nuevos que no se han cursado en la carrera, como por ejemplo: Servicios Web, Proxys, PLN, Python...
+Además, el proyecto nos ha permitido desarrollar muchos conocimientos nuevos que no se han cursado en la carrera, como por ejemplo: Servicios Web, Proxys, PLN, Python...
 
 
 \section{Trabajo Futuro}

@@ -34,7 +34,7 @@ Text2LSE es una aplicación de traducción de castellano a LSE basada en servicios
 
 Se ha optado por desarrollar una aplicación web debido a que ésta es accesible desde cualquier dispositivo que disponga de un navegador, ya sea un teléfono móvil, una tablet o un ordenador, sean de la marca y tamaño que sean. Para que se pueda ver de manera correcta en todos esos dispositivos, la aplicación web se ha desarrollado siguiendo un diseño responsive, es decir, que su visualización se adapte dependiendo de las dimensiones de la pantalla del dispositivo desde el cual se esté accediendo. La aplicación web ha sido desarrollada usando html, css y javascript.\\
 
-Respecto a la parte del servidor, se han desarrollado siete servicios web distintos: dos para devolver de manera rápida el vídeo y la imagen en LSE de una sola palabra, otro para devolver el texto traducido a texto en LSE, dos para devolver el texto LSE para vídeos e imágenes y otros dos para devolver el texto traducido a video e imágenes en LSE. \\
+Respecto a la parte del servidor, se han desarrollado siete servicios web distintos: dos para devolver de manera rápida el vídeo y la imagen en LSE de una sola palabra, otro para devolver el texto traducido a texto en LSE, dos para devolver el texto LSE adaptado a los vídeos e imágenes de ARASAAC, y otros dos para devolver el texto traducido a video e imágenes en LSE. \\
 
 Se ha utilizado un proxy inverso para poder acceder tanto a la página web como a los servicios web a través desde un mismo punto de acceso. Un Proxy inverso es un método de redireccionamiento del tráfico a partes específicas de una infraestructura concreta\citep*{proxyInverso}. Las principales finalidades para las que se usa este tipo de servidores son:
 
@@ -69,7 +69,7 @@ En esta sección se explican con detalle los servicios web desarrollados, su impl
 
 \subsection{Recursos LSE}
 
-Todas las imágenes y vídeos LSE que usa Text2LSE se han descargado del catálogo de recursos de ARASAAC\footnote{\url{http://www.http://www.arasaac.org/descargas.php}}, que cuenta con 4.138 imágenes en formato jpg, y 4.102 vídeos en formato mp4. Estos recursos están almacenados en dos carpetas alojadas en el propio servidor, y cada uno de ellos se llama igual que el signo al que representa. Por ejemplo, para el signo \textit{AGUA}, existen los ficheros agua.jpg y agua.mp4. Además, para poder traducir correctamente sustantivos con género femenino y sustantivos con número plural, necesitamos añadir a la traducción el gesto \textit{FEMENINO} y el gesto \textit{PLURAL} respectivamente, que no se incluyen en el catálogo de recursos de ARASAAC. Sin embargo, el gesto MUJER está en el catálogo y es equivalente al gesto FEMENINO, por lo que hemos copiado los ficheros mujer.jpg y mujer.mp4 y, cambiando el nombre de las copias, hemos creado los ficheros femenino.jpg y femenino.mp4. Lo mismo sucede con el gesto OTRO y el gesto PLURAL, son equivalentes, por lo que hemos copiado los ficheros otro.jpg y otro.mp4 para crear los ficheros plural.jpg y plural.mp4.
+Todas las imágenes y vídeos LSE que usa Text2LSE se han descargado del catálogo de recursos de ARASAAC\footnote{\url{http://www.http://www.arasaac.org/descargas.php}}, que cuenta con 4.138 imágenes en formato jpg, y 4.102 vídeos en formato mp4. Estos recursos están almacenados en dos carpetas alojadas en el propio servidor, y cada uno de ellos se llama igual que el signo al que representa. Por ejemplo, para el signo \textit{AGUA}, existen los ficheros agua.jpg y agua.mp4. Además, para poder traducir correctamente sustantivos con género femenino y sustantivos con número plural, necesitamos añadir a la traducción el signo \textit{FEMENINO} y el signo \textit{PLURAL} respectivamente, que no se incluyen en el catálogo de recursos de ARASAAC. Sin embargo, el signo MUJER está en el catálogo y es equivalente al signo FEMENINO, por lo que hemos copiado los ficheros mujer.jpg y mujer.mp4 y, cambiando el nombre de las copias, hemos creado los ficheros femenino.jpg y femenino.mp4. Lo mismo sucede con el signo OTRO y el signo PLURAL, son equivalentes, por lo que hemos copiado los ficheros otro.jpg y otro.mp4 para crear los ficheros plural.jpg y plural.mp4.
 
 
 
@@ -175,10 +175,10 @@ Un ejemplo de uso sería:
 \end{center}
 
 
-Para que el servicio web sea capaz de traducir una frase a texto LSE, se debe que realizar un procesamiento previo del texto en castellano para poder adaptarlo a la Lengua de Signos Española. Este procesamiento es realizado con un sistema de reglas las cuales filtran qué palabras deben de ser utilizadas y cuales no, al igual que determina su orden en la oración en LSE puesto que la estructura gramatical de la LSE es diferente al castellano, tal y como se contó en la sección ~\ref {cap2:sec:Sintaxis de la Lengua de Signos}. La elección a la hora de desarrollar el Procesamiento del Lenguaje Natural para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje automático. La opción de desarrollar un aprendizaje automático no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligió el sistema basado en reglas ya que era más fácil de implementar y aunque puede limitar la capacidad de traducción de frases que no cumplan dichas reglas, cumple con los objetivos marcados en el proyecto que es traducir frases simples a LSE.\\
+Para que el servicio web sea capaz de traducir una frase a texto LSE, se debe que realizar un procesamiento previo del texto en castellano para poder adaptarlo a la Lengua de Signos Española. Este procesamiento es realizado con un sistema de reglas, que filtran qué palabras deben de ser utilizadas y cuales no, al igual que determina su orden en la oración en LSE, puesto que la estructura gramatical de la LSE es diferente al castellano, tal y como se contó en la sección ~\ref {cap2:sec:Sintaxis de la Lengua de Signos}. La elección a la hora de desarrollar el Procesamiento del Lenguaje Natural para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje automático. La opción de desarrollar un aprendizaje automático no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligió el sistema basado en reglas, ya que era más fácil de implementar y, aunque puede limitar la capacidad de traducción de frases que no cumplan dichas reglas, cumple con el objetivo marcado en el proyecto, que es traducir frases simples a LSE.\\
 
 
-Este servicio web lo primero que hace es recopilar información de la frase para luego realizar un análisis sintáctico y morfológico y así poder ordenarla respetando la estructura de la LSE. En las siguientes subsecciones se explicará con más detalle cada cada uno de los pasos del flujo de este servicio (Ver Figura:  ~\ref {fig: imgFlujoFlujoTextoLSE})
+Este servicio web lo primero que hace es recopilar información de la frase para luego realizar un análisis sintáctico y morfológico, y así poder ordenarla respetando la estructura de la LSE. En las siguientes subsecciones se explicará con más detalle cada cada uno de los pasos del flujo de este servicio (Ver Figura:  ~\ref {fig: imgFlujoFlujoTextoLSE})
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/Fuentes/Text2LSE/textotextoLSE.png}
@@ -188,7 +188,7 @@ Este servicio web lo primero que hace es recopilar información de la frase para 
 
 
 \subsubsection{Tokenización} 
-Para poder realizar el análisis sintáctico y morfológico de la frase se necesita obtener toda la información posible de la frase. Para ello se realizará con Spacy el proceso de tokenización, el cual divide la frase en una lista de palabras denominadas \textit{tokens}, donde cada token contiene la siguiente información de cada palabra:
+Para poder realizar el análisis sintáctico y morfológico de la oración se necesita obtener toda la información posible de la oración. Para ello, se realizará con Spacy el proceso de tokenización, el cual divide la oración en una lista de palabras denominadas \textit{tokens}, donde cada token contiene la siguiente información de cada palabra:
 
 \begin{itemize}
 		
@@ -197,19 +197,19 @@ Para poder realizar el análisis sintáctico y morfológico de la frase se necesita
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=1 \textwidth]{Imagenes/Fuentes/PNL/raizEjemplo.jpg}
-		\caption{ Dependencias de una frase'' }
+		\caption{ Dependencias de una frase }
 		\label {fig: raizEjemplo}
 	\end{figure}
 
 	\item \textbf{Tags:} Indica el género, número, el tiempo verbal y la persona de cada token.
 	\item \textbf{Part of speech:} Indica el tipo de palabra en función de su uso en la oración, tales como nombres, adjetivos, adverbios y verbos.
-	\item \textbf{Lemma:} Es la palabra que encabeza un artículo de un diccionario o de una enciclopedia, por ejemplo el lemma de ``jugábamos'' es ``jugar''
+	\item \textbf{Lemma:} Es la palabra que encabeza un artículo de un diccionario o de una enciclopedia, por ejemplo el lemma de ``jugábamos'' es ``jugar''.
 	
 	
 \end{itemize}
 
 
-Por ejemplo los tokens de la frase \textit{`Los niños merendaron chocolate'} sería los que aparecen en la Figura ~\ref {fig: tokenInformacion}. Como se puede ver cada token tiene su información detallada. Por ejemplo de los tokens \textit{``los''} y \textit{``niños''} la información obtenida sería:
+Por ejemplo, los tokens de la frase \textit{``Los niños merendaron chocolate''} serían los que aparecen en la Figura ~\ref {fig: tokenInformacion}. Como se puede ver, cada token tiene su información detallada. Por ejemplo, de los tokens \textit{``los''} y \textit{``niños''} la información obtenida sería:
 \begin{itemize}
 	\item \textbf{Los:} la dependencia indica que es un determinante y los tags que es artículo determinado, masculino y plural. 
 	\item \textbf{niños:} la dependencia indica que es el sujeto de la oración, los tags que es masculino y plural y el lemma es niño.
@@ -218,12 +218,12 @@ Por ejemplo los tokens de la frase \textit{`Los niños merendaron chocolate'} ser
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1 \textwidth]{Imagenes/Fuentes/PNL/InfoPLN.png}
-	\caption{ Tokens de la frase ``Los niños meredaron chocolate'' }
+	\caption{ Tokens de la frase \textit{``Los niños meredaron chocolate''} }
 	\label {fig: tokenInformacion}
 \end{figure}
 
 
-Durante el proceso de tokenización también se obtiene un árbol de dependencias entre palabras. Para entender cómo funcionan las dependencias se va a utilizar como ejemplo la oración `Ayer los niños merendaban chocolate' donde sus dependencias se muestran en la Figura ~\ref {fig: dependencias} 
+Durante el proceso de tokenización también se obtiene un árbol de dependencias entre palabras. Para entender cómo funcionan las dependencias se va a utilizar como ejemplo la oración \textit{``Ayer los niños merendaban chocolate''}, donde sus dependencias se muestran en la Figura ~\ref {fig: dependencias} 
 
 \begin{figure}[h]
 	\centering
@@ -232,7 +232,7 @@ Durante el proceso de tokenización también se obtiene un árbol de dependencias e
 	\label {fig: dependencias}
 \end{figure}
 
-Como se puede apreciar en el diagrama del token `merendaban' que es la raíz dependen tres tokens (Ayer, niños y chocolate) y de ellos también dependen otros y así sucesivamente. Estas dependencias se traducen en un árbol donde el ROOT es la raíz como podemos ver en la Figura~\ref {fig: grafo}:\\
+Como se puede apreciar en el diagrama del token, de la palabra \textit{``merendaban''}, que es la raíz de la oración, dependen tres tokens (Ayer, niños y chocolate), y de ellos también dependen otros y así sucesivamente. Estas dependencias se traducen en un árbol, donde el ROOT es la raíz, como podemos ver en la Figura~\ref {fig: grafo}:\\
 
 
 \begin{figure}[]
@@ -245,7 +245,7 @@ Como se puede apreciar en el diagrama del token `merendaban' que es la raíz depe
 
 
 \subsubsection{Análisis sintáctico} 
-Una vez separada la oración en tokens, hay que diferenciar que palabras forman parte del sujeto y cuales del predicado. Para ello hay que recorrer el árbol de dependencias mediante una función recursiva implementada por nosotros, empezando desde el ROOT que es el token raíz del cual dependen todos los demás. Para obtener el sujeto se busca el token que contenga la dependencia ``nsuj''. A continuación se obtienen los hijos del token ``nsuj'' y se guardan como parte del sujeto mientras que los tokens restantes, es decir, aquellos que no pertenecen al sujeto formarían parte del predicado. En el ejemplo anterior \textit{``Ayer los niños merendaban chocolate''} el \textbf{sujeto} sería \textit{``Los, niños''} y el \textbf{predicado} \textit{``Ayer, merendaban y chocolate''}.\\
+Una vez separada la oración en tokens, hay que diferenciar qué palabras forman parte del sujeto y cuáles del predicado. Para ello hay que recorrer el árbol de dependencias mediante una función recursiva implementada por nosotros, empezando desde el ROOT, que es el token raíz del cual dependen todos los demás. Para obtener el sujeto, se busca el token que contenga la dependencia ``nsuj''. A continuación, se obtienen los hijos del token ``nsuj'' y se guardan como parte del sujeto, mientras que los tokens restantes, es decir, aquellos que no pertenecen al sujeto, formarían parte del predicado. En el ejemplo anterior \textit{``Ayer los niños merendaban chocolate''} el \textbf{sujeto} sería \textit{``Los, niños''} y el \textbf{predicado} \textit{``Ayer, merendaban y chocolate''}.\\
 
 El resultado de los tokens pertenecientes al sujeto y al predicado se almacenan en una lista. Para el ejemplo anterior las dos listas resultantes serían:
 \begin{center}
@@ -270,16 +270,16 @@ Para conseguir la traducción de la frase original en castellano a LSE se necesit
 
 \begin{itemize}
 	
-	\item \textbf{Determinantes:} Es importante detectar estos elemntos ya que los determinantes se omiten a la hora de hacer la traducción. \textit{Por ejemplo, ``El niño come carne''} se traduce a LSE como \textit{``Niño carne comer''.}
+	\item \textbf{Determinantes:} Es importante detectar estos elementos, ya que los determinantes se omiten a la hora de hacer la traducción. Por ejemplo,  \textit{``El niño come carne''} se traduce a LSE como \textit{``NIÑO CARNE COMER''.}
 	
-	\item \textbf{Verbos copulativos:} Los verbos copulativos ser, estar o parecer se omiten a la hora de la traducción a texto LSE \textit{Por ejemplo, ``yo soy bajo''} se traduce como \textit{``yo bajo''.}
+	\item \textbf{Verbos copulativos:} Los verbos copulativos ser, estar o parecer se omiten a la hora de la traducción a texto LSE. Por ejemplo, \textit{``yo soy bajo''} se traduce como \textit{``YO BAJO''.}
 	
-	\item \textbf{Posesivos:} Los determinantes posesivos se sustituyen por pronombres personales \textit{Por ejemplo, ``Mi niño es bajo''} se traduce como \textit{``yo niño bajo''.}
+	\item \textbf{Posesivos:} Los determinantes posesivos se sustituyen por pronombres personales. Por ejemplo, \textit{``Mi niño es bajo''} se traduce como \textit{``YO NIÑO BAJO''.}
 	
 	
-	\item \textbf{Adjetivos:} Al traducir una frase a LSE los adjetivos siempre van en masculino.\textit{Por ejemplo, ``Mi mamá es fea''} se traduce como \textit{``yo mamá feo''.}
+	\item \textbf{Adjetivos:} Al traducir una frase a LSE, los adjetivos siempre van en masculino. Por ejemplo, \textit{``Mi mamá es fea''} se traduce como \textit{``YO MAMÁ FEO''.}
 	
-	\item \textbf{Temporalidad:} En la LSE la temporalidad va al principio de la oración. \textit{Por ejemplo, ``Yo comí chocolate ayer''} se traduce como \textit{``Ayer yo chocolate comer''.} Sin embargo no siempre hay adverbios de tiempo en la oración que indican la temporalidad, en ese caso el tiempo viene determinado por el tiempo verbal. \textit{Por ejemplo, ``Yo comeré chocolate''} se traduce como \textit{``Futuro yo chocolate comer''.}
+	\item \textbf{Temporalidad:} En la LSE, la temporalidad va al principio de la oración. Por ejemplo, \textit{``Yo comí chocolate ayer''} se traduce como \textit{``AYER YO CHOCOLATE COMER''.} Sin embargo, no siempre hay adverbios de tiempo en la oración que indiquen la temporalidad. En ese caso, el tiempo viene determinado por el tiempo verbal. Por ejemplo, \textit{``Yo comeré chocolate''} se traduce como \textit{``FUTURO YO CHOCOLATE COMER''.}
 	
 	
 	
@@ -296,7 +296,7 @@ Una vez añadidas y quitadas las palabras que correspondan del sujeto y del predi
 	\end{itemize}
 
 
-El texto en LSE final que devolvería el servicio en este caso sería: ``Ayer niños chocolate merendar''
+El texto en LSE final que devolvería el servicio en este caso sería: ``AYER NIÑOS CHOCOLATE MERENDAR''
 
 
 \subsection{Servicio web de traducción de texto en LN a texto LSE adaptado al catálogo de vídeos de ARASAAC }
@@ -507,7 +507,6 @@ Los formatos de salida disponibles en el desplegable son los siguientes:
 	\label {fig: esquemaTradTexto}
 \end{figure}
 
-En caso de error en cualquiera de las tres funcionalidades, la aplicación mostrará un modal con el tipo y detalle del error obtenido al realizar la petición a la API donde se encuentran nuestros servicios web.\\ 
 
 Por otro lado, la interfaz también cuenta con un menú en la parte superior, donde además de a la página principal podemos acceder a una página con información sobre los miembros del equipo y de los tutores, y a otra con información sobre la aplicación.\\ 
 

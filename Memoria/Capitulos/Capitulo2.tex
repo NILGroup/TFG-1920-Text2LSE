@@ -490,11 +490,11 @@ Nuestro proyecto Text2LSE pretende solventar muchas de estas limitaciones propor
 %-------------------------------------------------------------------
 \section{Procesamiento del Lenguaje Natural}
 %-------------------------------------------------------------------
-El Procesamiento del Lenguaje Natural (PLN) es un campo dentro de la inteligencia artificial y la lingüística aplicada que analizan el lenguaje humano, lo interpretan y le dan significado para que pueda ser utilizado por una máquina de manera práctica.\\
+El Procesamiento del Lenguaje Natural (PLN) \citep*{PLNConcepto} es un campo dentro de la inteligencia artificial y la lingüística aplicada que analiza el lenguaje humano, lo interpreta y le dan significado para que pueda ser utilizado por una máquina de manera práctica.\\
 
-La complejidad del lenguaje hace que su tratamiento automático no sea nada fácil por ello el PLN es un campo en pleno desarrollo, que necesita seguir evolucionando y superando los retos planteados por el propio lenguaje natural. Durante los últimos años ha ido creciendo de forma exponencial debido a la capacidad computacional de la que disponemos hoy en día y los avances realizados en la algoritmia, donde algunas de sus aplicaciones actuales son en la traducción automática, sistemas de recuperación de información, elaboración automática de resúmenes, etc.\\
+La complejidad del lenguaje hace que su tratamiento automático no sea nada fácil, por ello el PLN es un campo en pleno desarrollo, que necesita seguir evolucionando y superando los retos planteados por el propio lenguaje natural. Durante los últimos años ha ido creciendo de forma exponencial, debido a la capacidad computacional de la que disponemos hoy en día y a los avances realizados en la algoritmia, donde algunas de sus aplicaciones actuales son: la traducción automática, sistemas de recuperación de información, elaboración automática de resúmenes, entre otros.\\
 
-La Lengua de Signos Española gramaticalmente es muy diferente al castellano (ver sección \ref{cap2:sec:La Lengua de Signos}). Por ejemplo la frase ``La niña es alta'' en LSE se traduce mediante los gestos ``NIÑA ALTA''. Ambas frases tienen el mismo significado pero distinta estructura gramatical, por lo que para hacer la traducción hay que obtener información sobre la frase a traducir, como lemas, categorías gramaticales, morfemas, etc. De ahí la importancia del PLN en nuestro proyecto, ya que es esencial para poder obtener todo este tipo de información del Lenguaje.
+Gramaticalmente, la Lengua de Signos Española es muy diferente al castellano (ver sección \ref{cap2:sec:La Lengua de Signos}). Por ejemplo la frase ``La niña es alta'' en LSE se traduce mediante los signos ``NIÑA ALTA''. Ambas frases tienen el mismo significado pero distinta estructura gramatical, por lo que para hacer la traducción hay que obtener información sobre la frase a traducir, como lemas, categorías gramaticales, morfemas, etc. De ahí la importancia del PLN en nuestro proyecto, ya que es esencial para poder obtener todo este tipo de información del Lenguaje.
 
 
 
@@ -502,7 +502,7 @@ La Lengua de Signos Española gramaticalmente es muy diferente al castellano (ver
 \subsection{Niveles del Procesamiento del Lenguaje Natural}
 %-------------------------------------------------------------------
 \label{cap2:sec:Estructura del Lenguaje Natural}
-Para poder obtener el significado de una frase será necesario hacer un análisis profundo de ella. El PLN suele hacer un análisis en 4 niveles: \footnote{\url{http://www.elprofesionaldelainformacion.com/contenidos/1997/enero/}}
+Para poder obtener el significado de una frase será necesario hacer un análisis profundo de ella. El PLN suele hacer un análisis en 4 niveles\citep*{PLNNiveles}: 
 
 \begin{itemize}
 	
@@ -543,7 +543,7 @@ Existe una amplia variedad de herramientas informáticas para el PLN en diversos 
 
 \begin{itemize}
 	
-	\item \textbf{Spacy\footnote{Web oficial de Spacy \url{https://spacy.io/}}:}  es una librería de código abierto en Python.  Actualmente es considerada una de las mejores herramientas para el PLN que destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías, como se puede comprobar en la imagen ~\ref {fig: benchsmark}
+	\item \textbf{Spacy\footnote{\url{https://spacy.io/}}:}  es una librería de código abierto en Python.  Actualmente es considerada una de las mejores herramientas para el PLN que destaca por su rapidez y precisión a la hora de realizar análisis sintácticos comparado con otras librerías, como se puede comprobar en la imagen ~\ref {fig: benchsmark}
 	
 	\begin{figure}[h]
 		\centering
@@ -567,18 +567,18 @@ Existe una amplia variedad de herramientas informáticas para el PLN en diversos 
 		
 	
 	
-	\item \textbf{Natural Language ToolKit (NLTK)\footnote{Web oficial de NLTK \url{https://www.nltk.org/}}:} es una librería dedicada al análisis del lenguaje natural en Python. En la actualidad incluye utilidades para más de 10 idiomas y fue creada por académicos e investigadores como una herramienta para crear funciones complejas de PLN. Esta biblioteca es muy útil cuando se quiere construir un modelo desde cero, ya que proporciona acceso a muchos algoritmos y facilita el desarrollo de algoritmos propios permitiendo realizar un procesamiento del lenguaje más adaptado a un proyecto en concreto. Con ella se realizar tanto análisis morfológico, sintáctico, semántico y pragmático. 
+	\item \textbf{Natural Language ToolKit (NLTK)\footnote{ \url{https://www.nltk.org/}}:} es una librería dedicada al análisis del lenguaje natural en Python. En la actualidad incluye utilidades para más de 10 idiomas y fue creada por académicos e investigadores como una herramienta para crear funciones complejas de PLN. Esta biblioteca es muy útil cuando se quiere construir un modelo desde cero, ya que proporciona acceso a muchos algoritmos y facilita el desarrollo de algoritmos propios permitiendo realizar un procesamiento del lenguaje más adaptado a un proyecto en concreto. Con ella se realiza tanto análisis morfológico, como sintáctico, semántico y pragmático. 
 	
-	\item \textbf{FreeLing\footnote{Web oficial de FreeLing \url{http://nlp.lsi.upc.edu/freeling/index.php/node/1}}:} es una herramienta PLN de código abierto bajo el lenguaje de programación C++ que ha sido desarrollada por la Universidad Politécnica de Cataluña. La biblioteca permite realizar análisis morfológico, sintáctico, semántico y pragmático para una gran variedad de idiomas. Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos, adaptarlos a dominios particulares e incluso desarrollar otros nuevos para idiomas específicos o necesidades particulares. 
+	\item \textbf{FreeLing\footnote{\url{http://nlp.lsi.upc.edu/freeling/index.php/node/1}}:} es una herramienta PLN de código abierto bajo el lenguaje de programación C++ que ha sido desarrollada por la Universidad Politécnica de Cataluña. La biblioteca permite realizar análisis morfológico, sintáctico, semántico y pragmático para una gran variedad de idiomas. Los desarrolladores pueden usar los recursos por defecto de Freeling, ampliarlos, adaptarlos a dominios particulares e incluso desarrollar otros nuevos para idiomas específicos o necesidades particulares. 
 	
 	
 \end{itemize}
 
 
-Una vez analizadas en detalle cada una de las herramientas presentadas en esta sección, se llegó a la conclusión de que Spacy es la herramienta más adecuada para nuestro TFG, ya que proporciona un análisis rápido y bastante preciso en español lo cual es de gran importancia en este proyecto, ya que necesitamos traducir textos en castellano en tiempo real teniendo que hacer este procesamiento del lenguaje los más rápido y preciso posible.
+Una vez analizadas en detalle cada una de las herramientas presentadas en esta sección, se llegó a la conclusión de que Spacy es la herramienta más adecuada para nuestro TFG, ya que proporciona un análisis rápido y bastante preciso en español. Esto es de gran importancia en este proyecto, ya que necesitamos traducir textos en castellano en tiempo real, teniendo que hacer este procesamiento del lenguaje lo más rápido y preciso posible.\\
 
 
-Es muy fácil de implementar, ya que utiliza un lenguaje de programación simple, como es Python. Además también es fácil de aprender gracias a su manual de uso, ya que este cuenta con ejemplos claros y útiles para hacer un análisis sin ser expertos con la herramienta.
+Spacy es muy fácil de implementar, ya que utiliza un lenguaje de programación simple, como es Python. Además también es fácil de aprender gracias a su manual de uso, ya que este cuenta con ejemplos claros y útiles para hacer un análisis sin ser expertos con la herramienta.
 
 
 
