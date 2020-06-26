@@ -18,54 +18,48 @@
 En este capítulo se habla de la metodología de trabajo seguida por el equipo de este TFG durante el desarrollo del mismo, junto con algunas de las herramientas utilizadas para organizar y estructurar las tareas a realizar y mantener el código de la aplicación accesible y con sus correspondientes copias de seguridad. 
 
 %-------------------------------------------------------------------
-\section{Metodologías Ágiles}
+\section{Metodologías de gestión del proyecto}
 %-------------------------------------------------------------------
 \label{cap4:sec:Metodologias Agiles}
 
-Al comienzo de este TFG, los integrantes del proyecto desconocíamos tanto su alcance como su viabilidad, por lo que necesitábamos implantar una metodología que nos permitiera adaptar nuestro trabajo a necesidades que fueran surgiendo a medida que íbamos avanzando. Debido a esto, decidimos seguir una metodología de trabajo ágil.\\ 
+Al comienzo de este TFG, los integrantes del proyecto desconocíamos tanto su alcance como su viabilidad, por lo que necesitábamos implantar una metodología que nos permitiera adaptar nuestro trabajo a necesidades que fueran surgiendo a medida que íbamos avanzando. Debido a esto, decidimos seguir una metodología ágil.\\ 
 
 Las metodologías ágiles \citep*{tchMetAgiles} son aquellas que permiten adaptar la forma de trabajo a las condiciones particulares de cada proyecto, consiguiendo flexibilidad e inmediatez en la respuesta para amoldar el proyecto y su desarrollo a las circunstancias específicas del entorno.\\
 
 
-La aplicación de metodologías ágiles ha permitido involucrar a nuestros tutores a lo largo de todo el proyecto. En cada etapa se informa de los logros y progresos del mismo, con la visión de involucrarles directamente para sumar su experiencia y conocimiento, y así optimizar las características del resultado final, obteniendo en todo momento una visión completa de su estado. La continua interacción entre los alumnos y los tutores tiene como objetivo asegurar que el resultado final sea exactamente lo que se busca y necesita. Además, se pueden detectar de forma rápida tanto errores como problemas que puedan aparecer a lo largo del proyecto, por lo que es posible dar respuesta a todos aquellos contratiempos que puedan darse desde el inicio. Todo esto es posible gracias a que estamos en permanente contacto a través del correo electrónico para poder resolver dudas puntuales, y a las constantes reuniones que se realizan tanto entre los integrantes del grupo como entre los alumnos y los tutores. Estas reuniones se explican con más en detalle en la sección \ref{cap4:sec:Reuniones}.\\
+Nuestros tutores han tomado el papel de Product Owner y han estado involucrados de manera muy activa a lo largo de todo el proyecto. Se les iba informando de los logros y progresos del mismo para optimizar el resultado final, obteniendo en todo momento una visión completa de su estado. La continua interacción entre los alumnos y los tutores tenía como objetivo asegurar que el resultado final era exactamente lo que se buscaba y necesitaba. Además, de este modo se detectaban de forma rápida tanto errores como problemas que pudieran aparecer a lo largo del proyecto, por lo que es posible dar respuesta a todos aquellos contratiempos que puedan darse desde el inicio. Todo esto fue posible gracias a que estabamos en permanente contacto a través del correo electrónico para poder resolver dudas puntuales, y a las constantes reuniones que se realizaron tanto entre los integrantes del grupo como entre los alumnos y los tutores. Estas reuniones se explican con más en detalle en la sección \ref{cap4:sec:Reuniones}.\\
 
-Además, el trabajo se realiza con mayor velocidad y eficiencia, ya que se trabaja a través de entregas parciales del proyecto. De este  modo, es posible entregar en el menor intervalo de tiempo posible una versión mucho más funcional de la aplicación y de la memoria, para que los tutores puedan revisar el trabajo realizado y comprobar que vamos por buen camino. La herramienta elegida para gestionar el trabajo realizado ha sido el conocido controlador de versiones Git, del que se habla con detalle en la sección \ref{cap4:sec:Control de versiones}\\
+A lo largo de todo el TFG se fueron realizando entregas parciales del proyecto. De este  modo, se entregaba en el menor intervalo de tiempo posible una versión funcional de la aplicación y de la memoria, para que los tutores pudieran revisar el trabajo realizado y comprobar que el trabajo iba por buen camino. \\
 
-Existen diversas modalidades de metodologías ágiles, algunas de las más conocidas son Scrum o Programación Extrema (XP).Para la gestión del flujo de trabajo de este proyecto se ha optado por la utilización de Kanban, que se explica en detalle en la sección \ref{cap4:sec:Kanban}.\\
-
-
-%-------------------------------------------------------------------
-\section{Kanban}
-%-------------------------------------------------------------------
-\label{cap4:sec:Kanban}
-
-Kanban \citep*{tchKanban1} es una metodología ágil cuyo objetivo es gestionar de manera visual cómo se van completando las tareas a llevar a cabo. Kanban es una palabra japonesa que significa 'tarjetas visuales', donde Kan es 'visual', y Ban corresponde a 'tarjeta'.\\
-
-Esta metodología se basa en la implementación de un tablero que hará uso de una serie de tarjetas, que describirán las tareas, y que constará de varias columnas, una por cada estado de dichas tareas. Según vayan surgiendo nuevas tareas, los miembros del equipo colocarán las tarjetas en la columna que corresponda (típicamente en la columna ``To Do'', o ``Por Hacer''), y las irán moviendo de columna a medida que el estado de la tarea avance. La elección de los estados depende de las necesidades del proyecto, aunque los tres estados más comunes son ``To Do'', ``Doing'' y ``Done''. \\
+La herramienta elegida para gestionar el trabajo realizado fue el conocido controlador de versiones Git, del que se habla con detalle en la sección \ref{cap4:sec:Control de versiones}\\
 
 
-Desde el comienzo, una de las mayores ventajas de la utilización de Kanban es la mejora de la implicación de los integrantes del equipo. Esta metodología permite a todos los miembros conocer el estado del proyecto en cualquier momento, y facilita tanto el reparto de tareas como que los compromisos sean acordados y aceptados por todos. Además, Kanban destaca por ser una técnica de gestión de las tareas muy visual, que permite ver a golpe de vista el estado de los proyectos, así como también pautar el desarrollo del trabajo de manera efectiva. La herramienta utilizada para implementar el tablero Kanban ha sido Trello, explicada con detalle en la sección \ref{cap4:sec:Trello}, y donde se explica en profundidad la forma en la que el equipo ha utilizado esta metodología de trabajo.\\
 
-
-En Kanban existen tres reglas \citep*{tchKanban2} que ayudan a obtener el máximo rendimiento del flujo de trabajo. Dichas reglas son las siguientes:
+En nuestro proyecto seguimos algunas de las reglas de la metodología Kanban. Kanban \citep*{tchKanban1} es una metodología ágil cuyo objetivo es gestionar de manera visual cómo se van completando las tareas. Kanban es una palabra japonesa que significa ``tarjetas visuales'', donde Kan es ``visual'', y Ban corresponde a ``tarjeta''. En Kanban existen tres reglas que ayudan a obtener el máximo rendimiento del flujo de trabajo \citep*{tchKanban2}:\\
 
 \begin{itemize}
 	
-		\item \textbf{Visualizar el flujo de trabajo:} una visualización de todas las tareas contribuye a que todos los miembros del equipo se mantengan al corriente del trabajo. Todos los miembros del equipo trabajan en el mismo tablero y colaboran en tiempo real. Además, el tablero digital Trello, a través de su aplicación móvil, permite acceder al flujo de trabajo desde cualquier sitio, compartir tareas con facilidad y comunicarse entre el equipo.
+	\item \textbf{Visualizar el flujo de trabajo:} Kanban destaca por ser una técnica de gestión de tareas muy visual, que permite ver a golpe de vista el estado de los proyectos, así como también pautar el desarrollo del trabajo de manera efectiva. Esta metodología se basa en la implementación de un tablero que hará uso de una serie de tarjetas, que describirán las tareas, y que constará de varias columnas, una por cada estado de dichas tareas.  La elección de los estados depende de las necesidades del proyecto, aunque los tres estados más comunes son ``To Do'', ``Doing'' y ``Done''. Según vayan surgiendo nuevas tareas, los miembros del equipo colocarán las tarjetas en la columna que corresponda, y las irán moviendo de columna a medida que el estado de la tarea avance. La visualización de todas las tareas contribuye a que todos los miembros del equipo se mantengan al corriente del trabajo. Todos los miembros del equipo trabajan en el mismo tablero y colaboran en tiempo real. Esta regla permite a todos los miembros conocer el estado del proyecto en cualquier momento, y facilita tanto el reparto de tareas como que los compromisos sean acordados y aceptados por todos.\\ 
+	
+	\item \textbf{Limitar la cantidad de Trabajo en Proceso:} WIP \citep*{tchWIP}, o ``Work In Progress'', hace referencia al número de tareas máximo permitido en cada columna del tablero. Este límite es importante para prevenir ``cuellos de botella'' o incluso bloqueos. 
+	
+	\item \textbf{Medir el flujo de tareas:} para medir el flujo de tareas, en Kanban se utilizan los términos ``tiempo de entrega'', o ``leadtime'', y ``tiempo de ciclo'', o ``cycletime''.
+	
+	\begin{itemize}
 		
-		\item \textbf{Limitar la cantidad de Trabajo en Proceso:} WIP\citep*{tchWIP}, o ``Work In Progress'', hace referencia a la cantidad de tareas en las que el equipo está trabajando actualmente, y se utiliza para delimitar la capacidad de los flujos de trabajo en los diferentes estados. Es importante establecer metas asequibles y limitar los trabajos en proceso para prevenir el exceso de cantidad de tareas, lo que podría originar ``cuellos de botella'' o incluso bloqueos. Los límites WIP aseguran que el equipo mantiene un ritmo de trabajo óptimo, sin exceder en su capacidad de trabajo. 
+		\item \textbf{Leadtime:} es el periodo de tiempo que transcurre entre la aparición de una nueva tarea y su finalización. 
 		
-		\item \textbf{Medir el flujo de tareas:} para medir el flujo de tareas, en kanban se utilizan los términos ``tiempo de entrega'', o ``leadtime'', y ``tiempo de ciclo'', o ``cycletime'', que en muchos casos se mide en ``días de trabajo''.Estas mediciones permiten estimar el tiempo que llevará completar cierta tarea y en consecuencia optimizar el flujo de trabajo.
+		\item \textbf{Cycletime:} es el periodo de tiempo que transcurre entre que alguien del equipo comienza a trabajar en una tarea hasta que se completa. 
 		
-		\begin{itemize}
-			
-			\item \textbf{Leadtime:} es el periodo de tiempo que transcurre entre la aparición de una nueva tarea, al comprometerse los miembros del equipo a llevarla a cabo, y su finalización. Concretamente, desde que la tarea se coloca en la columna del tablero ``To Do'' hasta que llega a la columna ``Done''.
-			
-			\item \textbf{Cycletime:} es el periodo de tiempo que transcurre entre que alguien del equipo comienza a trabajar en una tarea hasta que se completa. En este tiempo la tarjeta pasaría de la columna ``Doing'' a la columna ``Done'', pudiendo pasar por columnas intermedias como ``Revision'' o ``Test''.
-			
-		\end{itemize}
-
+	\end{itemize}
+	
 \end{itemize}
+
+
+La herramienta utilizada para implementar el tablero Kanban ha sido Trello, explicada con detalle en la sección \ref{cap4:sec:Trello}. En la sección \ref{cap4:sec:Trello} también se explica en profundidad la forma en la que el equipo ha aplicado las tres reglas de Kanban.\\
+
+
+
 
 
 
@@ -74,17 +68,17 @@ En Kanban existen tres reglas \citep*{tchKanban2} que ayudan a obtener el máximo
 %-------------------------------------------------------------------
 \label{cap4:sec:Trello}
 
-A lo largo de todo el proyecto se ha utilizado la herramienta Trello\footnote {\url{https://trello.com/}} para implementar el tablero Kanban, y así visualizar las tareas y su estado de manera clara y en tiempo real. Trello consiste en un conjunto de tableros, a los cuales se les pueden añadir una serie de tareas con diferentes estados. Esto se puede observar en la Figura~\ref {fig: imgTrello}, donde se muestra un ejemplo del tablero utilizado en el desarrollo del proyecto. Esta herramienta permite ver de manera sencilla el estado del proyecto, facilitando así la organización de las tareas a realizar. \\
+A lo largo de todo el proyecto se ha utilizado la herramienta Trello\footnote {\url{https://trello.com/}} para implementar el tablero Kanban, y así visualizar las tareas y su estado de manera clara y en tiempo real. Trello permite crear tableros con distintos estados, a los cuales se les pueden añadir tareas. Esta herramienta permite ver de manera sencilla el estado del proyecto, facilitando así la organización de las tareas a realizar. \\
 
 Durante nuestro TFG se ha utilizado un único tablero, al que se le ha llamado ``Text2LSE'', en el que se han englobado todas las tareas referentes a la investigación, desarrollo y pruebas del proyecto. Se ha diferenciado el tipo de tarea a través de los colores de cada tarjeta:
 
 \begin{itemize}
 	
-	\item \textbf{Azul:} Tareas que engloban las distintas tareas de desarrollo del código de la aplicación web.
+	\item \textbf{Azul:} Tareas de desarrollo del código de la aplicación web.
 	
-	\item \textbf{Rojo:} Tareas que engloban las distintas tareas de desarrollo del código de los servicios web.
+	\item \textbf{Rojo:} Tareas de desarrollo del código de los servicios web.
 	
-	\item \textbf{Verde:} Tareas relacionadas con el desarrollo y corrección de los distintos apartados de la memoria.
+	\item \textbf{Verde:} Tareas relacionadas con la memoria.
 	
 \end{itemize}
 
@@ -94,34 +88,13 @@ Para una mayor organización, el tablero se ha estructurado en cuatro estados:
 	
 	\item \textbf{Lista de Tareas:} Lista de tareas a realizar.
 	
-	\item \textbf{En proceso:} Tareas en proceso de desarrollo. Estas tareas están asignadas a un miembro del equipo. 
+	\item \textbf{En proceso:} Tareas en proceso de desarrollo. Estas tareas están asignadas a un miembro del equipo. Se ha establecido para esta columna un WIP de una tarea por persona, con el fin de evitar bloqueos y ``cuellos de botella''.
 	
-	\item \textbf{En revisión:} Tareas desarrolladas, pero pendientes de realizar pruebas para comprobar su correcto funcionamiento. 
+	\item \textbf{En revisión:} Tareas desarrolladas, pero pendientes de realizar pruebas para comprobar su correcto funcionamiento. Respecto a las tareas correspondientes al código, todos los miembros del equipo realizan pruebas unitarias para comprobar que el nuevo desarrollo funcione correctamente. Respecto a las tareas de memoria, cada nueva aportación de un integrante del grupo es revisada por el resto de los compañeros.
 	
-	\item \textbf{Hecho:} Tareas completadas, comprobadas y subidas al repositorio de GitHub.
-	
-\end{itemize}
-
-Cada miembro del equipo ha sido el encargado de actualizar en tiempo real el estado de las tarjetas que tenía asignadas, consiguiendo tener una buena organización con respecto a las tareas a realizar. Para ello se han utilizado límites del trabajo en proceso (WIP), de forma que se ha restringido la cantidad máxima de elementos en los que el equipo está trabajando. El límite utilizado ha sido de dos tareas máximo por miembro del equipo, siendo una tarea relacionada con el desarrollo de la web o con el desarrollo de los servicios web y otra con la memoria. De esta forma se ha podido realizar el trabajo de desarrollo y actualizar la memoria con las nuevas funcionalidades, así la memoria siempre ha estado con el contenido actualizado. La utilización de WIP  permite mejorar la forma de trabajo en equipo de las siguientes maneras:
-
-\begin{itemize}
-	
-	\item Evita la sobrecarga de trabajo a los miembros del equipo.
-	
-	\item Permite localizar y disminuir los cuellos de botella en el flujo de trabajo, es decir, determinar qué tareas bloquean el trabajo y redistribuir los recursos si es necesario.
-	
-	\item Evita que los miembros del equipo cambien de tarea de manera desordenada, de forma que todos en todo momento tienen claro cuales son sus tareas a realizar.
+	\item \textbf{Hecho:} Tareas completadas y comprobadas.
 	
 \end{itemize}
-
-
-
-\begin{figure}[]
-	\centering
-	\includegraphics[width=1\textwidth]{Imagenes/Fuentes/Metodologias/trello.jpg}
-	\caption{Tablero Kanban utilizado en el proyecto.  }
-	\label {fig: imgTrello}
-\end{figure}
 
 
 
@@ -136,18 +109,21 @@ El equipo también se ha mantenido en contacto vía email con los tutores comentan
 
 De esta forma, los integrantes del equipo y los tutores han estado informados constantemente del progreso del trabajo, se ha podido hacer un reparto claro de tareas y se han podido establecer tiempos de entrega realistas y factibles.\\
 
+A partir de marzo, debido a las situación causada por la Covid-19, se tuvieron que suprimir las reuniones presenciales. Se han mantenido las reuniones semanales de los miembros del equipo, pero a distancia a través de Skype. También se ha mantenido el contacto vía email con los tutores, y las reuniones con ellos se han realizado a través de Google Meet.
+
 
 %-------------------------------------------------------------------
 \section{Control de versiones}
 %-------------------------------------------------------------------
-Para la realizar la gestión del proyecto se ha decidido usar la herramienta de GitHub \footnote{\url{https://help.github.com/}} que es una plataforma basada en el sistema de control de versiones Git que permite ver y llevar el registro de todos los cambios realizados en el proyecto, organizarlos y resolver cualquier conflicto que pueda surgir. \\
+\label{cap4:sec:Control de versiones}
+Para realizar la gestión del proyecto se ha decidido usar la herramienta GitHub, que es una plataforma basada en el sistema de control de versiones Git, que permite ver y llevar el registro de todos los cambios realizados en el proyecto, organizarlos y resolver cualquier conflicto que pueda surgir.\\
 
-A continuación se explica la estructura que se ha seguido en el desarrollo de Text2LSE (Figura\ref{fig: imgGit}).
+Se ha utilizado la cuenta del grupo NIL\footnote{\url{https://github.com/NILGroup/TFG-1920-Text2LSE.git}}, que nos permite gestionar todo el código del proyecto de manera privada, ya que únicamente los miembros de dicho grupo tienen acceso a él. Al finalizar este TFG, dicha cuenta se hará pública con la finalidad de que cualquier persona pueda consultar el código. \\
 
 
 \subsection{Estructura de Trabajo}
 
-Debido a la necesidad de trabajar los tres miembros del equipo de forma independiente, se ha decidido estructurar las ramas de trabajo de forma que se impida interferir en el trabajo de los demás compañeros. Por este motivo, se han creado tres ramas principales: Memoria, API, y Web. Desde cada una de estas ramas se crearán ramas hijas según las funcionalidades a desarrollar, lo que permite que un miembro del equipo pueda trabajar sobre ella sin necesidad de modificar el resto del proyecto. Una vez finalizado el trabajo sobre esa rama hija, esta podrá eliminarse una vez realizada la correspondiente actualización sobre la rama padre. A continuación se detalla la estructura de las ramas de trabajo:
+Debido a la necesidad de trabajar los tres miembros del equipo de forma independiente, se ha decidido estructurar las ramas de trabajo de forma que se impida interferir en el trabajo de los demás compañeros. Por este motivo, se han creado tres ramas principales, como se puede ver en la Figura \ref{fig: imgGit}: Memoria, API, y Web. Desde cada una de estas ramas se crearán ramas hijas según las funcionalidades a desarrollar, lo que permite que un miembro del equipo pueda trabajar sobre ella sin necesidad de modificar el resto del proyecto. Una vez finalizado el trabajo sobre esa rama hija, esta podrá eliminarse una vez realizada la correspondiente actualización sobre la rama padre. A continuación se detalla la estructura de las ramas de trabajo:
 
 \begin{itemize}
 	\item\textbf{MASTER:} Rama principal del proyecto donde todo ha sido revisado. De ella dependen:
@@ -199,6 +175,8 @@ Debido a la necesidad de trabajar los tres miembros del equipo de forma independ
 		
 	\end{itemize}
 \end{itemize}
+
+Cada vez que se termina con el desarrollo en las ramas hijas se hace un merge a cada una de ramas principales para tener la versión mas reciente de cada rama. Una vez revisadas estas ramas, se actualiza la rama Master con la última versión.
 
 
 \begin{figure}[]
