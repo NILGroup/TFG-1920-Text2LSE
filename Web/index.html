@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="styles.css">
   
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
+  <link rel="icon" type="image/png" href="logo.png">
   
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -25,16 +25,16 @@
 <body>
 
 <div class="header">
-    <strong><label class="logo">Text2LSE</label></strong>
+    <img src="logo.png" width="90" height="90">
     <input type="checkbox" id="chk">
     <label for="chk" class="show-menu-btn">
       <i class="fas fa-bars"></i>
     </label>
 
     <ul class="menu">
-      <a href="index.html">App</a>
-      <a href="team.html">Team Members</a>
-      <a href="#">About Text2LSE</a>
+      <a href="index.html">Inicio</a>
+      <a href="team.html">Miembros del equipo</a>
+      <a href="https://github.com/NILGroup/TFG-1920-Text2LSE">Github</a>
       <label for="chk" class="hide-menu-btn">
         <i class="fas fa-times"></i>
       </label>
@@ -42,66 +42,83 @@
 </div>
 
 
-<div class="container-fluid" id="containerPag">
+<div class="container-fluid mt-30" id="containerPag">
   <div class="row">    
-    <!-- VIDEO -->
-    <div class="col-md-offset-1 col-md-4">
-      
-      <div class="row">
-
-        <div id="videoContainer" class="text-center embeb-responsive embeb-responsive-3by2">
-          
-        </div>
-      </div>
+    <div class="col-md-offset-2 col-md-8">
       <div class="row">
         <form role="form" id="formVideo">
+
           <div class="row">
-            <h4>Escribe texto a traducir a video:</h4>
-            <div class="form-group">
-              <!--<textarea class="form-control" name="textToTranslateVideo" id="textToTranslateVideo" rows="3" required></textarea>-->
-              <textarea class="form-control z-depth-1" name="textToTranslateVideo" id="textToTranslateVideo" rows="3"></textarea>
+            <div class="col-md-12">
+              <h4>Escribe texto a traducir:</h4>
+              <div class="form-group">
+                <textarea class="form-control z-depth-1" name="textToTranslate" id="textToTranslate" rows="3"></textarea>
+              </div>
             </div>
           </div>
+
           <div class="row">
-            <!-- <button onClick = "GetVideoWord()" id="btn1WordVideo" class="btn btn-success">Video 1 palabra</button>-->
-            <button onClick = "GetVideoSentence()" id="btnSentenceVideo" class="btn submitBtn"><i class="fas fa-play"></i> Traducir</button>
-            <!--<button onClick = "GetTextLSEJson()" id="btnJsonLSE" class="btn btn-success">Json LSE</button>-->
-            <!--<button onClick = "GetTextLSEVideosJson()" id="btnJsonLSEVideos" class="btn btn-success">Json LSE Form. videos</button>-->
+            <div class="col-md-4">
+               <div class="form-group">
+                  <h4>Selecciona formato de salida:</h4>
+                  <select class="form-control" id="formato">
+                    <option>Imagen</option>
+                    <option>Vídeo</option>
+                    <option>Texto</option>
+                  </select>
+              </div> 
+            </div>
           </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <button onClick = "Translate()" id="btnSentenceVideo" class="btn submitBtn"><i class="fas fa-play"></i> Traducir </button>
+            </div>
+          </div>
+
         </form>
       </div>
 
-     </div>
-    <!-- FIN VIDEO -->
-    <!-- TEXTO -->
-
-    <div class="col-md-offset-1 col-md-4">
       <div class="row">
+        <div class="col-md-12">
+          <div id="spinner">
+            <div class="loader center"></div>
+          </div>
+        </div>
+      </div>
+      <!-- RESULTADO VÍDEO -->
+      <div class="row" >
+        <div id="videoContainer" class="text-center embeb-responsive embeb-responsive-3by2">
+          <div class="row">
+            <video src="" id="videoLSE1" width="320" height="240" controls> </video>
+            <video src="" id="videoLSE2" width="320" height="240" controls class="noDisplay"> </video>
+          </div>
+          <div class="row">
+            <label id="txtVideo"> </label>
+          </div>
+            
+        </div>
+      </div>
+
+       <!-- RESULTADO TEXTO -->
+     <div class="row">
         <div id="JSONContainer" class="overflow-auto">
           <div id="JSONText" ></div>
         </div>
       </div>
-      <div class="row">
-        <form role="form" id="formJSON">
-          <div class="row">
-            <h4>Escribe texto a traducir a sordo:</h4>
-            <div class="form-group">
-              <!--<textarea class="form-control" name="textToTranslateJSON" id="textToTranslateJSON" rows="3" required></textarea>-->
-              <textarea class="form-control z-depth-1" name="textToTranslateJSON" id="textToTranslateJSON" rows="3"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <button onClick = "GetTextLSEJson()" id="btnJsonLSE" class="btn submitBtn"><i class="fas fa-pen-fancy"></i> Traducir</button>
-
-          </div>
-        </form>
+       <!-- RESULTADO IMAGEN -->
+      <div class="row" >
+        <div id="imageContainer" class="flex-container">
+        </div>
       </div>
-    </div>
-    <!-- FIN TEXTO -->
+
+     </div>
+    
+
   </div>
 </div>
 
-<footer class="page-footer font-small pt-4 navbar navbar-fixed-bottom">
+<footer class="fixed">
 
   <!-- Footer Links -->
   <div class="container-fluid text-center text-md-left">
@@ -110,11 +127,11 @@
     <div class="row">
 
       <!-- Grid column -->
-      <div class="col-md-12 mt-3">
+      <div class="col-md-12">
 
         <!-- Content -->
-        <h5 class="text-uppercase">Trabajo Fin de Grado</h5>
-        <p>Desarrollado por estudiantes de la Facultad de Informática de la Universidad Complutense de Madrid</p>
+        <h5 class="text-uppercase text-red">Trabajo Fin de Grado</h5>
+        <p>Facultad de Informática UCM</p>
 
       </div>
       <!-- Grid column -->
@@ -125,5 +142,27 @@
   
 
 </footer>
+
+<!-- Modal -->
+<div id="errorModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Ha ocurrido un error</h4>
+      </div>
+      <div class="modal-body">
+        <p id="textoError"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 </body>
 </html>
