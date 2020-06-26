@@ -52,7 +52,7 @@ Se ha utilizado un proxy inverso para poder acceder tanto a la página web como a
 	
 \end{itemize}
 
-En este proyecto, se ha configurado el servidor Nginx como servidor proxy inverso con el fin de redirigir las distintas solicitudes al servidor correspondientes. Se han especificado una serie de rutas para diferenciar qué llamadas de usuario redireccionar a la página web y cuáles a los servicios web. Esta estructura se puede observar en la Figura~\ref {fig: imgProxy}.
+En este proyecto, se ha configurado el servidor Nginx como servidor proxy inverso con el fin de redirigir las distintas solicitudes al servidor correspondiente. Se han especificado una serie de rutas para diferenciar qué llamadas de usuario redireccionar a la página web y cuáles a los servicios web. Esta estructura se puede observar en la Figura~\ref {fig: imgProxy}.
 
 \begin{figure}[]
 	\centering
@@ -142,7 +142,7 @@ La respuesta a la llamada del ejemplo devolverá la imagen de la Figura~\ref {fig
 
 
 \subsection{Servicio web para Traducción de texto en castellano a texto en LSE}
-Este servicio implementa la funcionalidad de traducción de un texto en castellano a LSE en formato texto. Como la LSE tiene una estructura gramatical distinta al castellano es necesario obtener una traducción en LSE en formato texto que sirve de base para los demás servicios implementados, ya que su salida en formato texto les servirá como entrada.
+Este servicio implementa la funcionalidad de traducción de un texto en castellano a LSE en formato texto. Como la LSE tiene una estructura gramatical distinta al castellano es necesario obtener una traducción en LSE en formato texto que sirve de base para los demás servicios implementados, ya que su salida en formato texto les servirá como entrada.\\
 
 Por ejemplo la frase  ``\textit{El niño comío chocolate}'' en texto LSE sería ``\textit{niño parque jugar}''. Para traducirlo a formato imagen o formato vídeo habría que buscar las imágenes o vídeos (niño parque jugar) con los correspondientes servicios de imagen y vídeo.\\
 
@@ -175,7 +175,7 @@ Un ejemplo de uso sería:
 \end{center}
 
 
-Para que el servicio web sea capaz de traducir una frase a texto LSE, se debe que realizar un procesamiento previo del texto en castellano para poder adaptarlo a la Lengua de Signos Española. Este procesamiento es realizado con un sistema de reglas, que filtran qué palabras deben de ser utilizadas y cuales no, al igual que determina su orden en la oración en LSE, puesto que la estructura gramatical de la LSE es diferente al castellano, tal y como se contó en la sección ~\ref {cap2:sec:Sintaxis de la Lengua de Signos}. La elección a la hora de desarrollar el Procesamiento del Lenguaje Natural para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje automático. La opción de desarrollar un aprendizaje automático no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligió el sistema basado en reglas, ya que era más fácil de implementar y, aunque puede limitar la capacidad de traducción de frases que no cumplan dichas reglas, cumple con el objetivo marcado en el proyecto, que es traducir frases simples a LSE.\\
+Para que el servicio web sea capaz de traducir una frase a texto LSE, se debe que realizar un procesamiento previo del texto en castellano para poder adaptarlo a la Lengua de Signos Española. Este procesamiento es realizado con un sistema de reglas, que filtran qué palabras deben de ser utilizadas y cuáles no, al igual que determina su orden en la oración en LSE, puesto que la estructura gramatical de la LSE es diferente al castellano, tal y como se contó en la sección ~\ref {cap2:sec:Sintaxis de la Lengua de Signos}. La elección a la hora de desarrollar el Procesamiento del Lenguaje Natural para nuestro proyecto estaba entre un sistema basado en reglas o mediante el uso de aprendizaje automático. La opción de desarrollar un aprendizaje automático no era viable debido a la dificultad y la falta de ejemplos en castellano para entrenar el sistema. Por este motivo se eligió el sistema basado en reglas, ya que era más fácil de implementar y, aunque puede limitar la capacidad de traducción de frases que no cumplan dichas reglas, cumple con el objetivo marcado en el proyecto, que es traducir frases simples a LSE.\\
 
 
 Este servicio web lo primero que hace es recopilar información de la frase para luego realizar un análisis sintáctico y morfológico, y así poder ordenarla respetando la estructura de la LSE. En las siguientes subsecciones se explicará con más detalle cada cada uno de los pasos del flujo de este servicio (Ver Figura:  ~\ref {fig: imgFlujoFlujoTextoLSE})
@@ -192,7 +192,7 @@ Para poder realizar el análisis sintáctico y morfológico de la oración se necesi
 
 \begin{itemize}
 		
-	 \item \textbf{Dependencia:} Indica la relación de dependencia sintáctica dentro de la oración, es decir, que función tiene la palabra dentro de la oración. Las funciones principales son sujeto, raíz que es la palabra de la que dependen todas las demás u objeto. En la Figura ~\ref {fig: raizEjemplo} se puede ver un ejemplo donde ``\textit{yo}'' es el sujeto, el verbo ``\textit{comer}'' la raíz y ``\textit{chocolate}'' el objeto. 
+	 \item \textbf{Dependencia:} Indica la relación de dependencia sintáctica dentro de la oración, es decir, qué función tiene la palabra dentro de la oración. Las funciones principales son sujeto, raíz (que es la palabra de la que dependen todas las demás) u objeto. En la Figura ~\ref {fig: raizEjemplo} se puede ver un ejemplo donde ``\textit{yo}'' es el sujeto, el verbo ``\textit{comer}'' la raíz y ``\textit{chocolate}'' el objeto. 
 	
 	\begin{figure}[h]
 		\centering
@@ -203,7 +203,7 @@ Para poder realizar el análisis sintáctico y morfológico de la oración se necesi
 
 	\item \textbf{Tags:} Indica el género, número, el tiempo verbal y la persona de cada token.
 	\item \textbf{Part of speech:} Indica el tipo de palabra en función de su uso en la oración, tales como nombres, adjetivos, adverbios y verbos.
-	\item \textbf{Lemma:} Es la palabra que encabeza un artículo de un diccionario o de una enciclopedia, por ejemplo el lemma de ``jugábamos'' es ``jugar''.
+	\item \textbf{Lemma:} Es la palabra que encabeza un artículo de un diccionario o de una enciclopedia. Por ejemplo, el lemma de ``jugábamos'' es ``jugar''.
 	
 	
 \end{itemize}
@@ -263,7 +263,7 @@ La Lengua de Signos Española tiene una estructura gramatical diferente al castel
 	TIEMPO + SUJETO + OBJETO + VERBO.
 \end{center}
 
-Como se explica en la sección ~\ref {cap2:sec:Sintaxis de la Lengua de Signos} en la LSE las palabras pueden estar estructuradas de forma diferente con respecto a la oración original en castellano.
+Como se explica en la sección ~\ref {cap2:sec:Sintaxis de la Lengua de Signos} en la LSE las palabras pueden estar estructuradas de forma diferente con respecto a la oración original en castellano.\\
 
 
 Para conseguir la traducción de la frase original en castellano a LSE se necesita un análisis morfológico que permita detectar:

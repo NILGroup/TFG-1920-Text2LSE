@@ -36,7 +36,7 @@ Tex2LSE actualmente es capaz de traducir frases simples que siguen la estructura
 	\end{figure}
 
 	
-	\item \textbf{Cambiar los determinantes posesivos:} Los determinantes que indican posesión los sustituye por pronombres personales como se puede ver también en la Figura~\ref{fig: AP_E17_cap8}.
+	\item \textbf{Cambiar los determinantes posesivos:} Los determinantes que indican posesión los sustituye por pronombres personales, como se puede ver también en la Figura~\ref{fig: AP_E17_cap8}.
 	
 	\begin{figure}[]
 		\centering
@@ -54,7 +54,7 @@ Tex2LSE actualmente es capaz de traducir frases simples que siguen la estructura
 		\label {fig: AP_E16_cap8}
 	\end{figure}
 	
-	\item \textbf{Adjetivos}: Detecta todos los adjetivos de la oración y los pasa a masculino singular como por ejemplo la Figura~\ref{fig: AP_E2_cap8}.
+	\item \textbf{Adjetivos}: Detecta todos los adjetivos de la oración y los pasa a masculino singular, como por ejemplo la Figura~\ref{fig: AP_E2_cap8}.
 	
 		\begin{figure}[]
 		\centering
@@ -72,7 +72,7 @@ Aunque queda mucho trabajo por hacer, nos gustaría destacar que al comienzo de e
 Otro aspecto importante del trabajo que hemos desarrollado ha sido crear una API pública \footnote{\url{https://holstein.fdi.ucm.es/tfg-text2lse/}} con los servicios web desarrollados, de tal forma que sea fácil de utilizar en otros proyectos.\\ 
 
 
-Aparte de la traducción, el propósito era crear también una aplicación con una interfaz intuitiva y accesible para todos desde cualquier dispositivo. Se tenía la intención de hacer una evaluación de la interfaz con usuarios reales pero debido a la Covid-19 no ha sido posible realizar dicha evaluación. Aún así, teniendo en cuenta las opiniones de los tutores en este sentido y siguiendo sus consejos de diseño, creemos que la interfaz es sencilla e intuitiva y cumplimos el objetivo marcado.\\
+Aparte de la traducción, el propósito era crear también una aplicación con una interfaz intuitiva y accesible para todos desde cualquier dispositivo. Se tenía la intención de hacer una evaluación de la interfaz con usuarios reales, pero debido a la Covid-19 no ha sido posible realizar dicha evaluación. Aún así, teniendo en cuenta las opiniones de los tutores en este sentido y siguiendo sus consejos de diseño, creemos que la interfaz es sencilla e intuitiva y cumplimos el objetivo marcado.\\
 
 
 El desarrollo de Text2LSE nos ha permitido aplicar muchos conocimientos adquiridos durante el Grado de Ingeniería Informática en un proyecto grande y con una utilidad social, no solo para el ámbito académico. Algunas asignaturas que han sido muy importantes para poder realizar este proyecto han sido:
@@ -103,7 +103,7 @@ Con el objetivo de mejorar algunas funcionalidades de la aplicación de Text2LSE 
 \begin{itemize}
 	
 
-	\item \textbf{Traducción de nombres propios:} En la LSE los nombres propios se pueden traducir usando el signo de cada letra hasta completar el nombre, o utilizar un signo propio que defina a la persona. Actualmente la aplicación detecta el nombre propio pero no encuentra traducción, ya que no hay imágenes o vídeos para ese nombre, como se puede ver en la Figura  ~\ref {fig: AnaAlta}. La solución sería utilizar el signo de cada letra del nombre propio como se puede ver en la Figura ~\ref {fig: NombreBien}
+	\item \textbf{Traducción de nombres propios:} En la LSE los nombres propios se pueden traducir usando el signo de cada letra hasta completar el nombre, o utilizar un signo propio que defina a la persona. Actualmente la aplicación detecta el nombre propio pero no encuentra traducción, ya que no hay imágenes o vídeos para ese nombre, como se puede ver en la Figura~\ref {fig: AnaAlta}. La solución sería utilizar el signo de cada letra del nombre propio como se puede ver en la Figura~\ref {fig: NombreBien}
 	
 	\begin{figure}[]
 		\centering
@@ -121,7 +121,7 @@ Con el objetivo de mejorar algunas funcionalidades de la aplicación de Text2LSE 
 	\end{figure}
 
 
-	\item \textbf{Mejorar el Género y Número:} Como se indica en la sección \ref{cap6:sec:Análisis de los Resultados}, una mejora sería detectar cuando añadir el signo que indica Femenino o el signo que indica el Plural, ya que hay veces que no es necesario añadirlo, por ejemplo en la palabra ``rampas'' cuya traducción sería el signo \textit{``RAMPAS''} (Figura ~\ref {fig: rampas}). Sin embargo, la aplicación lo traduce como ``RAMPAS + FEMENINO + PLURAL'', como se puede ver en la Figura ~\ref {fig: rampasMal}
+	\item \textbf{Mejorar el Género y Número:} Como se indica en la sección \ref{cap6:sec:Análisis de los Resultados}, una mejora sería detectar cuando añadir el signo que indica Femenino o el signo que indica el Plural, ya que hay veces que no es necesario añadirlo, por ejemplo en la palabra ``rampas'' cuya traducción sería el signo \textit{``RAMPAS''} (Figura ~\ref {fig: rampas}). Sin embargo, la aplicación lo traduce como ``RAMPAS + FEMENINO + PLURAL'', como se puede ver en la Figura~\ref {fig: rampasMal}.
 	
 	\begin{figure}[]
 		\centering
@@ -139,7 +139,7 @@ Con el objetivo de mejorar algunas funcionalidades de la aplicación de Text2LSE 
 
 	\item \textbf{Añadir la negación:} Actualmente el sistema de reglas no contempla la negación de las oraciones, por lo que sería un gran avance añadir una regla que permita traducir bien una oración negativa en LSE.
 
-	\item \textbf{Reconocimiento de tiempos compuestos:} La aplicación actualmente no es capaz de reconocer los tiempos compuestos, como pueden ser ``han comido'' o ``estaban comiendo'', por lo que sería importante ampliar la parte del PLN de Text2LSE para que este tipo de verbos se traduzcan de manera correcta. En la Figura ~\ref {fig: hanComidoPanMal} se puede ver que nuestra aplicación intenta traducir el verbo haber y no encuentra resultado. La opción correcta sería la de la Figura ~\ref {fig: hanComidoPanBien}
+	\item \textbf{Reconocimiento de tiempos compuestos:} La aplicación actualmente no es capaz de reconocer los tiempos compuestos, como pueden ser \textit{``han comido''} o \textit{``estaban comiendo''}, por lo que sería importante ampliar la parte del PLN de Text2LSE para que este tipo de verbos se traduzcan de manera correcta. En la Figura ~\ref {fig: hanComidoPanMal} se puede ver que nuestra aplicación intenta traducir el verbo haber y no encuentra resultado. La opción correcta sería la de la Figura ~\ref {fig: hanComidoPanBien}.
 	
 	\begin{figure}[]
 		\centering
@@ -155,7 +155,7 @@ Con el objetivo de mejorar algunas funcionalidades de la aplicación de Text2LSE 
 		\label {fig: hanComidoPanBien}
 	\end{figure}
 	
-	\item \textbf{Tratamieto de frases hechas:} Contemplar la identificación de frases hechas que tienen un signo propio y no requiere una traducción palabra a palabra. Por ejemplo la frase ``Secar el pelo'' se traduce con un solo signo, como se puede ver en la Figura ~\ref {fig: pelosecar}. Sin embargo, nuestra aplicación realiza la traducción como si fuera una oración normal (Ver Figura ~\ref {fig: SecarPeloMAL})
+	\item \textbf{Tratamieto de frases hechas:} Contemplar la identificación de frases hechas que tienen un signo propio y no requiere una traducción palabra a palabra. Por ejemplo la frase \textit{``Secar el pelo''} se traduce con un solo signo, como se puede ver en la Figura ~\ref {fig: pelosecar}. Sin embargo, nuestra aplicación realiza la traducción como si fuera una oración normal (Ver Figura ~\ref {fig: SecarPeloMAL}).
 	
 	\begin{figure}[]
 		\centering
@@ -171,7 +171,7 @@ Con el objetivo de mejorar algunas funcionalidades de la aplicación de Text2LSE 
 		\label {fig: SecarPeloMAL}
 	\end{figure}
 
-	\item \textbf{Traducción de oraciones compuestas:} La versión actual de Text2LSE permite traducir frases simples, pero no traduce frases compuestas, como por ejemplo ``Los niños fueron al parque para jugar con sus amigos''. En esta oración se puede apreciar que hay dos oraciones más simples bien distinguidas: ``Los niños fueron al parque'' y ``(Los niños) jugar con sus amigos''. Una posible mejora sería realizar un conjunto de reglas que permitan traducir estas frases compuestas.
+	\item \textbf{Traducción de oraciones compuestas:} La versión actual de Text2LSE permite traducir frases simples, pero no traduce frases compuestas, como por ejemplo \textit{``Los niños fueron al parque para jugar con sus amigos''}. En esta oración se puede apreciar que hay dos oraciones más simples bien distinguidas: \textit{``Los niños fueron al parque''} y \textit{``(Los niños) jugar con sus amigos''}. Una posible mejora sería realizar un conjunto de reglas que permitan traducir estas frases compuestas.
 
 
 	\item \textbf{Mejora en el PLN del Sistema:} El PLN utilizado en el proyecto ha sido mediante un sistema de reglas utilizando la herramienta Spacy. Este sistema no es capaz de traducir frases que no estén contempladas en las reglas previamente programadas. Un cambio interesante y muy importante sería cambiar el sistema basado en reglas por uno basado en aprendizaje automático, que sea capaz de aprender por sí mismo a traducir cualquier tipo de frase a base de entrenamiento.

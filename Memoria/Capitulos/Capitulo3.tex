@@ -26,7 +26,7 @@ En este capítulo se habla de las tecnologías utilizadas a lo largo del desarroll
 \label{cap3:sec:Servicios Web}
 Según el W3C (World Wide Consortium)\footnote{\url{https://www.w3.org/}} un servicio web es un sistema software diseñado para soportar interacciones entre sistemas a través de la red. Proporcionan una forma estándar de interoperar entre aplicaciones software que se pueden ejecutar en diferentes plataformas, soportando  aplicaciones desarrolladas en distintos lenguajes de programación.\\
 
-Muchos de los servicios web están basados en la arquitectura SOA (Service Oriented Architecture). Es un estilo arquitectónico para la construcción de aplicaciones software en base a servicios disponibles los cuales interactúan entre sí y se pueden combinar obteniendo nuevos servicios con más funcionalidades.\\
+Muchos de los servicios web están basados en la arquitectura SOA (Service Oriented Architecture). Es un estilo arquitectónico para la construcción de aplicaciones software en base a servicios disponibles, los cuales interactúan entre sí y se pueden combinar obteniendo nuevos servicios con más funcionalidades.\\
 
 Los dos tipos de servicios web más utilizados en la actualidad son: Servicios Web SOAP y Servicios Web REST.
 
@@ -37,12 +37,12 @@ Los dos tipos de servicios web más utilizados en la actualidad son: Servicios We
 
 Los Servicios Web SOAP \citep*{tchSOAP} son un tipo de servicios web cuyo propósito es que las aplicaciones implementadas en diferentes plataformas y lenguajes de programación sean capaces de intercambiar datos de una forma más sencilla. \\
 
-Está basado en el protocolo SOAP (Simple Object Access Protocol) basado en el lenguaje XML, el cual permite el intercambio de información entre aplicaciones. El mensaje se codifica como un documento XML, que consta de un elemento \textit{<Envelope>} que hace referencia a la raíz de cada mensaje y este a su vez incorpora una cabecera opcional \textit{<Header>} y un cuerpo \textit{<Body>} obligatorio. La primera es utilizada para pasar información de la aplicación  y la segunda contiene la información dirigida al destinatario final del mensaje. Dentro del \textit{<Body>} está el subelemento \textit{<Fault>}   que sirve para la notificación de errores.\\ 
+Está basado en el protocolo SOAP (Simple Object Access Protocol) basado en el lenguaje XML, el cual permite el intercambio de información entre aplicaciones. El mensaje se codifica como un documento XML, que consta de un elemento \textit{<Envelope>} que hace referencia a la raíz de cada mensaje, y este a su vez incorpora una cabecera opcional \textit{<Header>} y un cuerpo \textit{<Body>} obligatorio. La primera es utilizada para pasar información de la aplicación  y la segunda contiene la información dirigida al destinatario final del mensaje. Dentro del \textit{<Body>} está el subelemento \textit{<Fault>}, que sirve para la notificación de errores.\\ 
 
-Funciona por lo general con el protocolo HTTP, sin embargo no está limitado solo a este protocolo, si no que puede ser enviado por otros tipos de protocolos diferentes como TCP o POP3.\\
+Funciona por lo general con el protocolo HTTP, sin embargo, no está limitado solo a este protocolo, si no que puede ser enviado por otros tipos de protocolos diferentes, como TCP o POP3.\\
 
 
-Para poder acceder al servicio web se necesita saber donde está ubicado y cuales son las funcionalidades del servicio. Para ello se utiliza el lenguaje de descripción WSDL (Web Services Description Language), el cual está basado en XML y permite especificar a los clientes qué llamadas se pueden hacer a un servidor SOAP y que tipo de respuesta esperar. A pesar de tener el archivo WSDL es necesario saber dónde está toda esta información. Para ello se dispone del UDDI (Universal Description, Discovery and Integration Directory), que es un estándar basado en XML que actúa como repositorio donde se puede acudir a realizar búsquedas de Servicios Web específicos.
+Para poder acceder al servicio web se necesita saber donde está ubicado y cuales son las funcionalidades del servicio. Para ello, se utiliza el lenguaje de descripción WSDL (Web Services Description Language), el cual está basado en XML y permite especificar a los clientes qué llamadas se pueden hacer a un servidor SOAP y qué tipo de respuesta esperar. A pesar de tener el archivo WSDL, es necesario saber dónde está toda esta información. Para ello se dispone del UDDI (Universal Description, Discovery and Integration Directory), que es un estándar basado en XML que actúa como repositorio donde se puede acudir a realizar búsquedas de Servicios Web específicos.
 
 
 %-------------------------------------------------------------------
@@ -154,7 +154,7 @@ Se ha utilizado un servidor Nginx para alojar una aplicación web cuya finalidad 
 
 Google Colaboratory\footnote {\url{https://colab.research.google.com/notebooks/intro.ipynb}} es una herramienta gratuita de Google que permite programar en Python y ejecutar el código en tiempo real. El usuario final no necesita instalar nada en su propio sistema, ya que se pueden importar las librerías necesarias y toda la carga del procesamiento se localiza en los servidores de Google. \\
 
-Con esta herramienta se crean documentos llamados ``cuadernos de Colaboratory'', los cuales contienen celdas independientes en las que se puede introducir código ejecutable, texto, imágenes, comandos de la shell de Linux, código HTML, LaTex, etc. Todos estos cuadernos son almacenados en la cuenta de Google Drive del usuario, haciendo que compartirlo con otras personas sea muy rápido y sencillo. Podemos ver un ejemplo de un cuaderno en la Figura~\ref {fig: imgGoogleColab}\\
+Con esta herramienta se crean documentos llamados ``cuadernos de Colaboratory'', los cuales contienen celdas independientes en las que se puede introducir código ejecutable, texto, imágenes, comandos de la shell de Linux, código HTML, LaTex, etc. Todos estos cuadernos son almacenados en la cuenta de Google Drive del usuario, haciendo que compartirlo con otras personas sea muy rápido y sencillo. Podemos ver un ejemplo de un cuaderno en la Figura~\ref {fig: imgGoogleColab}.\\
 
 Una de las opciones más llamativas de Colaboratory es la opción de poder procesar el código que necesite gran potencia a través de un acelerador, en este caso consiste en una GPU proporcionada por Google.\\
 
