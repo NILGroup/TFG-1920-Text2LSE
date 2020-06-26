@@ -94,7 +94,7 @@ constantes,guionado,Cascaras/bibliografia,config%
       investigación, trabajo de Master},
     pdfauthor = {\textcopyright\ \autor},
     pdfcreator = {\LaTeX\ con el paquete \flqq hyperref\frqq},
-    pdfproducer = {pdfeTeX-0.\the\pdftexversion\pdftexrevision},
+    pdfproducer = {pdfeTeX-0.\the\pdftexversion\pdftexrevision}
     }
     \pdfinfo{/CreationDate (\today)}
 \fi
@@ -119,7 +119,13 @@ constantes,guionado,Cascaras/bibliografia,config%
 
 %\include{Cascaras/agradecimientos}
 
-%\include{Cascaras/resumen}
+\include{Cascaras/resumen}
+
+\include{Cascaras/palabrasClave}
+
+\include{Cascaras/abstract}
+
+\include{Cascaras/keywords}
 
 \ifx\generatoc\undefined
 \else
@@ -131,26 +137,45 @@ constantes,guionado,Cascaras/bibliografia,config%
 \mainmatter
 \restauraCabecera
 
+
+
 %\include{Capitulos/Parte1}
+
 \include{Capitulos/Capitulo1}
+
+\begin{otherlanguage}{english}
+	\addtocounter{chapter}{-1}
+\include{Chapters/Chapter1}
+\end{otherlanguage}
+
 \include{Capitulos/Capitulo2}
 \include{Capitulos/Capitulo3}
 \include{Capitulos/Capitulo4}
 \include{Capitulos/Capitulo5}
+\include{Capitulos/Capitulo6}
 \include{Capitulos/CapituloTrabajoIndividual}
+\include{Capitulos/Capitulo8}
+
+\begin{otherlanguage}{english}
+	\addtocounter{chapter}{-1}
+\include{Chapters/Chapter8}
+\end{otherlanguage}
+
+
 %\include{...}
 %\include{...}
 %\include{...}
 %\include{...}
 
 % Apéndices
-%\appendix
-%\include{Apendices/ParteApendices}
-%\include{Apendices/01ApendiceA}
-%\include{...}
-%\include{...}
-%\include{...}
-
+\appendix
+\include{Apendices/ParteApendices}
+\include{Apendices/A}
+\include{Apendices/B}
+\include{Apendices/C}
+\include{Apendices/D}
+\include{Apendices/E}
+\include{Apendices/F}
 \backmatter
 
 %
