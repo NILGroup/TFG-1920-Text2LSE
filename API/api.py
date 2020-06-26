@@ -1,72 +1,72 @@
 #------------------- Librerías Python -------------------#
 from flask import Flask, abort, jsonify, request, send_file, make_response
 from flask_cors import CORS
-import spacy
-import os
+import spacy, os
+import re
 #------------------- Archivos lógica --------------------#
-import video
-import pln
+import video, imagenes, pln
 import constantes as const
 
 app = Flask(__name__)
 CORS(app)
 
 
+#------------------- Gestion de errores --------------------#
+class BadRequest(Exception):
+	def __init__(self, message, status=400, payload=None):
+		self.message = message
+		self.status  = status
+		self.payload = payload
+
+
+@app.errorhandler(BadRequest)
+def handle_bad_request(error):
+	payload = dict(error.payload or ())
+	payload['status'] = error.status
+	payload['message'] = error.message
+	return jsonify(payload), 404
+#-----------------------------------------------------------#
+
 
 # ---------------------------------------------------------------------------------------------------------
 # ------------------------------------ PROCESAMIENTO VIDEO DE UNA PALABRA ---------------------------------
 # ---------------------------------------------------------------------------------------------------------
-
 @app.route("/video/<string:palabra>", methods=["GET"])
 def getVideoPalabra(palabra):
-    if video.existeVideo(palabra):
-        videoPalabra = video.getVideoPalabra(palabra)
-        
-    else: abort(404)
+	
+	if video.existeVideo(palabra.lower()):
+		resultado = video.getVideoPalabra(palabra.lower())
 
-    response = make_response(send_file(videoPalabra.filename, mimetype='video/mp4'))
-    response.headers['Content-Transfer-Enconding']='base64'
-    
-    return response
+	else: 
+		resultado = video.getVideoPalabra("error404")
+
+	response = make_response(send_file(resultado.filename, mimetype='video/mp4'))
+	response.headers['Content-Transfer-Enconding']='base64'
+
+	return response 
+
 
 # ---------------------------------------------------------------------------------------------------------
-# ------------------------------------ PROCESAMIENTO VIDEO DE VARIAS PALABRAS -----------------------------
+# ------------------------------------ PROCESAMIENTO VIDEO DE VARIAS PALABRAS SERVER-----------------------
 # ---------------------------------------------------------------------------------------------------------
 
 
-# Procesa la petición realizada a la API para traducir varias palabras
+# Procesa la petición realizada a la API para traducir varias palabras en el servidor
 # Si es una palabra -> Busca el video y lo trata en getVideoPalabra(filename)
 # Si hay más de una palabra -> Trata la oración en getTextVideo(sentence)
 # Si existen todos los videos -> Devuelve el video generado y lo elimina del sistema de ficheros
 # Si alguno de los videos no existe -> Devuelve error
 @app.route("/video/", methods=["POST"])
 def getTextoTraducidoVideo():
-
 	texto = request.form['Texto']
-	size = len(texto.split())
-	
-	if(size == 1):
-		
-		if video.existeVideo(texto):
-			videoPalabra = video.getVideoPalabra(texto)
 
-		else: 
-			abort(404, { 'mensaje' : 'No existe el video para la palabra solicitada' })
+	res = getTextoTraducidoNombreVideos()
+	frase = res.json['frase']
 
-		response = make_response(send_file(videoPalabra.filename, mimetype='video/mp4'))
-		response.headers['Content-Transfer-Enconding']='base64'
-
-	elif(size > 1):
-		doc = pln.TranslateSentence(texto)
-		print(doc)
-		nombreVideo = video.getTextoVideo(doc)
-
-		if (nombreVideo == "error"):
-			abort(404, { 'message' : 'No existen videos para todas las palabras solicitadas' })
-		else:
-			response = make_response(send_file(const.pathVideoGenerado + nombreVideo, mimetype='video/mp4'))
-			response.headers['Content-Transfer-Enconding']='base64'
-			os.remove(const.pathVideoGenerado + nombreVideo)
+	nombreVideo = video.getVideoTexto(frase)
+	response = make_response(send_file(const.pathVideoGenerado + nombreVideo, mimetype='video/mp4'))
+	response.headers['Content-Transfer-Enconding']='base64'
+	os.remove(const.pathVideoGenerado + nombreVideo)
 
 	return response
 
@@ -92,6 +92,42 @@ def getTextoTraducido():
 	response = {"texto" : frase}
 	return response
 
+
+# ---------------------------------------------------------------------------------------------------------
+# -------------------------------- PROCESAMIENTO PALABRA A IMAGEN LSE -------------------------------------
+# ---------------------------------------------------------------------------------------------------------
+@app.route("/imagen/<string:palabra>", methods=["GET"])
+def getImagenPalabra(palabra):
+	
+	if imagenes.existeImagen(palabra.lower()):
+		resultado = imagenes.getImagenPalabra(palabra.lower())
+
+	else:  
+		resultado = imagenes.getImagenPalabra("error404")
+
+	response = make_response(send_file(resultado, mimetype='image/jpeg'))
+	response.headers["Content-Type"] = "charset=utf-8"
+	response.headers["Content-Type"] = "image/jpeg"
+	response.headers['Content-Transfer-Enconding']='base64'
+	
+	return response
+
+# ---------------------------------------------------------------------------------------------------------
+# -------------------------------- PROCESAMIENTO TEXTO A TEXTO PARA IMAGENES LSE -------------------------------------
+# ---------------------------------------------------------------------------------------------------------
+@app.route("/textoImagen/", methods=["POST"])
+def getTextoTraducidoImagen():
+	
+	texto = request.form['Texto']
+	res = getTextoTraducido()
+	doc = re.sub("[^\w]", " ", res["texto"]).split()
+
+	frase = imagenes.getTextoImagenes(doc)
+	response = make_response(jsonify(frase = frase))
+
+	return response
+
+
 # ---------------------------------------------------------------------------------------------------------
 # -------------------------------- PROCESAMIENTO TEXTO A NOMBRE VIDEOS LSE --------------------------------
 # ---------------------------------------------------------------------------------------------------------
@@ -104,31 +140,35 @@ def getTextoTraducidoNombreVideos():
 
 	text = request.form['Texto']
 	response = []
-	frase = ""
 
-	doc = pln.TranslateSentence(text)
+	res = getTextoTraducido()
+	doc = re.sub("[^\w]", " ", res["texto"]).split()
+	frase = video.getTextoVideo(doc)
 
-	for palabra in doc:
-		frase += palabra + " "
+	response = make_response(jsonify(frase = frase))
 
-	response = {"texto" : frase}
 	return response
 
 # ---------------------------------------------------------------------------------------------------------
-# -------------------------------------------- HANDLERS ---------------------------------------------------
+# -------------------------------- PROCESAMIENTO TEXTO A URL IMAGENES LSE --------------------------------
 # ---------------------------------------------------------------------------------------------------------
+# Procesa la petición realizada a la API para traducir varias palabras a imagen
+# Trata la oración en pln.py
+# Devuelve un json con las url de las imagenes para recorrerlas en cliente
+@app.route("/imagenes/", methods=["POST"])
+def getImagenesTextos():
+		texto = request.form['Texto']
+		response = []
+		res = getTextoTraducidoImagen()
+		frase = res.json['frase']
 
-@app.errorhandler(400)
-def BadRequest(e):
-    return jsonify(error=str(e)), 400
+		img = imagenes.getImagenesTexto(frase)
+		response = make_response(jsonify(rutas = img))
 
-@app.errorhandler(404)
-def resource_not_found(e):
-    return jsonify(error=str(e)), 404
+		return response
 
-@app.errorhandler(500)
-def InternalServerError(e):
-    return jsonify(error=str(e)), 500
+
+
 
 if __name__ == '__main__':
     app.run(port=8080)
